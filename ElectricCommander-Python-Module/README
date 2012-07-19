@@ -1,8 +1,13 @@
-ec - Python module for interacting with an Electric Commander server.
+ElectricCommander-Python-Module is a Python module for interacting with an
+Electric Cloud ElectricCommander server.
 
-To install:
+To install with Python 2.7.2:
     python setup.py install
 
 See module description in setup.py or ec.py for details on how to use it.
 See the following blog post for more background and context:
 http://www.electric-cloud.com/blog/2011/10/12/electriccommander-python-ec-py/
+
+This software is covered under a BSD license.
+
+Contact authors: Sandeep Tamhankar (sandman@electric-cloud.com) 

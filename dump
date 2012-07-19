@@ -1,8 +1,6 @@
 /nb
 /fonts/vera/Vera/9x15.14.font
 /fonts/lucidasans/unicode.6.font
-          0          30          60
-f          0           8           0          32           1 
-          8          50         288           0           0 /git/electriccommander/Aide Del Snarf Undo | Look 
-f          1          15         246         246           1 
-         15          56         246           0           0 /git/electriccommander/README Del Snarf Undo | Look |fmt
+          0          30          66
+f          0          52           0          32           1 
+         52          45         515           0           0 /git/electriccommander/Aide Del Snarf | Look 
