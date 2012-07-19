@@ -1,10 +1,11 @@
 Dump /git/electriccommander/dump
+Edit ,|sort|uniq
 ls -F | mc
-osd git add dump
-osd git commit -a -m 'Write first README and import ecfind from professional-services repo.'
+mkdir postp-warnings-ok; cp -r -x ../postp-warnings-ok/README ../postp-warnings-ok/postp_bsh.pl postp-warnings-ok
+osd git add postp-warnings-ok
+osd git commit -a -m 'Import postp-warnings-ok by bhandley and dgordonatec.'
 osd git diff
 osd git diff 91a99a9
 osd git log --decorate --graph --oneline --all
 osd git push origin master
 osd git status
-|sort|uniq
