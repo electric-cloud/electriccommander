@@ -1,0 +1,10 @@
+Dump /git/electriccommander/dump
+ls -F | mc
+osd git add dump
+osd git commit -a -m 'Write first README and import ecfind from professional-services repo.'
+osd git diff
+osd git diff 91a99a9
+osd git log --decorate --graph --oneline --all
+osd git push origin master
+osd git status
+|sort|uniq

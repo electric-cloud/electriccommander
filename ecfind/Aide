@@ -1,0 +1,3 @@
+Edit ,|sort|uniq
+cp /git/ecps/perl/ecfind.*
+ls -F | mc

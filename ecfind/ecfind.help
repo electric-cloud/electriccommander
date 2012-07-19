@@ -1,0 +1,223 @@
+Usage: ecfind [--server <host>] [--user <username>] [--pw <password>]
+  general:
+   --object <commander-object-type-name>
+   [--query <query-expression> | @<property-path> | -]
+   [--select <property>[,<property...]]
+   [--sort <property>[,<property...]]
+   [--maxIds <n>]
+  actions:
+   [--print id | xml | name | count]
+   [--fail-if none | any]
+   [--exec <command-or-script>]...
+   [--setProperty <property>=<value>]...
+   [--editProperty <property>=~s/<old>/<new>/[g]]...
+   [--deleteProperty <property>]...
+  debugging: [--debug]
+  help: [--help]
+
+Query Syntax:
+  A query takes the form of a function call.  For example, the following query
+will search for the project named "Default":
+
+equals("projectName","Default")
+
+  Certain functions ("and", "or", "not") take other functions as arguments,
+allowing one to express complicated queries.  The following query will search
+for all projects where the name contains "EC" and the property "ec-visibility"
+is set to the value "all":
+
+and(contains("projectName","EC"),equals("ec-visibility","all"))
+
+Functions can be nested arbitrarily deeply.  Property names can refer to either
+intrinsic properties, or properties added to the top-level of the object in
+question (more specifically, one cannot search for properties contained in
+property sheets on objects).  Both property names and values should be quoted
+in a query.
+
+Valid functions include:
+
+    logical
+ and(<function()>,<function()>,...)
+ or(<function()>,<function()>,...)
+ not(<function()>)
+
+    comparison
+ equals("propertyName","value")
+ notEqual("propertyName","value")
+ greaterThan("propertyName","value")
+ greaterOrEqual("propertyName","value")
+ lessThan("propertyName","value")
+ lessOrEqual("propertyName","value")
+
+    patterns
+ like("propertyName","value")
+ contains("propertyName","value")
+ notLike("propertyName","value")
+
+    existence
+ isNotNull("propertyName")
+ isNull("propertyName")
+
+    ranges
+ between("propertyName","lowerValue","upperValue")
+  
+More detail on each function can be found in the ElectricCommander online
+help, under the help topic for the findObjects API.
+
+Because query strings can become quite unwieldy to pass in via the command
+line (due to length as well as the need to protect strings and quotes from
+the shell being used), alternate means to specify the query are provided.
+If the query string is simple the dash "-" character, the query is read from
+STDIN.  If the query string starts with the special character "@", the
+remainder of the query string is taken to be a property path, and the query
+will be read from the specified property.
+
+Note that in all cases, a query can cross multiple lines, which can be helpful
+in order to make complicated queries more legible.  (The ability to have the
+query string span multiple lines when passed in on the command line will be
+limited by the particular shell being used, which in practice means that one
+would typically use this syntax when reading the query in from STDIN or from
+a property.)
+
+Actions:
+  Of course, it's not useful to search for things unless one wants to do
+something with the results.
+
+ --print id | xml | name | count
+
+By default, the utility will simply print the ElectricCommander object IDs
+for the objects found.  This is particularly useful when the query is being
+run from a script that intends to perform other operations with the objects
+found (most ectool commands have a syntax that accepts the object ID as a
+valid way to identify the object).  This default is the same as specifying
+"--print id" for the action.
+
+For humans, often the object name is more useful.  Specifying "--print name"
+will result in the object's name being displayed.  Note, however, that unlike
+the object ID, the object name may not be sufficient to unambiguously identify
+the object in question.  For example, it would be common to find many steps
+named "setup" in any system with many procedures.
+
+Another option, particularly useful with PowerShell, is to print the results
+in the form of a complete XML document.  THe "--print xml" accomplishes this.
+
+Finally, sometimes one merely wants to know how many items are found by the
+specified query.  The "--print count" option accomplishes this goal.
+
+ --fail-if none | any
+
+Closely related to the "count" option are the the "--fail-if" options.  These
+are intended for use in scripting where one merely needs to make a simple
+binary decision based on the query results.  Specifying "--fail-if none"
+causes the utility to return a failure error code (1) if there are no results
+returned by the query.  The "--fail-if any" option results in a failure code
+if there are any results returned.
+
+The "--fail-if" option can be combined with other actions as required, although
+doing so may make it difficult for the calling script to know the exact reason
+for a failure exit code.
+
+ --exec <command-or-script>...
+
+If one needs to perform more interesting work with each object that the query
+locates, the "--exec" option can be used to execute an external script or
+program for each object.  Multiple external scripts or programs can be
+specified, if desired, and if so they are executed in the order specified on
+the command line.
+
+When the script or program executes, it can find selected bits of information
+about the object in the environment variables.  Each object will at least
+have the "ECFIND_ojectId" variable set to the object ID that was returned by
+the query.  Depending on the object type, additional "ECFIND_" variables may
+be set.  More specifically, all intrinsics where the name ends in "Name" or
+"Id", or where the name contains the string "container" will be placed into
+the environment.  This should be sufficient for the executed script to
+uniquely identify the object without needing to use the object ID.  For
+example, a query for step objects will result in at least the following
+environment variables being set to valid values:
+
+  ECFIND_objectId
+  ECFIND_projectName
+  ECFIND_procedureName
+  ECFIND_stepName
+
+A common reason to execute an external script for each located object is
+because one wishes to make changes -- which many times can be expressed in
+terms of manipulating properties, either intrisic or custom.  In order to
+facilitate this in as efficient a manner as possible, a set of "property"
+operations can be specified:
+
+ --setProperty <property>=<value>...
+
+The "--setProperty" action permits one to set one or more properties on
+each object found to a specific value.  As usual with setProperty operations,
+if the property does not exist, it will be created.  Note that the property
+in question can be an intrinsic, as well as a custom. It does not necessarily
+have to be at the top level of the object either.  (In fact, it does not have
+to be on the property at all.)
+
+ --deleteProperty <property>...
+
+If one can create properties, it stands to reason that one should be easily
+able to remove properties.  The "--deleteProperty" action allows one to
+delete custom properties.  It is not an error to attempt to delete a property
+that does not exist.
+
+ --editProperty <property>=~s/<old>/<new>/[g]...
+
+Finally, an advanced action is the "--editProperty" operation.  This action
+functions like the "--setProperty" operation, except that it sets the new
+value based on the application of a Perl regex substitution operation on the
+original value (if the property did not originally exist on the object, its
+value is taken to be the null string).  This functionality allows for global
+search and replace operations to be performed.
+
+Examples:
+
+The following simple query prints a list of all of the projects:
+
+ecfind --object project
+
+The same, but this time print the project names:
+
+ecfind --object project --print name
+
+It might be nice to sort it, and make sure we print a LOT of them:
+
+ecfind --object project --sort projectName --maxId 1000000 --print name
+
+Limit the query to projects names that contain the string "EC":
+
+ecfind --object project --query "contains('projectName','EC')" --print name
+
+A more complicated query, that prints the names of projects where the name
+contains the string "EC", and either the custom property "ec_visibility" does
+not exist or has the value "all", and is not a plugin (i.e. the intrinsic
+property "pluginName" does not exist.. Use the maxId option to make sure we
+search all projects, and sort the names. Line wrapping is for legibility:
+
+ecfind --object property --maxId 1000000 --query
+ "and(contains('projectName','EC'), 
+      or(isNull('ec_visibility'),equals('ec_visibility','all'))
+      isNull('pluginName'))" --sort projectName --print name
+
+Find all projects that contain the string "EC" in the name, and print
+out the full ElectricCommander path to the project:
+
+ecfind --object project --query "contains('projectName','example')"
+  --exec "echo /projects/%ECFIND_projectName%"
+
+Finally, the following example is a query that finds all steps in any project
+that end in the string "lib", where the command block (an intrinsic property)
+contains the string "workdir".  For each step that matches, print the unique
+object id of the step, and then change the string "workdir" in the command
+block to "working_directory", and append a string (an arbitrary log message)
+to the custom property named "Log" on the step:
+
+ecfind --object procedureStep --query
+ "and(like('projectName','%lib'), contains('command','workdir'))"
+ --print id
+ --editProperty "command=~s/workdir/working_directory/g"
+ --editProperty "Log=~s/$/Bulk update for directory name change - MJW\n/"
+
+(version 0.3a)
