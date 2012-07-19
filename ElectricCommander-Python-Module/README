@@ -1,0 +1,8 @@
+ec - Python module for interacting with an Electric Commander server.
+
+To install:
+    python setup.py install
+
+See module description in setup.py or ec.py for details on how to use it.
+See the following blog post for more background and context:
+http://www.electric-cloud.com/blog/2011/10/12/electriccommander-python-ec-py/

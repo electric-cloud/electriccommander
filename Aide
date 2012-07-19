@@ -1,9 +1,9 @@
 Dump /git/electriccommander/dump
 Edit ,|sort|uniq
 ls -F | mc
-mkdir postp-warnings-ok; cp -r -x ../postp-warnings-ok/README ../postp-warnings-ok/postp_bsh.pl postp-warnings-ok
-osd git add postp-warnings-ok
-osd git commit -a -m 'Import postp-warnings-ok by bhandley and dgordonatec.'
+mkdir ElectricCommander-Python-Module; cp -r -x ../ElectricCommander-Python-Module/README ../ElectricCommander-Python-Module/ec.py ../ElectricCommander-Python-Module/setup.py ElectricCommander-Python-Module
+osd git add ElectricCommander-Python-Module
+osd git commit -a -m 'Import ElectricCommander-Python-Module by stamhankar999.'
 osd git diff
 osd git diff 91a99a9
 osd git log --decorate --graph --oneline --all
