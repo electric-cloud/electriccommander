@@ -2,7 +2,7 @@ The Jenkins plugin is an implmentation of the REST API to start and monitor
 builds on a Jenkins server.
 
 To install the plugin, create a jar file with the following command:
-jar cvf 0 jenkins.jar pages META-INF
+jar cvf0 jenkins.jar pages META-INF
 
 Then load the and promote the plugin
 ectool login <user> <passwd>
