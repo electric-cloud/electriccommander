@@ -1,0 +1,33 @@
+
+<helpDefinition>
+  <title>Jenkins Integration Help</title>
+  
+  <componentContainer>
+    <h1>Jenkins Integration Help</h1>
+    <p>Plugin version 1.0</p>
+    <hr />
+    <p>Jenkins is an open source continuous integration tool written in Java. It provides continuous integration services for software development, primarily in the Java programming language.<br /> 
+    It is a server-based system running in a servlet container such as Apache Tomcat. It supports SCM tools including CVS, Subversion, Git, Mercurial, Perforce and Clearcase, and can execute Apache Ant and Apache Maven based projects as well as arbitrary shell scripts and Windows batch commands.</p> 
+    	
+    <h2>Jenkins Links</h2>
+    <p>More information can be found at <a href="http://jenkins-ci.org/">this website</a>.</p>
+
+    <h2>Electric Commander Integration to Jenkins</h2>
+    <p>This plugin provides an integration with a Jenkins CI server, allowing a Commander user the ability to perform several operations on a Jenkins job.</p>
+    
+    <h2>Overview</h2>
+    <p>This plugin provides an integration with a Jenkins CI server, allowing a Commander user the ability to start a Jenkins build and get back status.
+    </p>
+    
+    <h1>Procedures</h1>
+    <p>The following procedures are available:</p>
+    <ul>
+    <li>startBuild - Start a build previously created on the Jenkins server.</li>
+    <li>getDuration - Get the duration of a build based on the build number.</li>
+    <li>getLog - Get the full log of a build based on build Number</li>
+    <li>getStatus - Get the result of a build based on build Number</li>
+    </ul> 
+  
+  </componentContainer>
+</helpDefinition>
+
