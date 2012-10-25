@@ -1,0 +1,46 @@
+Automatic emake Upgrade Program for Huawei
+
+The emake upgrade program huaweiEmake, is to be used instead of the Electric
+Accelerator emake command.  The upgrade program takes exactly the same arguments
+as emake.  If a cluster manager is referenced in the command line arguments,
+EMAKE_CM or EMAKEFLAGS environment variables, the program will compare the local
+version of emake to that on the Cluster Manager.  If the local version is older
+than that of the Cluster Manager, the program will download the emake binaries
+from the Cluster Manager and install them locally.
+
+Instructions on Use
+-------------------
+Run huaweiEmake in exactly the same manner that you would run emake
+
+Options
+-------
+The script retrieves the installer files using HTTP.  The HTTP default port can be
+overriden using the environment variable EA_HTTPPORT, for example
+
+	set EA_HTTPPORT=81
+
+to use port 81 instead of the default port 80.
+
+The executable huaweiEmake name can be changed to emake, or other name if desired.
+
+Executables
+-----------
+huaweiEmake - for Linux type machines (chmod +x huaweiEmake to make executable)
+huaweiEmake.exe - for Windows machines
+
+Assumptions
+-----------
+- emake is in the users PATH and not as an alias
+- The Cluster Manager has been configured to respond to request from the executable
+- User has write permissions to the directory bin (and lib in Linux) which contains
+	emake referenced in the PATH environment variable
+- The program huaweiEmake is in the user's PATH environment variable, but not in the
+	emake installation path since this path may be overwritten by this program.
+  
+Known Issues
+------------
+- The program shows list of extracted files when running on Windows
+- The program may generated symbolic link error when extracting the installer on Linux; these can be ignored
+- The program generates a lot of errors if the user does not have write permissions to the emake bin
+	(and lib in Linux) directories.
+
