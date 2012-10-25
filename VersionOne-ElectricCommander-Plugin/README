@@ -1,0 +1,29 @@
+This ElectricCommander Plugin was create by VersionOne.
+Version: 1.0.112
+
+
+The VersionOne ElectricCommander Notifier creates a record of ElectricCommander builds in VersionOne, so the development teams can associate stories and defects to a particular build. This visibility is useful when identifying problem builds or generating release notes.
+
+Once the ElectricCommander Notifier has been installed, team members include a VersionOne identifier , such as “S-01454” or "TK-01234", in the comments of their SCM commit . Every time a build executes the Notifier creates a BuildRun asset in VersionOne with details of the build. If the build comment contains VersionOne Story or Defect Identifiers, the Notifier will create or reuse a VersionOne change-set and relate the build with the appropriate Story or Defect.
+
+Using this integration you can better address the following situations: 
+
+•Defects 
+	•Which build the defect was reported against?
+	•Which build contained the fix for the defect?
+	•Which builds contain work for the defect?
+•For Stories (Backlog Item) 
+	•Which builds contain work for the story?
+	•Which build contained the completed story?
+•For Build Runs 
+	•Which defects were fixed?
+	•Which stories were completed?
+	•Which defects were introduced?
+	•When work for a story or defect was included?
+	•Which Change-sets were included?
+•For a range of Build Runs 
+	•Which stories were completed?
+	•Which defects were fixed?
+	•Which defects were introduced?
+
+See doc/index.html for further details

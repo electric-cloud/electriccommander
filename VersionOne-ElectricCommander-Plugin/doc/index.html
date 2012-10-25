@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>ElectricCommander Plugin</title>
+	    <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+    </head>
+
+    <body>
+	    <table class="pagecontent" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+<td style="width:10%"/>
+			    <td valign="top" class="pagebody">
+				    <div class="pageheader">
+					    <span class="pagetitle">
+                            ElectricCommander Plugin
+                                                    </span>
+				    </div>
+				    <div class="pagesubheading">
+					    This page last changed on Jun 21, 2011 by <font color="#0050B2">ian.buchanan@versionone.com</font>.
+                                    </div>
+
+				    <div>
+<ul>
+    <li><a href='#ElectricCommanderPlugin-Description'>Description</a></li>
+    <li><a href='#ElectricCommanderPlugin-SystemRequirements'>System Requirements</a></li>
+    <li><a href='#ElectricCommanderPlugin-Downloads'>Downloads</a></li>
+    <li><a href='#ElectricCommanderPlugin-Installation'>Installation</a></li>
+    <li><a href='#ElectricCommanderPlugin-Configuration'>Configuration</a></li>
+<ul>
+    <li><a href='#ElectricCommanderPlugin-ConfigureVersionOne'>Configure VersionOne </a></li>
+    <li><a href='#ElectricCommanderPlugin-ConfigureElectricCommander'>Configure ElectricCommander </a></li>
+</ul>
+</ul></div>
+<h1><a name="ElectricCommanderPlugin-Description"></a>Description</h1>
+
+<p>The VersionOne ElectricCommander Notifier creates a record of ElectricCommander builds in VersionOne, so the development teams can associate stories and defects to a particular build. This visibility is useful when identifying problem builds or generating release notes.</p>
+
+<p>Once the ElectricCommander Notifier has been installed, team members include a VersionOne identifier , such as “S-01454” or "TK-01234", in the comments of their SCM commit . Every time a build executes the Notifier creates a BuildRun asset in VersionOne with details of the build. If the build comment contains VersionOne Story or Defect Identifiers, the Notifier will create or reuse a VersionOne change-set and relate the build with the appropriate Story or Defect.</p>
+
+<p>Using this integration you can better address the following situations: </p>
+<ul>
+	<li>Defects
+	<ul>
+		<li>Which build the defect was reported against?</li>
+		<li>Which build contained the fix for the defect?</li>
+		<li>Which builds contain work for the defect?</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>For Stories (Backlog Item)
+	<ul>
+		<li>Which builds contain work for the story?</li>
+		<li>Which build contained the completed story?</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>For Build Runs
+	<ul>
+		<li>Which defects were fixed?</li>
+		<li>Which stories were completed?</li>
+		<li>Which defects were introduced?</li>
+		<li>When work for a story or defect was included?</li>
+		<li>Which Change-sets were included?</li>
+	</ul>
+	</li>
+</ul>
+
+
+<ul>
+	<li>For a range of Build Runs
+	<ul>
+		<li>Which stories were completed?</li>
+		<li>Which defects were fixed?</li>
+		<li>Which defects were introduced?</li>
+	</ul>
+	</li>
+</ul>
+
+
+
+<p>The following sequence diagram illustrates the VersionOne ElectricCommander Publisher behavior.<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 736x534" href='http://confluence/download/attachments/10912761/Sequence.png'><img src="attachments/thumbnails/10912761/11173994" border="0"/></a></span></p>
+
+<h1><a name="ElectricCommanderPlugin-SystemRequirements"></a>System Requirements</h1>
+
+<p>VersionOne: </p>
+<ul>
+	<li>8.1 or above, including Team Edition</li>
+</ul>
+
+
+<p>Integration Server:</p>
+<ul>
+	<li>Operating System---Windows 2000, 2003</li>
+</ul>
+
+
+<p>Continuous Integration Server:</p>
+<ul>
+	<li>Tested with ElectricCommander Version 3.8</li>
+</ul>
+
+
+<p>Supported SCM Systems</p>
+<ul>
+	<li>Subversion</li>
+	<li>Perforce with short commit messages</li>
+</ul>
+
+
+
+<h1><a name="ElectricCommanderPlugin-Downloads"></a>Downloads</h1>
+
+<p>The latest version of V1Publisher is available at <a href="http://community.versionone.com/sdk/Documentation/Integrations.aspx">V1: Integration Downloads</a></p>
+
+<h1><a name="ElectricCommanderPlugin-Installation"></a>Installation</h1>
+
+<p>These instructions presume that <a href="http://www.electric-cloud.com/products/electriccommander.php">ElectricCommander</a> is already installed, configured, and working properly.
+<br class="atl-forced-newline" /></p>
+<ol>
+	<li>Ensure Connectivity<br/>
+Verify that you can connect to your VersionOne instance from the machine hosting ElectricCommander
+<br class="atl-forced-newline" /></li>
+	<li>Extract Files<br/>
+Download the ElectricCommander integration using the link above and extract it into a folder of your choice.
+<br class="atl-forced-newline" /></li>
+	<li>Configure
+	<ol>
+		<li><a href="#ElectricCommanderPlugin-ConfigureV1">Configure VersionOne</a></li>
+		<li><a href="#ElectricCommanderPlugin-ConfigureElectricCommander">Configure ElectricCommander</a>
+<br class="atl-forced-newline" /></li>
+	</ol>
+	</li>
+	<li>Verify the installation<br/>
+Once configuration is complete use the following steps to verify that the build integration is working
+	<ol>
+		<li>Navigate to your ElectricCommander instance</li>
+		<li>Force a build on the project you configured</li>
+		<li>Wait for build to complete</li>
+		<li>Navigate to your VersionOne instance</li>
+		<li>Login</li>
+		<li>Select VersionOne project in 'My Projects' dropdown</li>
+		<li>Navigate to the Reports &#124; Reports Overview page</li>
+		<li>Select the "Build Run Quicklist" Report<br/>
+You should see an entry in the grid for the build you forced. If not, verify your configuration.</li>
+	</ol>
+	</li>
+</ol>
+
+
+<h1><a name="ElectricCommanderPlugin-Configuration"></a>Configuration</h1>
+
+<h2><a name="ElectricCommanderPlugin-ConfigureVersionOne"></a>Configure VersionOne<a name="ElectricCommanderPlugin-ConfigureV1"></a> </h2>
+<div class='panelMacro'><table class='infoMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>If you are using Team Edition, you need to manually create the Build Project.  Instructions for doing this are available on the <a href="http://community.versionone.com/KnowledgeBase/FAQs/Q11417.aspx">VersionOne Community Site</a>.</td></tr></table></div>
+<ol>
+	<li>Log into the VersionOne application as admin</li>
+	<li>Navigate to the Admin &#124; Configuration &#124; System page.</li>
+	<li>Check the “Enable Build Integration” checkbox and click the Apply button.<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 1247x803" href='http://confluence/download/attachments/10912761/EnableBuildIntegration.png'><img src="attachments/thumbnails/10912761/11173954" border="0"/></a></span></li>
+	<li>Navigate to the Admin &#124; Projects &#124; Build Project page<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 1249x319" href='http://confluence/download/attachments/10912761/BuildProjects.png'><img src="attachments/thumbnails/10912761/11173948" border="0"/></a></span></li>
+	<li>Click Add to add a new Build Project</li>
+	<li>Specify the following
+	<ul>
+		<li>Name &#8211; this is how the Build Project will be known to VersionOne users</li>
+		<li>Reference &#8211; this is how the Build Project is known to ElectricCommander</li>
+	</ul>
+	</li>
+	<li>Click Ok to save the new Build Project</li>
+	<li>Navigate to the Admin &#124; Projects &#124; Projects page</li>
+	<li>Click Edit on the row for the project you want associated with a Build Project</li>
+	<li>Using the “Build Projects” dropdown add the appropriate Build Project.<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 983x624" href='http://confluence/download/attachments/10912761/AssignBuildProjectToProject.png'><img src="attachments/thumbnails/10912761/11173957" border="0"/></a></span></li>
+	<li>Click Ok to accept the changes</li>
+	<li>Logout</li>
+</ol>
+
+
+<h2><a name="ElectricCommanderPlugin-ConfigureElectricCommander"></a>Configure ElectricCommander <a name="ElectricCommanderPlugin-ConfigureElectricCommander"></a></h2>
+<p>This section describes how to install and configure the ElectricCommander plugin for use with VersionOne</p>
+
+<ol>
+	<li>On the Administration, select the <em>Plugins</em> Tab<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 1245x819" href='http://confluence/download/attachments/10912761/AdminPlugins.png'><img src="attachments/thumbnails/10912761/11173947" border="0"/></a></span></li>
+	<li>In the <b>File Install</b> section, click the <em>'Browse...'</em> button</li>
+	<li>Navigate to the subdirectory containing the VersionOne plugin and select the VersionOneIntegration.jar file.</li>
+	<li>Click <em>'Upload'</em></li>
+	<li>Locate the integration in the list of plugins and click the <em>'Promote'</em> Link<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 1244x822" href='http://confluence/download/attachments/10912761/ReadyForPromote.png'><img src="attachments/thumbnails/10912761/11173950" border="0"/></a></span></li>
+	<li>Click the <em>Configure</em> Link for the VersionOne plugin<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 1262x501" href='http://confluence/download/attachments/10912761/ECVersionOneConfiguration.png'><img src="attachments/thumbnails/10912761/11173945" border="0"/></a></span></li>
+	<li>Enter your VersionOne connection parameters
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Parameter </th>
+<th class='confluenceTh'> Description </th>
+<th class='confluenceTh'> Required </th>
+</tr>
+<tr>
+<td class='confluenceTd'> VersionOne URL </td>
+<td class='confluenceTd'> The URL of the VersionOne Application. </td>
+<td class='confluenceTd'> True </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Username </td>
+<td class='confluenceTd'> Valid VersionOne Username. </td>
+<td class='confluenceTd'> True </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Password </td>
+<td class='confluenceTd'> Password for the specified Username </td>
+<td class='confluenceTd'> True </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Reference expression </td>
+<td class='confluenceTd'> The regular expression to use when matching primary workitems (stories and defects) with change comments.</td>
+<td class='confluenceTd'> True </td>
+</tr>
+<tr>
+<td class='confluenceTd'> VersionOne reference Field  </td>
+<td class='confluenceTd'> The system name of an attribute to search when matching primary workitems (stories and defects) with change comments.</td>
+<td class='confluenceTd'> True </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Use Proxy </td>
+<td class='confluenceTd'> Determines if the integrations connects to VersionOne through a proxy. </td>
+<td class='confluenceTd'> No, unless you have a proxy </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Proxy server URL </td>
+<td class='confluenceTd'> URL to proxy server </td>
+<td class='confluenceTd'> Yes, when using a proxy </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Proxy server username </td>
+<td class='confluenceTd'> Username for proxy server </td>
+<td class='confluenceTd'> Yes, when using a proxy </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Proxy server password </td>
+<td class='confluenceTd'> Password for proxy user </td>
+<td class='confluenceTd'> Yes, when using a proxy </td>
+</tr>
+</tbody></table>
+</div>
+</li>
+	<li>Click the <em>Test Connection and Save</em> button.  If everything is correct you are returned to the Administration page.
+<div class='panelMacro'><table class='infoMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>ElectricCommander security prevents reading the password once it has been persisted.  If you click the <em>Configure</em> link again, you will need to re-enter the password</td></tr></table></div></li>
+	<li>If your ElectricCommander server is not running on the default port, you need to perform the following steps:
+	<ol>
+		<li>On the ElectricCommander Administration, click the <em>Server</em> Tab</li>
+		<li>In the <b>Custom Server Properties</b> section, click the <em>Create Property</em> link</li>
+		<li>Use the following table to create a new property
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Field </th>
+<th class='confluenceTh'> Value </th>
+</tr>
+<tr>
+<td class='confluenceTd'> Name </td>
+<td class='confluenceTd'> hostPort </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Value </td>
+<td class='confluenceTd'> Port used to access your ElectricCommander instance </td>
+</tr>
+</tbody></table>
+</div>
+
+<p><span class="image-wrap" style=""><a class="confluence-thumbnail-link 1243x821" href='http://confluence/download/attachments/10912761/CustomPort.png'><img src="attachments/thumbnails/10912761/11173946" border="0"/></a></span></p></li>
+	</ol>
+	</li>
+</ol>
+
+
+<p>The plugin is now installed and configured.  To use the plugin on a project you need to:</p>
+
+<ol>
+	<li>Select the Procedure you wish to modify</li>
+	<li>Select the "Subprocedure Step" option from the <em>Create Step</em> dropdown menu<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 1262x805" href='http://confluence/download/attachments/10912761/CreateSubProcedureStep.png'><img src="attachments/thumbnails/10912761/11173949" border="0"/></a></span></li>
+	<li>Using the the table below, create a new step
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Field </th>
+<th class='confluenceTh'> Value </th>
+</tr>
+<tr>
+<td class='confluenceTd'> Name </td>
+<td class='confluenceTd'> Publish Results To VersionOne </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Project </td>
+<td class='confluenceTd'> Click <em>Browse</em> and select the VersionOne Integration </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Procedure </td>
+<td class='confluenceTd'> Click <em>Browse</em> and select <em>Publish</em> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Resource </td>
+<td class='confluenceTd'> Click <em>Browse</em> and select the appropriate resource </td>
+</tr>
+</tbody></table>
+</div>
+
+<p><span class="image-wrap" style=""><a class="confluence-thumbnail-link 1241x822" href='http://confluence/download/attachments/10912761/ECVersionOneSubProcedure.png'><img src="attachments/thumbnails/10912761/11173953" border="0"/></a></span></p></li>
+	<li>Click <em>Ok</em> to save the settings.</li>
+	<li>Place the VersionOne step after build and checkout code steps.<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 1256x819" href='http://confluence/download/attachments/10912761/ECVersionOneStepInPlace.png'><img src="attachments/thumbnails/10912761/11173952" border="0"/></a></span></li>
+	<li>Select the "Subprocedure Step" option from the <em>Create Step</em> dropdown menu</li>
+	<li>Using the the table below, create a new step
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> Field </th>
+<th class='confluenceTh'> Value </th>
+</tr>
+<tr>
+<td class='confluenceTd'> Name </td>
+<td class='confluenceTd'> retrieve All Commit Messages </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Project </td>
+<td class='confluenceTd'> Click <em>Browse</em> and select the SCM integration being used for this build </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Procedure </td>
+<td class='confluenceTd'> Click <em>Browse</em> and select <em>updateLastGoodAndLastCompleted</em> </td>
+</tr>
+<tr>
+<td class='confluenceTd'> Resource </td>
+<td class='confluenceTd'> Click <em>Browse</em> and select the appropriate resource </td>
+</tr>
+</tbody></table>
+</div>
+
+<p><span class="image-wrap" style=""><a class="confluence-thumbnail-link 1247x822" href='http://confluence/download/attachments/10912761/SCMSubProcedureStep.png'><img src="attachments/thumbnails/10912761/11173955" border="0"/></a></span></p></li>
+	<li>Click <em>Ok</em> to save the settings.</li>
+	<li>Move this procedure below the VersionOne Publish Procedure<br/>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 1263x822" href='http://confluence/download/attachments/10912761/PublisherReadyForTest.png'><img src="attachments/thumbnails/10912761/11173951" border="0"/></a></span></li>
+</ol>
+
+
+
+                    			    </td>
+<td style="width:10%"/>
+		    </tr>
+	    </table>
+ 	    <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff">
+		    <tr>
+			    <td align="left"><font color="grey">Document generated on Jun 29, 2011 09:37</font></td>
+		    </tr>
+	    </table> 
+    </body>
+</html>
