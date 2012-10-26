@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<plugin>
+	<key>Bag of Tricks</key>
+	<version>1.0</version>
+	<label>Bag Of Tricks</label>
+	<description>A Project Illustrating Some Commander Tricks</description>
+	<vendor>Electric Cloud</vendor>
+	<author>Electric Cloud</author>
+</plugin>
+
