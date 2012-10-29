@@ -8,7 +8,11 @@ Electric Commander projects.  Some of the things illustrated are:
   when theses pairs are separated by a : or =
 
 To install, go to the Administrtion > Plugin tab: Install From File/URL,
-Browse to BagOfTricks_1_0.jar, Upload, then Promote.  A project called
-"Bag of Tricks-1.0" is created and has the procedures illustrating the
+Browse to BagOfTricks_v<version>.jar, Upload, then Promote.  A project
+called "Bag of Tricks" is created and has the procedures illustrating the
 point above.
 
+This project also includes a procedure for posting this project to Github.
+It is configured to post to electriccommunity / electriccommander.  To use
+this location, you will need write access.  Please feel free to add your
+own examples to this project.

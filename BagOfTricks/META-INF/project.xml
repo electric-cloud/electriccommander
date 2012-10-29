@@ -11,18 +11,18 @@
         <propertyName>ec_setup</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>my $userProjectName='test Bag of Tricks';&#10;if ($promoteAction eq 'promote') {&#10;	$commander-&gt;deleteProject($userProjectName);&#10;	$commander-&gt;clone({cloneName=&gt;$userProjectName, path=&gt;"/projects/$pluginName"});&#10;}</value>
+        <value>my $userProjectName='Bag of Tricks';&#10;if ($promoteAction eq 'promote') {&#10;	$commander-&gt;deleteProject($userProjectName);&#10;	$commander-&gt;clone({cloneName=&gt;$userProjectName, path=&gt;"/projects/$pluginName"});&#10;}</value>
       </property>
       <property>
         <propertyName>version</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>1.0.1</value>
+        <value>1.1.0</value>
       </property>
     </propertySheet>
     <procedure>
       <procedureName>Increment Version and Post</procedureName>
-      <description></description>
+      <description>Run this procedure to post your changes and additions to Git hub.  You'll need write permissions to electriccommunity/electriccommander.&#10;Currently, this procedure only works Unix like OSes and needs to be run on the Commander Server agent ("local" resource).&#10;</description>
       <jobNameTemplate></jobNameTemplate>
       <resourceName></resourceName>
       <workspaceName></workspaceName>
@@ -45,6 +45,26 @@
                 </property>
                 <property>
                   <propertyName>commitComment</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>gitPass</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>gitUser</propertyName>
                   <propertySheet>
                     <property>
                       <propertyName>formType</propertyName>
@@ -172,23 +192,31 @@
       <formalParameter>
         <formalParameterName>commitComment</formalParameterName>
         <defaultValue></defaultValue>
-        <description></description>
+        <description>Git commit comment</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>entry</type>
       </formalParameter>
       <formalParameter>
-        <formalParameterName>password</formalParameterName>
+        <formalParameterName>gitPass</formalParameterName>
         <defaultValue></defaultValue>
-        <description></description>
+        <description>Github electriccommunity / electriccommander password</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>gitUser</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Github electriccommunity / electriccommander user name</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>entry</type>
       </formalParameter>
       <formalParameter>
         <formalParameterName>README</formalParameterName>
-        <defaultValue>This project illustrates a few tricks that I've learned while developing&#10;Electric Commander projects.  Some of the things illustrated are:&#10;&#10;- How to create a template to be filled in with parameters/properties at&#10;  run time&#10;- How to test an input parameter for illegal entries&#10;- How to automatically create property name/value pairs from step output&#10;  when theses pairs are separated by a : or =&#10;&#10;To install, go to the Administrtion &gt; Plugin tab: Install From File/URL,&#10;Browse to BagOfTricks_1_0.jar, Upload, then Promote.  A project called&#10;"Bag of Tricks-1.0" is created and has the procedures illustrating the&#10;point above.&#10;</defaultValue>
-        <description></description>
+        <defaultValue>This project illustrates a few tricks that I've learned while developing&#10;Electric Commander projects.  Some of the things illustrated are:&#10;&#10;- How to create a template to be filled in with parameters/properties at&#10;  run time&#10;- How to test an input parameter for illegal entries&#10;- How to automatically create property name/value pairs from step output&#10;  when theses pairs are separated by a : or =&#10;&#10;To install, go to the Administrtion &gt; Plugin tab: Install From File/URL,&#10;Browse to BagOfTricks_v&lt;version&gt;.jar, Upload, then Promote.  A project&#10;called "Bag of Tricks" is created and has the procedures illustrating the&#10;point above.&#10;&#10;This project also includes a procedure for posting this project to Github.&#10;It is configured to post to electriccommunity / electriccommander.  To use&#10;this location, you will need write access.  Please feel free to add your&#10;own examples to this project.</defaultValue>
+        <description>The README file that appears in Github</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>textarea</type>
@@ -196,18 +224,10 @@
       <formalParameter>
         <formalParameterName>revType</formalParameterName>
         <defaultValue></defaultValue>
-        <description></description>
+        <description>Revision type, where version is of the form major.minor.path.</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>radio</type>
-      </formalParameter>
-      <formalParameter>
-        <formalParameterName>userName</formalParameterName>
-        <defaultValue></defaultValue>
-        <description>Github user name</description>
-        <expansionDeferred>0</expansionDeferred>
-        <required>1</required>
-        <type>entry</type>
       </formalParameter>
       <step>
         <stepName>Increment Version</stepName>
@@ -277,7 +297,7 @@
         <stepName>Export Project</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>ectool export $PWD/electriccommander/BagOfTricks/META-INF/project.xml --path /projects/"$[/myProject/projectName]" --relocatable 1</command>
+        <command>ectool export $PWD/electriccommander/BagOfTricks/META-INF/project.xml --path /projects/"$[/myProject/projectName]" --relocatable 1 --excludeJobs true</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
@@ -405,7 +425,7 @@
         <stepName>Post to Github</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command></command>
+        <command>cd electriccommander&#10;git add BagOfTricks&#10;git commit -m "$[commitComment]"&#10;git remote rm origin&#10;git remote add origin https://$[gitUser]:$[gitPass]@github.com/electriccommunity/electriccommander&#10;git push origin master</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
