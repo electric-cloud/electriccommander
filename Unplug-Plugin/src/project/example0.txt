@@ -1,0 +1,4 @@
+ElectricCommander is an enterprise-class solution for automating the
+software build, test, and release process. Commander helps teams make
+software build, package, test, and deployment tasks more repeatable,
+more visible, and more efficient.
