@@ -17,11 +17,11 @@
         <propertyName>version</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>1.1.1</value>
+        <value>1.1.2</value>
       </property>
     </propertySheet>
     <procedure>
-      <procedureName>Increment Version and Post</procedureName>
+      <procedureName>Increment Version and Post to Github</procedureName>
       <description>Run this procedure to post your changes and additions to Git hub.  You'll need write permissions to electriccommunity/electriccommander.&#10;Currently, this procedure only works Unix like OSes and needs to be run on the Commander Server agent ("local" resource).&#10;</description>
       <jobNameTemplate></jobNameTemplate>
       <resourceName></resourceName>
@@ -485,7 +485,7 @@
           <propertyName>mapper</propertyName>
           <description></description>
           <expandable>1</expandable>
-          <value>my @fieldsToProperties = (&#10;	{&#10;	id      =&gt; q{instanceId},&#10;	pattern =&gt; q{([^:=]+)(\s+)?(:|=)(\s+)?(.+)},&#10;	action  =&gt; q{setProperty("$[propertyRoot]$1","$5")},&#10;	},&#10;);&#10;push @::gMatchers, @fieldsToProperties;</value>
+          <value>my @fieldsToProperties = (&#10;	{&#10;	id      =&gt; q{instanceId},&#10;	pattern =&gt; q{([^:=]+)(\s*)(:|=)(\s*)(.+)},&#10;	action  =&gt; q{setProperty("$[propertyRoot]$1","$5")},&#10;	},&#10;);&#10;push @::gMatchers, @fieldsToProperties;</value>
         </property>
       </propertySheet>
       <formalParameter>
@@ -729,7 +729,7 @@
     </procedure>
     <procedure>
       <procedureName>Template test</procedureName>
-      <description></description>
+      <description>Test the procedure "Template"</description>
       <jobNameTemplate></jobNameTemplate>
       <resourceName></resourceName>
       <workspaceName></workspaceName>
@@ -1029,7 +1029,7 @@
         <stepName>Use the parameter</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/javascript &#10;  if(/root/.test(myJob.parameterToTest.toLowerCase())) {&#10;       var action='echo Illegal attempt to include root &amp;&amp; exit 1';&#10;  } else {&#10;       var action='echo Valid parameter input';&#10;  }&#10;action;&#10;]</command>
+        <command>$[/javascript &#10;  if(/root/i.test(myJob.parameterToTest)) {&#10;       var action='echo Illegal attempt to include root &amp;&amp; exit 1';&#10;  } else {&#10;       var action='echo Valid parameter input';&#10;  }&#10;action;&#10;]</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
