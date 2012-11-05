@@ -1,0 +1,82 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  color: black;
+  background-color:#cccccc;
+  font-family: Calibri, Tahoma, sans-serif;
+  background-repeat: no-repeat;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+img {
+  border: 0;
+}
+
+div#buildHldr
+{
+  position: absolute;
+}
+
+td#positionNumbers {
+  color: black;
+  font-size: 12px;
+}
+
+div#errorTextHldr {
+  position:absolute;
+  left: 3%;
+  width: 95%;
+  font-size: 12px;
+  color: black;
+}
+
+div#errorTextDiv {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+div#navHolder {
+  position: absolute;
+  visibility: hidden;
+}
+
+div#messageHldr {
+  position: absolute;
+  top: 195px;
+  left: 18px;
+  font-size: 10px;
+  width: 173px;
+  text-overflow: ellipsis;
+  font-family: Consolas, 'Courier New';
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+a#buttonLeftNarrator {
+  cursor: default;
+  top: 2px;
+  left: 2px;
+  position: absolute;
+}
+
+a#buttonRightNarrator {
+  cursor: default;
+  top: 2px;
+  right: 2px;
+  position: absolute;
+}
+
+span.normal {
+  color: #67788a;
+}
+
+span.error {
+  color: #CC0000;
+}

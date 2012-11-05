@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+  <name>ElectricCommander Gadget</name>
+  <version>0.3.4</version>
+  <author name="Matthew Kwong">
+    <info url="http://www.electriccloud.com" text="www.electriccloud.com"/>
+  </author>
+  <copyright>2009-2012</copyright>
+  <description>Monitor your favorite ElectricCommander jobs.</description>
+  <icons>
+    <icon height="48" width="48" src="images/icon.png" />
+  </icons>
+  <hosts>
+    <host name="sidebar">
+      <base type="HTML" apiVersion="1.0.0" src="gadget.html" />
+      <permissions>Full</permissions>
+      <platform minPlatformVersion="1.0" />
+      <defaultImage src="images/icon.png" />
+    </host>
+  </hosts>
+</gadget>

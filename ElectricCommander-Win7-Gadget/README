@@ -1,0 +1,36 @@
+    ElectricCommander Windows 7 Desktop Gadget
+    ==========================================
+
+Overview
+--------
+
+This Windows 7 desktop gadget allows for quickly viewing a select set of
+commander jobs.  Clicking on a job within the gadget opens a browser session to
+the job details screen.  The gadget configuration panel allows for setting the
+Commander hostname, port, user, passwd, and a job name filter along with a few
+other configurable options.
+
+
+Quick Installation
+------------------
+
+Copy the *.gadget file to your Windows 7 machine.  Double click on this file
+in Windows to install it on the desktop and on the Gadget Gallery.
+
+To make modifications, simply change as need in the src directory and then rezip
+the contents of src to a *.gadget file.  Or, use your preferred IDE.
+
+Obtaining Help
+--------------
+
+Additional help (and eventually examples) is available through the
+http://ask.electric-cloud.com/ forum -- post your questions, concerns,
+comments, example, feedback, criticism, and complaints.  This gadget was
+originally release on the Electric Cloud knowledge base.  Additional
+information can be found at:
+
+https://electriccloud.zendesk.com/entries/200200-electriccommander-gadget
+
+Credits
+-------
+This gadget was originally developed by Matthew Kwong of Electric Cloud
