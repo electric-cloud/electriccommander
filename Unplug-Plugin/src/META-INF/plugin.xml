@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+  <key>@PLUGIN_KEY@</key>
+  <version>@PLUGIN_VERSION@</version>
+  <label>@PLUGIN_KEY@</label>
+  <description>A totally flexible plugin where content is determined by properties at runtime.</description>
+  <help>help.xml</help>
+  <author>Electric Cloud</author>
+  <authorUrl/>
+  <commander-version min="4.1"/>
+  <category>Other</category>
+  <depends>EC-Core</depends>
+  <customTypes>
+    <customType name="unRunProcedure">
+      <page pageName="runProcedure" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unRunWorkflow">
+      <page pageName="runWorkflow" definition="pages/un_run.xml"/>
+    </customType>
+    <!-- The remainder are of questionable value for the stock plugin -->
+    <customType name="unEditProject">
+      <page pageName="editProject" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditProcedure">
+      <page pageName="editProcedure" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditWorkflowDefinition">
+      <page pageName="editWorkflowDefinition" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditSchedule">
+      <page pageName="editSchedule" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditCredential">
+      <page pageName="editCredential" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditResource">
+      <page pageName="editResource" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditResourcePool">
+      <page pageName="editResourcePool" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditWorkspace">
+      <page pageName="editWorkspace" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditArtifact">
+      <page pageName="editArtifact" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditRepository">
+      <page pageName="editRepository" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditArtifactVersion">
+      <page pageName="editArtifactVersion" definition="pages/un_run.xml"/>
+    </customType>
+    <customType name="unEditProperty">
+      <page pageName="editProperty" definition="pages/un_run.xml"/>
+    </customType>
+  </customTypes>
+</plugin>

@@ -1,0 +1,18 @@
+This project illustrates a few tricks that I've learned while developing
+Electric Commander projects.  Some of the things illustrated are:
+
+- How to create a template to be filled in with parameters/properties at
+  run time
+- How to test an input parameter for illegal entries
+- How to automatically create property name/value pairs from step output
+  when theses pairs are separated by a : or =
+
+To install, go to the Administrtion > Plugin tab: Install From File/URL,
+Browse to BagOfTricks_v<version>.jar, Upload, then Promote.  A project
+called "Bag of Tricks" is created and has the procedures illustrating the
+point above.
+
+This project also includes a procedure for posting this project to Github.
+It is configured to post to electriccommunity / electriccommander.  To use
+this location, you will need write access.  Please feel free to add your
+own examples to this project.

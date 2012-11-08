@@ -1,0 +1,25 @@
+body {
+  margin: 0px;
+  font-family: Calibri, Tahoma, sans-serif;
+  font-size: 12px;
+  width: 300px;
+  height: 415px;
+}
+
+select {
+  font-family: Calibri, Tahoma, sans-serif;
+}
+
+input.textbox {
+  font-family: Calibri, Tahoma, sans-serif;
+  width: 290px;
+}
+
+table {
+  font-size: 12px;
+}
+
+.textBox {
+  font-size: 12px;
+  font-weight: normal;
+}
