@@ -1,0 +1,14 @@
+           ECSCM-MultiFile: an ElectricSentry MultiFile Trigger
+
+The ECSCM-MultiFile plugin is very similar to the standard ECSCM-File trigger,
+except that the MultiFile trigger can be provided with a list of pathnames
+(files and/or directories) to monitor, instead of just a single file.  Further,
+the list may include wildcard characters in the same manner as one would use on
+the command line (file globbing).
+
+Install the jar file in the usual fashion: use the ectool installPlugin command,
+or using the GUI, navigate to Administration->Plugins, select the "Install from
+File/URL" tab, and install from there.  This will automatically create a new
+Source Control configuration named "MultiFile".  When you create a new CI
+schedule, you will find "MultiFile" in the dropdown list when defining the SCM
+configuration to monitor.
