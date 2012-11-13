@@ -15,30 +15,8 @@ use Data::Dumper;
 $| = 1;
 
 #------------------------------------------------------------------------------
-# populateResourceHash
-#
-#
-# Arguments:
-#    resources                   - An array ref of resource objects
-#    resourcesHash               - Key = resource name, value= hash containing a resource object
-#------------------------------------------------------------------------------
-sub populateResourceHash($$) {
-
-    my $resources     = shift;
-    my $resourcesHash = shift;
-
-    # Iterate through all the resources
-    foreach my $resource (@$resources) {
-
-        # Add the resource object to the hash, keyed on resource name.
-        $resourcesHash->{ $resource->{'resourceName'} } = $resource;
-
-    }
-}
-
-#------------------------------------------------------------------------------
 # returnError
-#
+# Computes and returns error message if one exists
 # Arguments:
 #    result - Result from a json request to the comander server
 # Returns:
@@ -88,23 +66,30 @@ else {
 # Issue request and store response (array ref of resources)
 $result = $ec->getResources();
 
+# Get error message if it exists
 $error = returnError($result);
 
 if ($error) {
     print "ERROR: $error \n";
 }
 else {
+
+my @resources = $result->findnodes('//resource');
+
 # Create a resources hash that will hold all the resource objects returned by the server keyed by resource name
-    my %resourcesHash;
-	
-    # Populate the hash
-    populateResourceHash( $result->{'responses'}->[0]->{'resource'}, \%resourcesHash );
+my %resourcesHash = map { $_->{resourceName} => $_ } @resources;
+
+## If you wanted to parse it yourself
+##my $resources = $result->{responses}->[0]->{resource};
+### Create a resources hash that will hold all the resource objects returned by the server keyed by resource name
+##my %resourcesHash = map { $_->{resourceName} => $_ } @$resources;
+
 
     # Examples of retrieving from data from hash
     print 'The hostname for the local resource is:'
-      . $resourcesHash{'local'}->{'hostName'} . "\n";
+      . $resourcesHash{local}->{hostName} . "\n";
     print 'Is the local resource alive? '
-      . $resourcesHash{'local'}->{'agentState'}->{'alive'} . "\n";
+      . $resourcesHash{local}->{agentState}->{alive} . "\n";
 
     # Intended output
     # The hostname for the local resource is:localhost
