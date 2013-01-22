@@ -22,7 +22,7 @@
         <propertyName>version</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>1.0.0</value>
+        <value>1.0.1</value>
       </property>
     </propertySheet>
     <procedure>
@@ -1048,7 +1048,7 @@
         <stepName>Package Plugin</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>cd electriccommander&#10;git rm Chef/*.jar&#10;cd Chef&#10;jar cvf Chef_v$[/javascript myProject.version.replace(/\./g,"_")].jar .</command>
+        <command>cd electriccommander&#10;if [ -e Chef/*.jar ];then git rm Chef/*.jar;fi&#10;cd Chef&#10;jar cvf Chef_v$[/javascript myProject.version.replace(/\./g,"_")].jar .</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
