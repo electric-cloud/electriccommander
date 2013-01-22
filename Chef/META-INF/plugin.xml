@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<plugin>
+	<key>ChefCommander</key>
+	<version>1.0.0</version>
+	<label>Chef Commander EC2 Examples</label>
+	<description>A Project Illustrating the use of Opcode Chef and Commander together</description>
+	<vendor>Electric Cloud</vendor>
+	<author>Electric Cloud</author>
+</plugin>

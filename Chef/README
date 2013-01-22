@@ -1,0 +1,11 @@
+This project includes procedures that illustrate how Electric Commander, Opscode Chef and EC2 can work together.
+
+To use this project, you'll need the following:
+- Chef Server
+- Chef Workstation
+-- Configured to work with the Chef Server
+-- EC2 plugin installed
+-- Commander agent installed, resource name "Chef Workstation"
+-- knife.rb in ~/chef-repo/.chef (with AWS Access Key Id and Secret Access Key)
+-- Electric Commander installer in home directory
+
