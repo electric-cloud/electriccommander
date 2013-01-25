@@ -1,21 +1,25 @@
 Usage: ecfind [--server <host>] [--user <username>] [--pw <password>]
   general:
    --object <commander-object-type-name>
-   [--query <query-expression> | @<property-path> | -]
+   [--query <query-expression> | @</property-path-or-expansion> | -]
+   [--tz <timezone>]
    [--select <property>[,<property...]]
    [--sort <property>[,<property...]]
    [--maxIds <n>]
   actions:
    [--print id | xml | name | count]
    [--fail-if none | any]
+   [--expandString <string>]...
    [--exec <command-or-script>]...
    [--setProperty <property>=<value>]...
+   [--copyProperty <target>=<original>]...
    [--editProperty <property>=~s/<old>/<new>/[g]]...
    [--deleteProperty <property>]...
   debugging: [--debug]
-  help: [--help]
+  help: [--help [usage | query | about]]
 
 Query Syntax:
+
   A query takes the form of a function call.  For example, the following query
 will search for the project named "Default":
 
@@ -36,41 +40,79 @@ in a query.
 
 Valid functions include:
 
-    logical
- and(<function()>,<function()>,...)
- or(<function()>,<function()>,...)
- not(<function()>)
+    - logical operators -
+            and ( <function()>, <function()>, ... )
+             or ( <function()>, <function()>, ... )
+            not ( <function()> )
 
-    comparison
- equals("propertyName","value")
- notEqual("propertyName","value")
- greaterThan("propertyName","value")
- greaterOrEqual("propertyName","value")
- lessThan("propertyName","value")
- lessOrEqual("propertyName","value")
+    - comparison operators -
+         equals ( "propertyName", "value" )
+       notEqual ( "propertyName", "value" )
+    greaterThan ( "propertyName", "value" )
+ greaterOrEqual ( "propertyName", "value" )
+       lessThan ( "propertyName", "value" )
+    lessOrEqual ( "propertyName", "value" )
 
-    patterns
- like("propertyName","value")
- contains("propertyName","value")
- notLike("propertyName","value")
+    - pattern matching operators -
+           like ( "propertyName", "value" )
+       contains ( "propertyName", "value" )
+        notLike ( "propertyName", "value" )
 
-    existence
- isNotNull("propertyName")
- isNull("propertyName")
+    - existence testing operators -
+      isNotNull ( "propertyName")
+         isNull ( "propertyName")
 
-    ranges
- between("propertyName","lowerValue","upperValue")
+    - range testing operators -
+        between ( "propertyName", "lowerValue", "upperValue" )
   
+Many of the operators have synonyms (for example, one can use "ge" instead
+of "greaterOrEqual" to save typing).  However, use of the full operator
+name is encouraged.
+
+In order to facilitate queries involving dates, a special macro, "#date:",
+can be used in place of the "value" in a query.  For example:
+
+  "#date: 12 Dec 2001 8:45 AM EST"
+
+One can also specify relative or sloppy dates:
+
+  "#date: last week"
+  "#date: last Monday"
+  "#date: today"
+
+Note: when specifying relative dates, especially "today", be aware of the
+pitfalls caused by the fact that Commander performs the comparison based
+on a specific full date/time.  The macro "#date: today" actually translates
+to midnight at the beginning of the current day (which matches best to
+the common intent).  In contrast, the macro "#date: yesterday" actually
+translates to exactly 24 hours ago.  In general, try to use more complete
+date/time specifications.
+
+Note: date conversions require knowlege of the current timezone.  Due to
+limitations in the version of perl, the utility may be unable to determine
+your timezone.  If you get a message indicating this, you may need to
+specify your timezone on the command line using the "--tz <timezone>"
+option.  Please specify the timezone in the format "CST6CDT" or "EST".
+
 More detail on each function can be found in the ElectricCommander online
 help, under the help topic for the findObjects API.
 
-Because query strings can become quite unwieldy to pass in via the command
-line (due to length as well as the need to protect strings and quotes from
-the shell being used), alternate means to specify the query are provided.
-If the query string is simple the dash "-" character, the query is read from
-STDIN.  If the query string starts with the special character "@", the
-remainder of the query string is taken to be a property path, and the query
-will be read from the specified property.
+
+Property References and Expansion:
+
+Because query strings and actions can become quite unwieldy to pass in via
+the command line (due to length as well as the need to protect strings and
+quotes from the shell being used), alternate means to specify the query and
+actions are provided.
+
+If the query string is simple the dash character, the query is read from STDIN.
+
+If the query string starts with the special character "@", the remainder of
+the query string is specially processed.  If the remainder starts with the
+forward slash ("/"), then it is taken to be a full property path, and the query
+will be read from the specified property.  Otherwise, the remainder is passed
+through "expandString" to expand all embedded property references (such as
+$[/myUser/saved_property]).
 
 Note that in all cases, a query can cross multiple lines, which can be helpful
 in order to make complicated queries more legible.  (The ability to have the
@@ -79,7 +121,18 @@ limited by the particular shell being used, which in practice means that one
 would typically use this syntax when reading the query in from STDIN or from
 a property.)
 
+Certain actions also honor the "@" syntax, allowing one to store the details
+of an editProperty action (for example) in a property.  The actions that permit
+this form of property expansion include:
+
+  --setProperty
+  --copyProperty
+  --editProperty
+  --expandString
+  --exec
+
 Actions:
+
   Of course, it's not useful to search for things unless one wants to do
 something with the results.
 
@@ -101,8 +154,11 @@ named "setup" in any system with many procedures.
 Another option, particularly useful with PowerShell, is to print the results
 in the form of a complete XML document.  THe "--print xml" accomplishes this.
 
-Finally, sometimes one merely wants to know how many items are found by the
-specified query.  The "--print count" option accomplishes this goal.
+The "--print count" option simply prints an incrementing counter value for
+each item.  This may be useful for determining relative position in a large
+amount of output, but more commonly, one merely wants to know how many items
+are found by the specified query.  The "--print total" option accomplishes
+this goal.
 
  --fail-if none | any
 
@@ -117,6 +173,19 @@ The "--fail-if" option can be combined with other actions as required, although
 doing so may make it difficult for the calling script to know the exact reason
 for a failure exit code.
 
+ --expandString <string>...
+
+When it is desirable to have a little more control over the output, in some
+cases the "--expandString" option may be useful.  The provided string is sent
+to the "expandString" API in order to have all the embedded property
+references (e.g. '$[description]') expanded prior to being displayed.  Note
+that this option is often of limited use, since it attempts to expand nested
+property references, which may not be valid outside of the job execution
+context.  Clever use of embedded javascript references can mitigate this to
+some extent, but in general this option should be used very carefully and only
+when the content of the properties in question is well-understood and is
+defined and valid outside of the job execution context.
+
  --exec <command-or-script>...
 
 If one needs to perform more interesting work with each object that the query
@@ -127,14 +196,14 @@ the command line.
 
 When the script or program executes, it can find selected bits of information
 about the object in the environment variables.  Each object will at least
-have the "ECFIND_ojectId" variable set to the object ID that was returned by
+have the "ECFIND_objectId" variable set to the object ID that was returned by
 the query.  Depending on the object type, additional "ECFIND_" variables may
 be set.  More specifically, all intrinsics where the name ends in "Name" or
 "Id", or where the name contains the string "container" will be placed into
 the environment.  This should be sufficient for the executed script to
 uniquely identify the object without needing to use the object ID.  For
-example, a query for step objects will result in at least the following
-environment variables being set to valid values:
+example, a query for procedureStep objects will result in at least the
+following environment variables being set to valid values:
 
   ECFIND_objectId
   ECFIND_projectName
@@ -152,16 +221,23 @@ operations can be specified:
 The "--setProperty" action permits one to set one or more properties on
 each object found to a specific value.  As usual with setProperty operations,
 if the property does not exist, it will be created.  Note that the property
-in question can be an intrinsic, as well as a custom. It does not necessarily
-have to be at the top level of the object either.  (In fact, it does not have
-to be on the property at all.)
+in question can be a either an intrinsic property or a custom property.
+
+ --copyProperty <target>=<original>...
+
+The "--copyProperty" action permits one to copy the value of an existing
+property to a target property.  If the target property exists, its value
+will be replaced.  Only the value is copied (the description field is
+ignored).  Note that the properties involved can be either intrinsic or
+custom properties.
 
  --deleteProperty <property>...
 
 If one can create properties, it stands to reason that one should be easily
 able to remove properties.  The "--deleteProperty" action allows one to
 delete custom properties.  It is not an error to attempt to delete a property
-that does not exist.
+that does not exist, but you cannot delete an intrinsic property (use the
+setProperty action to set the intrinsic's value to the empty string instead).
 
  --editProperty <property>=~s/<old>/<new>/[g]...
 
@@ -193,7 +269,7 @@ ecfind --object project --query "contains('projectName','EC')" --print name
 A more complicated query, that prints the names of projects where the name
 contains the string "EC", and either the custom property "ec_visibility" does
 not exist or has the value "all", and is not a plugin (i.e. the intrinsic
-property "pluginName" does not exist.. Use the maxId option to make sure we
+property "pluginName" does not exist). Use the maxId option to make sure we
 search all projects, and sort the names. Line wrapping is for legibility:
 
 ecfind --object property --maxId 1000000 --query
@@ -208,16 +284,21 @@ ecfind --object project --query "contains('projectName','example')"
   --exec "echo /projects/%ECFIND_projectName%"
 
 Finally, the following example is a query that finds all steps in any project
-that end in the string "lib", where the command block (an intrinsic property)
-contains the string "workdir".  For each step that matches, print the unique
-object id of the step, and then change the string "workdir" in the command
-block to "working_directory", and append a string (an arbitrary log message)
-to the custom property named "Log" on the step:
+who's name ends in the string "lib" and where the command block (an intrinsic
+property) contains the string "workdir".  For each step found, it will print
+the unique object id of the step followed by the Commander path to the step
+in question, make a backup copy of the command block, change the string
+"workdir" in the command block to "working_directory", and finally write a
+log message to the front of a custom property named "changeLog" on the step:
 
 ecfind --object procedureStep --query
  "and(like('projectName','%lib'), contains('command','workdir'))"
  --print id
+ --expandString
+  "/projects/$[projectName]/procedures/$[procedureName]/steps/$[stepName]"
+ --copyProperty "command_20120717=command"
  --editProperty "command=~s/workdir/working_directory/g"
- --editProperty "Log=~s/$/Bulk update for directory name change - MJW\n/"
+ --editProperty "changeLog=~s/^/Bulk copy-replace to fix workdir name\n/"
 
-(version 0.3a)
+
+ecfind version 0.4h

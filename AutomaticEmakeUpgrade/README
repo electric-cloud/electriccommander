@@ -1,0 +1,17 @@
+This project provides a mechanism for automatically upgrading
+ElectricAccelerator emake to the version stored on the Cluster Manager.
+
+The perl script emakeConditionalUpgrade.pl queries the Cluster Manager for what
+version of emake it contains and installs it on the machine where the perl
+script is run if the local version is less than that on the Cluster Manager.
+The script will then run emake using the arguments provided by the user.  The
+script can be converted into an executable using the pp command.  If the
+executable is called 'emake' or 'emake.exe', it should be put in the path in
+an position before the ElectricAccelerator version of emake.  Example
+executables have been included with this project.
+
+For details on how to set up the Cluster Manager for this project, see:
+ClusterManager Setup Instructions.txt
+
+For details on end-user use of this script, see:
+Instructions for emake user.txt

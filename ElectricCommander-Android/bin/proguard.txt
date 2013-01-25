@@ -1,0 +1,12 @@
+# view AndroidManifest.xml #generated:30
+-keep class com.electriccloud.commander.android.app.HelloWorldAndroidActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:17
+-keep class com.electriccloud.commander.android.app.NetworkActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:21
+-keep class com.electriccloud.commander.android.app.SettingsActivity { <init>(...); }
+
+# onClick res/layout/main.xml #generated:28
+-keepclassmembers class * { *** sendMessage(...); }
+

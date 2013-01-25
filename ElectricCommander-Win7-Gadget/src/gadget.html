@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>ElectricCommander Gadget</title>
+<link href="css/gadget.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/commander.js"></script>
+<script type="text/javascript" src="js/gadget.js"></script>
+<script type="text/javascript" src="js/settings.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(window).load(function () {
+    $('body')[0].onmousewheel = mouseWheelNavigate;
+    $('a[id^="buildLink"]').each(function(index) {
+        $(this).click(function() {
+            openInIE(index);
+            return false;
+        });
+    });
+    $('#buttonLeftNarrator').click(function() {
+        setPreviousViewItems();
+        this.blur();
+        return false;
+    });
+    $('#buttonRightNarrator').click(function() {
+        setNextViewItems();
+        this.blur();
+        return false;
+    });
+    $('#buttonLeft').each(function() {
+        $(this).mouseover(function() {
+            $(this).attr('src', function() {
+                return 'images/btn_prev_over.gif';
+            });
+        }).mouseout(function() {
+            $(this).attr('src', function() {
+                return 'images/btn_prev.gif';
+            });
+        });
+    });
+    $('#buttonRight').each(function() {
+        $(this).mouseover(function() {
+            $(this).attr('src', function() {
+                return 'images/btn_next_over.gif';
+            });
+        }).mouseout(function() {
+            $(this).attr('src', function() {
+                return 'images/btn_next.gif';
+            });
+        });
+    });
+    main();
+});
+</script>
+</head>
+
+<body unselectable="on" scroll="no">
+
+<g:background id="gadgetBackground" style="position:absolute; z-index:-1"></g:background>
+
+<div id="buildHldr">
+
+  <div id="build0">
+    <img id="buildStatus0" src="images/icn16px_blank.gif"/>
+    <a id="buildLink0" href="#"></a>
+    <div id="buildOwner0"></div>
+    <div id="buildDate0"></div>
+  </div>
+
+  <div id="build1">
+    <img id="buildStatus1" src="images/icn16px_blank.gif"/>
+    <a id="buildLink1" href="#"></a>
+    <div id="buildOwner1"></div>
+    <div id="buildDate1"></div>
+  </div>
+
+  <div id="build2">
+    <img id="buildStatus2" src="images/icn16px_blank.gif"/>
+    <a id="buildLink2" href="#"></a>
+    <div id="buildOwner2"></div>
+    <div id="buildDate2"></div>
+  </div>
+
+  <div id="build3">
+    <img id="buildStatus3" src="images/icn16px_blank.gif"/>
+    <a id="buildLink3" href="#"></a>
+    <div id="buildOwner3"></div>
+    <div id="buildDate3"></div>
+  </div>
+
+</div>
+
+<div id="errorTextHldr">
+  <div id="errorTextDiv"></div>
+</div>
+
+<div id="navHolder">
+  <table border="0" cellpadding="0" cellspacing="0" width="78px" height="20px">
+    <tr>
+      <td width="17px" align="center" valign="middle">
+        <a id="buttonLeftNarrator" href="#">
+          <img id="buttonLeft" src="images/btn_prev.gif"/>
+        </a>
+      </td>
+      <td width="44px" align="center" valign="middle" id="positionNumbers"></td>
+      <td width="17px" align="center" valign="middle">
+        <a id="buttonRightNarrator" href="#">
+          <img id="buttonRight" src="images/btn_next.gif"/>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div id="messageHldr" border="1">
+  <span id="message" class="normal"></span>
+</div>
+
+<script language="Javascript">
+System.Gadget.onShowSettings = function () {
+    loadSettings();
+}
+
+System.Gadget.onSettingsClosed = function(event) {
+    if(event.closeAction == event.Action.commit) {
+        g_lastCalledArrayIndex = 0;
+        main();
+    }
+}
+</script>
+
+</body>
+</html>
+

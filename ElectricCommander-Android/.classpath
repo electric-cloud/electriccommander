@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="C:/Users/nvaze/Documents/GitHub/electriccommander/ElectricCommander-Android/libs/commander-client.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nvaze/Documents/GitHub/electriccommander/ElectricCommander-Android/libs/commander-transport.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nvaze/Documents/GitHub/electriccommander/ElectricCommander-Android/libs/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nvaze/Documents/GitHub/electriccommander/ElectricCommander-Android/libs/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nvaze/Documents/GitHub/electriccommander/ElectricCommander-Android/libs/jaxen-1.1-beta-6.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

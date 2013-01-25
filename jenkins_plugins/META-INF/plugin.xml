@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+  <key>jenkins</key>
+  <version>1.0</version>
+  <label>jenkins</label>
+  <description>Wrapper for the jenkins Rest Api.</description>
+  <help>help.xml</help>
+  <author>Electric Cloud</author>
+  <authorUrl>http://www.electric-cloud.com/support</authorUrl>
+  <category>Continuous Integration</category>
+</plugin>

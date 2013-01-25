@@ -1,0 +1,17 @@
+Cluster Manager Set up Instructions for Emake upgrade script
+
+After installing/upgrading the Cluster Manager, perform the following steps:
+
+1. Download the Windows and Linux binaries for emake.
+	ftp://<userName>:<passWord>@ftp.electric-cloud.com/accelerator/emake_archive/i686_win32/i686_win32_6.0.0_bcp.zip
+	ftp://<userName>:<passWord>@ftp.electric-cloud.com/accelerator/emake_archive/i686_Linux/i686_Linux_6.0.0_bcp.tar.gz
+	
+	Replace <userName> and <passWord> with your ftp.electric-cloud.com credentials and replace 6.0.0
+	with the desired version, if necessary.
+
+2. Copy these files to the Cluster Manager installation area under
+	apache/htdocs/accelerator/
+
+3. Create (or edit existing) the file apache/htdocs/accelerator/emakeVersion.txt to contain the
+	value of the version string above, for example, 6.0.0
+	

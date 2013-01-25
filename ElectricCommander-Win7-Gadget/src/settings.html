@@ -1,0 +1,96 @@
+﻿<html>
+<head>
+<title>ElectricCommander Gadget Settings</title>
+<meta http-equiv="MSThemeCompatible" CONTENT="yes" />
+<meta http-equiv="Content-Type" content="text/html; charset=Unicode" />
+<link href="css/settings.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/gadget.js"></script>
+<script type="text/javascript" src="js/commander.js"></script>
+<script type="text/javascript" src="js/settings.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(window).load(function () {
+    load();
+});
+</script>
+</head>
+
+<body>
+<table cellspacing="3" cellpadding="1" border="0">
+  <tr>
+    <td>Commander Hostname:</td>
+  </tr>
+  <tr>
+    <td><input type="text" class="textbox" id="commanderHostname"/></td>
+  </tr>
+  <tr>
+    <td>Commander Port:</td>
+  </tr>
+  <tr>
+    <td><input type="text" class="textbox" id="commanderPort"/></td>
+  </tr>
+  <tr>
+    <td>Username:</td>
+  </tr>
+  <tr>
+    <td><input type="text" class="textbox" id="username"/></td>
+  </tr>
+  <tr>
+    <td>Password:</td>
+  </tr>
+  <tr>
+    <td><input type="password" class="textbox" id="password"/></td>
+  </tr>
+  <tr>
+    <td>Job name:</td>
+  </tr>
+  <tr>
+    <td><input type="text" class="textbox" id="jobName"/></td>
+  </tr>
+  <tr>
+    <td>Display job name without the following string:</td>
+  </tr>
+  <tr>
+    <td><input type="text" class="textbox" id="minus"/></td>
+  </tr>
+  <tr>
+    <td>
+      <span>Number of jobs:</span>
+      <select id="numOfJobs">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span>Data refresh interval:</span>
+      <select id="refreshInterval">
+        <option value="10">10</option>
+        <option value="30">30</option>
+        <option value="60">60</option>
+        <option value="120">120</option>
+        <option value="300">300</option>
+      </select>(secs)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" id="elapsedTimeTimer"/>
+      <span>Job elapsed time timer</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" id="messageEnabled"/>
+      <span>Debug message enabled (hidden while docked)</span>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

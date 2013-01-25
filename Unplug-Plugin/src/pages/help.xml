@@ -1,0 +1,121 @@
+<componentContainer>
+  <title>@PLUGIN_KEY@ Help</title>
+  <h2>@PLUGIN_KEY@ -- An Essential Tool for Rapid Plugin Development</h2>
+  <p><i>Version @PLUGIN_VERSION@</i></p>
+  <h3>Overview</h3>
+  <p>This plugin is a completely flexible plugin framework that displays
+a page built from content read from an ElectricCommander property.
+Typical uses include implementing a simple &quot;News of the Day&quot;
+or status page for ElectricCommander users, performing rapid
+prototyping of plugin logic as well as plugin presentation, and
+serving as a training aid to speed learning about ElectricCommander
+plugins and how they work.</p>
+  <h3>Views</h3>
+  <p>Promoting the plugin installs a view named &quot;Unplug View&quot;.
+This view adds a custom page as a sub-tab of the standard
+&quot;Home&quot; tab.  As usual, custom views can be created to move
+the page anywhere desired in the GUI.</p>
+  <h3>Content Type</h3>
+  <p>The content of the property that is processed to create the
+page to be displayed can be HTML, plain text, or even a perl script.  The
+type is determined by searching for a pattern in the first line of text
+in the expanded property.</p>
+  <h4>HTML</h4>
+  <p>If that first line contains an HTML comment tag which mentions
+the string &quot;html&quot; (&lt;!-- html --&gt; for example), then
+the property value is assumed to be valid HTML and is sent directly
+to the browser for display, with no further processing.</p>
+  <h4>XHTML</h4>
+  <p>If that first line contains an HTML comment tag which mentions
+the string &quot;xhtml&quot; (&lt;!-- xhtml --&gt; for example), then
+the property value is expected to be XHTML.  It is checked for validity,
+and sent to the browser for display. Javascript code embedded into
+the XHTML page using &lt;script&gt; tags will processed (unlike HTML
+content, where the script tags will be silently ignored.</p>
+  <h4>Perl</h4>
+  <p>Perl code is identified by the presence of a string that looks
+like the standard means to identify a perl or ec-perl script (#!perl,
+#!ec-perl, or similar).  In this case, the expanded property value
+is executed using the perl eval() statement, and the script is
+expected to write the generated HTML or XHTML page into the $HTML
+or $XHTML variables, respectively.  Note that the script should never
+print anything, nor should it ever call die() or exit().</p>
+  <h4>Text</h4>
+  <p>In all other cases, the property value is assumed to be raw text,
+and is wrapped with an HTML &lt;pre&gt; tag and then sent to the
+browser for display.</p>
+  <h3>Examples</h3>
+  <p>A number of examples are provided.  The easiest way to view them
+with @PLUGIN_KEY@ is to set the /server/@PLUGIN_KEY@/v property to
+&quot;point&quot; to the desired example.  For example, in order to view
+example 1, set the /server/@PLUGIN_KEY@/v property to:<br/>
+<code>$[/plugins/@PLUGIN_KEY@/project/v_example1]</code><br/>
+In order to extract the source code for each example, simply reference
+the same property.  For example, the following ectool command will
+display the source code for example 1:</p>
+  <p><code>ectool getProperty /plugins/@PLUGIN_KEY@/project/v_example1
+</code></p>
+  <h4>Example 0 - Text</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example0</code></p>
+  <p>The most basic of the examples, this one simply displays text.</p>
+  <h4>Example 1 - HTML</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example1</code></p>
+  <p>This example shows how one might create a simple mockup of a
+plugin page using nothing more than simple static HTML.</p>
+  <h4>Example 2</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example2</code></p>
+  <p>Example 2 demonstrates how one can use property expansion
+combined with /javascript special property references in order
+to transform a simple static HTML page into a simple dynamic page.
+In this example, in addition to static information, additional
+content is being pulled from properties contained in two other
+projects.</p>
+  <p>You can see this in action by adding various HTML content
+into the /projects/Default/news and /project/EC-Examples/news
+properties.</p>
+  <p>This powerful technique allows you to create a plugin
+prototype that can actually work, without having to write a line
+of code.  Refer to example 1, and consider how various build
+and deploy procedures might be able to write information into
+properties and property sheets in such a way that the content
+displayed in that page might actually be real, live content.</p>
+  <h4>Example 3</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example3</code></p>
+  <p>Some applications are best served by writing actual code.
+Example 3 shows how to have Perl logic generate the HTML to be
+displayed. Also noteworthy is the example of how to properly
+HTML-encode text that is sent to the browser.</p>
+  <h4>Example 4</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example4</code></p>
+  <p>Example 4 is a more ambitious bit of Perl logic.  The use case
+addressed by this example is the need to be able to display, at
+a glance, the status of many, many jobs on the system at the same
+time.  The jobs tab is often used for this purpose, but when the
+number of potentially-active jobs is very large, scrolling and
+pagination gets in the way.</p>
+  <p>This example demonstrates how to use the ec-perl API from
+within the plugin, how to process the result set from a getJobs
+(or findObjects) call, and also illustrates how one can create
+and embed hyperlinks to other Commander pages into the generated
+HTML.</p>
+  <h4>Example 5</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example5</code></p>
+  <p>Example 5 adds dynamic refresh to the previous example by
+embedded javascript using the &lt;script&gt; tag.</p>
+  <h4>Example 6</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example6</code></p>
+  <p>Example 6 demonstrates how to write a custom parameter plugin.
+When correctly configured, this page will appear when a specific
+Commander procedure is run from any place in the Commander Web UI.
+</p>
+  <p>In addition to setting the &quot;v&quot; property correctly,
+one other step must be performed.  It is necessary to set the
+&quot;customType&quot; property on the procedure in question in
+order to tell the Commander UI that we want this plugin to execute
+in place of the normal runProcedure parameter page.  This example
+is written specifically for the
+&quot;Build-Test-Release Template With Sample Errors&quot;
+procedure in the &quot;EC-Examples&quot; project. Set the
+&quot;customType&quot; property on that procedure to:
+<code>$[/plugins/@PLUGIN_KEY@]/unRunProcedure</code></p>
+</componentContainer>

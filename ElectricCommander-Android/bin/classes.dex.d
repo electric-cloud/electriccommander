@@ -1,0 +1,24 @@
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes.dex : \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\BuildConfig.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\CommanderServiceImpl.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\HelloWorldAndroidActivity.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\NetworkActivity$1.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\NetworkActivity$DownloadXmlTask.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\NetworkActivity$NetworkReceiver.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\NetworkActivity.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R$array.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R$attr.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R$drawable.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R$id.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R$layout.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R$menu.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R$string.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R$xml.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\R.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\bin\classes\com\electriccloud\commander\android\app\SettingsActivity.class \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\libs\commons-lang3-3.1.jar \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\libs\commander-client.jar \
+C:\Users\nvaze\android-sdks\tools\support\annotations.jar \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\libs\commander-transport.jar \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\libs\dom4j-1.6.1.jar \
+C:\Users\nvaze\Documents\GitHub\electriccommander\ElectricCommander-Android\libs\jaxen-1.1-beta-6.jar \
