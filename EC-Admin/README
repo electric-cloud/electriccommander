@@ -1,0 +1,28 @@
+This project includes a few procedures to help you with disk management.
+
+jobsCleanup: procedure to delete jobs older than a specified number of
+days. It will also delete associated workspace job directories. You
+can also provide a property name, if this property is attached to the
+job, it won't be deleted now matter how old. A report only mode
+prevents any real deletion.
+
+artifactsCleanup: procedure to delete artifacts older than a specified number
+of days.Same as above, a porperty allows to prevent deletion. Once the
+artifacts have been deleted, artifact repositories and artifact caches are
+cleaned as well (deleting stale artifacts).  A report only mode prevents any
+real deletion.
+
+Contact author: 
+  Laurent Rochette (lrochette@electric-cloud.com) 
+
+Legal Jumbo
+ 
+This module is free for use. Modify it however you see fit to better your 
+experience using ElectricCommander. Share your enhancements and fixes.
+
+This module is not officially supported by Electric Cloud. It has undergone no 
+formal testing and you may run into issues that have not been uncovered in the 
+limited manual testing done so far.
+
+Electric Cloud should not be held liable for any repercusions of using this 
+software.
