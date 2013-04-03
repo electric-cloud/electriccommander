@@ -5,7 +5,7 @@
 
   <!-- Plugin-specific properties -->
   <property name="pluginKey" value="unplug" />
-  <property name="pluginVersion" value="1.5" />
+  <property name="pluginVersion" value="1.6" />
 
   <path id="extras">
     <!-- Add extra jars that need to be in the classpath for building the 
