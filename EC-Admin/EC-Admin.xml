@@ -13,6 +13,12 @@
         <expandable>1</expandable>
         <value>sub InvokeCommander {&#10;&#10;    my $optionFlags = shift;&#10;    my $commanderFunction = shift;&#10;    my $xPath;&#10;    my $success = 1;&#10;&#10;    my $bSuppressLog = $optionFlags =~ /SuppressLog/i;&#10;    my $bSuppressResult = $bSuppressLog || $optionFlags =~ /SuppressResult/i;&#10;    my $bIgnoreError = $optionFlags =~ /IgnoreError/i;&#10;&#10;    #  Run the command&#10;    # print "Request to Commander: $commanderFunction\n" unless ($bSuppressLog);&#10;&#10;    $ec-&gt;abortOnError(0) if $bIgnoreError;&#10;    $xPath = $ec-&gt;$commanderFunction(@_);&#10;    $ec-&gt;abortOnError(1) if $bIgnoreError;&#10;&#10;    # Check for error return&#10;    my $errMsg = $ec-&gt;checkAllErrors($xPath);&#10;    if ($errMsg ne "") {&#10;&#10;        $success = 0;&#10;    }&#10;    if ($xPath) {&#10;&#10;        print "Return data from Commander:\n" .&#10;               $xPath-&gt;findnodes_as_string("/") . "\n"&#10;            unless $bSuppressResult;&#10;    }&#10;&#10;    # Return the result&#10;    return ($success, $xPath, $errMsg);&#10;}</value>
       </property>
+      <property>
+        <propertyName>version</propertyName>
+        <description>Version of the EC-Admin project</description>
+        <expandable>1</expandable>
+        <value>1.1</value>
+      </property>
     </propertySheet>
     <credential>
       <credentialName>adminLogin</credentialName>
@@ -22,6 +28,104 @@
       <propertySheet>
       </propertySheet>
     </credential>
+    <procedure>
+      <procedureName>acquireSemaphore</procedureName>
+      <description></description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName></resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>maxSemaphoreValue</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>semaphoreProperty</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>serializationResource</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>maxSemaphoreValue</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>The maximum sempahore value to gate some procedures.</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>semaphoreProperty</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>The path to the property used as a semaphore</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>serializationResource</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>This should point to a resouce with a step limit of 1</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>acquireSemaphore</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>use strict;&#10;use ElectricCommander;&#10;$| = 1;&#10;&#10;my $ec = new ElectricCommander;&#10;my $xPath = $ec-&gt;getProperty("$[semaphoreProperty]");&#10;my $semaphore = $xPath-&gt;findvalue('//value')-&gt;string_value;&#10;print "First eval: semaphore = $semaphore\n";&#10;&#10;while ($semaphore &gt;= $[maxSemaphoreValue]){&#10;  sleep(5);&#10;  $xPath = $ec-&gt;getProperty("$[semaphoreProperty]");&#10;  $semaphore = $xPath-&gt;findvalue('//value')-&gt;string_value;&#10;  print "in loop: semaphore = $semaphore\n";&#10;}&#10;&#10;# When we get here, a token is available. Acquire it.&#10;my $xPath = $ec-&gt;incrementProperty("$[semaphoreProperty]");&#10;</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName>$[serializationResource]</resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
     <procedure>
       <procedureName>artifactsCleanup</procedureName>
       <description>Delete Artifacts and clean caches&#10;</description>
@@ -831,6 +935,158 @@
         <command>#############################################################################&#10;#&#10;#  deleteJobs -- Script to delete jobs and workspaces&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use strict;&#10;&#10;use ElectricCommander;&#10;use File::Path;&#10;use File::stat;&#10;use Fcntl ':mode';&#10;use DateTime;&#10;$| = 1;&#10;&#10;# Create a single instance of the Perl access to ElectricCommander&#10;my $ec = new ElectricCommander();&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $jobProperty     = "$[jobProperty]";&#10;my $timeLimit       =  $[olderThan];&#10;my $executeDeletion = "$[executeDeletion]";&#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $version="0.0.1";&#10;my $totalWksSize=0;          # Size of workspace files&#10;my $totalNbJobs=0;           # Number of jobs to delete potentially&#10;my $totalNbSteps=0;          # Number of steps to evaluate DB size&#10;my $DBStepSize=10240;        # Step is about 10K in DB&#10;&#10;#############################################################################&#10;#&#10;#  Main&#10;#&#10;#############################################################################&#10;&#10;printf("%s jobs older than $timeLimit days (%s).\n", &#10;    $executeDeletion eq "true"?"Deleting":"Reporting", &#10;    calculateDate($timeLimit));&#10;&#10;# create filterList&#10;my @filterList;&#10;push (@filterList, {"propertyName" =&gt; "status",&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; "completed"});&#10;push (@filterList, {"propertyName" =&gt; "finish",&#10;                    "operator" =&gt; "lessThan",&#10;                    "operand1" =&gt; calculateDate($timeLimit)});&#10;push (@filterList, {"propertyName" =&gt; $jobProperty,&#10;                    "operator" =&gt; "isNull"});&#10;&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "findObjects", "job",&#10;                                        {maxIds =&gt; 0,&#10;                                         filter =&gt; \@filterList ,&#10;                                         sort =&gt; [ {propertyName =&gt; "finish",&#10;                                                    order =&gt; "ascending"} ]});&#10;&#10;print "Search Status:\t$success\n";&#10;&#10;# Check for the OS Type&#10;my $osIsWindows = $^O =~ /MSWin/;&#10;&#10;# Loop over all returned jobs&#10;my $nodeset = $xPath-&gt;find('//job');&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;        $totalNbJobs++;&#10;        my $wksSize;&#10;&#10;        my $jobId = $xPath-&gt;findvalue('jobId', $node);&#10;        my $jobName = $xPath-&gt;findvalue('jobName', $node);&#10;&#10;        print "Job: $jobName\n";&#10;&#10;        #&#10;        # Find number of steps for the jobs&#10;        my ($success, $xPath) = InvokeCommander("SuppressLog", "findJobSteps", &#10;                      {'jobId' =&gt; $jobId});&#10;        my $nbSteps=scalar($xPath-&gt;findnodes('//object')-&gt;get_nodelist);&#10;        $totalNbSteps += $nbSteps;&#10;        printf("  Job steps: \t\t%d\n", $nbSteps);&#10;&#10;        #  Find the workspaces (there may be more than one if some steps&#10;        #  were configured to use a different workspace)&#10;        my ($success, $xPath) = InvokeCommander("SuppressLog", "getJobInfo",&#10;                                                 $jobId);&#10;        my $wsNodeset = $xPath-&gt;find('//job/workspace');&#10;        foreach my $wsNode ($wsNodeset-&gt;get_nodelist) {&#10;            my $workspace;&#10;            if ($osIsWindows) {&#10;                $workspace = $xPath-&gt;findvalue('./winUNC', $wsNode);&#10;                $workspace =~ s'/'\\'g;&#10;            } else {&#10;                $workspace = $xPath-&gt;findvalue('./unix', $wsNode);&#10;            }&#10;&#10;            print "  Workspace: \t\t$workspace\n" if ($workspace ne "");&#10;&#10;            # Delete the workspace (after checking its name as a sanity test)&#10;            # look for "job_nnn" or "Procedure-nnn"&#10;            if ($workspace =~ /[-_][\d]+$/) {&#10;                use File::Path;&#10;&#10;                $wksSize = getDirSize($workspace);&#10;                printf ("    Size: \t\t%s\n", humanSize($wksSize));&#10;                $totalWksSize += $wksSize;&#10;                if ($executeDeletion eq "true") {&#10;                    rmtree ([$workspace])  ;&#10;                    print "    Deleting Workspace\n";&#10;                }&#10;            }&#10;        }&#10;&#10;        # Delete the job&#10;&#10;        if ($executeDeletion eq "true") {&#10;            InvokeCommander("SuppressLog", "deleteJob", $jobId) ;&#10;            print "  Deleting Job\n\n";&#10;        } &#10;}&#10;&#10;printf("SUMMARY\n");&#10;printf("Total number of jobs:  %d\n", $totalNbJobs);&#10;printf("Total File size:       %s\n", humanSize($totalWksSize));&#10;printf("Total number of steps: %d\n", $totalNbSteps);&#10;printf("Total Database size:   %s\n", humanSize($totalNbSteps * $DBStepSize));&#10;&#10;$ec-&gt;setProperty("/myJob/numberOfJobs", $totalNbJobs);&#10;$ec-&gt;setProperty("/myJob/diskSpace", $totalWksSize);&#10;$ec-&gt;setProperty("/myJob/numbernumberOfSteps", $totalNbSteps);&#10;&#10;exit(0);&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the Date based on now and the number of days required by&#10;#  the user before deleting jobs&#10;#&#10;#############################################################################&#10;sub calculateDate {&#10;    my $nbDays=shift;&#10;    return DateTime-&gt;now()-&gt;subtract(days =&gt; $nbDays)-&gt;iso8601() . ".000Z";&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the size of the workspace directory&#10;#&#10;#############################################################################&#10;sub getDirSize {&#10;  my $dir  = shift;&#10;  my $size = 0;&#10;&#10;  opendir(D,"$dir") || return 0;&#10;  foreach my $dirContent (grep(!/^\.\.?/,readdir(D))) {&#10;     my $st=stat("$dir/$dirContent");&#10;     if (S_ISREG($st-&gt;mode)) {&#10;       $size += $st-&gt;size;&#10;     } elsif (S_ISDIR($st-&gt;mode)) {&#10;       $size += getDirSize("$dir/$dirContent");&#10;     }&#10;  }&#10;  closedir(D);&#10;  return $size;&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Return human readable size&#10;#&#10;#############################################################################&#10;sub humanSize {&#10;  my $size = shift();&#10;&#10;  if ($size &gt; 1099511627776) {    #   TB: 1024 GB&#10;      return sprintf("%.2f TB", $size / 1099511627776);&#10;  }&#10;  if ($size &gt; 1073741824) {       #   GB: 1024 MB&#10;      return sprintf("%.2f GB", $size / 1073741824);&#10;  }&#10;  if ($size &gt; 1048576) {          #   MB: 1024 KB&#10;      return sprintf("%.2f MB", $size / 1048576);&#10;  }&#10;  elsif ($size &gt; 1024) {          #   KiB: 1024 B&#10;      return sprintf("%.2f KB", $size / 1024);&#10;  }&#10;                                  #   bytes&#10;  return "$size byte" . ($size &lt;= 1 ? "" : "s");&#10;}&#10;&#10;&#10;#&#10;# Perl library code&#10;$[/myProject/perlInvokeCommander]&#10;</command>
         <condition></condition>
         <description>Script to delete jobs and workspaces</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>releaseSemaphore</procedureName>
+      <description>decrement the semaphore value</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName></resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>maxSemaphoreValue</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>semaphoreProperty</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>serializationResource</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>semaphoreProperty</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>The path to the property used as a semaphore</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>serializationResource</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>This should point to a resouce with a step limit of 1</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>decrementSemaphore</stepName>
+        <alwaysRun>1</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>use strict;&#10;use ElectricCommander;&#10;$| = 1;&#10;&#10;my $ec = new ElectricCommander;&#10;my $xPath = $ec-&gt;incrementProperty("$[semaphoreProperty]", -1);&#10;my $semaphore = $xPath-&gt;findvalue('//value')-&gt;string_value;&#10;$ec-&gt;setProperty("summary", "semaphore = $semaphore");</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>saveProjects</procedureName>
+      <description>a framework to export projects.</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName></resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>pathname</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>pathname</formalParameterName>
+        <defaultValue>/tmp</defaultValue>
+        <description>Directory where to saved the XML files</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>save Projects</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;use strict;&#10;use File::Path qw(make_path);&#10;&#10;use ElectricCommander;&#10;$| = 1;&#10;&#10;# Create a single instance of the Perl access to ElectricCommander&#10;my $ec = new ElectricCommander();&#10;&#10;#&#10;# Parameters&#10;#&#10;my $path="$[pathname]";&#10;&#10;my $errorCount=0;&#10;# Get list of Project&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getProjects");&#10;&#10;# Create the directory&#10;mkpath($path);&#10;&#10;my $nodeset = $xPath-&gt;find('//project');&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $pName=$xPath-&gt;findvalue('projectName', $node);&#10;  my $pluginName=$xPath-&gt;findvalue('pluginName', $node);&#10;&#10;  # skip plugins  &#10;  next if ($pluginName ne "");&#10;  printf("Saving Project: %s\n", $pName);&#10;  my ($success, $xPath,, $errMsg, $errCode) = InvokeCommander("SuppressLog", "export", $path."/$pName".".xml",&#10;  					{ 'path'=&gt; "/projects/".$pName, &#10;                                          'relocatable' =&gt; "true"});&#10;  if (! $success) {&#10;    printf("  Error exporting %s", $pName);&#10;    printf("  %s: %s\n", $errCode, $errMsg);&#10;    $errorCount++;&#10;   }&#10;}&#10;exit($errorCount);&#10;&#10;&#10;sub InvokeCommander {&#10;&#10;    my $optionFlags = shift;&#10;    my $commanderFunction = shift;&#10;    my $xPath;&#10;    my $success = 1;&#10;&#10;    my $bSuppressLog = $optionFlags =~ /SuppressLog/i;&#10;    my $bSuppressResult = $bSuppressLog || $optionFlags =~ /SuppressResult/i;&#10;    my $bIgnoreError = $optionFlags =~ /IgnoreError/i;&#10;&#10;    #  Run the command&#10;    # print "Request to Commander: $commanderFunction\n" unless ($bSuppressLog);&#10;&#10;    $ec-&gt;abortOnError(0) if $bIgnoreError;&#10;    $xPath = $ec-&gt;$commanderFunction(@_);&#10;    $ec-&gt;abortOnError(1) if $bIgnoreError;&#10;&#10;    # Check for error return&#10;    my $errMsg = $ec-&gt;checkAllErrors($xPath);&#10;    my $errCode=$xPath-&gt;findvalue('//code',)-&gt;value();&#10;    if ($errMsg ne "") {&#10;        $success = 0;&#10;    }&#10;    if ($xPath) {&#10;        print "Return data from Commander:\n" .&#10;               $xPath-&gt;findnodes_as_string("/") . "\n"&#10;            unless $bSuppressResult;&#10;    }&#10;&#10;    # Return the result&#10;    return ($success, $xPath, $errMsg, $errCode);&#10;}</command>
+        <condition></condition>
+        <description></description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>

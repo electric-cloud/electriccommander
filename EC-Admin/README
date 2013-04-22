@@ -12,6 +12,13 @@ artifacts have been deleted, artifact repositories and artifact caches are
 cleaned as well (deleting stale artifacts).  A report only mode prevents any
 real deletion.
 
+acquireSemaphore & releaseSemaphore: those 2 procedures are used to create a gate for a set of steps. The important part is to use a resource with a step limit of one to ensure the atomicty of increasing and decreasing the gate value.
+
+saveProjects: a simple procdure to export individually all (non plugins) projects to create you own versioning. Better to run on a nightly schedule.
+
+to install, simply import the XML file
+ectool import /path_to/EC-Admin_1.0.xml
+
 Contact author: 
   Laurent Rochette (lrochette@electric-cloud.com) 
 
