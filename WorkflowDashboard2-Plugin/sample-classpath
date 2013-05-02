@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry kind="lib" path="/opt/CommanderSDK/lib/gwt-user.jar"/>
+	<classpathentry kind="lib" path="/opt/CommanderSDK/lib/ec-gwt.jar"/>
+	<classpathentry kind="lib" path="/opt/CommanderSDK/lib/gwt-dev.jar"/>
+	<classpathentry kind="lib" path="/opt/CommanderSDK/lib/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="/opt/CommanderSDK/lib/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="/opt/electriccloud/electriccommander/utils/commander-client.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="eclipse-out"/>
+</classpath>
