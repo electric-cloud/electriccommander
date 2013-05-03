@@ -1,0 +1,30 @@
+<project name="workflowDashboard" default="package" basedir=".">
+  <description>
+    Build the workflowDashboard plugin
+  </description>
+
+  <!-- Plugin-specific properties -->
+  <property name="pluginKey" value="workflowDashboard" />
+  <property name="pluginVersion" value="2.0.0" />
+  <property name="gwtModules" value="ecplugins.workflowDashboard.configureDashboard,ecplugins.workflowDashboard.workflowDashboardMain" />
+
+  <path id="extras">
+    <!-- Add extra jars that need to be in the classpath for building the 
+         plugin here. For example:
+
+         <pathelement location="lib/smartgwt.jar"/>
+
+         will grab the smartgwt jar from the lib directory of the plugin.
+
+         Note that you must also add the jar to the "Referenced Libraries" 
+         section of your plugin project for Eclipse to recognize the classes in
+         the jar.
+
+         Typically, you must also add an <inherits> element to the .gwt.xml 
+         file for a component that uses classes from the third-party package.
+    -->
+  </path>
+  <property name="gwt.path.extras" value="extras" />
+
+  <import file="/opt/CommanderSDK/build/buildTargets.xml" />
+</project>
