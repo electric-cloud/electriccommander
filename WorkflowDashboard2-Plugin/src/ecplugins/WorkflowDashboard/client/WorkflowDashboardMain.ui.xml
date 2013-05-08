@@ -11,21 +11,21 @@
             width: 100%;
         }
         .projectHeader{
-            width: 20ex;
+            width: 10ex;
         }
         .procedureHeader{
-            width: 30ex;
+            width: 10ex;
         }
 
         .historyHeader{
-            width: 80ex;
+            width: 10ex;
         }
 
         .lastRunHeader{
-            width: 40ex;
+            width: 10ex;
         }
         .descriptionHeader{
-            width: 60ex;
+            width: 10ex;
         }
         .vPanel>tbody>tr>td {
             color: #333333;
