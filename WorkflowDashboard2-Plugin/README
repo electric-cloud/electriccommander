@@ -23,8 +23,8 @@ Quick Installation
   Edit *.gwt.xml files and delete browser and locale limits.  These limits
   have been specified in order to maximize development build speed.
   Files to edit:
-    src/ecplugins/workflowDashboard/workflowDashboardMain.gwt.xml
-    src/ecplugins/workflowDashboard/configureDashboard.gwt.xml
+    src/ecplugins/WorkflowDashboard/WorkflowDashboardMain.gwt.xml
+    src/ecplugins/WorkflowDashboard/ConfigureDashboard.gwt.xml
 
 Obtaining Help
 --------------

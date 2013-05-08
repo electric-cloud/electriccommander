@@ -1,12 +1,12 @@
-<project name="workflowDashboard" default="package" basedir=".">
+<project name="WorkflowDashboard" default="package" basedir=".">
   <description>
-    Build the workflowDashboard plugin
+    Build the WorkflowDashboard plugin
   </description>
 
   <!-- Plugin-specific properties -->
-  <property name="pluginKey" value="workflowDashboard" />
-  <property name="pluginVersion" value="2.0.0" />
-  <property name="gwtModules" value="ecplugins.workflowDashboard.configureDashboard,ecplugins.workflowDashboard.workflowDashboardMain" />
+  <property name="pluginKey" value="WorkflowDashboard" />
+  <property name="pluginVersion" value="2.0.1" />
+  <property name="gwtModules" value="ecplugins.WorkflowDashboard.ConfigureDashboard,ecplugins.WorkflowDashboard.WorkflowDashboardMain" />
 
   <path id="extras">
     <!-- Add extra jars that need to be in the classpath for building the 

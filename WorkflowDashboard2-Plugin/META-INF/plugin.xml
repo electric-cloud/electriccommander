@@ -23,11 +23,11 @@
      -->
     <category>UI</category>
     <components>
-        <component name="workflowDashboardMain">
-            <javascript>war/ecplugins.workflowDashboard.workflowDashboardMain/ecplugins.workflowDashboard.workflowDashboardMain.nocache.js</javascript>
+        <component name="WorkflowDashboardMain">
+            <javascript>war/ecplugins.WorkflowDashboard.WorkflowDashboardMain/ecplugins.WorkflowDashboard.WorkflowDashboardMain.nocache.js</javascript>
         </component>
-        <component name="configureDashboard">
-            <javascript>war/ecplugins.workflowDashboard.configureDashboard/ecplugins.workflowDashboard.configureDashboard.nocache.js</javascript>
+        <component name="ConfigureDashboard">
+            <javascript>war/ecplugins.WorkflowDashboard.ConfigureDashboard/ecplugins.WorkflowDashboard.ConfigureDashboard.nocache.js</javascript>
         </component>
     </components>
 </plugin>
