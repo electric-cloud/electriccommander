@@ -2,7 +2,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 
-    <ui:style type='ecplugins.workflowDashboard.client.workflowDashboardMain.Style'>
+    <ui:style type='ecplugins.WorkflowDashboard.client.WorkflowDashboardMain.Style'>
 
         .topPanel {
             width: 100%;

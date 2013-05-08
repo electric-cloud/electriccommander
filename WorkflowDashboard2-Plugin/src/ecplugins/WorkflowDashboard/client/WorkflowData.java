@@ -1,4 +1,4 @@
-package ecplugins.workflowDashboard.client;
+package ecplugins.WorkflowDashboard.client;
 
 import com.electriccloud.commander.client.domain.Job;
 import com.electriccloud.commander.client.domain.Workflow;
@@ -10,7 +10,7 @@ import com.electriccloud.commander.client.domain.Workflow;
  * Time: 3:47 PM
  * To change this template use File | Settings | File Templates.
  */
-public class workflowData{
+public class WorkflowData{
     
     private boolean iCompletedWithSuccess;
     private boolean iManualTransition;
@@ -18,7 +18,7 @@ public class workflowData{
     private boolean iHasActiveJob;
     private boolean iHasActiveWorkflow;
 
-    workflowData(){
+    WorkflowData(){
         this.iCompletedWithSuccess=false;
         this.iAssociatedJob=null;
         this.iManualTransition=false;

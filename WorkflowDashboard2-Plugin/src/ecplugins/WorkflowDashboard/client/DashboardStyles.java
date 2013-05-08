@@ -1,4 +1,4 @@
-package ecplugins.workflowDashboard.client;
+package ecplugins.WorkflowDashboard.client;
 
 /**
  * Created by IntelliJ IDEA.

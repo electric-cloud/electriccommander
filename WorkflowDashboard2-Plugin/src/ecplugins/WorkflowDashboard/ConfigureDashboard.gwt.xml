@@ -1,5 +1,5 @@
 <module>
-    <entry-point class="ecplugins.workflowDashboard.client.configureDashboardFactory"/>
+    <entry-point class="ecplugins.WorkflowDashboard.client.ConfigureDashboardFactory"/>
     <inherits name="com.electriccloud.commander.gwt.ComponentBase"/>
     <inherits name="com.electriccloud.commander.CommanderClient"/>
     

@@ -1,4 +1,4 @@
-package ecplugins.workflowDashboard.client.events;
+package ecplugins.WorkflowDashboard.client.events;
 
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.SimpleEventBus;

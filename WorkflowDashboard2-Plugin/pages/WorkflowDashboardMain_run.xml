@@ -7,7 +7,7 @@
   -->
   <helpLink>help</helpLink>
 
-  <title>@PLUGIN_KEY@ @PLUGIN_VERSION@ configureDashboard Title</title>
+  <title>@PLUGIN_KEY@ @PLUGIN_VERSION@ Jobs Dashboard</title>
   <component plugin="@PLUGIN_KEY@" version="@PLUGIN_VERSION@"
-    ref="configureDashboard" />
+    ref="WorkflowDashboardMain" />
 </componentContainer>

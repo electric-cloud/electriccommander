@@ -1,13 +1,13 @@
 
-// configureDashboard.java --
+// ConfigureDashboard.java --
 //
-// configureDashboard.java is part of the QADashboard plugin.
+// ConfigureDashboard.java is part of the QADashboard plugin.
 //
 // Copyright (c) 2005-2010 Electric Cloud, Inc.
 // All rights reserved.
 //
 
-package ecplugins.workflowDashboard.client;
+package ecplugins.WorkflowDashboard.client;
 
 import com.electriccloud.commander.gwt.client.BrowserContext;
 import com.electriccloud.commander.client.ChainedCallback;
@@ -40,13 +40,13 @@ import java.util.Map;
  * Basic component that is meant to be cloned and then customized to perform a
  * real function.
  */
-public class configureDashboard
+public class ConfigureDashboard
         extends ComponentBase
 {
 
-    private static configureDashboardMainUiBinder uiBinder = GWT.create(
-            configureDashboardMainUiBinder.class);
-    interface configureDashboardMainUiBinder extends UiBinder<Widget, configureDashboard> {}
+    private static ConfigureDashboardMainUiBinder uiBinder = GWT.create(
+            ConfigureDashboardMainUiBinder.class);
+    interface ConfigureDashboardMainUiBinder extends UiBinder<Widget, ConfigureDashboard> {}
 
     interface Style extends CssResource {
         String evenRow();

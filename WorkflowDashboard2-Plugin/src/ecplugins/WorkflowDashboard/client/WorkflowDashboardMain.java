@@ -1,13 +1,13 @@
 
-// workflowDashboardMain.java --
+// WorkflowDashboardMain.java --
 //
-// workflowDashboardMain.java is part of the workflowDashboard plugin.
+// WorkflowDashboardMain.java is part of the WorkflowDashboard plugin.
 //
 // Copyright (c) 2005-2010 Electric Cloud, Inc.
 // All rights reserved.
 //
 
-package ecplugins.workflowDashboard.client;
+package ecplugins.WorkflowDashboard.client;
 
 import com.electriccloud.commander.client.ChainedCallback;
 import com.electriccloud.commander.gwt.client.ComponentBase;
@@ -28,9 +28,10 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 
-import ecplugins.workflowDashboard.client.events.WorkflowProcessedEvent;
+import ecplugins.WorkflowDashboard.client.events.WorkflowProcessedEvent;
+import ecplugins.WorkflowDashboard.client.events.WorkflowProcessedEventHandler;
+
 import com.google.gwt.event.shared.SimpleEventBus;
-import ecplugins.workflowDashboard.client.events.WorkflowProcessedEventHandler;
 
 
 import java.util.ArrayList;
@@ -44,13 +45,13 @@ import java.util.Map.Entry;
 * Basic component that is meant to be cloned and then customized to perform a
 * real function.
 */
-public class workflowDashboardMain
+public class WorkflowDashboardMain
     extends ComponentBase implements WorkflowProcessedEventHandler
 {
 
-    private static workflowDashboardMainUiBinder uiBinder = GWT.create(
-    		workflowDashboardMainUiBinder.class);
-    interface workflowDashboardMainUiBinder extends UiBinder<Widget, workflowDashboardMain> {}
+    private static WorkflowDashboardMainUiBinder uiBinder = GWT.create(
+    		WorkflowDashboardMainUiBinder.class);
+    interface WorkflowDashboardMainUiBinder extends UiBinder<Widget, WorkflowDashboardMain> {}
 
     interface Style extends CssResource {
         String evenRow();
@@ -78,7 +79,7 @@ public class workflowDashboardMain
     @UiField Label errorMessage;
     @UiField Anchor configureLink;
 
-    private workflowDashboardMain iThis;
+    private WorkflowDashboardMain iThis;
     
     private FindObjectsResponse iResponse;
     
@@ -218,16 +219,16 @@ public class workflowDashboardMain
 
     private void createConfigureLink(){
         HashMap<String,String> paramMap=new HashMap<String,String>();
-        String href="/commander/pages/ActiveWorkflowDashboard/configureDashboard_run?redirectTo="+CommanderUrlBuilder.createRedirectUrl().buildString();
+        String href="/commander/pages/ActiveWorkflowDashboard/ConfigureDashboard_run?redirectTo="+CommanderUrlBuilder.createRedirectUrl().buildString();
         paramMap.put("redirectTo", CommanderUrlBuilder.createRedirectUrl().buildString());
-        CommanderUrlBuilder url = CommanderUrlBuilder.createUrl("pages/workflowDashboard/configureDashboard_run");
+        CommanderUrlBuilder url = CommanderUrlBuilder.createUrl("pages/WorkflowDashboard/ConfigureDashboard_run");
         url.setParameters(paramMap);
         href=url.buildString();
         configureLink.setHref(href);
 
     }
     
-    private Anchor generateWorkflowCellImage(final Workflow wf,final workflowData wfData){
+    private Anchor generateWorkflowCellImage(final Workflow wf,final WorkflowData wfData){
         
         Image img=null;
         //first check if workflow is completed
@@ -297,7 +298,7 @@ public class workflowDashboardMain
         return htmlStatusIndicator.getHTML();
     }
 
-    private void processCurrentWorkflow(final Workflow wf, final workflowData wfData, final FlexTable ft, final int currentRowItem, final WorkflowStats wfStats1, final HTML htmlStatusIndicator,
+    private void processCurrentWorkflow(final Workflow wf, final WorkflowData wfData, final FlexTable ft, final int currentRowItem, final WorkflowStats wfStats1, final HTML htmlStatusIndicator,
                                         final Label avgCycleTimeContainer, final int successThreshold, final int errorThreshold){
 
 
@@ -543,7 +544,7 @@ public class workflowDashboardMain
                 //lblLastRun.setWordWrap(true);
                 for(final Workflow currentWorkflow:workflows){
 
-                    workflowData wfData = new workflowData();
+                    WorkflowData wfData = new WorkflowData();
                     //Window.alert(String.valueOf(wfData.getCompletedWithSuccess()));
                     //SimpleEventBus eventBus = new SimpleEventBus();
                     //WorkflowProcessedEvent.register(eventBus,this);

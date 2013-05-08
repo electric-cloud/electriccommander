@@ -1,4 +1,4 @@
-package ecplugins.workflowDashboard.client;
+package ecplugins.WorkflowDashboard.client;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.HTML;

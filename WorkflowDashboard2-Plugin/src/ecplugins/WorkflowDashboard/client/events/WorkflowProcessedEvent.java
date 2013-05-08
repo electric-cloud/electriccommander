@@ -1,8 +1,9 @@
-package ecplugins.workflowDashboard.client.events;
+package ecplugins.WorkflowDashboard.client.events;
 
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.SimpleEventBus;
-import ecplugins.workflowDashboard.client.WorkflowStats;
+
+import ecplugins.WorkflowDashboard.client.WorkflowStats;
 
 public class WorkflowProcessedEvent extends GwtEvent<WorkflowProcessedEventHandler> {
 
