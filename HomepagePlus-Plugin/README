@@ -1,0 +1,43 @@
+HomepagePlus-Plugin README
+==========================
+
+Overview
+--------
+
+This is a plugin project for eclipse that builds against Commander SDK 2.0.  It
+will not build with previous versions of the SDK.  The resulting plugin provides
+a new home page that includes a workflow launcher and a workflow dashboard.
+
+Quick Installation
+------------------
+
+* Download or pull the project from github
+* Import as a project into eclipse
+* Install Commander tools 4.2 or greater
+* Install and configure Commander SDK 2.0 or greater
+* Create your .classpath file based on the provided sample-classpath file
+* Build the project under eclipse
+* Deploy the plugin to Commander via eclipse
+* For production builds of this plugin:
+  Edit *.gwt.xml files and delete browser and locale limits.  These limits
+  have been specified in order to maximize development build speed.
+  Files to edit:
+    src/ecplugins/HomepagePlus/Configure.gwt.xml
+    src/ecplugins/HomepagePlus/RunTaskWorkflow.gwt.xml
+    src/ecplugins/HomepagePlus/HomeDashboard.gwt.xml
+
+Notes
+-----
+The configuration panel is not functional for this plugin yet.  I will display
+but serves no purpose.  The plugin does have parameters and they are stored in
+/myUser/userSettings/workflowConfigurations.  Review project/ec_setup.pl for an
+example of setting up workflowConfigurations given a project name, workflow
+definition name and a starting state.
+
+The sub tabs created via ec_setup.pl point to the WorkflowDashboard and
+JobsDashboard plugins without checking that these plugins are installed.
+
+Obtaining Help
+--------------
+
+Additional help is available through the http://ask.electric-cloud.com forum.

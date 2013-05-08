@@ -1,0 +1,99 @@
+<pageDefinition>
+<helpLink>/link/showHelp?page=home</helpLink>
+
+<componentContainer>
+<title>Home</title>
+<link href="../../lib/styles/Header.css" rel="stylesheet" type="text/css" />
+<link href="../../lib/styles/ColumnedSections.css" rel="stylesheet" type="text/css" />
+<link href="../../styles/JobsQuickView.css" rel="stylesheet" type="text/css" />
+
+<div class="frame_content">
+<!-- End StdFrame -->
+
+<!-- Start SubSection -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="subsection_table">
+  <tr>
+    <td class="subsection_topleft" />
+    <td class="subsection_top" style="width: 100%;" />
+
+    <td class="subsection_topright" />
+  </tr>
+  <tr>
+    <td class="subsection_middle_left"><img class="subsection_spacer" src="../../lib/images/clear.gif" alt="" width="6" height="6" /></td>
+    <td class="subsection_middle">
+<!-- Start of markup for Table 'table1' -->
+<table class="columnedSections_table" cellspacing="0" id="table1">
+  <tr id="table1_row1">
+    <td class="columnedSections_td" style="width: 33%;">
+         <component plugin="EC-Homepage" version="1.3.0.56373" ref="HomepageComponent" >
+             <class>HomepageJobConfiguration</class>
+             <editable>1</editable>
+                <configPath>/myUser/userSettings/jobConfigurations</configPath>
+        </component>
+
+         <component plugin="EC-Homepage" version="1.3.0.56373" ref="HomepageComponent" >
+                <class>HomepageJobConfiguration</class>
+                <title> </title>
+        </component>
+
+
+<div class="columnedSections_divider"> </div>
+         <component plugin="EC-Homepage" version="1.3.0.56373" ref="HomepageComponent" >
+                <class>HomepageShortcut</class>
+                <editable>1</editable>
+                <configPath>/myUser/userSettings/shortcuts</configPath>
+        </component>
+
+
+         <component plugin="EC-Homepage" version="1.3.0.56373" ref="HomepageComponent" >
+                <class>HomepageShortcut</class>
+                <title> </title>
+                <style>../../styles/JobStatus.css</style>
+                <style>../../styles/JobsQuickView.css</style>
+        </component>
+
+</td>
+    <td class="columnedSections_td" style="width: 66%;">
+        <component plugin="EC-Homepage" version="1.3.0.56373" ref="HomepageComponent" >
+                        <class>HomepageQuickView</class>
+                        <title>Jobs Quick View</title>
+                        <editable>1</editable>
+                        <configPath>/myUser/userSettings/jobsQuickView</configPath>
+        </component>
+        <component plugin="EC-Homepage" version="1.3.0.56373" ref="HomepageComponent" >
+                        <class>HomepageQuickView</class>
+                        <title> </title>
+        </component>
+
+</td>
+    <td class="columnedSections_td" style="border-right:none">
+        <component plugin="EC-Reports" ref="DashboardReports" >
+            <configPath>/myUser/userSettings/dashboardReports</configPath>
+            <configurable>1</configurable>
+        </component>
+         <component plugin="EC-Reports" ref="DashboardReports" >
+            <title> </title>
+        </component>
+
+</td>
+  </tr>
+</table>
+<!-- End of markup for Table 'table1' -->
+
+</td>
+    <td class="subsection_middle_right"><img class="subsection_spacer" src="../../lib/images/clear.gif" alt="" width="6" height="6" /></td>
+
+  </tr>
+  <tr>
+    <td class="subsection_bottomleft" />
+    <td class="subsection_bottom" style="width: 100%;" />
+    <td class="subsection_bottomright" />
+  </tr>
+</table>
+<!-- End SubSection -->
+</div>
+
+
+</componentContainer>
+</pageDefinition>
+
