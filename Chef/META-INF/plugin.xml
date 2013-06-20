@@ -2,7 +2,7 @@
 
 <plugin>
 	<key>ChefCommander</key>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<label>Chef Commander EC2 Examples</label>
 	<description>A Project Illustrating the use of Opcode Chef and Commander together</description>
 	<vendor>Electric Cloud</vendor>

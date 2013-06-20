@@ -1,0 +1,25 @@
+<helpDefinition>
+<title>HomepagePlus Help</title>
+<componentContainer>
+<h2>HomepagePlus Help</h2>
+<h3>Overview</h3>
+<p>HomepagePlus adds a workflow panel and workflow launcher in addition to existing EC-Homepage functionality
+</p>
+<p>This plugin has the following pages:</p>
+<blockquote>
+<p><a href="devDashboard">Homepage with workflow</a></p>
+</blockquote>
+
+<h3><a href="configure">Configure</a></h3>
+<blockquote>
+<p><a href="configure">Configure</a></p>
+</blockquote>
+
+<!--
+<h3>Narrative</h3>
+<blockquote>
+<p><a href="/commander/plugins/Demo-PrivateDevelopmentCloud/docs/Demo-PrivateDevelopmentCloud-narrative.doc">Sample/inspirational narrative</a></p>
+</blockquote>
+-->
+</componentContainer>
+</helpDefinition>

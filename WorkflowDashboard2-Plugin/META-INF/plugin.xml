@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <key>@PLUGIN_KEY@</key>
+    <version>@PLUGIN_VERSION@</version>
+    <label>@PLUGIN_KEY@</label>
+    <description>Dashboard displaying an overview of recently run workflows.</description>
+
+    <!-- If the plugin has a configure page, declare it here.  This will show up as a Configure link for this plugin on the Plugins page. 
+    <configure>configure.xml</configure>
+    -->
+    
+    <!-- If the plugin has a help page, declare it here.  This will show up as a Help link for this plugin on the Plugins page. -->
+    <help>help.xml</help>
+    
+    <!-- Plugin author information. -->
+    <author>PS</author>
+    <authorUrl/>
+    
+    <commander-version min="3.6"/>
+    
+    <!-- Specify a category for this plugin; this is used in filtered lists in the Plugin Manager.
+         Typically, it is set to System or Step.
+     -->
+    <category>UI</category>
+    <components>
+        <component name="WorkflowDashboardMain">
+            <javascript>war/ecplugins.WorkflowDashboard.WorkflowDashboardMain/ecplugins.WorkflowDashboard.WorkflowDashboardMain.nocache.js</javascript>
+        </component>
+        <component name="ConfigureDashboard">
+            <javascript>war/ecplugins.WorkflowDashboard.ConfigureDashboard/ecplugins.WorkflowDashboard.ConfigureDashboard.nocache.js</javascript>
+        </component>
+    </components>
+</plugin>
+
+

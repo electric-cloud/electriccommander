@@ -1,0 +1,111 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <ui:style type='ecplugins.WorkflowDashboard.client.ConfigureDashboard.Style'>
+
+        .topPanel {
+            width: 100%;
+        }
+        .vPanel {
+            width: 100%;
+        }
+        .labels{
+            width: 30ex;
+        }
+        .textEntry{
+            width: 40ex;
+        }
+
+        .vPanel>tbody>tr>td {
+            color: #333333;
+            padding: 3px 6px;
+            vertical-align: top;
+        }
+        .important {
+            font-weight: bold;
+        }
+        .link {
+            text-align: right;
+        }
+        .panelPadding {
+            padding: 5px;
+        }
+        @external evenRow;
+        .evenRow {
+            background: #DEDEE4;
+        }
+        @external oddRow;
+        .oddRow {
+            background: #F1F1F4;
+        }
+        @external h2;
+        .h2 {
+            font-size: 127%;
+            font-weight: bold;
+            color: #687291;
+        }
+
+        .headerRow {
+            background-image: url("/commander/lib/images/bg_listviewheader.gif");
+            background-position: center top;
+            background-repeat: repeat-x;
+            border-bottom: 2px solid #BCBEC4;
+            border-right: 1px solid #BCBEC4;
+            color: #333333;
+            vertical-align: top;
+            text-align: center;
+            white-space: nowrap;
+            padding: 3px;
+        }
+    </ui:style>
+
+    <g:VerticalPanel width="100%">
+        <g:Label styleName="{style.h2}">Dashboard Configuration</g:Label>
+        <g:DecoratorPanel width="100%">
+            <g:VerticalPanel>
+                <g:Label styleName="{style.h2}">General</g:Label>
+                <g:HorizontalPanel styleName="{style.panelPadding}">
+                    <g:Label styleName="{style.labels}">Dashboard Title</g:Label>
+                    <g:TextBox ui:field="dashboardTitle" styleName="{style.textEntry}">Workflow Dashboard</g:TextBox>
+                </g:HorizontalPanel>
+                <g:HorizontalPanel styleName="{style.panelPadding}">
+                    <g:Label styleName="{style.labels}">Project Column Header</g:Label>
+                    <g:TextBox ui:field="col1Header" styleName="{style.textEntry}">Project</g:TextBox>
+                </g:HorizontalPanel>
+                <g:HorizontalPanel styleName="{style.panelPadding}">
+                    <g:Label styleName="{style.labels}">Workflow Column Header</g:Label>
+                    <g:TextBox ui:field="col2Header" styleName="{style.textEntry}">Workflow</g:TextBox>
+                </g:HorizontalPanel>
+                <g:HorizontalPanel styleName="{style.panelPadding}">
+                    <g:Label styleName="{style.labels}">History</g:Label>
+                    <g:TextBox ui:field="history" styleName="{style.textEntry}">10</g:TextBox>
+                </g:HorizontalPanel>
+                <g:HorizontalPanel styleName="{style.panelPadding}">
+                    <g:Label styleName="{style.labels}">Success Threshold</g:Label>
+                    <g:TextBox ui:field="successThreshold" styleName="{style.textEntry}">60</g:TextBox>
+                </g:HorizontalPanel>
+                <g:HorizontalPanel styleName="{style.panelPadding}">
+                    <g:Label styleName="{style.labels}">Error Threshold</g:Label>
+                    <g:TextBox ui:field="errorThreshold" styleName="{style.textEntry}">30</g:TextBox>
+                </g:HorizontalPanel>
+                <g:HorizontalPanel styleName="{style.panelPadding}">
+                    <g:Label styleName="{style.labels}">Refresh Rate (seconds)</g:Label>
+                    <g:TextBox ui:field="refresh" styleName="{style.textEntry}">30</g:TextBox>
+                </g:HorizontalPanel>
+                <g:Label styleName="{style.h2}">Select Projects and Workflows to monitor</g:Label>
+                <g:DecoratorPanel>
+                    <g:ScrollPanel height="400px" width="120ex">
+                        <g:Tree ui:field="treeView" visible="true" />
+                    </g:ScrollPanel>
+                </g:DecoratorPanel>
+                <g:HorizontalPanel>
+                    <g:Button ui:field="btnSave">Save</g:Button>
+                    <g:Button ui:field="btnCancel">Cancel</g:Button>
+                </g:HorizontalPanel>
+            </g:VerticalPanel>
+        </g:DecoratorPanel>
+        <g:FlexTable ui:field="dashboardPanel" visible="true" width="100%"/>
+    </g:VerticalPanel>
+</ui:UiBinder>
+

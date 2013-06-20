@@ -1,0 +1,20 @@
+<project name="HomepagePlus" default="package" basedir=".">
+  <description>
+    Build the HomepagePlus plugin
+  </description>
+
+  <!-- plugin specific properties -->
+  <property name="pluginKey" value="HomepagePlus" />
+  <property name="pluginVersion" value="1.0.0" />
+  <property name="gwtModules" value="ecplugins.HomepagePlus.Configure,ecplugins.HomepagePlus.RunTaskWorkflow,ecplugins.HomepagePlus.HomeDashboard" />
+
+  <path id="extras">
+    <!-- Add extra jars that need to be in the classpath for building the 
+        plugin here. For example:
+           <pathelement location="../../lib/smartgwt.jar"/>
+    -->
+  </path>
+  <property name="gwt.path.extras" value="extras" />
+
+  <import file="/opt/CommanderSDK/build/buildTargets.xml" />
+</project>

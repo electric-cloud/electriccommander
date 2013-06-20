@@ -1,0 +1,45 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <ui:style type='ecplugins.HomepagePlus.client.Dashboard.HomeDashboard.Style'>
+    
+        .topPanel {
+            width: 100%;
+        }
+        .vPanel {
+            width: 100%;
+        }
+        .vPanel>tbody>tr>td {
+            color: #333333;
+            padding: 3px 6px;
+            vertical-align: top;
+        }
+        .important {
+            font-weight: bold;
+        }
+        @external evenRow;
+        .evenRow {
+            background: #DEDEE4;
+        }
+        @external oddRow;
+        .oddRow {
+            background: #F1F1F4;
+        }
+        .headerRow {
+            background-image: url("/commander/lib/images/bg_listviewheader.gif");
+            background-position: center top;
+            background-repeat: repeat-x;
+            border-bottom: 2px solid #BCBEC4;
+            border-right: 1px solid #BCBEC4;
+            color: #333333;
+            vertical-align: top;
+                    text-align: left;
+            white-space: nowrap;
+            padding: 3px;
+        }
+    </ui:style>    
+<g:VerticalPanel styleName="{style.topPanel}">
+    <g:SimplePanel ui:field="loadingPanel" styleName="{style.vPanel}"><g:Label>Loading...</g:Label></g:SimplePanel>
+    <g:FlexTable ui:field="dashboardPanel" styleName="{style.vPanel}" visible="false"/>
+</g:VerticalPanel>
+</ui:UiBinder>

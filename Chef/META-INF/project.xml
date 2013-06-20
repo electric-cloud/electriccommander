@@ -8,6 +8,76 @@
     <workspaceName></workspaceName>
     <propertySheet>
       <property>
+        <propertyName>rolesList</propertyName>
+        <propertySheet>
+          <property>
+            <propertyName>option1</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>text</propertyName>
+                <expandable>1</expandable>
+                <value>base</value>
+              </property>
+              <property>
+                <propertyName>value</propertyName>
+                <expandable>1</expandable>
+                <value>base</value>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>option2</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>text</propertyName>
+                <expandable>1</expandable>
+                <value>dbapp</value>
+              </property>
+              <property>
+                <propertyName>value</propertyName>
+                <expandable>1</expandable>
+                <value>dbapp</value>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>option3</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>text</propertyName>
+                <expandable>1</expandable>
+                <value>dbapp_database_master</value>
+              </property>
+              <property>
+                <propertyName>value</propertyName>
+                <expandable>1</expandable>
+                <value>dbapp_database_master</value>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>option4</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>text</propertyName>
+                <expandable>1</expandable>
+                <value>dbapp_load_balancer</value>
+              </property>
+              <property>
+                <propertyName>value</propertyName>
+                <expandable>1</expandable>
+                <value>dbapp_load_balancer</value>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>optionCount</propertyName>
+            <expandable>1</expandable>
+            <value>4</value>
+          </property>
+        </propertySheet>
+      </property>
+      <property>
         <propertyName>colonEqualValuePairs</propertyName>
         <description>Postp to automatically create properties from step output; colon and equal-sign name-value pairs mapped to properties/values.</description>
         <expandable>1</expandable>
@@ -22,7 +92,7 @@
         <propertyName>version</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>1.1.0</value>
+        <value>1.2.0</value>
       </property>
     </propertySheet>
     <procedure>
@@ -239,8 +309,80 @@
       </step>
     </procedure>
     <procedure>
-      <procedureName>2. Push role to node</procedureName>
-      <description>Example of assigning a node a particular role.  Role is a parameter, default value "base".  See Chef Server &gt; Roles for other available values.</description>
+      <procedureName>2. Update Role List</procedureName>
+      <description>Query tempChef for the list of defined Roles, then update a property structure that is used as the basis for a dropdown list that the user can select from.&#10;Run this procedure before running the apply role procedure.</description>
+      <jobNameTemplate>$[/myProject/projectName]::$[/myProcedure/procedureName]::$[/myJob/jobId]</jobNameTemplate>
+      <resourceName>Chef Workstation</resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>ProjectToUpdate</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>PropertyPathToUpdate</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>PropertyPathToUpdate</formalParameterName>
+        <defaultValue>/myProject/rolesList</defaultValue>
+        <description></description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>Get Roles from tempChef</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>use strict;&#10;use ElectricCommander;&#10;$| = 1;&#10;my $ec = new ElectricCommander;&#10;&#10;# Get the property path to write the role selection to&#10;my $propPath = "$[PropertyPathToUpdate]";&#10;&#10;my $rolesList = `knife role list -c ~/chef-repo/.chef/knife.rb`;&#10;&#10;my @roles = split /\n/, $rolesList;&#10;# Get the count of the number of roles&#10;my $numRoles = @roles;&#10;&#10;&#10;print "The list of roles is: @roles\n";&#10;print "There are $numRoles roles\n";&#10;&#10;# Write out the optionCount property&#10;$ec-&gt;setProperty("$propPath" . "/optionCount", $numRoles);&#10;&#10;my $optionCount = 1;&#10;foreach my $role (@roles){&#10;  $role =~ s/^\s+//;&#10;  # Write out the /text and /value properties under each option&#10;  $ec-&gt;setProperty("$propPath" . "/option" . "$optionCount" . "/text", "$role");&#10;  $ec-&gt;setProperty("$propPath" . "/option" . "$optionCount" . "/value", "$role");&#10;  $optionCount++;&#10;}&#10;</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>3. Push role to node</procedureName>
+      <description>Example of assigning a node a particular role.  Role is pull-down parameter that is populated by the "Update Role List"; run that procedure before this one.</description>
       <jobNameTemplate>Push_role_$[role]_to_node_$[/myJob/jobId]</jobNameTemplate>
       <resourceName>Chef Workstation</resourceName>
       <timeLimit></timeLimit>
@@ -267,6 +409,21 @@
                   <propertyName>role</propertyName>
                   <propertySheet>
                     <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>propertyPath</propertyName>
+                          <expandable>1</expandable>
+                          <value>$[/myProject/rolesList]</value>
+                        </property>
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>entry</value>
+                        </property>
+                      </propertySheet>
+                    </property>
+                    <property>
                       <propertyName>formType</propertyName>
                       <expandable>1</expandable>
                       <value>standard</value>
@@ -288,11 +445,11 @@
       </formalParameter>
       <formalParameter>
         <formalParameterName>role</formalParameterName>
-        <defaultValue>base</defaultValue>
+        <defaultValue></defaultValue>
         <description>Chef role to push out to node.</description>
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
-        <type>entry</type>
+        <type>select</type>
       </formalParameter>
       <step>
         <stepName>command line knife</stepName>
@@ -448,7 +605,197 @@
       </step>
     </procedure>
     <procedure>
-      <procedureName>3. Push recipe to node</procedureName>
+      <procedureName>3. Push role to node copy</procedureName>
+      <description>Example of assigning a node a particular role.  Role is a parameter, default value "base".  See Chef Server &gt; Roles for other available values.</description>
+      <jobNameTemplate>Push_role_$[role]_to_node_$[/myJob/jobId]</jobNameTemplate>
+      <resourceName>Chef Workstation</resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>seconds</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>node</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>role</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>propertyPath</propertyName>
+                          <expandable>1</expandable>
+                          <value>$[/myProject/rolesList]</value>
+                        </property>
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>entry</value>
+                        </property>
+                      </propertySheet>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>node</formalParameterName>
+        <defaultValue></defaultValue>
+        <description></description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>role</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Chef role to push out to node.</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>select</type>
+      </formalParameter>
+      <step>
+        <stepName>command line knife</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>cd ~/chef-repo/.chef&#10;knife node list</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell></shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Push Role</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>knife node run_list add $[node] role[$[/javascript myJob.role.trim()]] --config ~/chef-repo/.chef/knife.rb</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell></shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Run Chef Client on Node</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <parallel>0</parallel>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName>$[node]</resourceName>
+        <subprocedure>RunChefClient</subprocedure>
+        <subproject>/plugins/EC-Chef/project</subproject>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workspaceName></workspaceName>
+        <actualParameters>
+          <property>
+            <propertyName>additional_commands</propertyName>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>chef_client_path</propertyName>
+            <expandable>1</expandable>
+            <value>/usr/bin/chef-client</value>
+          </property>
+          <property>
+            <propertyName>chef_server_url</propertyName>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>configuration_file</propertyName>
+            <expandable>1</expandable>
+            <value>/etc/chef/client.rb</value>
+          </property>
+          <property>
+            <propertyName>daemonize</propertyName>
+            <expandable>1</expandable>
+            <value>0</value>
+          </property>
+          <property>
+            <propertyName>interval</propertyName>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>json_attributes_definition</propertyName>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>log_level</propertyName>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>node_name</propertyName>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>replace_current_run_list</propertyName>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+        </actualParameters>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>4. Push recipe to node</procedureName>
       <description>Example of pushing a recipe out to a node.  Recipe is a parameter, default value "git".  See Chef Server &gt; Cookbooks for other available values.</description>
       <jobNameTemplate>Push_recipe_$[recipe]_to_node_$[/myJob/jobId]</jobNameTemplate>
       <resourceName>Chef Workstation</resourceName>
@@ -667,7 +1014,7 @@
       </step>
     </procedure>
     <procedure>
-      <procedureName>4. Query Server about a node</procedureName>
+      <procedureName>5. Query Server about a node</procedureName>
       <description>Example Chef Workstation Commands&#10;- List nodes&#10;- Get attributes from a node</description>
       <jobNameTemplate>Query_attribute_$[attribute]_from_node_$[node]_$[/myJob/jobId]</jobNameTemplate>
       <resourceName>Chef Workstation</resourceName>
@@ -770,7 +1117,7 @@
       </step>
     </procedure>
     <procedure>
-      <procedureName>5. Delete VM</procedureName>
+      <procedureName>6. Delete VM</procedureName>
       <description>RUN ME - Top level Procedure&#10;&#10;Delete VM&#10;Remove Node from Chef Server&#10;Remove Client from Chef Server&#10;Delete EC Resource</description>
       <jobNameTemplate>Delete_EC_Chef_VM_$[nodeName]_$[/myJob/jobId]</jobNameTemplate>
       <resourceName>Chef Workstation</resourceName>

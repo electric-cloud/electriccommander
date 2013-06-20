@@ -1,0 +1,11 @@
+This project includes a few examples of postp scripts to help you with your
+postprocessing needs. All those example are to be used with the --load option:
+postp --load fileName
+
+Look at the "Postprocessors: Collecting Data for Reports" chapter in the documentation for more details.
+
+List of examples detailled below:
+----------------------------------
+
+ training.pl: This is the example extracted from the training offered by Electric Cloud.
+
