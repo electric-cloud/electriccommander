@@ -7,7 +7,7 @@ job, it won't be deleted now matter how old. A report only mode
 prevents any real deletion.
 
 artifactsCleanup: procedure to delete artifacts older than a specified number
-of days.Same as above, a porperty allows to prevent deletion. Once the
+of days. Same as above, a property allows to prevent deletion. Once the
 artifacts have been deleted, artifact repositories and artifact caches are
 cleaned as well (deleting stale artifacts).  A report only mode prevents any
 real deletion.

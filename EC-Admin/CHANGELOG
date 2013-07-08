@@ -1,0 +1,15 @@
+version 1.3:
+    + New procedure to delete jobs by results
+    + New parameter to cleanupJobs to skip jobs matching a pattern
+
+version 1.2:  
+    + New  performance diagnostic procedure
+    + provide a getP Perl function for easy getProperty
+    + New procedure to delete workspace orphan job directories
+
+version 1.1: 
+      semaphore management
+      saveProjects
+
+version 1.0: 
+      initial version including job and artifact management

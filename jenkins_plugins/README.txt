@@ -9,6 +9,10 @@ ectool login <user> <passwd>
 ectool loadPlugin  jenkins.jar
 ectool promotePlugin jenkins-1.0
 
+In addition to the plugin, a script (jk2EC.pl) is provided to convert a
+Jenkins build into Commander Objects. Run "jk2EC.pl -help" for usage
+information.
+
 Contact author: 
   Laurent Rochette (lrochette@electric-cloud.com) 
 
