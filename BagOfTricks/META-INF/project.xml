@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="55" buildLabel="build_4.1_50466_2012.05.09_07:40:23" buildVersion="4.1.0.50466" passkey="b1616d489bb1a96ca56bfa4fd4b23742e9146bf7">
+<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="61" buildLabel="build_main_58126_2013.03.19_12:32:59" buildVersion="4.2.1.58126" passkey="cb85daf6c6c41526f585d4a0fa5aef59849306cc">
   <exportPath>/projects/Bag of Tricks</exportPath>
   <project>
     <projectName>Bag of Tricks</projectName>
@@ -17,7 +17,7 @@
         <propertyName>version</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>1.1.2</value>
+        <value>1.4.0</value>
       </property>
     </propertySheet>
     <procedure>
@@ -45,6 +45,16 @@
                 </property>
                 <property>
                   <propertyName>commitComment</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>email</propertyName>
                   <propertySheet>
                     <property>
                       <propertyName>formType</propertyName>
@@ -198,6 +208,14 @@
         <type>entry</type>
       </formalParameter>
       <formalParameter>
+        <formalParameterName>email</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Your email address</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
         <formalParameterName>gitPass</formalParameterName>
         <defaultValue></defaultValue>
         <description>Github electriccommunity / electriccommander password</description>
@@ -228,6 +246,14 @@
         <expansionDeferred>0</expansionDeferred>
         <required>1</required>
         <type>radio</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>username</formalParameterName>
+        <defaultValue></defaultValue>
+        <description></description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
       </formalParameter>
       <step>
         <stepName>Increment Version</stepName>
@@ -425,7 +451,7 @@
         <stepName>Post to Github</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>cd electriccommander&#10;git add BagOfTricks&#10;git commit -m "$[commitComment]"&#10;git remote rm origin&#10;git remote add origin https://$[gitUser]:$[gitPass]@github.com/electriccommunity/electriccommander&#10;git push origin master</command>
+        <command>git config --global user.email "$[email]"&#10;git config --global user.name "$[username]"&#10;cd electriccommander&#10;git add BagOfTricks&#10;git commit -m "$[commitComment]"&#10;git remote rm origin&#10;git remote add origin https://$[gitUser]:$[gitPass]@github.com/electriccommunity/electriccommander&#10;git push origin master</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
@@ -433,6 +459,7 @@
         <logFileName></logFileName>
         <parallel>0</parallel>
         <postProcessor></postProcessor>
+        <precondition></precondition>
         <releaseMode>none</releaseMode>
         <resourceName></resourceName>
         <shell></shell>
@@ -451,6 +478,109 @@
               </property>
             </propertySheet>
           </property>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>Install all plugins</procedureName>
+      <description>Compares the currently installed list of plugins to those available at plugins.electric-cloud.com, then installs and promotes the missing ones.</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName>local</resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+      </propertySheet>
+      <step>
+        <stepName>Get current list of plugins</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>use strict;&#10;use ElectricCommander ();&#10;$| = 1;&#10;my $ec = new ElectricCommander-&gt;new();&#10;my $pluginList = '';&#10;for my $installedPluginXml ($ec-&gt;getPlugins()-&gt;find("//pluginKey")-&gt;get_nodelist) {&#10;	$pluginList .= $installedPluginXml-&gt;string_value() . "\n";&#10;    print $installedPluginXml-&gt;string_value() . "\n";&#10;};&#10;$ec-&gt;createProperty('/myJob/installedPlugins', {value =&gt; $pluginList});</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Get available list of plugins</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>use strict;&#10;use ElectricCommander ();&#10;$| = 1;&#10;my $ec = new ElectricCommander-&gt;new();&#10;&#10;use XML::Simple;&#10;#use Data::Dumper;&#10;use LWP::Simple;&#10;&#10;# Available plugins&#10;my $data = new XML::Simple-&gt;XMLin(get("http://plugins.electric-cloud.com/catalog/catalog.xml"));&#10;my $index=0;&#10;my $pluginList = '';&#10;while ($data-&gt;{plugin}-&gt;[$index]-&gt;{pluginKey}) {&#10;        my $pluginKey = $data-&gt;{plugin}-&gt;[$index]-&gt;{pluginKey};&#10;        my $downloadUrl = $data-&gt;{plugin}-&gt;[$index]-&gt;{downloadUrl};&#10;        $pluginList .= $pluginKey . "," . $downloadUrl . "\n";&#10;        $index++;&#10;        }&#10;$ec-&gt;createProperty('/myJob/availablePlugins', {value =&gt; $pluginList});</command>
+        <condition></condition>
+        <description>Get list of plugins from plugin.electric-cloud.com</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>List missing plugins</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>use strict;&#10;use ElectricCommander ();&#10;$| = 1;&#10;my $ec = new ElectricCommander-&gt;new();&#10;&#10;my @availablePlugins = split('\n',q($[/myJob/availablePlugins])); # pluginKey,downloadUrl&#10;my @installedPlugins = split('\n',q($[/myJob/installedPlugins]));&#10;&#10;my $pluginInstalled = 0;&#10;my $pluginList = '';&#10;&#10;foreach my $availablePluginLine (@availablePlugins) {&#10;	$availablePluginLine =~ /^(.*),(.*)$/;&#10;	my $availablePlugin =  $1; # Grab the pluginKey&#10;&#10;	foreach my $installedPlugin (@installedPlugins) {&#10;    	if ($availablePlugin eq $installedPlugin) {&#10;			$pluginInstalled = 1; # Installed plugin matched to the available plugin&#10;			last; # Don't bother checking if an installed plugin has been found&#10;		}&#10;	}&#10;	if ($pluginInstalled != 1) {&#10;		$pluginList .= $availablePluginLine . "\n";&#10;		print $availablePluginLine,"\n";&#10;	}&#10;	$pluginInstalled = 0;&#10;}&#10;$ec-&gt;createProperty('/myJob/missingPlugins', {value =&gt; $pluginList});&#10;</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Install missing plugins</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>use strict;&#10;use ElectricCommander ();&#10;$| = 1;&#10;my $ec = new ElectricCommander-&gt;new();&#10;&#10;my @missingPlugins = split('\n',q($[/myJob/missingPlugins]));&#10;&#10;foreach my $missingPluginLine (@missingPlugins) {&#10;	$missingPluginLine =~ /^(.*),(.*)$/;&#10;	my $missingPlugin = $1;&#10;	my $missingPluginUrl = $2;&#10;	&#10;	if &#10;		(&#10;		$missingPlugin ne "EC-CreateProcedureWizard" &amp;&amp;  # Old plugin&#10;		$missingPlugin ne "EC-Sendmail" &amp;&amp; # Broken link&#10;		$missingPlugin ne "EC-Welcome" &amp;&amp; # Dependency issue&#10;		$missingPlugin ne "Plotter-1.0" &amp;&amp; # Old plugin&#10;		$missingPlugin ne "Q" &amp;&amp; # Old plugin&#10;		$missingPlugin ne "SupportAssistant" &amp;&amp; # Old plugin&#10;		$missingPlugin ne "WatchTower" &amp;&amp; # Old plugin&#10;		'a' ne 'b'&#10;		)&#10;		{&#10;		print "Installing $missingPlugin from $missingPluginUrl\n";&#10;		$ec-&gt;installPlugin($missingPluginUrl)&#10;			or die "Could not install $missingPlugin.\n";&#10;		# Get full name/version of plugin.  Assume only one version installed.&#10;		my $promoteName =&#10;				$ec-&gt;getPlugins-&gt;find("//projectName[../pluginKey = '$missingPlugin']")-&gt;string_value;&#10;		print "Promoting $promoteName.\n";&#10;		$ec-&gt;promotePlugin("$promoteName")&#10;		or die "Failed to promote $missingPlugin.\n";&#10;	}&#10;}&#10;</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
         </propertySheet>
       </step>
     </procedure>

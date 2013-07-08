@@ -1,0 +1,13 @@
+<componentContainer>
+  <!--
+    The helpLink element points to a page containing help text. This
+    shows up as the target of the EC Help link in the top-right corner
+    of the page. If you don't have page-specific help for this page, you
+    should point this to the plugin help page.
+  -->
+  <helpLink>help</helpLink>
+
+  <title>@PLUGIN_KEY@ @PLUGIN_VERSION@ ConfigureDashboard Title</title>
+  <component plugin="@PLUGIN_KEY@" version="@PLUGIN_VERSION@"
+    ref="ConfigureDashboard" />
+</componentContainer>

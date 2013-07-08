@@ -19,6 +19,12 @@ Quick Installation
 * Create your .classpath file based on the provided sample-classpath file
 * Build the project under eclipse
 * Deploy the plugin to Commander via eclipse
+* For production builds of this plugin:
+  Edit *.gwt.xml files and delete browser and locale limits.  These limits
+  have been specified in order to maximize development build speed.
+  Files to edit:
+    src/ecplugins/WorkflowDashboard/WorkflowDashboardMain.gwt.xml
+    src/ecplugins/WorkflowDashboard/ConfigureDashboard.gwt.xml
 
 Obtaining Help
 --------------

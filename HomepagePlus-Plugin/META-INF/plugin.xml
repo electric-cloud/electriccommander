@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <key>@PLUGIN_KEY@</key>
+    <version>@PLUGIN_VERSION@</version>
+    <label>@PLUGIN_KEY@</label>
+    <description>Optional home page replacement with workflow panel</description>
+
+    <!-- If the plugin has a configure page, declare it here.  This will show up as a Configure link for this plugin on the Plugins page. --> 
+    <configure>configure.xml</configure>
+    
+    <!-- If the plugin has a help page, declare it here.  This will show up as a Help link for this plugin on the Plugins page. -->
+    <help>help.xml</help>
+    
+    <!-- Plugin author information. -->
+    <author>Electric Cloud</author>
+    <authorUrl>plugins@electric-cloud.com</authorUrl>
+    <vendor>Electric Cloud</vendor>
+    <!-- <depends>Demo-SystemTest</depends> -->
+    <commander-version min="4.2"/>
+    
+    <!-- Specify a category for this plugin; this is used in filtered lists in the Plugin Manager.
+         Typically, it is set to System or Step.
+     -->
+    <category>PS</category>
+    <components>
+        <component name="HomeDashboard">
+            <javascript>war/ecplugins.HomepagePlus.HomeDashboard/ecplugins.HomepagePlus.HomeDashboard.nocache.js</javascript>
+        </component>
+        <component name="RunTaskWorkflow">
+            <javascript>war/ecplugins.HomepagePlus.RunTaskWorkflow/ecplugins.HomepagePlus.RunTaskWorkflow.nocache.js</javascript>
+        </component>
+        <component name="Configure">
+            <javascript>war/ecplugins.HomepagePlus.Configure/ecplugins.HomepagePlus.Configure.nocache.js</javascript>
+        </component>
+    </components>
+</plugin>

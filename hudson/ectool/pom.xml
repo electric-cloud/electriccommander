@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jvnet.hudson.plugins</groupId>
+        <artifactId>hudson-plugin-parent</artifactId>
+        <version>2.1.2</version><!-- which version of Hudson is this plugin built against? -->
+    </parent>
+
+    <groupId>com.electric.cloud.plugins.hudson</groupId>
+    <artifactId>ectool</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Electric Cloud ectool</name>
+    <packaging>hpi</packaging>
+
+    <issueManagement>
+        <system>To be determined...</system>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>Marco</id>
+            <name>Marco A. Morales</name>
+            <email>mmorales@electric-cloud.com</email>
+            <roles>
+            	<role>Systems Engineer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <organization>
+        <name>Electric Cloud</name>
+        <url>http://www.electric-cloud.com/</url>
+    </organization>
+
+    <scm>
+        <connection>scm:svn:svn://cybertron/marco/trunk/code/ec/hudson/ectool</connection>
+        <developerConnection>scm:svn:svn://cybertron/marco/trunk/code/ec/hudson/ectool</developerConnection>
+        <url>svn://cybertron/marco/trunk/code/ec/hudson/ectool</url>
+    </scm>
+
+    <ciManagement>
+        <system>Electric Commander 4.1</system>
+        <url>http://commander</url>
+    </ciManagement>
+
+    <build>
+    	<pluginManagement>
+    		<plugins>
+    			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+    			<plugin>
+    				<groupId>org.eclipse.m2e</groupId>
+    				<artifactId>lifecycle-mapping</artifactId>
+    				<version>1.0.0</version>
+    				<configuration>
+    					<lifecycleMappingMetadata>
+    						<pluginExecutions>
+    							<pluginExecution>
+    								<pluginExecutionFilter>
+    									<groupId>
+    										org.jvnet.hudson.tools
+    									</groupId>
+    									<artifactId>
+    										maven-hpi-plugin
+    									</artifactId>
+    									<versionRange>
+    										[2.1.0,)
+    									</versionRange>
+    									<goals>
+    										<goal>apt-compile</goal>
+    										<goal>
+    											resolve-test-dependencies
+    										</goal>
+    										<goal>insert-test</goal>
+    										<goal>test-hpl</goal>
+    									</goals>
+    								</pluginExecutionFilter>
+    								<action>
+    									<ignore></ignore>
+    								</action>
+    							</pluginExecution>
+    							<pluginExecution>
+    								<pluginExecutionFilter>
+    									<groupId>org.kohsuke</groupId>
+    									<artifactId>
+    										access-modifier-checker
+    									</artifactId>
+    									<versionRange>
+    										[1.0,)
+    									</versionRange>
+    									<goals>
+    										<goal>enforce</goal>
+    									</goals>
+    								</pluginExecutionFilter>
+    								<action>
+    									<ignore></ignore>
+    								</action>
+    							</pluginExecution>
+    						</pluginExecutions>
+    					</lifecycleMappingMetadata>
+    				</configuration>
+    			</plugin>
+    		</plugins>
+    	</pluginManagement>
+    </build>
+</project>

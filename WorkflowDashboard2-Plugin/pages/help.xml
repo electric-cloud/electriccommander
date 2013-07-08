@@ -9,12 +9,12 @@
   "content-type" />
   <title>Workflows Dashboard Help</title>
   <body>
-    <LINK REL="StyleSheet" HREF="../../plugins/workflowDashboard/pluginhelp.css" TYPE="text/css" MEDIA="screen"/>
+    <LINK REL="StyleSheet" HREF="../../plugins/WorkflowDashboard/pluginhelp.css" TYPE="text/css" MEDIA="screen"/>
     	<div class="help">
         <p>
-    	<a href="workflowDashboardMain_run">Workflows Dashboard</a>
+    	<a href="WorkflowDashboardMain_run">Workflows Dashboard</a>
   		</p>
-		<p><a href="configureDashboard_run">Configure Dashboard</a></p>
+		<p><a href="ConfigureDashboard_run">Configure Dashboard</a></p>
         <h1 class="help" id="Workflowdashboard">Workflows Dashboard</h1>
         <p class="help">Plugin Version</p>
         <hr style="margin-left: -10px; margin-top: 10px; border: 1px solid #112D80; background-color:#112D80;"
@@ -43,14 +43,14 @@
         <b>Prerequisite:</b> If you are new to Commander or new to this Commander feature, the Workflows Dashboard is blank, similar to the following screen example. You need to add the workflows you want to monitor.
         </p>
         
-        <img src="../../plugins/workflowDashboard/images/emptyDashboard.png" alt="" />
+        <img src="../../plugins/WorkflowDashboard/images/emptyDashboard.png" alt="" />
                
         <h2 class="help">Dashboard Configuration</h2>
        
        <ul> 
 	<li>Click the <b>Configure Dashboard</b> link at the top of this page or at the top right of the Dashboard. You will be taken to a page similar to the screen example below.</li>	
 	        
-	        <img src="../../plugins/workflowDashboard/images/configureDashboard.png" alt="" />
+	        <img src="../../plugins/WorkflowDashboard/images/configureDashboard.png" alt="" />
 	        
 	<li>Choose a Dashboard Title, Project Column Header and workflow Column Header.</li>	
 	<li>Choose a numeric value for History which is the number of job results that are shown for each workflow.</li> 
@@ -74,7 +74,7 @@
         The next screen example shows how your dashboard will look as you populate it with job configurations:
         </p>
         
-        <img src="../../plugins/workflowDashboard/images/dashboardWithJobs.png" alt="" />
+        <img src="../../plugins/WorkflowDashboard/images/dashboardWithJobs.png" alt="" />
         
         <h4 class="help">Column descriptions</h4>
         
