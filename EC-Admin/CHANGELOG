@@ -1,3 +1,11 @@
+2013-07-24 Laurent Rochette <lrochette@electric-cloud.com>
+
+        * EC-Admin.xml: new version 1.3.2
+		- new "available disk space" metric for performanceMetrics
+		- Fixed bug in getP()
+		- Added Perl header and library for JSON format
+		- Added new parameters for saveProjects (relocatable, ACLs and notifiers)
+
 2013-07-08 Laurent Rochette <lrochette@electric-cloud.com>
 
 	* EC-Admin.xml: new version 1.3.1 (performanceMetrics - add available memory

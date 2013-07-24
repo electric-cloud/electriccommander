@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="61" buildLabel="build_main_58126_2013.03.19_12:32:59" buildVersion="4.2.1.58126" passkey="a30cbf89cfdae202c5227ce40fe867512295566d">
+<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="61" buildLabel="build_main_60729_2013.06.24_10:58:22" buildVersion="4.2.2.60729" passkey="a30cbf89cfdae202c5227ce40fe867512295566d">
   <exportPath>/projects/EC-Admin</exportPath>
   <project>
     <projectName>EC-Admin</projectName>
@@ -222,24 +222,42 @@
         <description>A list of Perl helpers</description>
         <propertySheet>
           <property>
+            <propertyName>perlCommonLib</propertyName>
+            <description>Perl Library (format agnostic) for:&#10;&#10; - getP: a simple getPropertycall. Return undef in case of error&#10; - humanSize: return a size in human readable string</description>
+            <expandable>1</expandable>
+            <value>#############################################################################&#10;#&#10;# Return property value or null in case of error (non existing)&#10;#&#10;#############################################################################&#10;sub getP&#10;{&#10;  my $prop=shift;&#10;&#10;  my($success, $xPath, $errMsg, $errCode)= InvokeCommander("SuppressLog IgnoreError", "getProperty", $prop);&#10;  return undef if ($success != 1);&#10;  my $val= $xPath-&gt;findvalue("//value");&#10;  return($val);&#10;}&#10;&#10;#############################################################################&#10;#&#10;# Return human readable size&#10;#&#10;#############################################################################&#10;sub humanSize {&#10;  my $size = shift();&#10;&#10;  if ($size &gt; 1099511627776) { # TB: 1024 GB&#10;      return sprintf("%.2f TB", $size / 1099511627776);&#10;  }&#10;  if ($size &gt; 1073741824) { # GB: 1024 MB&#10;      return sprintf("%.2f GB", $size / 1073741824);&#10;  }&#10;  if ($size &gt; 1048576) { # MB: 1024 KB&#10;      return sprintf("%.2f MB", $size / 1048576);&#10;  }&#10;  elsif ($size &gt; 1024) { # KiB: 1024 B&#10;      return sprintf("%.2f KB", $size / 1024);&#10;  }&#10;                                  # bytes&#10;  return "$size byte" . ($size &lt;= 1 ? "" : "s");&#10;}</value>
+          </property>
+          <property>
             <propertyName>perlHeader</propertyName>
             <description>default Perl Header to use the API</description>
             <expandable>1</expandable>
             <value>#############################################################################&#10;#&#10;# Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;use strict;&#10;use English;&#10;use ElectricCommander;&#10;$| = 1;&#10;&#10;my $DEBUG=0;&#10;&#10;# Create a single instance of the Perl access to ElectricCommander&#10;my $ec = new ElectricCommander();&#10;&#10;# Check for the OS Type&#10;my $osIsWindows = $^O =~ /MSWin/;&#10;</value>
           </property>
           <property>
-            <propertyName>perlLib</propertyName>
-            <description>Perl Libraries for:&#10; - InvokeCommander: Run an ElectricCommander function using the Perl API&#10; - getP: a simple getPropertycall. Return undef in case of error&#10;&#10;#-------------------------------------------------------------------------&#10;# Run an ElectricCommander function using the Perl API&#10;#&#10;# Params&#10;# optionFlags - "AllowLog" or "SuppressLog" or "SuppressResult"&#10;# combined with "IgnoreError"&#10;# commanderFunction&#10;# Variable Parameters&#10;# The parameters required by the ElectricCommander function&#10;# according to the Perl API. See the ElectricCommander&#10;# Help system for more information.&#10;# (the functions and paramenter are based on "ectool" - run it for documentation)&#10;#&#10;# Returns&#10;# success - 1 if no error was detected&#10;# xPath - an XML::XPath object with the result.&#10;# errMsg - a message string extracted from Commander on error&#10;# errCode - the code part &lt;code&gt; of the XML&#10;#-------------------------------------------------------------------------</description>
+            <propertyName>perlHeaderJSON</propertyName>
+            <description>default Perl Header to use the API with JSON format</description>
             <expandable>1</expandable>
-            <value>sub InvokeCommander {&#10;&#10;    my $optionFlags = shift;&#10;    my $commanderFunction = shift;&#10;    my $xPath;&#10;    my $success = 1;&#10;&#10;    my $bSuppressLog = $optionFlags =~ /SuppressLog/i;&#10;    my $bSuppressResult = $bSuppressLog || $optionFlags =~ /SuppressResult/i;&#10;    my $bIgnoreError = $optionFlags =~ /IgnoreError/i;&#10;&#10;    # Run the command&#10;    # print "Request to Commander: $commanderFunction\n" unless ($bSuppressLog);&#10;&#10;    $ec-&gt;abortOnError(0) if $bIgnoreError;&#10;    $xPath = $ec-&gt;$commanderFunction(@_);&#10;    $ec-&gt;abortOnError(1) if $bIgnoreError;&#10;&#10;    # Check for error return&#10;    my $errMsg = $ec-&gt;checkAllErrors($xPath);&#10;    my $errCode=$xPath-&gt;findvalue('//code',)-&gt;value();&#10;    if ($errMsg ne "") {&#10;        $success = 0;&#10;    }&#10;    if ($xPath) {&#10;        print "Return data from Commander:\n" .&#10;               $xPath-&gt;findnodes_as_string("/") . "\n"&#10;            unless $bSuppressResult;&#10;    }&#10;&#10;    # Return the result&#10;    return ($success, $xPath, $errMsg, $errCode);&#10;}&#10;&#10;sub getP&#10;{&#10;&#10;  my $prop=shift;&#10;  my $val;&#10;  # printf("Property to check: %s\n", $prop) if ($DEBUG);&#10;  my($success, $xPath, $errMsg, $errCode)= InvokeCommander("SuppressLog", "getProperty", $prop);&#10;  return undef  if ($success != 1);&#10;  $val= $xPath-&gt;findnodes("//value")-&gt;string_value();&#10;  #printf("GetP %s: %s\n", $prop, $val) if $(DEBUG);&#10;  return($val);&#10;&#10;}&#10;</value>
+            <value>#############################################################################&#10;#&#10;# Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;use strict;&#10;use English;&#10;use ElectricCommander;&#10;use Data::Dumper;&#10;$| = 1;&#10;&#10;my $DEBUG=0;&#10;&#10;# Create a single instance of the Perl access to ElectricCommander&#10;my $ec = new ElectricCommander({'format' =&gt; "json"});&#10;&#10;# Check for the OS Type&#10;my $osIsWindows = $^O =~ /MSWin/;</value>
+          </property>
+          <property>
+            <propertyName>perlLib</propertyName>
+            <description>Perl Libraries for:&#10; - InvokeCommander: Run an ElectricCommander function using the Perl API&#10;&#10;#-------------------------------------------------------------------------&#10;# Run an ElectricCommander function using the Perl API&#10;#&#10;# Params&#10;# optionFlags - "AllowLog" or "SuppressLog" or "SuppressResult"&#10;# combined with "IgnoreError"&#10;# commanderFunction&#10;# Variable Parameters&#10;# The parameters required by the ElectricCommander function&#10;# according to the Perl API. See the ElectricCommander&#10;# Help system for more information.&#10;# (the functions and paramenter are based on "ectool" - run it for documentation)&#10;#&#10;# Returns&#10;# success - 1 if no error was detected&#10;# xPath - an XML::XPath object with the result.&#10;# errMsg - a message string extracted from Commander on error&#10;# errCode - the code part &lt;code&gt; of the XML&#10;#-------------------------------------------------------------------------</description>
+            <expandable>1</expandable>
+            <value>$[/projects/EC-Admin/scripts/perlCommonLib]&#10;&#10;#############################################################################&#10;#&#10;# Invoke a API call&#10;#&#10;#############################################################################&#10;sub InvokeCommander {&#10;&#10;    my $optionFlags = shift;&#10;    my $commanderFunction = shift;&#10;    my $xPath;&#10;    my $success = 1;&#10;&#10;    my $bSuppressLog = $optionFlags =~ /SuppressLog/i;&#10;    my $bSuppressResult = $bSuppressLog || $optionFlags =~ /SuppressResult/i;&#10;    my $bIgnoreError = $optionFlags =~ /IgnoreError/i;&#10;&#10;    # Run the command&#10;    # print "Request to Commander: $commanderFunction\n" unless ($bSuppressLog);&#10;&#10;    $ec-&gt;abortOnError(0) if $bIgnoreError;&#10;    $xPath = $ec-&gt;$commanderFunction(@_);&#10;    $ec-&gt;abortOnError(1) if $bIgnoreError;&#10;&#10;    # Check for error return&#10;    my $errMsg = $ec-&gt;checkAllErrors($xPath);&#10;    my $errCode=$xPath-&gt;findvalue('//code',)-&gt;value();&#10;    if ($errMsg ne "") {&#10;        $success = 0;&#10;    }&#10;    if ($xPath) {&#10;        print "Return data from Commander:\n" .&#10;               $xPath-&gt;findnodes_as_string("/") . "\n"&#10;            unless $bSuppressResult;&#10;    }&#10;&#10;    # Return the result&#10;    return ($success, $xPath, $errMsg, $errCode);&#10;}&#10;</value>
+          </property>
+          <property>
+            <propertyName>perlLibJSON</propertyName>
+            <description>Perl Libraries (JSON Format) for:&#10; - InvokeCommander: Run an ElectricCommander function using the Perl API&#10;&#10;#-------------------------------------------------------------------------&#10;# Run an ElectricCommander function using the Perl API&#10;#&#10;# Params&#10;# optionFlags - "AllowLog" or "SuppressLog" or "SuppressResult"&#10;# combined with "IgnoreError"&#10;# commanderFunction&#10;# Variable Parameters&#10;# The parameters required by the ElectricCommander function&#10;# according to the Perl API. See the ElectricCommander&#10;# Help system for more information.&#10;# (the functions and paramenter are based on "ectool" - run it for documentation)&#10;#&#10;# Returns&#10;# success - 1 if no error was detected&#10;# xPath - an XML::XPath object with the result.&#10;# errMsg - a message string extracted from Commander on error&#10;# errCode - the code part &lt;code&gt; of the XML&#10;#-------------------------------------------------------------------------</description>
+            <expandable>1</expandable>
+            <value>$[/projects/EC-Admin/scripts/perlCommonLib]&#10;&#10;#############################################################################&#10;#&#10;# Invoke a API call&#10;#&#10;#############################################################################&#10;sub InvokeCommander {&#10;&#10;    my $optionFlags = shift;&#10;    my $commanderFunction = shift;&#10;    my $result;&#10;    my $success = 1;&#10;	my $errMsg;&#10;	my $errCode;&#10;&#10;    my $bSuppressLog = $optionFlags =~ /SuppressLog/i;&#10;    my $bSuppressResult = $bSuppressLog || $optionFlags =~ /SuppressResult/i;&#10;    my $bIgnoreError = $optionFlags =~ /IgnoreError/i;&#10;&#10;    # Run the command&#10;    # print "Request to Commander: $commanderFunction\n" unless ($bSuppressLog);&#10;&#10;    $ec-&gt;abortOnError(0) if $bIgnoreError;&#10;    $result = $ec-&gt;$commanderFunction(@_);&#10;    $ec-&gt;abortOnError(1) if $bIgnoreError;&#10;&#10;    # Check for error return&#10;    if (defined ($result-&gt;{responses}-&gt;[0]-&gt;{error})) {&#10;    	$errCode=$result-&gt;{responses}-&gt;[0]-&gt;{error}-&gt;{code};&#10;    	$errMsg=$result-&gt;{responses}-&gt;[0]-&gt;{error}-&gt;{message};&#10;    }&#10;&#10;    if ($errMsg ne "") {&#10;        $success = 0;&#10;    }&#10;    if ($result) {&#10;        print "Return data from Commander:\n" .&#10;               Dumper($result) . "\n"&#10;            unless $bSuppressResult;&#10;    }&#10;&#10;    # Return the result&#10;    return ($success, $result, $errMsg, $errCode);&#10;}&#10;</value>
           </property>
         </propertySheet>
       </property>
       <property>
         <propertyName>version</propertyName>
-        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management&#10;</description>
+        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
         <expandable>1</expandable>
-        <value>1.3.1</value>
+        <value>1.3.2</value>
       </property>
     </propertySheet>
     <credential>
@@ -2144,7 +2162,7 @@
         <stepName>deleteJobs</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>#############################################################################&#10;#&#10;#  deleteJobs -- Script to delete jobs and workspaces&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;#&#10;# Perl Commander Header&#10;$[/myProject/scripts/perlHeader]&#10;use File::Path;&#10;use File::stat;&#10;use Fcntl ':mode';&#10;use DateTime;&#10;&#10;#&#10;# Perl Commander library&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $jobProperty     = "$[jobProperty]";&#10;my $timeLimit       =  $[olderThan];&#10;my $executeDeletion = "$[executeDeletion]";&#10;my $jobLevel        = "$[jobLevel]";&#10;my $jobPattern      = "$[jobPatternMatching]"; &#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $version="1.0";&#10;my $totalWksSize=0;          # Size of workspace files&#10;my $totalNbJobs=0;           # Number of jobs to delete potentially&#10;my $totalNbSteps=0;          # Number of steps to evaluate DB size&#10;my $DBStepSize=10240;        # Step is about 10K in DB&#10;&#10;#############################################################################&#10;#&#10;#  Main&#10;#&#10;#############################################################################&#10;&#10;printf("%s jobs older than $timeLimit days (%s).\n", &#10;    $executeDeletion eq "true"?"Deleting":"Reporting", &#10;    calculateDate($timeLimit));&#10;printf("  Skipping over \"%s\" jobs.\n\n", $jobPattern) if ($jobPattern ne "");&#10;&#10;# create filterList&#10;my @filterList;&#10;# only finished jobs&#10;push (@filterList, {"propertyName" =&gt; "status",&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; "completed"});&#10;# older than&#10;push (@filterList, {"propertyName" =&gt; "finish",&#10;                    "operator" =&gt; "lessThan",&#10;                    "operand1" =&gt; calculateDate($timeLimit)});&#10;# do not have specific job property&#10;push (@filterList, {"propertyName" =&gt; $jobProperty,&#10;                    "operator" =&gt; "isNull"});&#10;# job pattern does not match&#10;if ($jobPattern ne "") {&#10;  push (@filterList, {"propertyName" =&gt; "jobName",&#10;                      "operator" =&gt; "notLike",&#10;                      "operand1" =&gt; $jobPattern});&#10;}              &#10;# check for jobLevel&#10;if ($jobLevel eq "Aborted") {&#10;  push (@filterList, {"propertyName" =&gt; "abortStatus",&#10;                      "operator" =&gt; "equals",&#10;                      "operand1" =&gt; "FORCE_ABORT"});&#10;} elsif ($jobLevel eq "Error") {&#10;  push (@filterList, {"propertyName" =&gt; "outcome",&#10;                       "operator" =&gt; "equals",&#10;                       "operand1" =&gt; "error"});&#10;}&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "findObjects", "job",&#10;                                        {maxIds =&gt; 5000,&#10;                                         filter =&gt; \@filterList ,&#10;                                         sort =&gt; [ {propertyName =&gt; "finish",&#10;                                                    order =&gt; "ascending"} ]});&#10;&#10;print "Search Status:\t$success\n";&#10;&#10;# Check for the OS Type&#10;my $osIsWindows = $^O =~ /MSWin/;&#10;&#10;# Loop over all returned jobs&#10;my $nodeset = $xPath-&gt;find('//job');&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;        $totalNbJobs++;&#10;        my $wksSize;&#10;&#10;        my $jobId = $xPath-&gt;findvalue('jobId', $node);&#10;        my $jobName = $xPath-&gt;findvalue('jobName', $node);&#10;&#10;        print "Job: $jobName\n";&#10;&#10;        #&#10;        # Find abort status and outcome&#10;        if ($xPath-&gt;findvalue('abortStatus', $node) eq "FORCE_ABORT") {&#10;          printf("  Outcome:\tAborted\n");&#10;        } else {&#10;          printf("  Outcome:\t%s\n", $xPath-&gt;findvalue('outcome', $node));&#10;        }&#10;        #&#10;        # Find number of steps for the jobs&#10;        my ($success, $xPath) = InvokeCommander("SuppressLog", "findJobSteps", &#10;                      {'jobId' =&gt; $jobId});&#10;        my $nbSteps=scalar($xPath-&gt;findnodes('//object')-&gt;get_nodelist);&#10;        $totalNbSteps += $nbSteps;&#10;        printf("  Job steps:\t%d\n", $nbSteps);&#10;&#10;        #  Find the workspaces (there may be more than one if some steps&#10;        #  were configured to use a different workspace)&#10;        my ($success, $xPath) = InvokeCommander("SuppressLog", "getJobInfo",&#10;                                                 $jobId);&#10;        my $wsNodeset = $xPath-&gt;find('//job/workspace');&#10;        foreach my $wsNode ($wsNodeset-&gt;get_nodelist) {&#10;            my $workspace;&#10;            if ($osIsWindows) {&#10;                $workspace = $xPath-&gt;findvalue('./winUNC', $wsNode);&#10;                $workspace =~ s'/'\\'g;&#10;            } else {&#10;                $workspace = $xPath-&gt;findvalue('./unix', $wsNode);&#10;            }&#10;&#10;            print "  Workspace:\t$workspace\n" if ($workspace ne "");&#10;&#10;            $wksSize = getDirSize($workspace);&#10;            printf ("    Size:\t%s\n", humanSize($wksSize));&#10;            $totalWksSize += $wksSize;&#10;            if ($executeDeletion eq "true") {&#10;               rmtree ([$workspace])  ;&#10;               print "    Deleting Workspace\n";&#10;            }&#10;        }&#10;&#10;        # Delete the job&#10;&#10;        if ($executeDeletion eq "true") {&#10;            InvokeCommander("SuppressLog", "deleteJob", $jobId) ;&#10;            print "  Deleting Job\n\n";&#10;        } &#10;}&#10;&#10;printf("\nSUMMARY:\n");&#10;printf("Total number of jobs:  %d\n", $totalNbJobs);&#10;printf("Total File size:       %s\n", humanSize($totalWksSize));&#10;printf("Total number of steps: %d\n", $totalNbSteps);&#10;printf("Total Database size:   %s\n", humanSize($totalNbSteps * $DBStepSize));&#10;&#10;$ec-&gt;setProperty("/myJob/numberOfJobs", $totalNbJobs);&#10;$ec-&gt;setProperty("/myJob/diskSpace", $totalWksSize);&#10;$ec-&gt;setProperty("/myJob/numbernumberOfSteps", $totalNbSteps);&#10;&#10;$ec-&gt;setProperty("summary", $totalNbJobs . " jobs deleted" ) if ($executeDeletion eq "true");&#10;&#10;exit(0);&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the Date based on now and the number of days required by&#10;#  the user before deleting jobs&#10;#&#10;#############################################################################&#10;sub calculateDate {&#10;    my $nbDays=shift;&#10;    return DateTime-&gt;now()-&gt;subtract(days =&gt; $nbDays)-&gt;iso8601() . ".000Z";&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the size of the workspace directory&#10;#&#10;#############################################################################&#10;sub getDirSize {&#10;  my $dir  = shift;&#10;  my $size = 0;&#10;&#10;  opendir(D,"$dir") || return 0;&#10;  foreach my $dirContent (grep(!/^\.\.?/,readdir(D))) {&#10;     my $st=stat("$dir/$dirContent");&#10;     if (S_ISREG($st-&gt;mode)) {&#10;       $size += $st-&gt;size;&#10;     } elsif (S_ISDIR($st-&gt;mode)) {&#10;       $size += getDirSize("$dir/$dirContent");&#10;     }&#10;  }&#10;  closedir(D);&#10;  return $size;&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Return human readable size&#10;#&#10;#############################################################################&#10;sub humanSize {&#10;  my $size = shift();&#10;&#10;  if ($size &gt; 1099511627776) {    #   TB: 1024 GB&#10;      return sprintf("%.2f TB", $size / 1099511627776);&#10;  }&#10;  if ($size &gt; 1073741824) {       #   GB: 1024 MB&#10;      return sprintf("%.2f GB", $size / 1073741824);&#10;  }&#10;  if ($size &gt; 1048576) {          #   MB: 1024 KB&#10;      return sprintf("%.2f MB", $size / 1048576);&#10;  }&#10;  elsif ($size &gt; 1024) {          #   KiB: 1024 B&#10;      return sprintf("%.2f KB", $size / 1024);&#10;  }&#10;                                  #   bytes&#10;  return "$size byte" . ($size &lt;= 1 ? "" : "s");&#10;}&#10;</command>
+        <command>#############################################################################&#10;#&#10;#  deleteJobs -- Script to delete jobs and workspaces&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;#&#10;# Perl Commander Header&#10;$[/myProject/scripts/perlHeader]&#10;use File::Path;&#10;use File::stat;&#10;use Fcntl ':mode';&#10;use DateTime;&#10;&#10;#&#10;# Perl Commander library&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $jobProperty     = "$[jobProperty]";&#10;my $timeLimit       =  $[olderThan];&#10;my $executeDeletion = "$[executeDeletion]";&#10;my $jobLevel        = "$[jobLevel]";&#10;my $jobPattern      = "$[jobPatternMatching]"; &#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $version="1.0";&#10;my $totalWksSize=0;          # Size of workspace files&#10;my $totalNbJobs=0;           # Number of jobs to delete potentially&#10;my $totalNbSteps=0;          # Number of steps to evaluate DB size&#10;my $DBStepSize=10240;        # Step is about 10K in DB&#10;&#10;#############################################################################&#10;#&#10;#  Main&#10;#&#10;#############################################################################&#10;&#10;printf("%s jobs older than $timeLimit days (%s).\n", &#10;    $executeDeletion eq "true"?"Deleting":"Reporting", &#10;    calculateDate($timeLimit));&#10;printf("  Skipping over \"%s\" jobs.\n\n", $jobPattern) if ($jobPattern ne "");&#10;&#10;# create filterList&#10;my @filterList;&#10;# only finished jobs&#10;push (@filterList, {"propertyName" =&gt; "status",&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; "completed"});&#10;# older than&#10;push (@filterList, {"propertyName" =&gt; "finish",&#10;                    "operator" =&gt; "lessThan",&#10;                    "operand1" =&gt; calculateDate($timeLimit)});&#10;# do not have specific job property&#10;push (@filterList, {"propertyName" =&gt; $jobProperty,&#10;                    "operator" =&gt; "isNull"});&#10;# job pattern does not match&#10;if ($jobPattern ne "") {&#10;  push (@filterList, {"propertyName" =&gt; "jobName",&#10;                      "operator" =&gt; "notLike",&#10;                      "operand1" =&gt; $jobPattern});&#10;}              &#10;# check for jobLevel&#10;if ($jobLevel eq "Aborted") {&#10;  push (@filterList, {"propertyName" =&gt; "abortStatus",&#10;                      "operator" =&gt; "equals",&#10;                      "operand1" =&gt; "FORCE_ABORT"});&#10;} elsif ($jobLevel eq "Error") {&#10;  push (@filterList, {"propertyName" =&gt; "outcome",&#10;                       "operator" =&gt; "equals",&#10;                       "operand1" =&gt; "error"});&#10;}&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "findObjects", "job",&#10;                                        {maxIds =&gt; 5000,&#10;                                         filter =&gt; \@filterList ,&#10;                                         sort =&gt; [ {propertyName =&gt; "finish",&#10;                                                    order =&gt; "ascending"} ]});&#10;&#10;print "Search Status:\t$success\n";&#10;&#10;# Check for the OS Type&#10;my $osIsWindows = $^O =~ /MSWin/;&#10;&#10;# Loop over all returned jobs&#10;my $nodeset = $xPath-&gt;find('//job');&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;        $totalNbJobs++;&#10;        my $wksSize;&#10;&#10;        my $jobId = $xPath-&gt;findvalue('jobId', $node);&#10;        my $jobName = $xPath-&gt;findvalue('jobName', $node);&#10;&#10;        print "Job: $jobName\n";&#10;&#10;        #&#10;        # Find abort status and outcome&#10;        if ($xPath-&gt;findvalue('abortStatus', $node) eq "FORCE_ABORT") {&#10;          printf("  Outcome:\tAborted\n");&#10;        } else {&#10;          printf("  Outcome:\t%s\n", $xPath-&gt;findvalue('outcome', $node));&#10;        }&#10;        #&#10;        # Find number of steps for the jobs&#10;        my ($success, $xPath) = InvokeCommander("SuppressLog", "findJobSteps", &#10;                      {'jobId' =&gt; $jobId});&#10;        my $nbSteps=scalar($xPath-&gt;findnodes('//object')-&gt;get_nodelist);&#10;        $totalNbSteps += $nbSteps;&#10;        printf("  Job steps:\t%d\n", $nbSteps);&#10;&#10;        #  Find the workspaces (there may be more than one if some steps&#10;        #  were configured to use a different workspace)&#10;        my ($success, $xPath) = InvokeCommander("SuppressLog", "getJobInfo",&#10;                                                 $jobId);&#10;        my $wsNodeset = $xPath-&gt;find('//job/workspace');&#10;        foreach my $wsNode ($wsNodeset-&gt;get_nodelist) {&#10;            my $workspace;&#10;            if ($osIsWindows) {&#10;                $workspace = $xPath-&gt;findvalue('./winUNC', $wsNode);&#10;                $workspace =~ s'/'\\'g;&#10;            } else {&#10;                $workspace = $xPath-&gt;findvalue('./unix', $wsNode);&#10;            }&#10;&#10;            print "  Workspace:\t$workspace\n" if ($workspace ne "");&#10;&#10;            $wksSize = getDirSize($workspace);&#10;            printf ("    Size:\t%s\n", humanSize($wksSize));&#10;            $totalWksSize += $wksSize;&#10;            if ($executeDeletion eq "true") {&#10;               rmtree ([$workspace])  ;&#10;               print "    Deleting Workspace\n";&#10;            }&#10;        }&#10;&#10;        # Delete the job&#10;&#10;        if ($executeDeletion eq "true") {&#10;            InvokeCommander("SuppressLog", "deleteJob", $jobId) ;&#10;            print "  Deleting Job\n\n";&#10;        } &#10;}&#10;&#10;printf("\nSUMMARY:\n");&#10;printf("Total number of jobs:  %d\n", $totalNbJobs);&#10;printf("Total File size:       %s\n", humanSize($totalWksSize));&#10;printf("Total number of steps: %d\n", $totalNbSteps);&#10;printf("Total Database size:   %s\n", humanSize($totalNbSteps * $DBStepSize));&#10;&#10;$ec-&gt;setProperty("/myJob/numberOfJobs", $totalNbJobs);&#10;$ec-&gt;setProperty("/myJob/diskSpace", $totalWksSize);&#10;$ec-&gt;setProperty("/myJob/numbernumberOfSteps", $totalNbSteps);&#10;&#10;$ec-&gt;setProperty("summary", $totalNbJobs . " jobs deleted" ) if ($executeDeletion eq "true");&#10;&#10;exit(0);&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the Date based on now and the number of days required by&#10;#  the user before deleting jobs&#10;#&#10;#############################################################################&#10;sub calculateDate {&#10;    my $nbDays=shift;&#10;    return DateTime-&gt;now()-&gt;subtract(days =&gt; $nbDays)-&gt;iso8601() . ".000Z";&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the size of the workspace directory&#10;#&#10;#############################################################################&#10;sub getDirSize {&#10;  my $dir  = shift;&#10;  my $size = 0;&#10;&#10;  opendir(D,"$dir") || return 0;&#10;  foreach my $dirContent (grep(!/^\.\.?/,readdir(D))) {&#10;     my $st=stat("$dir/$dirContent");&#10;     if (S_ISREG($st-&gt;mode)) {&#10;       $size += $st-&gt;size;&#10;     } elsif (S_ISDIR($st-&gt;mode)) {&#10;       $size += getDirSize("$dir/$dirContent");&#10;     }&#10;  }&#10;  closedir(D);&#10;  return $size;&#10;}&#10;</command>
         <condition></condition>
         <description>Script to delete jobs and workspaces</description>
         <errorHandling>failProcedure</errorHandling>
@@ -2366,6 +2384,29 @@
         <precondition></precondition>
         <releaseMode>none</releaseMode>
         <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Disk Space Available</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;#&#10;# Param&#10;#&#10;$DEBUG=$[debugMode];&#10;&#10;my $freeDisk=0;     # Amount of available disk on the Data partition&#10;my $diskPartition="$[/server/Electric Cloud/dataDirectory]";&#10;&#10;if ($OSNAME =~ /MSWin/) {&#10;  my $drive=substr($diskPartition,0,2);&#10;  printf("Drive: %s\n", $drive);&#10;  $freeDisk=`fsutil volume diskfree $drive | find "avail free"`;&#10;  chomp $freeDisk;&#10;  $freeDisk=~ s/[^:]+\s*:\s*(\d+)/$1/;&#10;  printf("free Disk Space for %s: %s\n", $diskPartition, $freeDisk) if ($DEBUG);&#10;  $freeDisk=humanSize($freeDisk); &#10;} elsif ($OSNAME eq "linux") {&#10;  $freeDisk=`/bin/df -h $diskPartition | tail -1 | awk '{print \$4}'`;&#10;  chomp $freeDisk;&#10;  # Make the unit  as the other ones&#10;  $freeDisk =~ s/G/ GB/;&#10;  $freeDisk =~ s/M/ MB/;&#10;  printf("free Disk Space for %s: %s\n", $diskPartition, $freeDisk) if ($DEBUG);&#10;}  else {&#10;  printf ("OS: %s not supported for Commander Server\n", $OSNAME); &#10;  exit(2);&#10;}&#10;&#10;printf("Disk space available: %s\n", $freeDisk);&#10;InvokeCommander("SuppressLog", "setProperty", "summary", $freeDisk);&#10;&#10;</command>
+        <condition></condition>
+        <description>Check the amount of  available disk space for the EC server&#10;Information only</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName>windows</resourceName>
         <shell>ec-perl</shell>
         <timeLimit></timeLimit>
         <timeLimitUnits>minutes</timeLimitUnits>
@@ -2675,7 +2716,7 @@
     <procedure>
       <procedureName>saveProjects</procedureName>
       <description>a framework to export projects.</description>
-      <jobNameTemplate></jobNameTemplate>
+      <jobNameTemplate>EC-Admin-saveProjects-$[jobId]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -2688,6 +2729,56 @@
               <propertyName>parameters</propertyName>
               <propertySheet>
                 <property>
+                  <propertyName>includeACLs</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>includeNotifiers</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
                   <propertyName>pathname</propertyName>
                   <propertySheet>
                     <property>
@@ -2697,11 +2788,58 @@
                     </property>
                   </propertySheet>
                 </property>
+                <property>
+                  <propertyName>relocatable</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
               </propertySheet>
             </property>
           </propertySheet>
         </property>
+        <property>
+          <propertyName>ec_parameterForm</propertyName>
+          <description>To overwrite default parameter panel display</description>
+          <expandable>1</expandable>
+          <value>&lt;editor&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Bakcup directory&lt;/label&gt;	&#10;        &lt;property&gt;pathname&lt;/property&gt;	&#10;        &lt;documentation&gt;Directory where to saved the XML files.&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;	&#10;        &lt;value&gt;/tmp&lt;/value&gt; &#10;	    &lt;required&gt;1&lt;/required&gt; &#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Relocatable&lt;/label&gt;	&#10;        &lt;property&gt;relocatable&lt;/property&gt; &#10;        &lt;documentation&gt;If set to "true", the export will not include object IDs, ACLs, system property sheets, create/modify times, owners, email notifiers or lastModifiedBy information, and the export file result will be much smaller than a normal export.&lt;/documentation&gt; &#10;        &lt;type&gt;checkbox&lt;/type&gt;	&#10;        &lt;checkedValue&gt;true&lt;/checkedValue&gt; &#10;        &lt;uncheckedValue&gt;false&lt;/uncheckedValue&gt; &#10;        &lt;initiallyChecked&gt;1&lt;/initiallyChecked&gt; &#10;        &lt;value&gt;true&lt;/value&gt;	&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;ACLs&lt;/label&gt;	&#10;        &lt;property&gt;includeACLs&lt;/property&gt; &#10;        &lt;documentation&gt;If set to "true", the export will include ACLs.&lt;/documentation&gt; &#10;        &lt;type&gt;checkbox&lt;/type&gt;	&#10;        &lt;checkedValue&gt;true&lt;/checkedValue&gt; &#10;        &lt;uncheckedValue&gt;false&lt;/uncheckedValue&gt; &#10;        &lt;initiallyChecked&gt;0&lt;/initiallyChecked&gt; &#10;        &lt;value&gt;false&lt;/value&gt;	&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Notifiers&lt;/label&gt;	&#10;        &lt;property&gt;includeNotifiers&lt;/property&gt; &#10;        &lt;documentation&gt;If set to "true", the export will include email notifiers.&lt;/documentation&gt; &#10;        &lt;type&gt;checkbox&lt;/type&gt;	&#10;        &lt;checkedValue&gt;true&lt;/checkedValue&gt; &#10;        &lt;uncheckedValue&gt;false&lt;/uncheckedValue&gt; &#10;        &lt;initiallyChecked&gt;0&lt;/initiallyChecked&gt; &#10;        &lt;value&gt;false&lt;/value&gt;	&#10;    &lt;/formElement&gt; &#10;&lt;/editor&gt; </value>
+        </property>
       </propertySheet>
+      <formalParameter>
+        <formalParameterName>includeACLs</formalParameterName>
+        <defaultValue>false</defaultValue>
+        <description> if set to "true", the export will include ACLs.</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>checkbox</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>includeNotifiers</formalParameterName>
+        <defaultValue>false</defaultValue>
+        <description> If  set to "true", the export will include email notifiers.</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>checkbox</type>
+      </formalParameter>
       <formalParameter>
         <formalParameterName>pathname</formalParameterName>
         <defaultValue>/tmp</defaultValue>
@@ -2710,13 +2848,21 @@
         <required>1</required>
         <type>entry</type>
       </formalParameter>
+      <formalParameter>
+        <formalParameterName>relocatable</formalParameterName>
+        <defaultValue>true</defaultValue>
+        <description>If set to "true", the export will not include object IDs, ACLs, system property sheets, create/modify times, owners, email notifiers or lastModifiedBy information, and the export file result will be much smaller than a normal export.</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>checkbox</type>
+      </formalParameter>
       <step>
         <stepName>save Projects</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;use File::Path;&#10;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;#&#10;# Parameters&#10;#&#10;my $path="$[pathname]";&#10;&#10;my $errorCount=0;&#10;# Get list of Project&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getProjects");&#10;&#10;# Create the directory&#10;mkpath($path);&#10;&#10;my $nodeset = $xPath-&gt;find('//project');&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $pName=$xPath-&gt;findvalue('projectName', $node);&#10;  my $pluginName=$xPath-&gt;findvalue('pluginName', $node);&#10;&#10;  # skip plugins  &#10;  next if ($pluginName ne "");&#10;  printf("Saving Project: %s\n", $pName);&#10;  my ($success, $xPath,, $errMsg, $errCode) = InvokeCommander("SuppressLog", "export", $path."/$pName".".xml",&#10;  					{ 'path'=&gt; "/projects/".$pName, &#10;                                          'relocatable' =&gt; "true"});&#10;  if (! $success) {&#10;    printf("  Error exporting %s", $pName);&#10;    printf("  %s: %s\n", $errCode, $errMsg);&#10;    $errorCount++;&#10;   }&#10;}&#10;exit($errorCount);&#10;</command>
+        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;use File::Path;&#10;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;#&#10;# Parameters&#10;#&#10;my $path="$[pathname]";&#10;my $includeACLs="$[includeACLs]";&#10;my $includeNotifiers="$[includeNotifiers]";&#10;my $relocatable="$[relocatable]";&#10;&#10;my $errorCount=0;&#10;# Get list of Project&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getProjects");&#10;&#10;# Create the directory&#10;mkpath($path);&#10;&#10;my $nodeset = $xPath-&gt;find('//project');&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $pName=$xPath-&gt;findvalue('projectName', $node);&#10;  my $pluginName=$xPath-&gt;findvalue('pluginName', $node);&#10;&#10;  # skip plugins  &#10;  next if ($pluginName ne "");&#10;  printf("Saving Project: %s\n", $pName);&#10;  my ($success, $xPath,, $errMsg, $errCode) = InvokeCommander("SuppressLog", "export", $path."/$pName".".xml",&#10;  					{ 'path'=&gt; "/projects/".$pName, &#10;                                          'relocatable' =&gt; $relocatable,&#10;                                          'withAcls'    =&gt; $includeACLs,&#10;                                          'withNotifiers'=&gt;$includeNotifiers});&#10;  if (! $success) {&#10;    printf("  Error exporting %s", $pName);&#10;    printf("  %s: %s\n", $errCode, $errMsg);&#10;    $errorCount++;&#10;  }&#10;}&#10;exit($errorCount);&#10;</command>
         <condition></condition>
-        <description></description>
+        <description>A procedure to export each project individually into a XML file for backup&#10;&#10;Changelog:&#10;2013-07-28 Laurent Rochette&#10;  Add parameters to include or not ACLs and email notifiers</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
