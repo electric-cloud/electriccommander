@@ -17,7 +17,7 @@
         <propertyName>version</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>1.4.0</value>
+        <value>1.4.1</value>
       </property>
     </propertySheet>
     <procedure>
@@ -617,6 +617,12 @@
           <expandable>1</expandable>
           <value>my @fieldsToProperties = (&#10;	{&#10;	id      =&gt; q{instanceId},&#10;	pattern =&gt; q{([^:=]+)(\s*)(:|=)(\s*)(.+)},&#10;	action  =&gt; q{setProperty("$[propertyRoot]$1","$5")},&#10;	},&#10;);&#10;push @::gMatchers, @fieldsToProperties;</value>
         </property>
+        <property>
+          <propertyName>mapper2</propertyName>
+          <description></description>
+          <expandable>1</expandable>
+          <value>my @fieldsToProperties = (&#10;    {&#10;    id =&gt; q{instanceId},&#10;    pattern =&gt; q{(.*)},&#10;    action =&gt; q{setProperty("/myJob/stepOutput_$::gCurrentLine","$1");diagnostic("","info")},&#10;    },&#10;);&#10;push @::gMatchers, @fieldsToProperties;</value>
+        </property>
       </propertySheet>
       <formalParameter>
         <formalParameterName>propertyRoot</formalParameterName>
@@ -638,6 +644,39 @@
         <logFileName></logFileName>
         <parallel>0</parallel>
         <postProcessor>postp --loadProperty /myProcedure/mapper</postProcessor>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Output to be mapped copy</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>print &lt;&lt;EOF;&#10;first field : firstfieldValue&#10;second field = second field value&#10;third filed: third 3 value&#10;EOF</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor>postp --loadProperty /myProcedure/mapper2</postProcessor>
+        <precondition></precondition>
         <releaseMode>none</releaseMode>
         <resourceName></resourceName>
         <shell>ec-perl</shell>
