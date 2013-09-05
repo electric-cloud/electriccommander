@@ -1,0 +1,144 @@
+﻿Revert "Change classes and filenames to consistent UpperCamelCase"
+
+This reverts commit dbd4ad2f0fe0dc9762c3abd23bb5c0574945964f.
+
+Conflicts:
+	HomepagePlus-Plugin/src/ecplugins/HomepagePlus/Configure.gwt.xml
+	HomepagePlus-Plugin/src/ecplugins/HomepagePlus/HomeDashboard.gwt.xml
+	HomepagePlus-Plugin/src/ecplugins/HomepagePlus/client/Configure/ConfigureFactory.java
+	WorkflowDashboard2-Plugin/pages/configureDashboard_run.xml
+	WorkflowDashboard2-Plugin/pages/workflowDashboardMain_run.xml
+	WorkflowDashboard2-Plugin/src/ecplugins/WorkflowDashboard/ConfigureDashboard.gwt.xml
+	WorkflowDashboard2-Plugin/src/ecplugins/WorkflowDashboard/WorkflowDashboardMain.gwt.xml
+	WorkflowDashboard2-Plugin/src/ecplugins/WorkflowDashboard/client/ConfigureDashboardFactory.java
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/DashboardStyles.java
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/configureDashboardFactory.java
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/events/MessageReceivedEvent.java
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/events/MessageReceivedEventHandler.java
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_000.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_010.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_020.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_025.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_030.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_040.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_050.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_060.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_070.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_075.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_080.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_090.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/ICON_PIE_100.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/btn_treeBlank.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/bullet_blue_collapse.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/bullet_blue_expand.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_build_failed.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_build_no_data.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_build_success.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_build_warnings.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_error.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_runnable.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_running.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_running_error.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_running_success.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_running_warning.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_skipped.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_stop.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_stopped.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_success.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_unknown.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icn16px_warning.gif
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icon_ci_box_green.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icon_ci_box_grey.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icon_ci_box_red.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icon_ci_box_running.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/images/icon_ci_box_yellow.png
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/styles/custom.css
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/client/workflowDashboardMain.ui.xml
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/configureDashboard.gwt.xml
+	WorkflowDashboard2-Plugin/src/ecplugins/workflowDashboard/workflowDashboardMain.gwt.xml
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is behind 'origin/master' by 3 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# You are currently reverting commit dbd4ad2.
+#   (all conflicts fixed: run "git revert --continue")
+#   (use "git revert --abort" to cancel the revert operation)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   .classpath
+#	new file:   .project
+#	modified:   build.xml
+#	new file:   pages/configureDashboard_run.xml
+#	modified:   pages/help.xml
+#	new file:   pages/workflowDashboardMain_run.xml
+#	new file:   src/ecplugins/WorkflowDashboard/client/DashboardStyles.java
+#	new file:   src/ecplugins/WorkflowDashboard/client/configureDashboardFactory.java
+#	new file:   src/ecplugins/WorkflowDashboard/client/events/MessageReceivedEvent.java
+#	new file:   src/ecplugins/WorkflowDashboard/client/events/MessageReceivedEventHandler.java
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_000.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_010.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_020.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_025.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_030.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_040.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_050.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_060.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_070.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_075.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_080.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_090.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/ICON_PIE_100.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/btn_treeBlank.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/bullet_blue_collapse.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/bullet_blue_expand.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_build_failed.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_build_no_data.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_build_success.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_build_warnings.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_error.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_runnable.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_running.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_running_error.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_running_success.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_running_warning.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_skipped.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_stop.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_stopped.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_success.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_unknown.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icn16px_warning.gif
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icon_ci_box_green.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icon_ci_box_grey.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icon_ci_box_red.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icon_ci_box_running.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/images/icon_ci_box_yellow.png
+#	new file:   src/ecplugins/WorkflowDashboard/client/styles/custom.css
+#	new file:   src/ecplugins/WorkflowDashboard/client/workflowDashboardMain.ui.xml
+#	new file:   src/ecplugins/WorkflowDashboard/configureDashboard.gwt.xml
+#	new file:   src/ecplugins/WorkflowDashboard/workflowDashboardMain.gwt.xml
+#	renamed:    src/ecplugins/WorkflowDashboard/client/DashboardResources.java -> src/ecplugins/workflowDashboard/client/DashboardResources.java
+#	renamed:    src/ecplugins/WorkflowDashboard/client/WorkflowStats.java -> src/ecplugins/workflowDashboard/client/WorkflowStats.java
+#	renamed:    src/ecplugins/WorkflowDashboard/client/ConfigureDashboard.java -> src/ecplugins/workflowDashboard/client/configureDashboard.java
+#	renamed:    src/ecplugins/WorkflowDashboard/client/ConfigureDashboard.ui.xml -> src/ecplugins/workflowDashboard/client/configureDashboard.ui.xml
+#	renamed:    src/ecplugins/WorkflowDashboard/client/events/WorkflowProcessedEvent.java -> src/ecplugins/workflowDashboard/client/events/WorkflowProcessedEvent.java
+#	renamed:    src/ecplugins/WorkflowDashboard/client/events/WorkflowProcessedEventHandler.java -> src/ecplugins/workflowDashboard/client/events/WorkflowProcessedEventHandler.java
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/GreenLight.png -> src/ecplugins/workflowDashboard/client/images/GreenLight.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/RedLight.png -> src/ecplugins/workflowDashboard/client/images/RedLight.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/YellowLight.png -> src/ecplugins/workflowDashboard/client/images/YellowLight.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/icn20px_running_success.png -> src/ecplugins/workflowDashboard/client/images/icn20px_running_success.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/workflow_16px.png -> src/ecplugins/workflowDashboard/client/images/workflow_16px.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/workflow_20px.png -> src/ecplugins/workflowDashboard/client/images/workflow_20px.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/workflow_complete_16px.png -> src/ecplugins/workflowDashboard/client/images/workflow_complete_16px.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/workflow_complete_20px.png -> src/ecplugins/workflowDashboard/client/images/workflow_complete_20px.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/workflow_manual_16px.png -> src/ecplugins/workflowDashboard/client/images/workflow_manual_16px.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/images/workflow_manual_20px.png -> src/ecplugins/workflowDashboard/client/images/workflow_manual_20px.png
+#	renamed:    src/ecplugins/WorkflowDashboard/client/WorkflowDashboardMain.java -> src/ecplugins/workflowDashboard/client/workflowDashboardMain.java
+#	renamed:    src/ecplugins/WorkflowDashboard/client/WorkflowDashboardMainFactory.java -> src/ecplugins/workflowDashboard/client/workflowDashboardMainFactory.java
+#	renamed:    src/ecplugins/WorkflowDashboard/client/WorkflowData.java -> src/ecplugins/workflowDashboard/client/workflowData.java
+#
+

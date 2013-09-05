@@ -17,6 +17,7 @@ public class WorkflowData{
     private Job iAssociatedJob;
     private boolean iHasActiveJob;
     private boolean iHasActiveWorkflow;
+    private String  iDescription;
 
     WorkflowData(){
         this.iCompletedWithSuccess=false;
@@ -24,6 +25,7 @@ public class WorkflowData{
         this.iManualTransition=false;
         this.iHasActiveWorkflow=false;
         this.iHasActiveJob=false;
+        this.iDescription="";
     }
 
     public boolean getCompletedWithSuccess(){
@@ -61,6 +63,14 @@ public class WorkflowData{
 
     public void setHasActiveJob(boolean value){
         iHasActiveJob=value;
+    }
+
+    public String getDescription(){
+        return this.iDescription;
+    }
+
+    public void setDescription(String value){
+        iDescription=value;
     }
 
 

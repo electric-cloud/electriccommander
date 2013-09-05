@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Program Files/Electric Cloud/CommanderSDK/lib/gwt-user.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Electric Cloud/CommanderSDK/lib/ec-gwt.jar"/>
+    <classpathentry kind="lib" path="C:/Program Files/Electric Cloud/ElectricCommander/utils/commander-client.jar"/>
+	<classpathentry kind="output" path="eclipse-out"/>
+</classpath>

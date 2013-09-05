@@ -101,7 +101,7 @@
 			
 		<tr>
 		<td style="vertical-align:top">workflows (Old -> New)</td>
-		<td>Each time a new workflow completes, you will see a color-coded tile indicating the status of the workflow (success, warning, manual step or failure). Hover your mouse over a tile to see job information or to go to the Job Details page for that job. The most recent job appears on the right-side of this column. "Gray" or uncolored boxes on the left-side of the column are place-holders for workflows that have not run yet. If no workflows have run, it will be indicated with a "no workflows found" label</td>
+		<td>Each time a new workflow completes, you will see a color-coded tile indicating the status of the workflow (success, warning, manual step or failure). Hover your mouse over a tile to see job information and the content of the workflow property ec_workflow_description if it exists; or to go to the Job Details page for that job. The most recent job appears on the right-side of this column. "Gray" or uncolored boxes on the left-side of the column are place-holders for workflows that have not run yet. If no workflows have run, it will be indicated with a "no workflows found" label</td>
 		</tr>
 	
 		<tr>

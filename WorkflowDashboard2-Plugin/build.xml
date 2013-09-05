@@ -5,7 +5,7 @@
 
   <!-- Plugin-specific properties -->
   <property name="pluginKey" value="WorkflowDashboard" />
-  <property name="pluginVersion" value="2.0.1" />
+  <property name="pluginVersion" value="2.1.0" />
   <property name="gwtModules" value="ecplugins.WorkflowDashboard.ConfigureDashboard,ecplugins.WorkflowDashboard.WorkflowDashboardMain" />
 
   <path id="extras">
@@ -26,5 +26,5 @@
   </path>
   <property name="gwt.path.extras" value="extras" />
 
-  <import file="/opt/CommanderSDK/build/buildTargets.xml" />
+  <import file="C:\Program Files\Electric Cloud\CommanderSDK\build\buildTargets.xml" />
 </project>

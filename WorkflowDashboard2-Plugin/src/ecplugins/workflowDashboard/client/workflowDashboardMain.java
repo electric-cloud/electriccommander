@@ -257,8 +257,12 @@ public class WorkflowDashboardMain
             }
         }
         
-        img.setTitle("Active State: "+wf.getActiveState());
-        
+        String description = wfData.getDescription();
+        if (description.isEmpty()) {
+          img.setTitle("Active State: "+wf.getActiveState());
+        } else {
+            img.setTitle("Active State: "+wf.getActiveState() + "\n"+ wfData.getDescription());
+        }
         Anchor clickable = new Anchor();
         clickable.addStyleName(DashboardResources.RESOURCES.DashboardStyles().no_underline());
         clickable.setHref(createWorkflowUrl(wf));
@@ -308,6 +312,28 @@ public class WorkflowDashboardMain
         wfStats.setWorkflowName(wf.getWorkflowDefinitionName());
         //Window.alert(wf.getCreateTime());
 
+        // wfData.setDescription("this is text");
+        GetPropertyRequest propReqDesc = getRequestFactory().createGetPropertyRequest();
+        propReqDesc.setWorkflowName(wf.getName());
+        propReqDesc.setStateName(wf.getStartingState());
+        propReqDesc.setProjectName(wf.getProjectName());
+        propReqDesc.setPropertyName("ec_workflow_description");
+        propReqDesc.setCallback(new PropertyCallback() {
+            @Override
+            public void handleResponse(Property response) {
+
+            	wfData.setDescription(response.getValue());
+
+            }
+            @Override
+            public void handleError(CommanderError error) {
+            	 // nothing for now
+            }
+        });
+        doRequest(propReqDesc);
+        
+        
+        
         //m_eventBus.(new WorkflowProcessedEvent(true));
         if(wf.isCompleted()){
             //check workflow result
