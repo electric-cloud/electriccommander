@@ -12,12 +12,24 @@ artifacts have been deleted, artifact repositories and artifact caches are
 cleaned as well (deleting stale artifacts).  A report only mode prevents any
 real deletion.
 
-acquireSemaphore & releaseSemaphore: those 2 procedures are used to create a gate for a set of steps. The important part is to use a resource with a step limit of one to ensure the atomicty of increasing and decreasing the gate value.
+acquireSemaphore & releaseSemaphore: those 2 procedures are used to create a 
+gate for a set of steps. The important part is to use a resource with a step 
+limit of one to ensure the atomicty of increasing and decreasing the gate 
+value.
 
-saveProjects: a simple procdure to export individually all (non plugins) projects to create you own versioning. Better to run on a nightly schedule.
+saveProjects: a simple procdure to export individually all (non plugins) 
+projects to create you own versioning. Better to run on a nightly schedule.
 
-to install, simply import the XML file
-ectool import /path_to/EC-Admin_1.0.xml
+to install on 4.2.x, simply import the XML file:
+
+ectool import /path_to/EC-Admin.xml
+
+to install on 4.0.x or later, import the EC_4.0.xml file. Be aware that 
+some features are not present as the original project makes use of 
+createJobStep() API which was introduced in 4.2.0:
+
+ectool import /path_to/EC-Admin_for_EC_4.0.xml
+
 
 Contact author: 
   Laurent Rochette (lrochette@electric-cloud.com) 
