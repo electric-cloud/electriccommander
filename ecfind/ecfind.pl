@@ -18,7 +18,7 @@ use Getopt::Long;
 
 #---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---#
 
-$::version = '0.4h';
+$::version = '0.4i';
 $::debug   = 0;
 $|         = 1;
 
@@ -350,7 +350,7 @@ foreach my $o ( $objectNodeSet->get_nodelist() ) {
                 my $pn = $1;
                 my $e  = $2;
                 $::ec->abortOnError(0);
-                my $va = getP( $pn, 'true', $objectId );
+                my $va = getP( $pn, 'false', $objectId );
                 $::ec->abortOnError(1);
                 my $vaOrig = $va;
                 $e = '$va =~ ' . $e;
@@ -379,7 +379,7 @@ foreach my $o ( $objectNodeSet->get_nodelist() ) {
                 my $tpn = $1;
                 my $opn = $2;
                 $::ec->abortOnError(0);
-                my $va = getP( $opn, 'true', $objectId );
+                my $va = getP( $opn, 'false', $objectId );
                 $::ec->abortOnError(1);
                 if ( defined($va) ) {
                     setP( $tpn, $va, $objectId ) unless ($::debug);
