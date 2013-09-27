@@ -22,14 +22,15 @@ projects to create you own versioning. Better to run on a nightly schedule.
 
 to install on 4.2.x, simply import the XML file:
 
-ectool import /path_to/EC-Admin.xml
+ectool import /path_to/EC-Admin.xml --disableSchedules 1
 
 to install on 4.0.x or later, import the EC_4.0.xml file. Be aware that 
 some features are not present as the original project makes use of 
 createJobStep() API which was introduced in 4.2.0:
 
-ectool import /path_to/EC-Admin_for_EC_4.0.xml
+ectool import /path_to/EC-Admin_for_EC_4.0.xml --disableSchedules 1
 
+If you get an error with the passKey, use the --force 1 option
 
 Contact author: 
   Laurent Rochette (lrochette@electric-cloud.com) 

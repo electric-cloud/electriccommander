@@ -223,9 +223,9 @@
         <propertySheet>
           <property>
             <propertyName>perlCommonLib</propertyName>
-            <description>Perl Library (format agnostic) for:&#10;&#10; - getP: a simple getPropertycall. Return undef in case of error&#10; - humanSize: return a size in human readable string</description>
+            <description>Perl Library (format agnostic) for:&#10;&#10; - getP: a simple getPropertycall. Return undef in case of error&#10; - humanSize: return a size in human readable string&#10; - compareVersion: a function to compare artifact version strings in the form of x.y.z....</description>
             <expandable>1</expandable>
-            <value>#############################################################################&#10;#&#10;# Return property value or undef in case of error (non existing)&#10;#&#10;#############################################################################&#10;sub getP&#10;{&#10;  my $prop=shift;&#10;&#10;  my($success, $xPath, $errMsg, $errCode)= InvokeCommander("SuppressLog IgnoreError", "getProperty", $prop);&#10;  return undef if ($success != 1);&#10;  my $val= $xPath-&gt;findvalue("//value");&#10;  return($val);&#10;}&#10;&#10;#############################################################################&#10;#&#10;# Return human readable size&#10;#&#10;#############################################################################&#10;sub humanSize {&#10;  my $size = shift();&#10;&#10;  if ($size &gt; 1099511627776) { # TB: 1024 GB&#10;      return sprintf("%.2f TB", $size / 1099511627776);&#10;  }&#10;  if ($size &gt; 1073741824) { # GB: 1024 MB&#10;      return sprintf("%.2f GB", $size / 1073741824);&#10;  }&#10;  if ($size &gt; 1048576) { # MB: 1024 KB&#10;      return sprintf("%.2f MB", $size / 1048576);&#10;  }&#10;  elsif ($size &gt; 1024) { # KiB: 1024 B&#10;      return sprintf("%.2f KB", $size / 1024);&#10;  }&#10;                                  # bytes&#10;  return "$size byte" . ($size &lt;= 1 ? "" : "s");&#10;}</value>
+            <value>#############################################################################&#10;#&#10;# Compare 2 version number strings like x.y.z... section by section&#10;# return 1 if V1 &gt; v2&#10;# return 0 if v1 == v2&#10;# return -1 if v1 &lt; v2&#10;#&#10;#############################################################################&#10;sub compareVersion {&#10;&#10;  my ($v1, $v2)=@_;&#10;  &#10;  my @v1Numbers = split('\.', $v1);&#10;  my @v2Numbers = split('\.', $v2);&#10;&#10;  for (my $index = 0; $index &lt; scalar(@v1Numbers); $index++) {&#10;    &#10;    # We ran out of V2 numbers =&gt; V1 is a bigger version&#10;    return 1 if (scalar(@v2Numbers) == $index);&#10;&#10;    # same value, go to next number&#10;    next if ($v1Numbers[$index] == $v2Numbers[$index]);&#10;        &#10;    # V1 is a bigger version&#10;    return 1 if ($v1Numbers[$index] &gt; $v2Numbers[$index]);&#10;           ;&#10;    # V2 is a bigger version&#10;    return -1;&#10;  }&#10;&#10;  # We ran out of V1 numbers&#10;  return -1 if(scalar(@v1Numbers) != scalar(@v2Numbers));&#10;&#10;  # Same number&#10;  return 0;&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;# Return property value or undef in case of error (non existing)&#10;#&#10;#############################################################################&#10;sub getP&#10;{&#10;  my $prop=shift;&#10;&#10;  my($success, $xPath, $errMsg, $errCode)= InvokeCommander("SuppressLog IgnoreError", "getProperty", $prop);&#10;  return undef if ($success != 1);&#10;  my $val= $xPath-&gt;findvalue("//value");&#10;  return($val);&#10;}&#10;&#10;#############################################################################&#10;#&#10;# Return human readable size&#10;#&#10;#############################################################################&#10;sub humanSize {&#10;  my $size = shift();&#10;&#10;  if ($size &gt; 1099511627776) { # TB: 1024 GB&#10;      return sprintf("%.2f TB", $size / 1099511627776);&#10;  }&#10;  if ($size &gt; 1073741824) { # GB: 1024 MB&#10;      return sprintf("%.2f GB", $size / 1073741824);&#10;  }&#10;  if ($size &gt; 1048576) { # MB: 1024 KB&#10;      return sprintf("%.2f MB", $size / 1048576);&#10;  }&#10;  elsif ($size &gt; 1024) { # KiB: 1024 B&#10;      return sprintf("%.2f KB", $size / 1024);&#10;  }&#10;                                  # bytes&#10;  return "$size byte" . ($size &lt;= 1 ? "" : "s");&#10;}</value>
           </property>
           <property>
             <propertyName>perlHeader</propertyName>
@@ -255,9 +255,9 @@
       </property>
       <property>
         <propertyName>version</propertyName>
-        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
+        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
         <expandable>1</expandable>
-        <value>1.3.3</value>
+        <value>1.3.4</value>
       </property>
     </propertySheet>
     <credential>
@@ -271,7 +271,7 @@
     <procedure>
       <procedureName>acquireSemaphore</procedureName>
       <description></description>
-      <jobNameTemplate></jobNameTemplate>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -368,8 +368,8 @@
     </procedure>
     <procedure>
       <procedureName>artifactsCleanup</procedureName>
-      <description>Delete Artifacts and clean caches.&#10;A resource matching the Repository server is required or some steps will be skipped.&#10;&#10;Changelog:&#10;--------------&#10; 07-29-2013  lrochette     Added ec_parameterForm to give it the same look and feel than jobCleanup&#10;                                         Took advantage of createJobStep to simplify the procedure&#10;</description>
-      <jobNameTemplate>artifact-cleanup-$[jobId]</jobNameTemplate>
+      <description>Delete Artifacts and clean caches.&#10;A resource matching the Repository server is required or some steps will be skipped.&#10;&#10;Changelog:&#10;--------------&#10; 08-07-2013  lrochette     Better Resource management: test for existence, alive and enabled before invoking cleanupRepository.&#10;&#10; 07-29-2013  lrochette     Added ec_parameterForm to give it the same look and feel than jobCleanup&#10;                                         Took advantage of createJobStep to simplify the procedure</description>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -498,7 +498,7 @@
         <stepName>dynamicCleanRepoProcedure</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use DateTime;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $executeDeletion="$[executeDeletion]";&#10;&#10;my $jobId = $[jobId];&#10;&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getRepositories");&#10;my $nodeset = $xPath-&gt;find('//repository');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $repoName=$node-&gt;findvalue('repositoryName');&#10;  my $repoServerName = $node-&gt;findvalue('url');&#10;  &#10;  $repoServerName =~ s#https?://(\w+)(:\d+)?#$1#;&#10;  my $stepName = "clean Step For ".$repoName;&#10;  $ec-&gt;createJobStep({'jobStepName' =&gt; $stepName, &#10;                      'subprocedure' =&gt; 'cleanupRepository', &#10;                      'actualParameter' =&gt; [{'actualParameterName' =&gt; 'executeDeletion', 'value'=&gt;$executeDeletion},&#10;                                         {'actualParameterName' =&gt; 'resource', 'value'=&gt;$repoServerName},&#10;                                        ]&#10;                  });&#10;}                      &#10;&#10;&#10;</command>
+        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use DateTime;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $executeDeletion="$[executeDeletion]";&#10;&#10;my $jobId = $[jobId];&#10;&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getRepositories");&#10;my $nodeset = $xPath-&gt;find('//repository');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $repoName=$node-&gt;findvalue('repositoryName');&#10;  my $repoServerName = $node-&gt;findvalue('url');&#10;  my $repoDisabled = $node-&gt;findvalue('repositoryDisabled');&#10;  &#10;  printf("AR: %s\n", $repoName);&#10;  #&#10;  # Skip disable repositories&#10;  if ($repoDisabled) {&#10;    printf ("  Repository disabled: Skipping!\n");&#10;    next;&#10;  }&#10;  $repoServerName =~ s#https?://([\-\w]+)(:\d+)?#$1#;&#10;&#10;  # checking that the resource exist and is enabled&#10;  # &#10;  ($success, $xPath) = InvokeCommander("SuppressLog IgnoreError", "getResource", $repoServerName);&#10;  if (! $success) {&#10;    printf("  Associated resource '%s' does not exist. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;  my $resDisabled=$xPath-&gt;findvalue('//resource/resourceDisabled');&#10;  if ($resDisabled eq "1") {&#10;    printf("  Associated resource '%s' disabled. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;    &#10;  my $agentAlive=$xPath-&gt;findvalue('//resource/agentState/alive');&#10;  if ($agentAlive eq "0") {&#10;    printf("  Associated resource '%s' is not alive. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;  &#10;  my $stepName = "clean Step For ".$repoName;&#10;  $ec-&gt;createJobStep({'jobStepName' =&gt; $stepName, &#10;                      'subprocedure' =&gt; 'cleanupRepository', &#10;                      'actualParameter' =&gt; [{'actualParameterName' =&gt; 'executeDeletion', 'value'=&gt;$executeDeletion},&#10;                                         {'actualParameterName' =&gt; 'resource', 'value'=&gt;$repoServerName},&#10;                                        ]&#10;                  });&#10;}                      &#10;&#10;&#10;</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
@@ -703,7 +703,7 @@
     <procedure>
       <procedureName>cleanupRepository</procedureName>
       <description>Clear out all stale artifacts from a repository's backing store.&#10;This procedure can be run on an individual repository or can be called on all repositories by "Artifact Cleanup"</description>
-      <jobNameTemplate></jobNameTemplate>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName>$[resource]</resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -786,8 +786,8 @@
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>$[/myProject/scripts/perlHeader]&#10;&#10;use warnings;&#10;use File::Spec;&#10;&#10;my $executeDeletion="$[executeDeletion]";&#10;my $response;&#10;&#10;my $dataEnv = "COMMANDER_DATA";&#10;my $dataDir;&#10;&#10;if (defined($ENV{$dataEnv})) {&#10;    $dataDir = $ENV{$dataEnv};&#10;    print "Data directory found in environment: \"$dataDir\".\n";&#10;} else {&#10;    # No data directory in the environment; probably a pre-4.0 agent.&#10;    die "ERROR: No data directory was found in the environment.\n";&#10;}&#10;&#10;if (! -d $dataDir) {&#10;    # The data directory is invalid.&#10;    die "ERROR: Cannot access data directory \"$dataDir\".\n";&#10;}&#10;&#10;my $propsFile = "$dataDir/conf/repository/server.properties";&#10;if (! -f $propsFile) {&#10;    # There's no repository server.properties.&#10;    die "ERROR: Cannot find repository configuration file \"$propsFile\".\n";&#10;}&#10;&#10;open PROPS, $propsFile or die "Could not open repository configuration file \"$propsFile\": $!";&#10;binmode PROPS;&#10;my $propsContents = join("", &lt;PROPS&gt;);&#10;close PROPS;&#10;$propsContents =~ m/REPOSITORY_BACKING_STORE=([^\n]*)/;&#10;my $backingStore = $1;&#10;&#10;if (!defined($backingStore) || $backingStore eq "") {&#10;    # Invalid backing store.&#10;    die "ERROR: Cannot find backing store in repository configuration file \"$propsFile\".\n";&#10;}&#10;&#10;# If the backing store isn't an absolute path, it is relative to the data directory.&#10;if (!File::Spec-&gt;file_name_is_absolute($backingStore)) {&#10;    $backingStore = "$dataDir/$backingStore";&#10;}&#10;&#10;if (! -d $backingStore) {&#10;    # The backing store directory is invalid.&#10;    die "ERROR: Cannot access backing store directory \"$backingStore\".\n";&#10;}&#10;&#10;if ($executeDeletion eq "true") {&#10;    # Get Admin user/password from project-level credential&#10;    # getFullCredential will not reveal the contents of the "password" field&#10;    my $xPath = $ec-&gt;getFullCredential("adminLogin");&#10;    my $user = $xPath-&gt;findvalue("//userName");&#10;    my $passwd = $xPath-&gt;findvalue("//password");&#10;&#10;    print "Cleaning up repository backing store \"$backingStore\".\n";&#10;    $ec-&gt;login($user, $passwd);&#10;    $ec-&gt;cleanupRepository($backingStore);&#10;} else {&#10;    print "Would call cleanupRepository on \"$backingStore\".\n";&#10;}</command>
-        <condition>$[/javascript typeof(resources.resource) != "undefined" ]</condition>
-        <description>Check the environment variable COMMANDER_DATA, then check for a repository server.properties relative to this directory. Error out if the properties file can't be found, otherwise parse it for the backing store location. Once we have the backing store, call cleanupRepository on that directory.</description>
+        <condition></condition>
+        <description>Check the environment variable COMMANDER_DATA, then check for a repository server.properties relative to this directory. Error out if the properties file can't be found, otherwise parse it for the backing store location. Once we have the backing store, call cleanupRepository on that directory.&#10;&#10;</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
@@ -811,7 +811,7 @@
     <procedure>
       <procedureName>deleteWorkspaceOrphans</procedureName>
       <description>Procedure to crawl a workspace directory to find orphan jobs (directories without a matching job)</description>
-      <jobNameTemplate>EC-Admin-deleteWorkspaceOrphans-$[jobId]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -1165,7 +1165,7 @@
     <procedure>
       <procedureName>jobCleanup_byResult</procedureName>
       <description>Delete jobs and the associated workspace based on  result: keeping X goods/warning, and Y failed&#10;Report the number of jobs, the disk space and database space that could/was be deleted.</description>
-      <jobNameTemplate></jobNameTemplate>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName>local</resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -1600,7 +1600,7 @@
           <propertyName>ec_parameterForm</propertyName>
           <description>Redefine UI</description>
           <expandable>1</expandable>
-          <value>&lt;editor&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Success Jobs&lt;/label&gt;	&#10;        &lt;property&gt;nbGoodJobs&lt;/property&gt;	&#10;        &lt;documentation&gt;The number of successful jobs to preserve per procedure&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;	&#10;        &lt;value&gt;5&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Warning Jobs&lt;/label&gt; &#10;        &lt;property&gt;nbWarningJobs&lt;/property&gt; &#10;        &lt;documentation&gt;The number of Warning jobs to preserve per procedure&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;  &#10;        &lt;value&gt;1&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Failed Jobs&lt;/label&gt; &#10;        &lt;property&gt;nbFailedJobs&lt;/property&gt; &#10;        &lt;documentation&gt;The number of failed jobs to preserve per procedure&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;  &#10;        &lt;value&gt;5&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Job property&lt;/label&gt; &#10;        &lt;property&gt;jobProperty&lt;/property&gt; &#10;        &lt;documentation&gt;Name of a property attached to your jobs. If this property is set, your job won't be deleted.&#10;        &lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;  &#10;        &lt;value&gt;doNotDelete&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Delete&lt;/label&gt;	&#10;        &lt;property&gt;executeDeletion&lt;/property&gt; &#10;        &lt;documentation&gt;If this option is not set, only report is done. No real data are deleted&lt;/documentation&gt; &#10;        &lt;type&gt;select&lt;/type&gt;	&#10;        &lt;option&gt; &#10;            &lt;name&gt;Report&lt;/name&gt; &#10;            &lt;value&gt;false&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;Delete&lt;/name&gt; &#10;            &lt;value&gt;true&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;value&gt;false&lt;/value&gt;	&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Skip plugins&lt;/label&gt;	&#10;        &lt;property&gt;skipPlugins&lt;/property&gt; &#10;        &lt;documentation&gt;A boolean to indicate to skip plugin projects or not&lt;/documentation&gt; &#10;        &lt;type&gt;checkbox&lt;/type&gt;	&#10;        &lt;checkedValue&gt;true&lt;/checkedValue&gt; &#10;        &lt;uncheckedValue&gt;false&lt;/uncheckedValue&gt; &#10;        &lt;initiallyChecked&gt;1&lt;/initiallyChecked&gt; &#10;        &lt;value&gt;true&lt;/value&gt;	&#10;    &lt;/formElement&gt;&#10;&lt;/editor&gt; </value>
+          <value>&lt;editor&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Delete jobs older than&lt;/label&gt; &#10;        &lt;property&gt;olderThan&lt;/property&gt; &#10;        &lt;documentation&gt;Indicate the numbers of days after which jobs should be deleted&lt;/documentation&gt; &#10;        &lt;type&gt;select&lt;/type&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;1 month&lt;/name&gt; &#10;            &lt;value&gt;30&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;2 months&lt;/name&gt; &#10;            &lt;value&gt;60&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;3 months&lt;/name&gt; &#10;            &lt;value&gt;91&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;6 months&lt;/name&gt; &#10;            &lt;value&gt;182&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;1 year&lt;/name&gt; &#10;            &lt;value&gt;365&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;value&gt;91&lt;/value&gt; &#10;        &lt;required&gt;0&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Success Jobs&lt;/label&gt;	&#10;        &lt;property&gt;nbGoodJobs&lt;/property&gt;	&#10;        &lt;documentation&gt;The number of successful jobs to preserve per procedure&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;	&#10;        &lt;value&gt;5&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Warning Jobs&lt;/label&gt; &#10;        &lt;property&gt;nbWarningJobs&lt;/property&gt; &#10;        &lt;documentation&gt;The number of Warning jobs to preserve per procedure&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;  &#10;        &lt;value&gt;1&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Failed Jobs&lt;/label&gt; &#10;        &lt;property&gt;nbFailedJobs&lt;/property&gt; &#10;        &lt;documentation&gt;The number of failed jobs to preserve per procedure&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;  &#10;        &lt;value&gt;5&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Job property&lt;/label&gt; &#10;        &lt;property&gt;jobProperty&lt;/property&gt; &#10;        &lt;documentation&gt;Name of a property attached to your jobs. If this property is set, your job won't be deleted.&#10;        &lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;  &#10;        &lt;value&gt;doNotDelete&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Delete&lt;/label&gt;	&#10;        &lt;property&gt;executeDeletion&lt;/property&gt; &#10;        &lt;documentation&gt;If this option is not set, only report is done. No real data are deleted&lt;/documentation&gt; &#10;        &lt;type&gt;select&lt;/type&gt;	&#10;        &lt;option&gt; &#10;            &lt;name&gt;Report&lt;/name&gt; &#10;            &lt;value&gt;false&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;Delete&lt;/name&gt; &#10;            &lt;value&gt;true&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;value&gt;false&lt;/value&gt;	&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Skip plugins&lt;/label&gt;	&#10;        &lt;property&gt;skipPlugins&lt;/property&gt; &#10;        &lt;documentation&gt;A boolean to indicate to skip plugin projects or not&lt;/documentation&gt; &#10;        &lt;type&gt;checkbox&lt;/type&gt;	&#10;        &lt;checkedValue&gt;true&lt;/checkedValue&gt; &#10;        &lt;uncheckedValue&gt;false&lt;/uncheckedValue&gt; &#10;        &lt;initiallyChecked&gt;1&lt;/initiallyChecked&gt; &#10;        &lt;value&gt;true&lt;/value&gt;	&#10;    &lt;/formElement&gt;&#10;&lt;/editor&gt; </value>
         </property>
       </propertySheet>
       <formalParameter>
@@ -1644,6 +1644,14 @@
         <type>entry</type>
       </formalParameter>
       <formalParameter>
+        <formalParameterName>olderThan</formalParameterName>
+        <defaultValue>91</defaultValue>
+        <description>Indicate the numbers of days after which jobs should be deleted</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>select</type>
+      </formalParameter>
+      <formalParameter>
         <formalParameterName>skipPlugins</formalParameterName>
         <defaultValue>true</defaultValue>
         <description>A boolean to indicate to skip plugin projects or not</description>
@@ -1652,12 +1660,12 @@
         <type>checkbox</type>
       </formalParameter>
       <step>
-        <stepName>deleteJobs</stepName>
+        <stepName>deleteJobs.byProject</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>#############################################################################&#10;#&#10;#  deleteJobs_byResult -- Script to delete jobs and workspaces keeping&#10;#                         some good and failed ones.&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;#&#10;# Perl Commander Header&#10;$[/myProject/scripts/perlHeader]&#10;use File::Path;&#10;use File::stat;&#10;use Fcntl ':mode';&#10;use DateTime;&#10;&#10;#&#10;# Perl Commander library&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $jobProperty     = "$[jobProperty]";&#10;my $executeDeletion = "$[executeDeletion]";&#10;my $nbGood          =  $[nbGoodJobs];&#10;my $nbFail          =  $[nbFailedJobs];&#10;my $nbWarn          =  $[nbWarningJobs];&#10;my $skipPluginBool  = "$[skipPlugins]";&#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $version="1.0";&#10;my $totalWksSize=0;          # Size of workspace files&#10;my $totalNbJobs=0;           # Number of jobs to delete potentially&#10;my $totalNbSteps=0;          # Number of steps to evaluate DB size&#10;my $DBStepSize=10240;        # Step is about 10K in DB&#10;&#10;$DEBUG=0;&#10;&#10;#############################################################################&#10;#&#10;#  Main&#10;#&#10;#############################################################################&#10;printf("%s jobs based on results.\n", &#10;    $executeDeletion eq "true"?"Deleting":"Reporting");&#10;printf("  Preserving %d GOOD    jobs\n", $nbGood);&#10;printf("  Preserving %d WARNING jobs\n", $nbWarn);&#10;printf("  Preserving %d FAIL    jobs\n\n", $nbFail);&#10;&#10;&#10;#&#10;# Loop over each project &#10;#&#10;my ($success, $pjPath) = InvokeCommander("SuppressLog", "getProjects");&#10;my $projSet = $pjPath-&gt;find('//project');&#10;foreach my $pjNode ($projSet-&gt;get_nodelist) {&#10;  my $projName  =$pjPath-&gt;findvalue('projectName', $pjNode);&#10;  my $pluginName=$pjPath-&gt;findvalue('pluginName',  $pjNode);&#10;&#10;  # skip plugins if Boolean is set&#10;  next if (($pluginName ne "") &amp;&amp; ($skipPluginBool eq "true"));&#10;&#10;  printf("Project: %s\n", $projName);&#10;&#10;  #&#10;  # Loop over each procedure&#10;  #&#10;  my ($success, $procPath) = InvokeCommander("SuppressLog", "getProcedures", $projName);&#10;  my $procSet = $procPath-&gt;find('//procedure');&#10;  foreach my $procNode ($procSet-&gt;get_nodelist) {&#10;    my $procName  =$procPath-&gt;findvalue('procedureName', $procNode);&#10;    printf("  Procedure: %s\n", $procName);&#10;&#10;    # create filterList&#10;    my @filterList;&#10;    push (@filterList, {"propertyName" =&gt; "status",&#10;                        "operator" =&gt; "equals",&#10;                        "operand1" =&gt; "completed"});&#10;    push (@filterList, {"propertyName" =&gt; "projectName",&#10;                        "operator" =&gt; "equals",&#10;                        "operand1" =&gt; $projName});&#10;    push (@filterList, {"propertyName" =&gt; "procedureName",&#10;                        "operator" =&gt; "equals",&#10;                        "operand1" =&gt; $procName});&#10;    push (@filterList, {"propertyName" =&gt; $jobProperty,&#10;                        "operator" =&gt; "isNull"});&#10;&#10;    my ($success, $xPath) = InvokeCommander("SuppressLog", "findObjects", "job",&#10;                                            {maxIds =&gt; 5000,&#10;                                             filter =&gt; \@filterList ,&#10;                                             sort =&gt; [ {propertyName =&gt; "jobId",&#10;                                                        order =&gt; "descending"} ]});&#10;&#10;    # Check for the OS Type&#10;    my $osIsWindows = $^O =~ /MSWin/;&#10;&#10;    # Loop over all returned jobs&#10;    my $nodeset = $xPath-&gt;find('//job');&#10;    my $procGood=0;&#10;    my $procFailed=0;&#10;    my $procWarning=0;&#10;    foreach my $node ($nodeset-&gt;get_nodelist) {&#10;      my $wksSize;&#10;&#10;      my $jobId     = $xPath-&gt;findvalue('jobId',   $node);&#10;      my $jobName   = $xPath-&gt;findvalue('jobName', $node);&#10;      my $jobOutcome= $xPath-&gt;findvalue('outcome', $node);&#10;      print "    Job: $jobName\n";&#10;&#10;      # Skiping over X GOOD and Y BAD&#10;      if (($procGood &lt; $nbGood) &amp;&amp; ($jobOutcome eq "success")) {&#10;        printf ("      Preserving job (GOOD)\n");&#10;        $procGood++;&#10;        next;&#10;      }&#10;      if (($procWarning &lt; $nbWarn) &amp;&amp; ($jobOutcome eq "warning")) {&#10;        printf ("      Preserving job (WARNING)\n");&#10;        $procWarning++;&#10;        next;&#10;      }&#10;      if (($procFailed &lt; $nbFail) &amp;&amp; ($jobOutcome eq "error")) {&#10;        printf ("      Preserving job (ERROR)\n");&#10;        $procFailed++;&#10;        next;&#10;      }&#10;&#10;      $totalNbJobs++;&#10;&#10;      #&#10;      # Find number of steps for the jobs&#10;      my ($success, $xPath) = InvokeCommander("SuppressLog", "findJobSteps", &#10;                    {'jobId' =&gt; $jobId});&#10;      my $nbSteps=scalar($xPath-&gt;findnodes('//object')-&gt;get_nodelist);&#10;      $totalNbSteps += $nbSteps;&#10;      printf("      Job steps:\t%d\n", $nbSteps) if ($DEBUG);&#10;&#10;      #  Find the workspaces (there may be more than one if some steps&#10;      #  were configured to use a different workspace)&#10;      my ($success, $xPath) = InvokeCommander("SuppressLog", "getJobInfo",&#10;                                               $jobId);&#10;      my $wsNodeset = $xPath-&gt;find('//job/workspace');&#10;      foreach my $wsNode ($wsNodeset-&gt;get_nodelist) {&#10;        my $workspace;&#10;        if ($osIsWindows) {&#10;            $workspace = $xPath-&gt;findvalue('./winUNC', $wsNode);&#10;            $workspace =~ s'/'\\'g;&#10;        } else {&#10;            $workspace = $xPath-&gt;findvalue('./unix', $wsNode);&#10;        }&#10;&#10;        print "      Workspace:\t$workspace\n" if (($workspace ne "") &amp;&amp;  ($DEBUG));&#10;&#10;        $wksSize = getDirSize($workspace);&#10;        printf ("        Size:\t%s\n", humanSize($wksSize)) if ($DEBUG);&#10;        $totalWksSize += $wksSize;&#10;        if ($executeDeletion eq "true") {&#10;           rmtree ([$workspace])  ;&#10;           print "        Deleting Workspace\n" if ($DEBUG);&#10;        }&#10;      }&#10;&#10;      # Delete the job&#10;&#10;      if ($executeDeletion eq "true") {&#10;          InvokeCommander("SuppressLog", "deleteJob", $jobId) ;&#10;          print "      Deleting Job\n\n";&#10;      } &#10;    } #job loop&#10;  } #procedure loop&#10;} #project loop&#10;&#10;printf("\nSUMMARY:\n");&#10;printf("Total number of jobs:  %d\n", $totalNbJobs);&#10;printf("Total File size:       %s\n", humanSize($totalWksSize));&#10;printf("Total number of steps: %d\n", $totalNbSteps);&#10;printf("Total Database size:   %s\n", humanSize($totalNbSteps * $DBStepSize));&#10;&#10;$ec-&gt;setProperty("/myJob/numberOfJobs", $totalNbJobs);&#10;$ec-&gt;setProperty("/myJob/diskSpace", $totalWksSize);&#10;$ec-&gt;setProperty("/myJob/numbernumberOfSteps", $totalNbSteps);&#10;&#10;$ec-&gt;setProperty("summary", $totalNbJobs . " jobs deleted" ) if ($executeDeletion eq "true");&#10;&#10;exit(0);&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the size of the workspace directory&#10;#&#10;#############################################################################&#10;sub getDirSize {&#10;  my $dir  = shift;&#10;  my $size = 0;&#10;&#10;  opendir(D,"$dir") || return 0;&#10;  foreach my $dirContent (grep(!/^\.\.?/,readdir(D))) {&#10;     my $st=stat("$dir/$dirContent");&#10;     if (S_ISREG($st-&gt;mode)) {&#10;       $size += $st-&gt;size;&#10;     } elsif (S_ISDIR($st-&gt;mode)) {&#10;       $size += getDirSize("$dir/$dirContent");&#10;     }&#10;  }&#10;  closedir(D);&#10;  return $size;&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Return human readable size&#10;#&#10;#############################################################################&#10;sub humanSize {&#10;  my $size = shift();&#10;&#10;  if ($size &gt; 1099511627776) {    #   TB: 1024 GB&#10;      return sprintf("%.2f TB", $size / 1099511627776);&#10;  }&#10;  if ($size &gt; 1073741824) {       #   GB: 1024 MB&#10;      return sprintf("%.2f GB", $size / 1073741824);&#10;  }&#10;  if ($size &gt; 1048576) {          #   MB: 1024 KB&#10;      return sprintf("%.2f MB", $size / 1048576);&#10;  }&#10;  elsif ($size &gt; 1024) {          #   KiB: 1024 B&#10;      return sprintf("%.2f KB", $size / 1024);&#10;  }&#10;                                  #   bytes&#10;  return "$size byte" . ($size &lt;= 1 ? "" : "s");&#10;}&#10;</command>
+        <command>#############################################################################&#10;#&#10;#  deleteJobs_byResult -- Script to delete jobs and workspaces keeping&#10;#                         some good and failed ones.&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;#&#10;# Perl Commander Header&#10;$[/myProject/scripts/perlHeader]&#10;use File::Path;&#10;use File::stat;&#10;use Fcntl ':mode';&#10;use DateTime;&#10;&#10;#&#10;# Perl Commander library&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $jobProperty     = "$[jobProperty]";&#10;my $executeDeletion = "$[executeDeletion]";&#10;my $nbGood          =  $[nbGoodJobs];&#10;my $nbFail          =  $[nbFailedJobs];&#10;my $nbWarn          =  $[nbWarningJobs];&#10;my $skipPluginBool  = "$[skipPlugins]";&#10;my $timeLimit       =  $[olderThan];&#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $version="1.0";&#10;my $totalWksSize=0;          # Size of workspace files&#10;my $totalNbJobs=0;           # Number of jobs to delete potentially&#10;my $totalNbSteps=0;          # Number of steps to evaluate DB size&#10;my $DBStepSize=10240;        # Step is about 10K in DB&#10;&#10;my $procGood=0;				 # Number of good jobs in the procedure kept&#10;my $procFailed=0;		     # Number of failed jobs in the procedure kept&#10;my $procWarning=0;		     # Number of warning jobs in the procedure kept&#10;&#10;$DEBUG=0;&#10;&#10;#############################################################################&#10;#&#10;#  Main&#10;#&#10;#############################################################################&#10;printf("%s jobs older than $timeLimit days (%s)  based on results.\n", &#10;    $executeDeletion eq "true"?"Deleting":"Reporting",&#10;    calculateDate($timeLimit));&#10;printf("  Preserving %d GOOD    jobs\n", $nbGood);&#10;printf("  Preserving %d WARNING jobs\n", $nbWarn);&#10;printf("  Preserving %d FAIL    jobs\n\n", $nbFail);&#10;&#10;&#10;#&#10;# Loop over each project &#10;#&#10;my ($success, $pjPath) = InvokeCommander("SuppressLog", "getProjects");&#10;my $projSet = $pjPath-&gt;find('//project');&#10;foreach my $pjNode ($projSet-&gt;get_nodelist) {&#10;  my $projName  =$pjPath-&gt;findvalue('projectName', $pjNode);&#10;  my $pluginName=$pjPath-&gt;findvalue('pluginName',  $pjNode);&#10;  &#10;  # skip plugins if Boolean is set&#10;  next if (($pluginName ne "") &amp;&amp; ($skipPluginBool eq "true"));&#10;&#10;  printf("Project: %s\n", $projName);&#10;  my $previousProcName="";&#10;&#10;  # create filterList&#10;  my @filterList;&#10;&#10;  # only finished jobs&#10;  push (@filterList, {"propertyName" =&gt; "status",&#10;                      "operator" =&gt; "equals",&#10;                      "operand1" =&gt; "completed"});&#10;  # older than&#10;  push (@filterList, {"propertyName" =&gt; "finish",&#10;                    "operator" =&gt; "lessThan",&#10;                    "operand1" =&gt; calculateDate($timeLimit)});&#10;  # jobs of a specific project&#10;  push (@filterList, {"propertyName" =&gt; "projectName",&#10;                      "operator" =&gt; "equals",&#10;                      "operand1" =&gt; $projName});&#10;  # do not have specific job property&#10;  push (@filterList, {"propertyName" =&gt; $jobProperty,&#10;                        "operator" =&gt; "isNull"});&#10;&#10;  # Getting the list sorted by procedure&#10;  # then by date (or jobId)&#10;  my ($success, $xPath) = InvokeCommander("SuppressLog", "findObjects", "job",&#10;                                            {maxIds =&gt; 5000,&#10;                                             filter =&gt; \@filterList ,&#10;                                             sort =&gt; [ {propertyName =&gt; "procedureName",&#10;                                                        order =&gt; "ascending"} ,&#10;                                                       {propertyName =&gt; "jobId",&#10;                                                        order =&gt; "descending"} ]});&#10;&#10;  # Loop over all returned jobs&#10;  my $nodeset = $xPath-&gt;find('//job');&#10;  foreach my $node ($nodeset-&gt;get_nodelist) {&#10;    my $wksSize;&#10;&#10;    my $jobId     = $xPath-&gt;findvalue('jobId',   $node);&#10;    my $jobName   = $xPath-&gt;findvalue('jobName', $node);&#10;    my $jobOutcome= $xPath-&gt;findvalue('outcome', $node);&#10;    my $jobProcedure=$xPath-&gt;findvalue('procedureName', $node);&#10;    if ($jobProcedure ne $previousProcName) {&#10;      $previousProcName=$jobProcedure;&#10;      $procGood=0;&#10;      $procFailed=0;&#10;      $procWarning=0;&#10;      my $displayName=$jobProcedure;&#10;      # transforn procedure name to standard PROJ:PROC string&#10;      if ($displayName =~ m#/projects/([^/]+)/procedures/([^/]+)#) {&#10;        $displayName="$1:$2";&#10;      }&#10;      print "  Procedure: $displayName\n";    &#10;    }&#10;    print "    Job: $jobName\n";&#10;      &#10;    # Skiping over X GOOD and Y BAD&#10;    if (($procGood &lt; $nbGood) &amp;&amp; ($jobOutcome eq "success")) {&#10;      printf ("      Preserving job (GOOD)\n");&#10;      $procGood++;&#10;      next;&#10;    }&#10;    if (($procWarning &lt; $nbWarn) &amp;&amp; ($jobOutcome eq "warning")) {&#10;      printf ("      Preserving job (WARNING)\n");&#10;      $procWarning++;&#10;      next;&#10;    }&#10;    if (($procFailed &lt; $nbFail) &amp;&amp; ($jobOutcome eq "error")) {&#10;      printf ("      Preserving job (ERROR)\n");&#10;      $procFailed++;&#10;      next;&#10;    }&#10;&#10;    $totalNbJobs++;&#10;&#10;    #&#10;    # Find number of steps for the jobs&#10;    my ($success, $xPath) = InvokeCommander("SuppressLog", "findJobSteps", &#10;                    {'jobId' =&gt; $jobId});&#10;    my $nbSteps=scalar($xPath-&gt;findnodes('//object')-&gt;get_nodelist);&#10;    $totalNbSteps += $nbSteps;&#10;    printf("      Job steps:\t%d\n", $nbSteps) if ($DEBUG);&#10;&#10;    #  Find the workspaces (there may be more than one if some steps&#10;    #  were configured to use a different workspace)&#10;    my ($success, $xPath) = InvokeCommander("SuppressLog", "getJobInfo",&#10;                                               $jobId);&#10;    my $wsNodeset = $xPath-&gt;find('//job/workspace');&#10;    foreach my $wsNode ($wsNodeset-&gt;get_nodelist) {&#10;      my $workspace;&#10;      if ($osIsWindows) {&#10;        $workspace = $xPath-&gt;findvalue('./winUNC', $wsNode);&#10;        $workspace =~ s'/'\\'g;&#10;      } else {&#10;        $workspace = $xPath-&gt;findvalue('./unix', $wsNode);&#10;      }&#10;&#10;      print "      Workspace:\t$workspace\n" if (($workspace ne "") &amp;&amp;  ($DEBUG));&#10;&#10;      $wksSize = getDirSize($workspace);&#10;      printf ("        Size:\t%s\n", humanSize($wksSize)) if ($DEBUG);&#10;      $totalWksSize += $wksSize;&#10;      if ($executeDeletion eq "true") {&#10;        rmtree ([$workspace])  ;&#10;        print "        Deleting Workspace\n" if ($DEBUG);&#10;      }&#10;    }&#10;&#10;    # Delete the job&#10;&#10;    if ($executeDeletion eq "true") {&#10;      InvokeCommander("SuppressLog", "deleteJob", $jobId) ;&#10;      print "      Deleting Job\n\n";&#10;    } &#10;  } #job loop&#10;} #project loop&#10;&#10;printf("\nSUMMARY:\n");&#10;printf("Total number of jobs:  %d\n", $totalNbJobs);&#10;printf("Total File size:       %s\n", humanSize($totalWksSize));&#10;printf("Total number of steps: %d\n", $totalNbSteps);&#10;printf("Total Database size:   %s\n", humanSize($totalNbSteps * $DBStepSize));&#10;&#10;$ec-&gt;setProperty("/myJob/numberOfJobs", $totalNbJobs);&#10;$ec-&gt;setProperty("/myJob/diskSpace", $totalWksSize);&#10;$ec-&gt;setProperty("/myJob/numbernumberOfSteps", $totalNbSteps);&#10;&#10;$ec-&gt;setProperty("summary", $totalNbJobs . " jobs deleted" ) if ($executeDeletion eq "true");&#10;&#10;exit(0);&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the size of the workspace directory&#10;#&#10;#############################################################################&#10;sub getDirSize {&#10;  my $dir  = shift;&#10;  my $size = 0;&#10;&#10;  opendir(D,"$dir") || return 0;&#10;  foreach my $dirContent (grep(!/^\.\.?/,readdir(D))) {&#10;     my $st=stat("$dir/$dirContent");&#10;     if (S_ISREG($st-&gt;mode)) {&#10;       $size += $st-&gt;size;&#10;     } elsif (S_ISDIR($st-&gt;mode)) {&#10;       $size += getDirSize("$dir/$dirContent");&#10;     }&#10;  }&#10;  closedir(D);&#10;  return $size;&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the Date based on now and the number of days required by&#10;#  the user before deleting jobs&#10;#&#10;#############################################################################&#10;sub calculateDate {&#10;    my $nbDays=shift;&#10;    return DateTime-&gt;now()-&gt;subtract(days =&gt; $nbDays)-&gt;iso8601() . ".000Z";&#10;}&#10;</command>
         <condition></condition>
-        <description>Script to delete jobs and workspaces</description>
+        <description>Script to delete all jobs and workspaces associated to a project&#10;It includes CI and workflows jobs.</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
@@ -1677,8 +1685,8 @@
     </procedure>
     <procedure>
       <procedureName>jobsCleanup</procedureName>
-      <description> Delete jobs older than a number of days, along with the associated workspace.&#10;Report the number of jobs, the disk space and database space that could/was be deleted.</description>
-      <jobNameTemplate></jobNameTemplate>
+      <description>Delete jobs older than a number of days, along with the associated workspace.&#10;Report the number of jobs, the disk space and database space that could/was be deleted.</description>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName>local</resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -2127,8 +2135,8 @@
     </procedure>
     <procedure>
       <procedureName>performanceMetrics</procedureName>
-      <description>Performance diagnostics for EC server and agents</description>
-      <jobNameTemplate>Admin-Performance-$[jobId]</jobNameTemplate>
+      <description>Performance diagnostics for EC server and agents&#10;&#10;Changelog:&#10;--------------&#10; 08-09-2013  lrochette    Fixed bug on Free available RAM with European numbers&#10; 08-30-2013  lrochette    Added fsutil error management &#10; 08-30-2013  lrochette    Added a cleanup step for the disk performance temporary file</description>
+      <jobNameTemplate>EC-Admin-Performance_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -2316,7 +2324,7 @@
         <stepName>Free RAM</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;#&#10;# Param&#10;#&#10;$DEBUG=$[debugMode];&#10;&#10;my $freeRAM=0;     # Amount of RAM in GB&#10;if ($OSNAME =~ /MSWin/) {&#10;  $freeRAM=`systeminfo | find "Available Physical Memory"`;&#10;  chomp $freeRAM;&#10;  printf("free RAM amount: %s\n", $freeRAM) if ($DEBUG);&#10;  # Available Physical Memory: 4,948 MB&#10;  $freeRAM =~ s/Available Physical Memory:\s+([\d,]+) MB/$1/m;&#10;  $freeRAM =~ s/,//;&#10;  printf("RAM amount: %d\n", $freeRAM) if ($DEBUG);&#10;} elsif ($OSNAME eq "linux") {&#10;  $freeRAM=`/usr/bin/free -m | grep "cache:" | awk '{print \$3}'`;&#10;  chomp $freeRAM;&#10;  printf("free RAM amount: %d\n", $freeRAM) if ($DEBUG);&#10;  $freeRAM /= 1024&#10;}  else {&#10;  printf ("OS: %s not supported for Commander Server\n", $OSNAME); &#10;  exit(2);&#10;}&#10;&#10;#&#10;# &#10;#&#10;if ($freeRAM == 0) {&#10;  printf ("Error getting the RAM amount on %s\n", $OSNAME);&#10;  exit(2);&#10;}&#10;&#10;my $str=sprintf("%3.1f MB\n", $freeRAM);&#10;printf("RAM amount: $str\n");&#10;InvokeCommander("SuppressLog", "setProperty", "summary", $str);&#10;&#10;</command>
+        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;#&#10;# Param&#10;#&#10;$DEBUG=$[debugMode];&#10;&#10;my $freeRAM=0;     # Amount of RAM in GB&#10;if ($OSNAME =~ /MSWin/) {&#10;  $freeRAM=`systeminfo | find "Available Physical Memory"`;&#10;  chomp $freeRAM;&#10;  printf("free RAM amount: %s\n", $freeRAM) if ($DEBUG);&#10;  # Available Physical Memory: 4,948 MB   or 4,948 in Europe&#10;  $freeRAM =~ s/Available Physical Memory:\s+([\d,.]+) MB/$1/m;&#10;  $freeRAM =~ s/,//;&#10;  printf("RAM amount: %d\n", $freeRAM) if ($DEBUG);&#10;} elsif ($OSNAME eq "linux") {&#10;  $freeRAM=`/usr/bin/free -m | grep "cache:" | awk '{print \$3}'`;&#10;  chomp $freeRAM;&#10;  printf("free RAM amount: %d\n", $freeRAM) if ($DEBUG);&#10;  $freeRAM /= 1024&#10;}  else {&#10;  printf ("OS: %s not supported for Commander Server\n", $OSNAME); &#10;  exit(2);&#10;}&#10;&#10;#&#10;# &#10;#&#10;if ($freeRAM == 0) {&#10;  printf ("Error getting the RAM amount on %s\n", $OSNAME);&#10;  exit(2);&#10;}&#10;&#10;my $str=sprintf("%3.1f MB\n", $freeRAM);&#10;printf("RAM amount: $str\n");&#10;InvokeCommander("SuppressLog", "setProperty", "summary", $str);&#10;&#10;</command>
         <condition></condition>
         <description>Check the amount of  free memory for the EC server&#10;Information only</description>
         <errorHandling>failProcedure</errorHandling>
@@ -2339,7 +2347,7 @@
         <stepName>Disk Space Available</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;#&#10;# Param&#10;#&#10;$DEBUG=$[debugMode];&#10;&#10;my $freeDisk=0;     # Amount of available disk on the Data partition&#10;my $diskPartition="$[/server/Electric Cloud/dataDirectory]";&#10;&#10;if ($OSNAME =~ /MSWin/) {&#10;  my $drive=substr($diskPartition,0,2);&#10;  printf("Drive: %s\n", $drive);&#10;  $freeDisk=`fsutil volume diskfree $drive | find "avail free"`;&#10;  chomp $freeDisk;&#10;  $freeDisk=~ s/[^:]+\s*:\s*(\d+)/$1/;&#10;  printf("free Disk Space for %s: %s\n", $diskPartition, $freeDisk) if ($DEBUG);&#10;  $freeDisk=humanSize($freeDisk); &#10;} elsif ($OSNAME eq "linux") {&#10;  $freeDisk=`/bin/df -h $diskPartition | tail -1 | awk '{print \$4}'`;&#10;  chomp $freeDisk;&#10;  # Make the unit  as the other ones&#10;  $freeDisk =~ s/G/ GB/;&#10;  $freeDisk =~ s/M/ MB/;&#10;  printf("free Disk Space for %s: %s\n", $diskPartition, $freeDisk) if ($DEBUG);&#10;}  else {&#10;  printf ("OS: %s not supported for Commander Server\n", $OSNAME); &#10;  exit(2);&#10;}&#10;&#10;printf("Disk space available: %s\n", $freeDisk);&#10;InvokeCommander("SuppressLog", "setProperty", "summary", $freeDisk);&#10;&#10;</command>
+        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;#&#10;# Param&#10;#&#10;$DEBUG=$[debugMode];&#10;&#10;my $freeDisk=0;     # Amount of available disk on the Data partition&#10;my $diskPartition="$[/server/Electric Cloud/dataDirectory]";&#10;&#10;if ($OSNAME =~ /MSWin/) {&#10;  my $drive=substr($diskPartition,0,2);&#10;  printf("Drive:'%s'\n", $drive);&#10;  system('fsutil volume diskfree $drive 2&gt;&amp;1') if ($DEBUG);&#10;  $freeDisk=`fsutil volume diskfree $drive 2&gt;&amp;1`; # | find "avail free"&#10;  chomp $freeDisk;&#10;  if ($freeDisk =~ /avail free/) {&#10;    $freeDisk =~ m/avail free bytes\s+:\s*(\d+)/;&#10;    printf("free Disk Space for %s: %s\n", $diskPartition, $freeDisk) if ($DEBUG);&#10;    $freeDisk=humanSize($freeDisk); &#10;  } else {&#10;    printf("Error:\n$freeDisk\n");&#10;    InvokeCommander("SuppressLog", "setProperty", "summary", $freeDisk);&#10;    exit(1);&#10;  }&#10;} elsif ($OSNAME eq "linux") {&#10;  $freeDisk=`/bin/df -h $diskPartition | tail -1 | awk '{print \$4}'`;&#10;  chomp $freeDisk;&#10;  # Make the unit  as the other ones&#10;  $freeDisk =~ s/G/ GB/;&#10;  $freeDisk =~ s/M/ MB/;&#10;  printf("free Disk Space for %s: %s\n", $diskPartition, $freeDisk) if ($DEBUG);&#10;}  else {&#10;  printf ("OS: %s not supported for Commander Server\n", $OSNAME); &#10;  exit(2);&#10;}&#10;&#10;printf("Disk space available: %s\n", $freeDisk);&#10;InvokeCommander("SuppressLog", "setProperty", "summary", $freeDisk);&#10;&#10;</command>
         <condition></condition>
         <description>Check the amount of  available disk space for the EC server&#10;Information only</description>
         <errorHandling>failProcedure</errorHandling>
@@ -2451,35 +2459,12 @@
         </propertySheet>
       </step>
       <step>
-        <stepName>PingTime</stepName>
+        <stepName>Database Performance</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;my %hostsHash; # List of agents already tested&#10;#Let's loop on Resources&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getResources");&#10;my $nodeset = $xPath-&gt;find('//resource');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $resName=$node-&gt;findvalue('resourceName');&#10;  my $resDisabled=$node-&gt;findvalue('resourceDisabled');&#10;  my $agentAlive=$node-&gt;findvalue('agentState/alive');&#10;  my $hostName=$node-&gt;findvalue('hostName');&#10;  printf("%s\n\t Disabled: %s\n\t alive: %s\n", $resName, $resDisabled, $agentAlive) if ($DEBUG);&#10;  #&#10;  # Create a sub-step only if agent is alive and not disabled&#10;  # to avoid to have to wait (and fail) for unavailable resources&#10;  if ( ($resDisabled eq "0") &amp;&amp; ($agentAlive eq "1") &amp;&amp; !exists($hostsHash{$hostName})) {&#10;    my $hostName=$node-&gt;findvalue('hostName');&#10;	$ec-&gt;createJobStep({'jobStepName' =&gt; $resName,&#10;                        'subprocedure' =&gt; "subPM-ping",&#10;                        'actualParameter'=&gt;[{actualParameterName =&gt; 'hostname', value =&gt; $hostName},&#10;                        					{actualParameterName =&gt; 'resource', value =&gt; $resName}]&#10;                        }); &#10;    $hostsHash{$hostName}=1;  # Mark host as tested&#10;  }&#10;}&#10;&#10;</command>
+        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;#&#10;# Parameters&#10;#&#10;my $nbSteps=$[numberOfSteps];&#10;&#10;my $startTime = time();&#10;for (my $i=1; $i &lt;= $nbSteps; $i++) {&#10;  $ec-&gt;createJobStep({'jobStepName' =&gt; "DBperf-$i",&#10;                      'command'     =&gt; "echo Test $i Done"&#10;                        }); &#10;}&#10;my $totalTime=time()-$startTime;&#10;&#10;printf("To run %d steps, it took %d sec\n", $nbSteps, $totalTime);&#10;my $DBperf=$totalTime/$nbSteps;&#10;my $str=sprintf("%.3f step/sec\n", $DBperf);&#10;&#10;printf("Database performance: $str\n");&#10;checkValue("DBPERF", $DBperf, $str);&#10;&#10;</command>
         <condition></condition>
-        <description>Check the ping times from  the EC server to the agents&#10;</description>
-        <errorHandling>failProcedure</errorHandling>
-        <exclusiveMode>none</exclusiveMode>
-        <logFileName></logFileName>
-        <parallel>0</parallel>
-        <postProcessor></postProcessor>
-        <precondition></precondition>
-        <releaseMode>none</releaseMode>
-        <resourceName></resourceName>
-        <shell>ec-perl</shell>
-        <timeLimit></timeLimit>
-        <timeLimitUnits>minutes</timeLimitUnits>
-        <workingDirectory></workingDirectory>
-        <workspaceName></workspaceName>
-        <propertySheet>
-        </propertySheet>
-      </step>
-      <step>
-        <stepName>Performance</stepName>
-        <alwaysRun>0</alwaysRun>
-        <broadcast>0</broadcast>
-        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;my %hostsHash; # List of agents already tested&#10;#Let's loop on Resources&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getResources");&#10;my $nodeset = $xPath-&gt;find('//resource');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $resName=$node-&gt;findvalue('resourceName');&#10;  my $resDisabled=$node-&gt;findvalue('resourceDisabled');&#10;  my $agentAlive=$node-&gt;findvalue('agentState/alive');&#10;  my $hostName=$node-&gt;findvalue('hostName');&#10;  printf("%s\n\t Disabled: %s\n\t alive: %s\n", $resName, $resDisabled, $agentAlive) if ($DEBUG);&#10;  #&#10;  # Create a sub-step only if agent is alive and not disabled&#10;  # to avoid to have to wait (and fail) for unavailable resources&#10;  if ( ($resDisabled eq "0") &amp;&amp; ($agentAlive eq "1") &amp;&amp; !exists($hostsHash{$hostName})) {&#10;    my $hostName=$node-&gt;findvalue('hostName');&#10;	$ec-&gt;createJobStep({'jobStepName' =&gt; $resName,&#10;                        'subprocedure' =&gt; "subPM-performance",&#10;                        'parallel' =&gt; 1,&#10;                        'actualParameter'=&gt;[{actualParameterName =&gt; 'hostname', value =&gt; $hostName},&#10;                        					{actualParameterName =&gt; 'resource', value =&gt; $$resName}]&#10;                        }); &#10;    $hostsHash{$hostName}=1;  # Mark host as tested&#10;  } &#10;}&#10;&#10;</command>
-        <condition></condition>
-        <description>Run a performance time on each resource&#10;Test is from http://xahlee.info/UnixResource_dir/sultra_skami.html</description>
+        <description>Create a bunch of steps to check performance of the DB</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
@@ -2543,12 +2528,58 @@
         </propertySheet>
       </step>
       <step>
-        <stepName>Database Performance</stepName>
+        <stepName>Clean Disk Performance Temporary File</stepName>
+        <alwaysRun>1</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>my $filename = "output.txt";&#10;&#10;if (-f $filename) {&#10;  unlink($filename);&#10;  printf("Deleting %s\n", $filename);&#10;}</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>PingTime</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;#&#10;# Parameters&#10;#&#10;my $nbSteps=$[numberOfSteps];&#10;&#10;my $startTime = time();&#10;for (my $i=1; $i &lt;= $nbSteps; $i++) {&#10;  $ec-&gt;createJobStep({'jobStepName' =&gt; "DBperf-$i",&#10;                      'command'     =&gt; "echo Test $i Done"&#10;                        }); &#10;}&#10;my $totalTime=time()-$startTime;&#10;&#10;printf("To run %d steps, it took %d sec\n", $nbSteps, $totalTime);&#10;my $DBperf=$totalTime/$nbSteps;&#10;my $str=sprintf("%.3f step/sec\n", $DBperf);&#10;&#10;printf("Database performance: $str\n");&#10;checkValue("DBPERF", $DBperf, $str);&#10;&#10;</command>
+        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;my %hostsHash; # List of agents already tested&#10;#Let's loop on Resources&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getResources");&#10;my $nodeset = $xPath-&gt;find('//resource');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $resName=$node-&gt;findvalue('resourceName');&#10;  my $resDisabled=$node-&gt;findvalue('resourceDisabled');&#10;  my $agentAlive=$node-&gt;findvalue('agentState/alive');&#10;  my $hostName=$node-&gt;findvalue('hostName');&#10;  printf("%s\n\t Disabled: %s\n\t alive: %s\n", $resName, $resDisabled, $agentAlive) if ($DEBUG);&#10;  #&#10;  # Create a sub-step only if agent is alive and not disabled&#10;  # to avoid to have to wait (and fail) for unavailable resources&#10;  if ( ($resDisabled eq "0") &amp;&amp; ($agentAlive eq "1") &amp;&amp; !exists($hostsHash{$hostName})) {&#10;    my $hostName=$node-&gt;findvalue('hostName');&#10;	$ec-&gt;createJobStep({'jobStepName' =&gt; $resName,&#10;                        'subprocedure' =&gt; "subPM-ping",&#10;                        'actualParameter'=&gt;[{actualParameterName =&gt; 'hostname', value =&gt; $hostName},&#10;                        					{actualParameterName =&gt; 'resource', value =&gt; $resName}]&#10;                        }); &#10;    $hostsHash{$hostName}=1;  # Mark host as tested&#10;  }&#10;}&#10;&#10;</command>
         <condition></condition>
-        <description>Create a bunch of steps to check performance of the DB</description>
+        <description>Check the ping times from  the EC server to the agents&#10;</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>Performance</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myProject/performances/scripts/perf.pm]&#10;&#10;my %hostsHash; # List of agents already tested&#10;#Let's loop on Resources&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getResources");&#10;my $nodeset = $xPath-&gt;find('//resource');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $resName=$node-&gt;findvalue('resourceName');&#10;  my $resDisabled=$node-&gt;findvalue('resourceDisabled');&#10;  my $agentAlive=$node-&gt;findvalue('agentState/alive');&#10;  my $hostName=$node-&gt;findvalue('hostName');&#10;  printf("%s\n\t Disabled: %s\n\t alive: %s\n", $resName, $resDisabled, $agentAlive) if ($DEBUG);&#10;  #&#10;  # Create a sub-step only if agent is alive and not disabled&#10;  # to avoid to have to wait (and fail) for unavailable resources&#10;  if ( ($resDisabled eq "0") &amp;&amp; ($agentAlive eq "1") &amp;&amp; !exists($hostsHash{$hostName})) {&#10;    my $hostName=$node-&gt;findvalue('hostName');&#10;	$ec-&gt;createJobStep({'jobStepName' =&gt; $resName,&#10;                        'subprocedure' =&gt; "subPM-performance",&#10;                        'parallel' =&gt; 1,&#10;                        'actualParameter'=&gt;[{actualParameterName =&gt; 'hostname', value =&gt; $hostName},&#10;                        					{actualParameterName =&gt; 'resource', value =&gt; $$resName}]&#10;                        }); &#10;    $hostsHash{$hostName}=1;  # Mark host as tested&#10;  } &#10;}&#10;&#10;</command>
+        <condition></condition>
+        <description>Run a performance time on each resource&#10;Test is from http://xahlee.info/UnixResource_dir/sultra_skami.html</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
@@ -2569,7 +2600,7 @@
     <procedure>
       <procedureName>releaseSemaphore</procedureName>
       <description>decrement the semaphore value</description>
-      <jobNameTemplate></jobNameTemplate>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -2659,7 +2690,7 @@
     <procedure>
       <procedureName>saveProjects</procedureName>
       <description>a framework to export projects.</description>
-      <jobNameTemplate>EC-Admin-saveProjects-$[jobId]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -2983,27 +3014,494 @@
         </propertySheet>
       </step>
     </procedure>
+    <procedure>
+      <procedureName>workflowCleanup</procedureName>
+      <description>Delete workflows older than a number of days.&#10;Report the number of workflows.</description>
+      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <resourceName>local</resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>delete Aborted Jobs</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>delete Error Jobs</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>delete Successful Jobs</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>deleteAbortedJobs</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>executeDeletion</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>option1</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>Report</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>false</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>option2</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>Delete</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>true</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>optionCount</propertyName>
+                          <expandable>1</expandable>
+                          <value>2</value>
+                        </property>
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>list</value>
+                        </property>
+                      </propertySheet>
+                    </property>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>jobLevel</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>option1</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>Aborted</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>Aborted</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>option2</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>Error &amp; Aborted</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>Error</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>option3</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>All</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>All</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>optionCount</propertyName>
+                          <expandable>1</expandable>
+                          <value>3</value>
+                        </property>
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>list</value>
+                        </property>
+                      </propertySheet>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>jobPatternMatching</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>jobProperty</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>olderThan</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>option1</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>1 month</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>30</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>option2</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>2 months</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>60</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>option3</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>3 months</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>91</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>option4</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>6 months</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>182</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>option5</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>1 year</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>365</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        <property>
+                          <propertyName>optionCount</propertyName>
+                          <expandable>1</expandable>
+                          <value>5</value>
+                        </property>
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>list</value>
+                        </property>
+                      </propertySheet>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>wkfPatternMatching</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>wkfProperty</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+        <property>
+          <propertyName>ec_parameterForm</propertyName>
+          <description>Redefine UI</description>
+          <expandable>1</expandable>
+          <value>&lt;editor&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Delete workflows older than&lt;/label&gt;    &#10;        &lt;property&gt;olderThan&lt;/property&gt;    &#10;        &lt;documentation&gt;Indicate the numbers of days after which workflows should be deleted&lt;/documentation&gt; &#10;        &lt;type&gt;select&lt;/type&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;1 month&lt;/name&gt; &#10;            &lt;value&gt;30&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;2 months&lt;/name&gt; &#10;            &lt;value&gt;60&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;3 months&lt;/name&gt; &#10;            &lt;value&gt;91&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;6 months&lt;/name&gt; &#10;            &lt;value&gt;182&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;1 year&lt;/name&gt; &#10;            &lt;value&gt;365&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;value&gt;91&lt;/value&gt;  &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Workflow property&lt;/label&gt; &#10;        &lt;property&gt;wkfProperty&lt;/property&gt; &#10;        &lt;documentation&gt;Name of a property attached to your workflows. If this property is set, your workflow won't be deleted.&#10;        &lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt; &#10;        &lt;value&gt;doNotDelete&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Pattern matching&lt;/label&gt; &#10;        &lt;property&gt;wkfPatternMatching&lt;/property&gt; &#10;        &lt;documentation&gt;a SQL pattern matching to automatically preserve some workflows. The pattern must solve for a LIKE statement.&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Delete&lt;/label&gt;    &#10;        &lt;property&gt;executeDeletion&lt;/property&gt; &#10;        &lt;documentation&gt;If this option is not set, only report is done. No real data are deleted&lt;/documentation&gt; &#10;        &lt;type&gt;select&lt;/type&gt;    &#10;        &lt;option&gt; &#10;            &lt;name&gt;Report&lt;/name&gt; &#10;            &lt;value&gt;false&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;Delete&lt;/name&gt; &#10;            &lt;value&gt;true&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;value&gt;false&lt;/value&gt;    &#10;    &lt;/formElement&gt; &#10;&#10;&lt;/editor&gt;</value>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>executeDeletion</formalParameterName>
+        <defaultValue>false</defaultValue>
+        <description>If this option is not set, only report is done. No real data are deleted</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>select</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>olderThan</formalParameterName>
+        <defaultValue>91</defaultValue>
+        <description>Indicate the numbers of days after which jobs should be deleted</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>select</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>wkfPatternMatching</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>a SQL pattern matching to automatically preserve some workflows. The pattern must solve for a LIKE statement.</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>wkfProperty</formalParameterName>
+        <defaultValue>doNotDelete</defaultValue>
+        <description>Name of a property attached to your workflows. If this property is set, your workflow won't be deleted no matter how old it is.&#10;</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>deleteWorkflows</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>#############################################################################&#10;#&#10;#  deleteWorkflows -- Script to delete workflowss&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;#&#10;# Perl Commander Header&#10;$[/myProject/scripts/perlHeader]&#10;use DateTime;&#10;&#10;#&#10;# Perl Commander library&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $wkfProperty     = "$[wkfProperty]";&#10;my $timeLimit       =  $[olderThan];&#10;my $executeDeletion = "$[executeDeletion]";&#10;my $wkfPattern      = "$[wkfPatternMatching]"; &#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $version="1.0";&#10;my $totalNbWkfs=0;          # Number of workflows to delete potentially&#10;my $totalNbStates=0;        # Number of states to evaluate DB size&#10;my $totalNbTrans=0;         # Number of transitions to evaluate DB size&#10;my $DBStateSize=10240;      # State is about 10K in DB&#10;my $DBTransSize=5120;       # Transition is about 5K in DB&#10;&#10;#############################################################################&#10;#&#10;#  Main&#10;#&#10;#############################################################################&#10;&#10;printf("%s workflows older than $timeLimit days (%s).\n", &#10;    $executeDeletion eq "true"?"Deleting":"Reporting", &#10;    calculateDate($timeLimit));&#10;printf("  Skipping over \"%s\" workflows.\n\n", $wkfPattern) if ($wkfPattern ne "");&#10;&#10;# create filterList&#10;my @filterList;&#10;# only completed workflows&#10;push (@filterList, {"propertyName" =&gt; "completed",&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; "1"});&#10;# older than&#10;if ($timeLimit &gt;0) {&#10;  push (@filterList, {"propertyName" =&gt; "finish",&#10;                    "operator" =&gt; "lessThan",&#10;                    "operand1" =&gt; calculateDate($timeLimit)});&#10;}&#10;                    # do not have specific job property&#10;push (@filterList, {"propertyName" =&gt; $wkfProperty,&#10;                    "operator" =&gt; "isNull"});&#10;# workflow pattern does not match&#10;if ($wkfPattern ne "") {&#10;  push (@filterList, {"propertyName" =&gt; "workflowName",&#10;                      "operator" =&gt; "notLike",&#10;                      "operand1" =&gt; $wkfPattern});&#10;}              &#10;&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "findObjects", "workflow",&#10;                                        {maxIds =&gt; 5000,&#10;                                         filter =&gt; \@filterList ,&#10;                                         sort =&gt; [ {propertyName =&gt; "finish",&#10;                                                    order =&gt; "ascending"} ]&#10;                                        }&#10;									   );&#10;print "Search Status:\t$success\n";&#10;&#10;# Loop over all returned workflows&#10;my $nodeset = $xPath-&gt;find('//workflow');&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;        $totalNbWkfs++;&#10;&#10;        my $wkfName = $xPath-&gt;findvalue('workflowName', $node);&#10;		my $projName= $xPath-&gt;findvalue('projectName', $node);&#10;&#10;        print "Workflow: $wkfName\n";&#10;&#10;        #&#10;        # Find number of states for the workflow&#10;		my $nbStates=0;&#10;		my $nbTrans=0;&#10;        my ($success, $stateXML) = InvokeCommander("SuppressLog", "getStates", $projName, $wkfName);&#10;        foreach my $stateNode ($stateXML-&gt;find('//state')-&gt;get_nodelist) {&#10;		  $nbStates ++;&#10;		  my $stateName=$stateXML-&gt;findvalue('stateName', $stateNode);&#10;		  printf("  State name: $stateName\n") if ($DEBUG);&#10;		  #&#10;		  # Find numbers of transitions per state&#10;		  my ($success, $transXML) = InvokeCommander("SuppressLog", "getTransitions", $projName, $wkfName, $stateName);&#10;		  $nbTrans += scalar($transXML-&gt;findnodes('//transition')-&gt;get_nodelist);&#10;		}&#10;        printf("  Workflow states:\t%d\n", $nbStates);&#10;        printf("  Workflow transitions:\t%d\n", $nbTrans);&#10;		$totalNbStates += $nbStates;&#10;		$totalNbTrans  += $nbTrans;&#10;		&#10;        # Delete the workflow&#10;&#10;        if ($executeDeletion eq "true") {&#10;            InvokeCommander("SuppressLog", "deleteWorkflow", $projName, $wkfName) ;&#10;            print "  Deleting Workflow\n\n";&#10;        } &#10;}&#10;&#10;printf("\nSUMMARY:\n");&#10;printf("Total number of workflows:   %d\n", $totalNbWkfs);&#10;printf("Total number of states:      %d\n", $totalNbStates);&#10;printf("Total number of transitions: %d\n", $totalNbTrans);&#10;printf("Total Database size:         %s\n", &#10;       humanSize($totalNbStates * $DBStateSize + $totalNbTrans * $DBTransSize));&#10;&#10;$ec-&gt;setProperty("/myJob/numberOfWorkflows", $totalNbWkfs);&#10;$ec-&gt;setProperty("/myJob/numbernumberOfStates", $totalNbStates);&#10;&#10;$ec-&gt;setProperty("summary", $totalNbWkfs . " workflows deleted" ) if ($executeDeletion eq "true");&#10;&#10;exit(0);&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the Date based on now and the number of days required by&#10;#  the user before deleting jobs&#10;#&#10;#############################################################################&#10;sub calculateDate {&#10;    my $nbDays=shift;&#10;    return DateTime-&gt;now()-&gt;subtract(days =&gt; $nbDays)-&gt;iso8601() . ".000Z";&#10;}&#10;</command>
+        <condition></condition>
+        <description>Script to delete workflows</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
     <schedule>
       <scheduleName>CleanJobs</scheduleName>
       <beginDate></beginDate>
-      <description>A Schedule to automatically delete jobs older than 90 days</description>
+      <description>A Schedule to automatically delete jobs older than 30 days</description>
       <endDate></endDate>
       <interval>0</interval>
       <intervalUnits>seconds</intervalUnits>
       <misfirePolicy>runOnce</misfirePolicy>
       <monthDays></monthDays>
       <priority>normal</priority>
-      <procedureName>Job Cleanup</procedureName>
-      <scheduleDisabled>0</scheduleDisabled>
+      <procedureName>/projects/EC-Admin/procedures/jobsCleanup</procedureName>
+      <scheduleDisabled>1</scheduleDisabled>
       <startTime>2:00</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>
-      <weekDays></weekDays>
+      <weekDays>Tuesday Friday </weekDays>
       <actualParameters>
         <property>
           <propertyName>executeDeletion</propertyName>
           <expandable>1</expandable>
           <value>true</value>
+        </property>
+        <property>
+          <propertyName>jobLevel</propertyName>
+          <expandable>1</expandable>
+          <value>All</value>
         </property>
         <property>
           <propertyName>jobProperty</propertyName>
@@ -3013,7 +3511,7 @@
         <property>
           <propertyName>olderThan</propertyName>
           <expandable>1</expandable>
-          <value>90</value>
+          <value>30</value>
         </property>
       </actualParameters>
       <propertySheet>
@@ -3047,9 +3545,24 @@
       <weekDays>Tuesday Thursday Saturday </weekDays>
       <actualParameters>
         <property>
+          <propertyName>includeACLs</propertyName>
+          <expandable>1</expandable>
+          <value>true</value>
+        </property>
+        <property>
+          <propertyName>includeNotifiers</propertyName>
+          <expandable>1</expandable>
+          <value>true</value>
+        </property>
+        <property>
           <propertyName>pathname</propertyName>
           <expandable>1</expandable>
           <value>/scratch/BACKUP</value>
+        </property>
+        <property>
+          <propertyName>relocatable</propertyName>
+          <expandable>1</expandable>
+          <value>true</value>
         </property>
       </actualParameters>
       <propertySheet>
