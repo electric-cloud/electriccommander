@@ -1,0 +1,25 @@
+<componentContainer>
+  <helpLink>help</helpLink>
+  <title>@PLUGIN_KEY@ @PLUGIN_VERSION@</title>
+  <table width="100%">
+    <tr>
+      <td valign="top" width="50%">
+        <component plugin="EC-Core" ref="urlLoader">
+          <style>../../lib/styles/data.css</style>
+          <plugin>@PLUGIN_KEY@</plugin>
+          <version>@PLUGIN_VERSION@</version>
+	  <evalScripts>true</evalScripts>
+          <url>cgi-bin/un.cgi</url>
+          <requests>
+            <request requestId="v">
+              <getProperty>
+                <propertyName>/javascript getProperty(&quot;/server/@PLUGIN_KEY@/v6&quot;)</propertyName>
+              </getProperty>
+	    </request>
+          </requests>
+        </component>
+      </td>
+    </tr>
+  </table>
+</componentContainer>
+
