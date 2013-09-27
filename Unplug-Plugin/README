@@ -36,3 +36,15 @@ as described in the help text for the plugin.
   Additional help (and eventually examples) is available through the
 http://ask.electric-cloud.com/ forum -- post your questions, concerns,
 comments, example, feedback, criticism, and complaints.
+
+Change Information
+------------------
+
+  Version 1.7 adds the ability to have up to 11 total unplug pages, each
+of which can contain unique content (and using the standard tabs mechanism,
+can appear anywhere in the Commander GUI).  An additional optional view
+is provided that displays a top level unplug tab with 8 subtabs, each of
+which shows one of the provided examples (at least until you change that).
+Some minor bugfixes were also performed (the "Hello Earthling" example
+now does property expansion correctly, and the parameter panel example
+can be used standalone as well as a parameter panel).
