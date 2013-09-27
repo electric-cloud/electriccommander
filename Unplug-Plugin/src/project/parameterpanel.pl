@@ -65,9 +65,9 @@
 # the web form to gather the missing information.
 
 # Build a base URL to ourselves (for the form's submit button)
-my $url = $cgi->url();
-$url =~ m|^(.*)/plugins/(.*?)/.*$|;
-my $me = CGI::escapeHTML("$1/pages/$2/un_run");
+my $url = $cgi->referer();
+$url =~ m|^(.*)(/pages/.*)\?|;
+my $me = CGI::escapeHTML($1 . $2);
 my $jobDetails = CGI::escapeHTML("$1/link/jobDetails/jobs");
 
 # Commander uses these to keep track of the current tab and subtab
