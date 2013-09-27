@@ -53,18 +53,18 @@ example 1, set the /server/@PLUGIN_KEY@/v property to:<br/>
 In order to extract the source code for each example, simply reference
 the same property.  For example, the following ectool command will
 display the source code for example 1:</p>
-  <p><code>ectool getProperty /plugins/@PLUGIN_KEY@/project/v_example1
+  <p><code>ectool getProperty /plugins/@PLUGIN_KEY@/project/v_example1 --expand 0
 </code></p>
-  <h4>Example 0 - Text</h4>
-  <p><code>/plugins/@PLUGIN_KEY@/project/v_example0</code></p>
-  <p>The most basic of the examples, this one simply displays text.</p>
-  <h4>Example 1 - HTML</h4>
+  <h4>Example 1 - Text</h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_example1</code></p>
+  <p>The most basic of the examples, this one simply displays text.</p>
+  <h4>Example 2 - HTML</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example2</code></p>
   <p>This example shows how one might create a simple mockup of a
 plugin page using nothing more than simple static HTML.</p>
-  <h4>Example 2</h4>
-  <p><code>/plugins/@PLUGIN_KEY@/project/v_example2</code></p>
-  <p>Example 2 demonstrates how one can use property expansion
+  <h4>Example 3</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example3</code></p>
+  <p>Example 3 demonstrates how one can use property expansion
 combined with /javascript special property references in order
 to transform a simple static HTML page into a simple dynamic page.
 In this example, in addition to static information, additional
@@ -79,15 +79,15 @@ of code.  Refer to example 1, and consider how various build
 and deploy procedures might be able to write information into
 properties and property sheets in such a way that the content
 displayed in that page might actually be real, live content.</p>
-  <h4>Example 3</h4>
-  <p><code>/plugins/@PLUGIN_KEY@/project/v_example3</code></p>
+  <h4>Example 4</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example4</code></p>
   <p>Some applications are best served by writing actual code.
 Example 3 shows how to have Perl logic generate the HTML to be
 displayed. Also noteworthy is the example of how to properly
 HTML-encode text that is sent to the browser.</p>
-  <h4>Example 4</h4>
-  <p><code>/plugins/@PLUGIN_KEY@/project/v_example4</code></p>
-  <p>Example 4 is a more ambitious bit of Perl logic.  The use case
+  <h4>Example 5</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example5</code></p>
+  <p>Example 5 is a more ambitious bit of Perl logic.  The use case
 addressed by this example is the need to be able to display, at
 a glance, the status of many, many jobs on the system at the same
 time.  The jobs tab is often used for this purpose, but when the
@@ -98,13 +98,13 @@ within the plugin, how to process the result set from a getJobs
 (or findObjects) call, and also illustrates how one can create
 and embed hyperlinks to other Commander pages into the generated
 HTML.</p>
-  <h4>Example 5</h4>
-  <p><code>/plugins/@PLUGIN_KEY@/project/v_example5</code></p>
-  <p>Example 5 adds dynamic refresh to the previous example by
-embedded javascript using the &lt;script&gt; tag.</p>
   <h4>Example 6</h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_example6</code></p>
-  <p>Example 6 demonstrates how to write a custom parameter plugin.
+  <p>Example 6 adds dynamic refresh to the previous example by
+embedded javascript using the &lt;script&gt; tag.</p>
+  <h4>Example 7</h4>
+  <p><code>/plugins/@PLUGIN_KEY@/project/v_example7</code></p>
+  <p>Example 7 demonstrates how to write a custom parameter plugin.
 When correctly configured, this page will appear when a specific
 Commander procedure is run from any place in the Commander Web UI.
 </p>
