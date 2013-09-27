@@ -3,10 +3,10 @@
   <key>@PLUGIN_KEY@</key>
   <version>@PLUGIN_VERSION@</version>
   <label>@PLUGIN_KEY@</label>
-  <description>A totally flexible plugin where content is determined by properties at runtime.</description>
+  <description>A flexible plugin whose content is determined runtime properties.</description>
   <help>help.xml</help>
   <author>Electric Cloud</author>
-  <authorUrl/>
+  <authorUrl>http://www.electric-cloud.com</authorUrl>
   <commander-version min="4.1"/>
   <category>Other</category>
   <depends>EC-Core</depends>
