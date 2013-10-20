@@ -1,0 +1,19 @@
+<module>
+    <entry-point class="ecplugins.EC_WorkflowActivity.client.WorkflowActivityComponentFactory"/>
+    <inherits name="com.electriccloud.commander.gwt.ComponentBase"/>
+    
+    <!-- Needed to use GWT ClientBundle in plugin code -->
+    <inherits name="com.google.gwt.resources.Resources" />
+
+    <!-- Needed to inhert GFlot code for charts -->
+    <inherits name="ca.nanometrics.gflot.GFlot" />
+
+    <!-- The following property limits the plugin to work with Firefox.    
+    <set-property name="user.agent" value="gecko" />
+    -->
+
+    <!-- The following property limits the plugin to work with Chrome.
+    <set-property name="user.agent" value="safari" />
+    -->
+
+</module>

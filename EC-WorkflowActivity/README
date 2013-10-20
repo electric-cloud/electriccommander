@@ -1,0 +1,26 @@
+DISCLAIMER:
+
+This is an ALPHA version. I will probably create a more formal version with a different name and backwards incompatible modifications. I'm not actively developing the new version but please send me your bugs or enhancement requests and I'll incorporate them when I can.
+
+BACKGROUND:
+
+This dashboard was designed & implemented during an ElectricCommander proof of concept. It provides a pipeline view of workflow instances.
+* See out/Spark-2013-Presentation.pptx for a presentation at Electric Cloud's 2013 Spark user conference for some background on the use case and dashboard.
+* See out/Example-CD-Screenshot.png for an example view of the pipeline view of a "continuous delivery" workflow definition.
+* See out/Example-CD-WorkflowDefinition.xml for an XML export of the "continuous delivery" workflow definition.
+
+USAGE INSTRUCTIONS:
+
+Install and promote out/EC-WorkflowActivity-ALPHA.jar, then use the following URL:https://SERVER/commander/pages/EC-WorkflowActivity-1.0.0/activity?projectName=PROJECT&workflowDefinitionName=WORKFLOWDEFINITIONAs needed, add URL GET parameters similar to the following examples:* filter_version=1.0.0 -- filter instances of the workflow definition to "version=1.0.0". Add as many of these as you like. You can match built-in or custom properties.* key_Revision=revision -- rename the first column from "Name" to "Revision". The clickable link will be based on the value of the property "revision" instead of the workflow name. You can only set this parameter once.By default, it'll show all states in the workflow in the order defined on the workflow definition
+* If you want to filter which states show up, set the property ec_workflow_activity_show to 1 on all state definitions that you want to show up.* The "left to right" order for states is the same as the "top to bottom" order for state definitions in the "List" view of the workflow definition. You can reorder that list by using the "Move" action.To add charts on the right, create a property sheet on the workflow definition called ec_workflow_activity, and another property sheet within it called charts. In that, create a nested sheet for each report (the name of the sheet is the title of the report). Within the sheet, you can add any number of series (there's only one type of chart right now). For each series, create the following properties (starting with number 1):* series1-color -- a hex value representing the color (e.g. #008800). It'll default to black if unspecified. There are several online tools to pick hex values (e.g. http://www.w3schools.com/tags/ref_colorpicker.asp)* series1-label -- the label shown in the legend for the series* series1-propertyName -- the top-level workflow property to chart
+
+SOURCES:
+
+The sources are available in the src directory. They were built using the Commander SDK v2.0. The documentation for the SDK is available at http://docs.electric-cloud.com.AUTHOR:
+
+Tanay Nagjee, Electric Cloud Solutions Engineer
+tanay@electric-cloud.com
+
+LEGAL:
+
+This module is not officially supported by Electric Cloud. It has undergone no  formal testing and you may run into issues that have not been uncovered in the limited manual testing done so far. Electric Cloud should not be held liable for any repercussions of using this software.

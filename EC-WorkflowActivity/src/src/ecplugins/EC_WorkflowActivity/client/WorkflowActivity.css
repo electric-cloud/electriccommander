@@ -1,0 +1,99 @@
+table.activityTable {
+    width: 100%;
+    min-width: 1000px;
+}
+
+table.activityTable td.activityTableHeader,
+table.activityTable td.activityTableHeaderLast,
+table.activityTable td.activityTableEven,
+table.activityTable td.activityTableEvenLast,
+table.activityTable td.activityTableOdd,
+table.activityTable td.activityTableOddLast {
+    vertical-align: middle;
+    border-top: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    padding: 5px;
+    height: 33px;
+}
+
+table.activityTable td.activityTableHeader,
+table.activityTable td.activityTableHeaderLast {
+    background: grey;
+    border-bottom: 2px solid #BCBEC4;
+    border-right: 1px solid #BCBEC4;
+    background-image: url(/commander/lib/images/bg_listviewheader.gif);
+}
+
+table.activityTable td.activityTableHeaderLast,
+table.activityTable td.activityTableEvenLast,
+table.activityTable td.activityTableOddLast {
+    text-align: right;
+}
+
+table.activityTable td.activityTableOdd,
+table.activityTable td.activityTableOddLast {
+    background: #F1F1F4;
+}
+
+table.activityTable td.activityTableEven,
+table.activityTable td.activityTableEvenLast {
+    background: #FFFFFF;
+}
+
+table.activityTable td.pipelineHeader {
+    text-align: center;
+}
+
+table.activityTable td.pipelineArrow {
+    width: 14px;
+    text-align: center;
+    background-image: url(/commander/lib/images/icn_chevron.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+table.activityTable td.pipelineHeader,
+table.activityTable td.pipelineNoJob,
+table.activityTable td.pipelineSuccess,
+table.activityTable td.pipelineWarning,
+table.activityTable td.pipelineError {
+    padding: 0px;
+    width: 100px;
+    height: 18px;
+}
+
+table.activityTable td.pipelineSuccess:hover,
+table.activityTable td.pipelineWarning:hover,
+table.activityTable td.pipelineError:hover {
+    cursor:pointer;
+}
+
+table.activityTable td.pipelineNoJob {
+    background-image: url(../../plugins/EC-WorkflowActivity/images/grey.png);
+}
+
+table.activityTable td.pipelineSuccess {
+    background-image: url(../../plugins/EC-WorkflowActivity/images/green.png);
+}
+
+table.activityTable td.pipelineWarning {
+    background-image: url(../../plugins/EC-WorkflowActivity/images/yellow.png);
+}
+
+table.activityTable td.pipelineError {
+    background-image: url(../../plugins/EC-WorkflowActivity/images/red.png);
+}
+
+table.activityTable td.actionsSeparator {
+    padding: 0px 6px 3px 6px;
+}
+
+.chartsPanel {
+    padding-left: 10px;
+}
+
+.chartsTitle {
+    font-weight: bold;
+    padding-top: 2px;
+    padding-bottom: 7px;
+}
