@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="55" buildLabel="build_4.1_51907_2012.06.29_01:23:43" buildVersion="4.1.1.51907" passkey="e7381e0583972fd09a487bfb5407ba24d66c77ef">
+  <exportPath>/projects/pps</exportPath>
+  <project>
+    <projectName>pps</projectName>
+    <description>Persistent Property Storage</description>
+    <resourceName></resourceName>
+    <workspaceName></workspaceName>
+    <propertySheet>
+      <property>
+        <propertyName>pps</propertyName>
+        <description>Persistent Property Storage</description>
+        <expandable>0</expandable>
+        <value># pps - v1&#10;#&#10;########################################################################&#10;# Perl library to enable persistent data structure storage&#10;# in an arbitrary ElectricCommander property.&#10;#&#10;# Basic Usage&#10;# -----------&#10;#&#10;# Inside a Commander step, use an ec-perl command block, as in the&#10;# following example, which creates a hash, and saves it.&#10;#&#10;#   -----------------------------------------------&#10;#   &lt;dollarsign&gt;[/projects/pps/pps]&#10;#   my $ec = ElectricCommander-&gt;new();&#10;#   my %colors;&#10;#   $colors{'foreground'} = 'red';&#10;#   $colors{'background'} = 'green';&#10;#   ppsSet( \$colors, '/myJob/UI/colorInfo', $ec );&#10;# -----------------------------------------------&#10;#&#10;# At some future time, in another step, use an ec-perl command block,&#10;# as in the following example, to retrieve the hash from the property.&#10;#&#10;#   ---------------------------------------------------------&#10;#   &lt;dollarsign&gt;[/projects/pps/pps]&#10;#   my $ec = ElectricCommander-&gt;new();&#10;#   my $ref = ppsGet( '/myJob/UI/colorInfo', $ec );&#10;#   print 'foreground: ' . $ref-&gt;{'foreground'} . "\n";&#10;#   print 'background: ' . $ref-&gt;{'background'} . "\n";&#10;#   ---------------------------------------------------------&#10;#&#10;# Note that for both ppsGet() and ppsSet(), the property name and&#10;# the ElectricCommander object arguments are optional.  If the&#10;# property name is not specified, the default is "/myJob/ppsData".&#10;# If the ElectricCommander object is not provided, then one will be&#10;# automatically created and used as required.  (But for performance&#10;# reasons, if you have one already created in your perl script, just&#10;# pass it in and save some CPU cycles.)&#10;#&#10;########################################################################&#10;&#10;use strict;&#10;use Data::Dumper;&#10;use Storable qw(store nstore retrieve freeze nfreeze thaw);&#10;use ElectricCommander;&#10;&#10;sub ppsGet {&#10;    my $pn = shift;&#10;    $pn = '/myJob/ppsData' unless ($pn);&#10;    my $ec = shift;&#10;    $ec = ElectricCommander-&gt;new() unless ($ec);&#10;    my $xp    = $ec-&gt;getProperty($pn);&#10;    my $value = $xp-&gt;findvalue('//value')-&gt;string_value;&#10;    my $data  = thaw( unpack( "u", $value ) );&#10;    print "DEBUG: fetched:\n" . Dumper($data) . "\n" if ($::ppsDebug);&#10;    return $data;&#10;}&#10;&#10;sub ppsSet {&#10;    my $data = shift;&#10;    my $pn   = shift;&#10;    $pn = '/myJob/ppsData' unless ($pn);&#10;    my $ec   = shift;&#10;    $ec = ElectricCommander-&gt;new() unless ($ec);&#10;    print "DEBUG: saving:\n" . Dumper($data) . "\n" if ($::ppsDebug);&#10;    my $value = nfreeze($data);&#10;    my $xp    = $ec-&gt;setProperty(&#10;        $pn,&#10;        pack( "u", $value ),&#10;        {&#10;            'expandable'  =&gt; 0,&#10;            'description' =&gt; 'raw pps data'&#10;        }&#10;    );&#10;}&#10;&#10;# Return a true value (in case we are 'required' into a script)&#10;1;&#10;</value>
+      </property>
+    </propertySheet>
+    <procedure>
+      <procedureName>PPS Complex Example</procedureName>
+      <description>An example procedure illustrating how to use pps to save a more complicated  perl data structure between steps of a procedure.</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName>local</resourceName>
+      <workspaceName>default</workspaceName>
+      <propertySheet>
+      </propertySheet>
+      <step>
+        <stepName>generate data</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/projects/pps/pps]&#10;&#10;# This example illustrates how to save a complex data structure with ppsSet&#10;&#10;# Create a simple list:&#10;my @hairy = ('head','chin','chest','armpits','nostrils','knuckles');&#10;&#10;# Create a hash:&#10;my %colors = ('foreground' =&gt; 'red',&#10;              'background' =&gt; 'green',&#10;              'favorite'   =&gt; 'blue',&#10;              'funny'      =&gt; 'pink',&#10;              'not'        =&gt; 'black',&#10;              'odd'        =&gt; 'purple'&#10;);&#10;&#10;# Ordinary scalars:&#10;my $remember = 'feed the cat';&#10;my $total = 233;&#10;&#10;# We want to save all these, so stuff them into a hash. There are more&#10;# effecient ways to do this, but this illustrates the technique.&#10;my $ref = {};&#10;$ref-&gt;{'hairy'} = [ @hairy ];&#10;$ref-&gt;{'colors'} = { %colors };&#10;$ref-&gt;{'remember'} = $remember;&#10;$ref-&gt;{'total'} = $total;&#10;&#10;# Of course, we could also just create our data directly within the hash&#10;# in the first place:&#10;$ref-&gt;{'scoreList'} = [ 94, 93, 81, 83, 54, 85, 90, 97 ];&#10;&#10;# Now save the data away in a named property on the job.  Set the debug flag&#10;# so that ppsSet will tell us what it is saving away into the property:&#10;$::ppsDebug = 1;&#10;ppsSet( $ref, '/myJob/ppsRefData' );&#10;</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>retrieve data</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/projects/pps/pps]&#10;&#10;# Go get the data that we saved away earlier -- it will be returned as a &#10;# perl reference (similar to a pointer in other languages).&#10;my $ref = ppsGet('/myJob/ppsRefData');&#10;&#10;# We saved a complex structure containing many other data items; pull the&#10;# items we need out.  The structure is actually a perl hash.&#10;# Start with the simple scalars we stored:&#10;my $remember = $ref-&gt;{'remember'};&#10;my $total = $ref-&gt;{'total'};&#10;# Extract the list we saved:&#10;my @hairy = @{$ref-&gt;{'hairy'}};&#10;# And finally, pull out the hash we saved:&#10;my %colors = %{$ref-&gt;{'colors'}};&#10;&#10;# Now print out the data to confirm we got what we expected:&#10;print "Remember: $remember\n";&#10;print "Total: $total\n";&#10;print "Hairy: @hairy\n";&#10;print "Colors:\n";&#10;foreach (keys %colors) {&#10;    print " $_: $colors{$_}\n";&#10;};&#10;&#10;# Of course, we don't have to copy the data out in order to use it:&#10;print "Scores: @{$ref-&gt;{'scoreList'}}\n";&#10;</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>PPS Simple Example</procedureName>
+      <description>An example procedure illustrating how to use pps to save a perl data structure between steps of a procedure.</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName>local</resourceName>
+      <workspaceName>default</workspaceName>
+      <propertySheet>
+      </propertySheet>
+      <step>
+        <stepName>generate data</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/projects/pps/pps]&#10;my @hairy = ('head','chin','chest','armpits','nostrils','knuckles');&#10;ppsSet( \@hairy );</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>retrieve data</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/projects/pps/pps]&#10;my $ref = ppsGet();&#10;foreach (@{$ref}) {&#10;    print "Hairy: $_\n";&#10;}&#10;&#10;</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+    </procedure>
+  </project>
+</exportedData>
