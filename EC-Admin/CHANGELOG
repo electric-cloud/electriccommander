@@ -1,3 +1,18 @@
+2013-11-27 Laurent Rochette <lrochette@electric-cloud.com>
+
+  * Happy Thanksgiving!
+  * EC-Admin.xml: new version 1.3.5
+    + Added automatic performance charting
+    + Bug fixes
+    + Also available as a plugin.
+    +  jobsCleanup and jobCleanup_byResult:
+         o Add a parameter to skip the computation of the disk space used; to speed up the job
+    + Semaphore
+         o Added a local job counter to decrement the global gate value. Useful when aborting a job.
+           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter
+    + createPluginFromProject 
+         o Added to automatically create a plugin from a project
+  
 2013-09-06 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.xml: new version 1.3.4
