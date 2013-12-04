@@ -1,0 +1,64 @@
+Summary
+Following are instructions on how to use the various classes of “commander-logutil-jar-with-dependencies.jar” (jar file attached on this wiki page). The tool can be used to scan through and analyze a large set of uncompressed Commander server logs.
+
+Prerequisite
+Make sure that you have Java on path.
+
+Command: ‘java -version’ to see if your system has it on path
+
+Directory structure
+For simplicity, make sure that commander-logutil-jar-with-dependencies.jar is in the directory that contains the directory with uncompressed logs.
+
+The tool produces output to the same working directory
+
+Example
+C:\tools\commander-logutil-jar-with-dependencies.jar
+
+C:\tools\logsToBeAnalyzed\<contains all uncompressed commander logs to be analyzed>
+
+C:\tools\errors.txt (Output from running the tool against a set of logs)
+
+ErrorLog Analyzer Example
+Input: Directory containing commander.log files
+
+Output: Creates errors.log in the working directory. errors.log will contain all the errors from all the commander logs in the input directory.
+
+Use when: First level of triage, there is a problem and you need to look through the commander.logs to find it.
+
+$ java -jar commander-logutil-jar-with-dependencies.jar logsToBeAnalyzed/
+Sample output (errors.log)
+
+2013-09-26T17:51:27.568 | ERROR | Api-005                        |    10149 |  1125391 | singleTransaction                             | OperationInvoker               | Operation exception: org.hibernate.QueryTimeoutException: Could not execute JDBC batch update
+org.hibernate.QueryTimeoutException: Could not execute JDBC batch update
+
+...
+
+Caused by: java.sql.SQLException: ORA-01654: unable to extend index ECUSER.I_PROP_NAME_NUMVALUE_PARENT by 8192 in tablespace ECDATA
+Request Analyzer Example
+Inputs
+
+-Class to use ( com.electriccloud.util.RequestAnalyzer )
+
+-Directory containing commander.log files. Directory cannot be named 'logs'
+
+Output
+
+-requests directory (contains a breakdown of all request timings in each log file)
+
+-commander.log in a logs directory (contains orphaned requests information)
+
+Use when: The memory consumed by the commander server increases rapidly and you suspect a long running server request is the culprit. Or you want general statistics on what type of requests are coming in.
+
+$ java -classpath commander-logutil-jar-with-dependencies.jar com.electriccloud.util.RequestAnalyzer logsToBeAnalyzed/
+Sample output (logs/commander.log)
+
+2013-11-19T11:36:41.696 | WARN  | main                           |          |                                      |                                                                             | RequestAnalyzer                | Orphaned request: 2013-09-13T05:56:50.747 | DEBUG | Http-017                       |          |          |                                               | ApiRequestHandlerImpl          | requestContext[id=8486328,on 16.201.166.20:8443,from 16.57.38.16:41036,bytes=411]: 
+2013-11-19T11:36:41.696 | WARN  | main                           |          |                                      |                                                                             | RequestAnalyzer                | Orphaned request: 2013-09-13T05:29:38.693 | DEBUG | Http-019                       |          |          |                                               | ApiRequestHandlerImpl          | requestContext[id=8424363,on 16.201.166.20:8443,from 16.165.81.53:38105,bytes=684]: 
+2013-11-19T11:36:41.696 | WARN  | main                           |          |                                      |                                                                             | RequestAnalyzer                | Orphaned request: 2013-09-13T05:56:50.698 | DEBUG | Http-037                       |          |          |                                               | ApiRequestHandlerImpl          | requestContext[id=8486325,on 16.201.166.20:8443,from 16.184.139.2:45342,bytes=420]: 
+2013-11-19T11:36:41.696 | WARN  | main                           |          |                                      |                                                                             | RequestAnalyzer                | Orphaned request: 2013-09-13T05:48:50.688 | DEBUG | Http-023                       |          |          |                                               | ApiRequestHandlerImpl          | requestContext[id=8465316,on 16.201.166.20:8443,from 16.154.145.143:46529,bytes=939]: 
+2013-11-19T11:36:41.697 | WARN  | main                           |          |                                      |                                                                             | RequestAnalyzer                | Orphaned request: 2013-09-13T05:56:49.131 | DEBUG | Http-026                       |          |          |                                               | ApiRequestHandlerImpl          | requestContext[id=8486245,on 16.201.166.20:8443,from 16.108.162.229:54055,bytes=2049]: 
+2013-11-19T11:36:41.697 | WARN  | main                           |          |                                      |                                                                             | RequestAnalyzer                | Orphaned request: 2013-09-13T05:27:59.451 | DEBUG | Http-024                       |          |          |                                               | ApiRequestHandlerImpl          | requestContext[id=8420961,on 16.201.166.20:8443,from 16.165.81.53:12306,bytes=684]: 
+2013-11-19T11:36:41.697 | WARN  | main                           |          |                                      |                                                                             | RequestAnalyzer                | Orphaned request: 2013-09-13T05:27:40.503 | DEBUG | Http-032                       |          |          |                                               | ApiRequestHandlerImpl          | requestContext[id=8420282,on 16.201.166.20:8443,from 16.165.81.53:12311,bytes=684]: 
+2013-11-19T11:36:41.696 | WARN  | main                           |          |                                      |                                                                             | RequestAnalyzer                | Orphaned request: 2013-09-13T05:27:32.491 | DEBUG | Http-037                       |          |          |                                               | ApiRequestHandlerImpl          | requestContext[id=8419915,on 16.201.166.20:8443,from 16.165.81.53:38106,bytes=684]:
+
+Use the 'requestContext[id=8420961' to find the actual request. Note the IP address. Is it a web server? Is it an agent? Is it an end user?
