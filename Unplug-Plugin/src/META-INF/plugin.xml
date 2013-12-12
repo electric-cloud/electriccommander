@@ -7,7 +7,7 @@
   <help>help.xml</help>
   <author>Electric Cloud</author>
   <authorUrl>http://www.electric-cloud.com</authorUrl>
-  <commander-version min="4.1"/>
+  <commander-version min="4.0"/>
   <category>Other</category>
   <depends>EC-Core</depends>
   <customTypes>
