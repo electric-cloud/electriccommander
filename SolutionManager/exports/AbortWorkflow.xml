@@ -3,7 +3,7 @@
   <exportPath>/projects/AbortWorkflow</exportPath>
   <project>
     <projectName>AbortWorkflow</projectName>
-    <description>Complete a workflow and all its subworkflows, and abort all subjobs in the hierarchy.</description>
+    <description>Complete a workflow and all of its subworkflows, and abort all subjobs in the hierarchy.</description>
     <resourceName></resourceName>
     <workspaceName></workspaceName>
     <propertySheet>
