@@ -16,7 +16,7 @@
     <procedure>
       <procedureName>GetWorkflowDetails</procedureName>
       <description></description>
-      <jobNameTemplate>GetWorkflowDetails-372</jobNameTemplate>
+      <jobNameTemplate>GetWorkflowDetails-$[jobId]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
