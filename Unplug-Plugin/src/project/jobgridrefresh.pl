@@ -9,7 +9,7 @@ my $nRows = 10;
 
 # Query Commander for a list of jobs
 my $ec = new ElectricCommander();
-my $xp = $ec->getJobs({sortKey => 'jobId', sortOrder => 'descending',
+my $xp = $ec->getJobs({sortKey => 'createTime', sortOrder => 'descending',
 		       maxResults => ($nCols * $nRows)});
 
 # We got back an XML structure, process it so that we get a list
