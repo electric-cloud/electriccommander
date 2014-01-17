@@ -1,3 +1,15 @@
+2013-12-26 Laurent Rochette <lrochette@electric-cloud.com>
+
+  * Merry Christmas
+  * EC-Admin.jar & EC-Admin.xml: new version 1.3.6
+    + saveProjects:
+          o Add chmod after directory creation for cases when server service and server agent service users are different.
+    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup
+    + Completed the plugin help
+    + performanceMetrics
+          o Added license usage information 
+    + Added a sort to deleteObjects to prevent job range overlapping.
+
 2013-11-27 Laurent Rochette <lrochette@electric-cloud.com>
 
   * Happy Thanksgiving!
