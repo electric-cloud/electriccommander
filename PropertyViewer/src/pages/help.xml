@@ -1,6 +1,6 @@
 <componentContainer>
   <title>Property Viewer Help</title>
-  <h2>Property Viewer Help</h2>
+  <h1>Property Viewer Help</h1>
   <h3>Overview</h3>
   <p>
      This plugin provides a PHP page to view and edit any property sheet in the
@@ -57,10 +57,37 @@
   </p>
   <h3>Example</h3>
   <p>
-     This screenshot shows the Property Viewer for the nested sheet "components/server"
-     stored on the project ProductABC.  The URL for this page is 
-     /commander/plugins/PropertyViewer.php?<b>path=/projects/ProductABC/components/server</b><i>&amp;s=Projects</i>.
+     The following screenshots show an example use case for the Property Viewer.  In
+     this example, the project "ProductABC" has six components with meta-data stored per
+     component in the "components" nested property sheet:
      <br /><br />
-     <img src="../../plugins/@PLUGIN_KEY@/images/component.png" style="padding-left:20px" />
+     <img src="../../plugins/@PLUGIN_KEY@/images/projectComponents.jpg" style="padding-left:30px" />
+     <br /><br />
+     Clicking through the UI to view or modify these sheets is cumbersome, the project
+     description is modified to include links to the Property Viewer for each of the six
+     component property sheets:
+     <br />
+     <div style="font-family:courier;padding-left:30px">
+		 &lt;html><br />
+		 Build/test/deploy processes for ABC.  View component properties:&lt;br /><br />
+		 * &lt;a href="/commander/plugins/PropertyViewer/view.php?path=/projects/ProductABC/components/agent&amp;s=Projects">Agent&lt;/a>&lt;br /><br />
+		 * &lt;a href="/commander/plugins/PropertyViewer/view.php?path=/projects/ProductABC/components/client&amp;s=Projects">Client&lt;/a>&lt;br /><br />
+		 * &lt;a href="/commander/plugins/PropertyViewer/view.php?path=/projects/ProductABC/components/database&amp;s=Projects">Database&lt;/a>&lt;br /><br />
+		 * &lt;a href="/commander/plugins/PropertyViewer/view.php?path=/projects/ProductABC/components/library&amp;s=Projects">Library&lt;/a>&lt;br /><br />
+		 * &lt;a href="/commander/plugins/PropertyViewer/view.php?path=/projects/ProductABC/components/server&amp;s=Projects">Server&lt;/a>&lt;br /><br />
+		 * &lt;a href="/commander/plugins/PropertyViewer/view.php?path=/projects/ProductABC/components/web&amp;s=Projects">Web&lt;/a><br />
+		 &lt;/html><br />
+	 </div>
+     <br />
+     The links appear in the description for ProductABC on the "Projects" page:
+     <br /><br />
+     <img src="../../plugins/@PLUGIN_KEY@/images/projectDescription.jpg" style="padding-left:30px" />
+     <br /><br />
+     Clicking on the link for a component ("Server" in this case) redirects to the
+     Property Viewer for the property sheet associated with that component:
+     <br /><br />
+     <img src="../../plugins/@PLUGIN_KEY@/images/viewProjectComponent.jpg" style="padding-left:30px" />
+     <br /><br />
+     Users can now easily view and modify the property sheets for each component.
   </p>
 </componentContainer>
