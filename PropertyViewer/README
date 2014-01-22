@@ -6,15 +6,17 @@ This plugin provides a PHP page to view and edit any property sheet in the syste
 
 USAGE:
 
-The URL to the page is /commander/plugins/PropertyViewer.php. Simply pass the path to the property sheet as the "path" parameter. The tab and sub-tab are optionally set via parameters "s" and "ss" respectively. Some examples:
-* /commander/plugins/PropertyViewer.php?path=/projects/MyProject/procedures/MyProcedure&s=Projects -- Top-level properties for procedure "MyProcedure" in project "MyProject"; displayed in the "Projects" tab
-* /commander/plugins/PropertyViewer.php?path=/resources/MyWorkspace/networking&s=Cloud&ss=Workspaces -- Nested property sheet "networking" for workspace "MyWorkspace"; displayed in the "Cloud > Workspaces" tab
-* /commander/plugins/PropertyViewer.php?path=/jobs/build-1234&s=Jobs -- Top-level properties for job "build-1234"; displayed in the "Jobs" tab
-* /commander/plugins/PropertyViewer.php?path=/server&s=Administration&ss=Server -- Top-level server properties; displayed in the "Administration > Server" tab
+The URL to the page is /commander/plugins/PropertyViewer/view.php. Simply pass the path to the property sheet as the "path" parameter. The tab and sub-tab are optionally set via parameters "s" and "ss" respectively. Some examples:
+* /commander/plugins/PropertyViewer/view.php?path=/projects/MyProject/procedures/MyProcedure&s=Projects -- Top-level properties for procedure "MyProcedure" in project "MyProject"; displayed in the "Projects" tab
+* /commander/plugins/PropertyViewer/view.php?path=/resources/MyWorkspace/networking&s=Cloud&ss=Workspaces -- Nested property sheet "networking" for workspace "MyWorkspace"; displayed in the "Cloud > Workspaces" tab
+* /commander/plugins/PropertyViewer/view.php?path=/jobs/build-1234&s=Jobs -- Top-level properties for job "build-1234"; displayed in the "Jobs" tab
+* /commander/plugins/PropertyViewer/view.php?path=/server&s=Administration&ss=Server -- Top-level server properties; displayed in the "Administration > Server" tab
 
 SOURCES:
 
-The sources are available in the src directory. They were built using the Commander SDK v2.0. The documentation for the SDK is available at http://docs.electric-cloud.com.AUTHOR:
+The sources are available in the src directory. They were built using the Commander SDK v2.0. The documentation for the SDK is available at http://docs.electric-cloud.com.
+
+AUTHOR:
 
 Tanay Nagjee, Electric Cloud Solutions Engineer
 tanay@electric-cloud.com

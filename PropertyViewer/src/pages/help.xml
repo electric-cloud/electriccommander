@@ -30,26 +30,26 @@
   </p>
   <h3>Usage</h3>
   <p>
-     The URL to the page is /commander/plugins/PropertyViewer.php.  Simply pass
+     The URL to the page is /commander/plugins/PropertyViewer/view.php.  Simply pass
      the path to the property sheet as the "path" parameter.  The tab and sub-tab
      are optionally set via parameters "s" and "ss" respectively.  Some examples:<br />
      <ul>
       <li>
-       /commander/plugins/PropertyViewer.php?<b>path=/projects/MyProject/procedures/MyProcedure</b><i>&amp;s=Projects</i>
+       /commander/plugins/PropertyViewer/view.php?<b>path=/projects/MyProject/procedures/MyProcedure</b><i>&amp;s=Projects</i>
        -- Top-level properties for procedure "MyProcedure" in project "MyProject";
           displayed in the "Projects" tab
       </li>
       <li>
-       /commander/plugins/PropertyViewer.php?<b>path=/resources/MyWorkspace/networking</b><i>&amp;s=Cloud&amp;ss=Workspaces</i>
+       /commander/plugins/PropertyViewer/view.php?<b>path=/resources/MyWorkspace/networking</b><i>&amp;s=Cloud&amp;ss=Workspaces</i>
        -- Nested property sheet "networking" for workspace "MyWorkspace";
           displayed in the "Cloud > Workspaces" tab
       </li>
       <li>
-       /commander/plugins/PropertyViewer.php?<b>path=/jobs/build-1234</b><i>&amp;s=Jobs</i>
+       /commander/plugins/PropertyViewer/view.php?<b>path=/jobs/build-1234</b><i>&amp;s=Jobs</i>
        -- Top-level properties for job "build-1234"; displayed in the "Jobs" tab
       </li>
       <li>
-       /commander/plugins/PropertyViewer.php?<b>path=/server</b><i>&amp;s=Administration&amp;ss=Server</i>
+       /commander/plugins/PropertyViewer/view.php?<b>path=/server</b><i>&amp;s=Administration&amp;ss=Server</i>
        -- Top-level server properties; displayed in the "Administration > Server" tab
        (<a href="/commander/plugins/PropertyViewer/view.php?path=/server&amp;s=Administration&amp;ss=Server">View</a>)
       </li>
