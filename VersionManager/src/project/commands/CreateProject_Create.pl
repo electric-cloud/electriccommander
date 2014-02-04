@@ -1,7 +1,8 @@
 $[/myProject/perlHeader]
 
 my $name = getProperty("/myParent/project_name");
-my $comment = "Initial commit for new project";
+my $user = getProperty("/myJob/launchedByUser");
+my $comment = "Initial commit for new project [$user]";
 my $key = generateKey();
 
 # Create the project.

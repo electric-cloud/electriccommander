@@ -1,7 +1,8 @@
 $[/myProject/perlHeader]
 
 my $name = getProperty("/myParent/project_name");
-my $comment = "Initial commit for previously existing project";
+my $user = getProperty("/myJob/launchedByUser");
+my $comment = "Initial commit for previously existing project [$user]";
 my $key = generateKey();
 
 # Store a pointer to the artifact on the project (before exporting so it isn't

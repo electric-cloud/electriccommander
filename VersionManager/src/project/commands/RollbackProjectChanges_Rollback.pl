@@ -4,7 +4,9 @@ use File::Compare;
 
 my $name = getProperty("/myParent/project_name");
 my $rollback_version = getProperty("/myParent/version");
-my $comment = "Rolled back to v$rollback_version - " . getProperty("/myParent/comment");
+my $user = getProperty("/myJob/launchedByUser");
+my $comment = "Rolled back to v$rollback_version - " . getProperty("/myParent/comment")
+    . " [$user]";
 my $key = getProperty("/projects/$name/ec_versioning_artifact");
 my $current_version = getProperty("/artifacts/VersionedProjects:$key/ec_current_version");
 my $new_version = $current_version + 1;
