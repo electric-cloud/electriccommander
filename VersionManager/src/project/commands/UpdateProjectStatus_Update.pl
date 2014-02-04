@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 use File::Compare;
 
 my $name = getProperty("/myParent/project_name");
@@ -18,7 +20,8 @@ mkpath($current_path);
 my $current_version = getProperty("/artifacts/VersionedProjects:$key/ec_current_version");
 $ec->retrieveArtifactVersions({
     artifactVersionName => "VersionedProjects:$key:$current_version",
-    toDirectory => $current_path
+    toDirectory => $current_path,
+    repository => $repository
 });
 
 my $pending = compare(

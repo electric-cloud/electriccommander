@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 my $name = getProperty("/myParent/project_name");
 my $version = getProperty("/myParent/version");
 

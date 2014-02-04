@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 my $name = getProperty("/myParent/project_name");
 
 $ec->abortOnError(0);

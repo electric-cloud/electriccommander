@@ -5,9 +5,6 @@ use File::Path;
 
 my $ec = new ElectricCommander({debug => 0});
 
-my $id = $::ENV{'COMMANDER_JOBSTEPID'};
-my $ws = $::ENV{'COMMANDER_WORKSPACE'};
-
 sub error($) {
     my ($msg) = @_;
     $ec->setProperty("summary", $msg);
@@ -59,3 +56,16 @@ sub getProjectName($) {
     my ($id) = @_;
     return $ec->getObjects({objectId => "project-$id"})->findvalue("//projectName")->value();
 }
+
+sub adminLogin() {
+    my $password = $ec->getFullCredential("admin", {value => "password"})
+		->findvalue("//password")->value();
+	if ($password eq "") {
+		error("The admin user's password has not yet been stored");
+	}
+	$ec->login("admin", $password);
+}
+
+my $id = $::ENV{'COMMANDER_JOBSTEPID'};
+my $ws = $::ENV{'COMMANDER_WORKSPACE'};
+my $repository = getProperty("/myProject/settings/repository");

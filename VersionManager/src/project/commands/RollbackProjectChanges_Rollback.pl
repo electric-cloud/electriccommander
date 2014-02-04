@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 use File::Compare;
 
 my $name = getProperty("/myParent/project_name");
@@ -16,7 +18,8 @@ my $path = "$ws/$id/rollback_version";
 mkpath($path);
 $ec->retrieveArtifactVersions({
     artifactVersionName => "VersionedProjects:$key:$rollback_version",
-    toDirectory => $path
+    toDirectory => $path,
+    repository => $repository
 });
 $ec->import("$path/project.xml", {
     force => 1,
@@ -28,7 +31,8 @@ $ec->publishArtifactVersion({
     artifactName => "VersionedProjects:$key",
     version => $new_version,
     fromDirectory => $path,
-    description => $comment
+    description => $comment,
+    repository => $repository
 });
 my $createTime = getProperty("/artifactVersions/VersionedProjects:$key:$new_version/createTime");
 

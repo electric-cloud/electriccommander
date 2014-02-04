@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 my $projects = $ec->findObjects("project", {
     filter => [
         {

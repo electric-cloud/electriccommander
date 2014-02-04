@@ -3,6 +3,8 @@
   <exportPath>/projects/VersionManager</exportPath>
   <project>
     <projectName>VersionManager</projectName>
+    <resourceName>$[/myProject/settings/resource]</resourceName>
+    <workspaceName>$[/myProject/settings/workspace]</workspaceName>
     <propertySheet>
       <property>
         <propertyName>perlHeader</propertyName>
@@ -13,6 +15,26 @@
         <propertyName>ec_setup</propertyName>
         <expandable>0</expandable>
         <value>PLACEHOLDER</value>
+      </property>
+      <property>
+        <propertyName>settings</propertyName>
+		<propertySheet>
+		  <property>
+			<propertyName>resource</propertyName>
+			<expandable>1</expandable>
+			<value>default</value>
+		  </property>
+		  <property>
+			<propertyName>workspace</propertyName>
+			<expandable>0</expandable>
+			<value>default</value>
+		  </property>
+		  <property>
+			<propertyName>repository</propertyName>
+			<expandable>0</expandable>
+			<value>default</value>
+		  </property>
+		</propertySheet>
       </property>
     </propertySheet>
     <procedure>
@@ -28,6 +50,7 @@
       </formalParameter>
       <step>
         <stepName>Sanity</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -40,6 +63,7 @@
       </step>
       <step>
         <stepName>Add</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -58,6 +82,7 @@
       <timeLimitUnits>minutes</timeLimitUnits>
       <step>
         <stepName>Iterate</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -88,6 +113,7 @@
       </formalParameter>
       <step>
         <stepName>Sanity</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -100,6 +126,7 @@
       </step>
       <step>
         <stepName>Commit</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -124,6 +151,7 @@
       </formalParameter>
       <step>
         <stepName>Iterate</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -166,6 +194,7 @@
       </formalParameter>
       <step>
         <stepName>Sanity</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -178,6 +207,7 @@
       </step>
       <step>
         <stepName>Create</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -202,6 +232,7 @@
       </formalParameter>
       <step>
         <stepName>Delete</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -226,6 +257,7 @@
       </formalParameter>
       <step>
         <stepName>Sanity</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -238,6 +270,7 @@
       </step>
       <step>
         <stepName>Discard</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -262,6 +295,7 @@
       </formalParameter>
       <step>
         <stepName>Remove</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -280,6 +314,7 @@
       <timeLimitUnits>minutes</timeLimitUnits>
       <step>
         <stepName>Iterate</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -316,6 +351,7 @@
       </formalParameter>
       <step>
         <stepName>Sanity</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -328,6 +364,7 @@
       </step>
       <step>
         <stepName>Rollback</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -352,6 +389,7 @@
       </formalParameter>
       <step>
         <stepName>Sanity</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -364,6 +402,7 @@
       </step>
       <step>
         <stepName>Update</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
@@ -382,19 +421,20 @@
       <timeLimitUnits>minutes</timeLimitUnits>
       <step>
         <stepName>Iterate</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <parallel>1</parallel>
-        <postProcessor>postp</postProcessor>
         <releaseMode>none</releaseMode>
         <shell>ec-perl</shell>
         <timeLimitUnits>minutes</timeLimitUnits>
       </step>
       <step>
         <stepName>Cleanup</stepName>
+        <postProcessor>postp</postProcessor>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
         <command>PLACEHOLDER</command>

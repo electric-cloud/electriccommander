@@ -178,7 +178,10 @@ class DeleteLink {
     }
 }
 
-
+Data::$links["projectFromDescription"] = array(
+            "text"    => "@description",
+            "base"    => "projectDetails.php",
+            "args"    => array("projectName" => "description"));
 
 Data::$links["createVersionedProject"] = array(
             "text"    => ecgettext("Create New Project"),
@@ -191,7 +194,7 @@ Data::$links["addExistingProject"] = array(
             "args"    => array());
 
 $columns = array(
-            array('label' => ecgettext("Project")), "description",
+            array('label' => ecgettext("Project")), new Link("projectFromDescription"),
             array('label' => ecgettext("Last Commit")), new VersionedProjectLastCommit,
             array('label' => ecgettext("Status")), new VersionedProjectStatus,
             ecgettext("Actions"), new ActionList(array(

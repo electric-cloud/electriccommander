@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 my $artifacts = $ec->findObjects("artifact", {
     filter => [
         {

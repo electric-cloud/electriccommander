@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 my $comment = getProperty("/myParent/comment");
 
 my $artifacts = $ec->findObjects("artifact", {

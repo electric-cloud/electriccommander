@@ -21,34 +21,60 @@ if ($promoteAction ne '') {
     }
 
     if ($promoteAction eq 'promote') {
-		$batch->createAclEntry('user', "project: $pluginName", {
-			systemObjectName => 'admin',
-			readPrivilege => 'allow',
-			modifyPrivilege => 'allow'
-		});
-		$batch->createAclEntry('user', "project: $pluginName", {
-			systemObjectName => 'artifacts',
-			readPrivilege => 'allow',
-			modifyPrivilege => 'allow'
-		});
-		$batch->createAclEntry('user', "project: $pluginName", {
-			systemObjectName => 'projects',
-			readPrivilege => 'allow'
-		});
-		$batch->createAclEntry('user', "project: $pluginName", {
-			systemObjectName => 'repositories',
-			readPrivilege => 'allow'
-		});
-		$batch->createAclEntry('user', "project: $pluginName", {
-			systemObjectName => 'resources',
-			readPrivilege => 'allow',
-			executePrivilege => 'allow'
-		});
-		$batch->createAclEntry('user', "project: $pluginName", {
-			systemObjectName => 'workspaces',
-			readPrivilege => 'allow',
-			executePrivilege => 'allow'
-		});
+        $batch->createAclEntry('user', "project: $pluginName", {
+            systemObjectName => 'admin',
+            readPrivilege => 'allow',
+            modifyPrivilege => 'allow'
+        });
+        $batch->createAclEntry('user', "project: $pluginName", {
+            systemObjectName => 'artifacts',
+            readPrivilege => 'allow',
+            modifyPrivilege => 'allow'
+        });
+        $batch->createAclEntry('user', "project: $pluginName", {
+            systemObjectName => 'projects',
+            readPrivilege => 'allow'
+        });
+        $batch->createAclEntry('user', "project: $pluginName", {
+            systemObjectName => 'repositories',
+            readPrivilege => 'allow'
+        });
+        $batch->createAclEntry('user', "project: $pluginName", {
+            systemObjectName => 'resources',
+            readPrivilege => 'allow',
+            executePrivilege => 'allow'
+        });
+        $batch->createAclEntry('user', "project: $pluginName", {
+            systemObjectName => 'workspaces',
+            readPrivilege => 'allow',
+            executePrivilege => 'allow'
+        });
+
+        # Create the 'admin' credential and set the password to the default; the user
+        # will need to update it's been changed.
+        $batch->createCredential($pluginName, 'admin', {
+            userName => 'admin',
+            password => 'changeme'
+        });
+
+        # Attach the 'admin' credential to all procedure steps.
+        my $steps = $commander->findObjects('procedureStep', {
+            filter => [
+                {
+                    "operator" => "equals",
+                    "propertyName" => "projectName",
+                    "operand1" => $pluginName
+                },
+            ]
+        });
+        foreach my $step($steps->findnodes("//step")) {
+            my $procedureName = $step->findvalue("procedureName");
+            my $stepName = $step->findvalue("stepName");
+            $batch->attachCredential($pluginName, 'admin', {
+                procedureName => $procedureName,
+                stepName => $stepName
+            });
+        }
 
         # Register the plugin promotion hook
         $batch->setProperty('/server/ec_hooks/promote', {
@@ -59,4 +85,33 @@ if ($promoteAction ne '') {
             value => ''
         });
     }
+}
+
+if ($upgradeAction eq 'upgrade') {
+    # Clone the admin credential from the old plugin to the new one to preserve the
+    # password set by the user.
+    $batch->deleteCredential($pluginName, 'admin');
+    $batch->clone({
+        path => "/plugins/$otherPluginName/project/credentials/admin",
+        cloneName => "/plugins/$pluginName/project/credentials/admin"
+    });
+
+	# Attach the 'admin' credential to all procedure steps.
+	my $steps = $commander->findObjects('procedureStep', {
+		filter => [
+			{
+				"operator" => "equals",
+				"propertyName" => "projectName",
+				"operand1" => $pluginName
+			},
+		]
+	});
+	foreach my $step($steps->findnodes("//step")) {
+		my $procedureName = $step->findvalue("procedureName");
+		my $stepName = $step->findvalue("stepName");
+		$batch->attachCredential($pluginName, 'admin', {
+			procedureName => $procedureName,
+			stepName => $stepName
+		});
+	}
 }

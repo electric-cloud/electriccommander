@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 my $name = getProperty("/myParent/project_name");
 my $user = getProperty("/myJob/launchedByUser");
 my $comment = "Initial commit for new project [$user]";
@@ -31,7 +33,8 @@ $ec->publishArtifactVersion({
     artifactName => "VersionedProjects:$key",
     version => 1,
     fromDirectory => $path,
-    description => $comment
+    description => $comment,
+    repository => $repository
 });
 my $createTime = getProperty("/artifactVersions/VersionedProjects:$key:1/createTime");
 

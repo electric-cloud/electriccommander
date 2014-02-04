@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 my $name = getProperty("/myParent/project_name");
 my $key = getProperty("/projects/$name/ec_versioning_artifact");
 my $rollback_version = getProperty("/artifacts/VersionedProjects:$key/ec_current_version");
@@ -8,7 +10,8 @@ my $path = "$ws/$id/rollback_version";
 mkpath($path);
 $ec->retrieveArtifactVersions({
     artifactVersionName => "VersionedProjects:$key:$rollback_version",
-    toDirectory => $path
+    toDirectory => $path,
+    repository => $repository
 });
 $ec->import("$path/project.xml", {
     force => 1,

@@ -1,5 +1,7 @@
 $[/myProject/perlHeader]
 
+adminLogin();
+
 use File::Compare;
 
 my $name = getProperty("/myParent/project_name");
@@ -26,7 +28,8 @@ $ec->publishArtifactVersion({
     artifactName => "VersionedProjects:$key",
     version => $new_version,
     fromDirectory => $path,
-    description => $comment
+    description => $comment,
+    repository => $repository
 });
 my $createTime = getProperty("/artifactVersions/VersionedProjects:$key:$new_version/createTime");
 
