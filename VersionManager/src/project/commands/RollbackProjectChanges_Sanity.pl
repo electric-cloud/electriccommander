@@ -5,7 +5,7 @@ my $version = getProperty("/myParent/version");
 
 $ec->abortOnError(0);
 
-my $code = $ec->getProject($name)->findvalue("//code")->string_value;
+my $code = $ec->getProject($name)->findvalue("//code")->value();
 if ($code eq "NoSuchProject") {
     error("Project '$name' doesn't exist");
 }
@@ -15,13 +15,13 @@ if ($key eq "") {
     error("Project '$name' is not being versioned");
 }
 
-$code = $ec->getArtifact("VersionedProjects:$key")->findvalue("//code")->string_value;
+$code = $ec->getArtifact("VersionedProjects:$key")->findvalue("//code")->value();
 if ($code eq "NoSuchArtifact") {
     error("Versioning artifact for project '$name' doesn't exist");
 }
 
 $code = $ec->getArtifactVersion("VersionedProjects:$key:$version")
-    ->findvalue("//code")->string_value;
+    ->findvalue("//code")->value();
 if ($code eq "NoSuchArtifactVersion") {
     error("No record of version $version for project '$name'");
 }

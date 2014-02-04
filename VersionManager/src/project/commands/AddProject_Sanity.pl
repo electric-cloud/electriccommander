@@ -4,7 +4,7 @@ my $name = getProperty("/myParent/project_name");
 
 $ec->abortOnError(0);
 
-my $code = $ec->getProject($name)->findvalue("//code")->string_value;
+my $code = $ec->getProject($name)->findvalue("//code")->value();
 if ($code eq "NoSuchProject") {
     error("Project '$name' doesn't exist");
 }

@@ -5,11 +5,6 @@
     <projectName>VersionManager</projectName>
     <propertySheet>
       <property>
-        <propertyName>artifactCounter</propertyName>
-        <expandable>1</expandable>
-        <value>999</value>
-      </property>
-      <property>
         <propertyName>perlHeader</propertyName>
         <expandable>1</expandable>
         <value>PLACEHOLDER</value>

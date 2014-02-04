@@ -25,19 +25,37 @@ sub warning($) {
 
 sub getProperty($) {
     my ($prop) = @_;
-    return $ec->getProperty($prop)->findvalue("//value")->string_value;
+    return $ec->getProperty($prop)->findvalue("//value")->value();
 }
 
 sub generateKey() {
-    return $ec->incrementProperty("/plugins/@PLUGIN_KEY@/project/artifactCounter")->findvalue("//value")->string_value;
+	my $artifacts = $ec->findObjects("artifact", {
+		filter => [
+			{
+				"operator" => "equals",
+				"propertyName" => "groupId",
+				"operand1" => "VersionedProjects"
+			},
+		],
+		sort => [
+			{
+				"propertyName" => "artifactKey",
+				"order" => "descending"
+			}
+		],
+		numObjects => 1,
+		maxIds => 1
+	});
+	my $lastKey = $artifacts->findvalue("//artifactKey")->value();
+	return ($lastKey eq '') ? 1 : $lastKey + 1;
 }
 
 sub getProjectId($) {
     my ($name) = @_;
-    return $ec->getProject($name)->findvalue("//projectId")->string_value;
+    return $ec->getProject($name)->findvalue("//projectId")->value();
 } 
 
 sub getProjectName($) {
     my ($id) = @_;
-    return $ec->getObjects({objectId => "project-$id"})->findvalue("//projectName")->string_value;
+    return $ec->getObjects({objectId => "project-$id"})->findvalue("//projectName")->value();
 }

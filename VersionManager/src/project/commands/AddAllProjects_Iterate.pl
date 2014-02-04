@@ -20,7 +20,7 @@ my $projects = $ec->findObjects("project", {
 });
 
 foreach my $project($projects->findnodes("//project")) {
-    my $name = $project->findvalue("projectName")->string_value;
+    my $name = $project->findvalue("projectName")->value();
 	$ec->createJobStep({
 		jobStepName => $name,
 		subproject => "$[/myProject/projectName]",

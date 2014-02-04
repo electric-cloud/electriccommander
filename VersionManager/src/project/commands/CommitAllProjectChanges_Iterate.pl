@@ -22,7 +22,7 @@ my $artifacts = $ec->findObjects("artifact", {
 });
 
 foreach my $artifact($artifacts->findnodes("//artifact")) {
-    my $name = $artifact->findvalue("description")->string_value;
+    my $name = $artifact->findvalue("description")->value();
     $ec->createJobStep({
         jobStepName => $name,
         subproject => "$[/myProject/projectName]",

@@ -27,7 +27,7 @@ my $jobs = $ec->findObjects("job", {
 
 my $thisJob = getProperty("/myJob/jobName");
 foreach my $job($jobs->findnodes("//job")) {
-    my $name = $job->findvalue("jobName")->string_value;
+    my $name = $job->findvalue("jobName")->value();
     if ($name ne $thisJob) {
         rmtree("$ws/../$name");
         $ec->deleteJob($name);
