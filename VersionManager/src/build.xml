@@ -25,5 +25,5 @@
   </path>
   <property name="gwt.path.extras" value="extras" />
 
-  <import file="/vagrant/sdk/tools/scripts/../../build/buildTargets.xml" />
+  <import file="/opt/src/sdk/tools/scripts/../../build/buildTargets.xml" />
 </project>
