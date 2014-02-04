@@ -1,0 +1,37 @@
+TASKS
+
+- startup script that migrates counters
+  - still make counters safe for uninstall + install
+
+- run everything as ADMIN; control access to versioning by controlling execute on VersionManager
+
+- create configure page that user must go through on installation
+  > admin password
+  > resource
+  > workspace
+  > repository
+  > test procedure that makes sure all of this works
+
+- include launchedByUser in commit comment
+
+BUGS
+
+- diff should exclude project name (and export path), otherwise rolling back to
+  a previous version with a different name will immediately yield pending changes
+
+IMPROVEMENTS
+
+- batch server requests as much as possible
+
+- create GWT dashboard so it's usable in CDM UI; use popups instead of separate pages
+
+FEATURES
+
+- clone project (regular clone + version)
+
+- email changes
+
+- diff two versions of a project
+  > mike's tool
+
+- tag versions

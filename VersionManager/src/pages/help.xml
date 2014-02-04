@@ -1,0 +1,12 @@
+<componentContainer>
+  <title>VersionManager Help</title>
+  <h2>VersionManager Help</h2>
+  <h3>Overview</h3>
+  <p>This plugin is a template that developers can use as a base for creating
+    their own plugins. Help text html is expected to be XHTML, meaning that the
+    document must be proper XML (e.g. all tags must be closed).</p>
+  <p>This plugin has the following pages:</p>
+  <p>
+    <a href="VersionManagerComponent_run">VersionManagerComponent</a>
+  </p>
+</componentContainer>
