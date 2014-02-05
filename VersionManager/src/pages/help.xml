@@ -9,14 +9,14 @@
     on the "default" resource and "default" workspace, and the artifacts are published to
     the "default" repository.  You can change these values by modifying the properties in
     the "settings" nested sheet for the @PLUGIN_KEY@ project.
-    <b><a href="/commander/link/projectDetails/plugins/@PLUGIN_KEY@/project?tabGroup=properties">
+    <b><a href="/commander/link/projectDetails/plugins/@PLUGIN_NAME@/project?tabGroup=properties">
     Click here</a></b> to access these properties.
   <p>
   </p>
     These jobs are run using the special "admin" user's credentials to prevent missing
     objects depending on access control settings.  If you have changed the "admin" user's
     password, you will have to update a credential stored on the @PLUGIN_KEY@ project.
-    <b><a href="/commander/link/editCredential/projects/@PLUGIN_KEY@/credentials/admin">
+    <b><a href="/commander/link/editCredential/projects/@PLUGIN_NAME@/credentials/admin">
     Click here</a></b> to access this credential and change the password.
   </p>
 
@@ -27,7 +27,7 @@
     versioned projects.  At first, this table will be empty:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/versionedProjects.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/versionedProjects.png" />
   </p>
 
   <h3>Adding existing projects</h3>
@@ -35,18 +35,18 @@
     Click "Add Existing Project" to begin versioning an existing project:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/addExisting.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/addExisting.png" />
     <br /><br />
     You will now see your existing project in the "Versioned Projects" table, set to
     version 1 with a commit comment of "Initial commit for previously existing project":
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/addExistingAfter.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/addExistingAfter.png" />
     <br /><br />
     To start, add as many of your existing projects as you would like to be versioned:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/addExistingAfterMany.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/addExistingAfterMany.png" />
   </p>
 
   <h3>Creating new projects</h3>
@@ -54,13 +54,13 @@
     Click "Create New Project" to create a project and immediately begin versioning it:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/createNew.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/createNew.png" />
     <br /><br />
     Version 1 of the new project shows up with a commit comment of "Initial commit for
     new project":
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/createNewAfter.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/createNewAfter.png" />
   </p>
 
   <h3>Committing changes</h3>
@@ -71,19 +71,19 @@
     "Uncommitted changes":
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/uncommittedChanges.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/uncommittedChanges.png" />
     <br /><br />
     Click "Commit" to commit the changes to a project.  The user will be prompted for a
     commit comment to describe the changes:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/commitChanges.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/commitChanges.png" />
     <br /><br />
     The changes are committed, the version is revved, and the user's commit comment is
     seen on the "Versioned Projects" table:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/commitChangesAfter.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/commitChangesAfter.png" />
   </p>
 
   <h3>Discarding changes</h3>
@@ -93,7 +93,7 @@
     to it's previous state:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/discardChanges.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/discardChanges.png" />
   </p>
 
   <h3>Rolling back changes</h3>
@@ -103,16 +103,22 @@
     describing the change:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/rollbackChanges.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/rollbackChanges.png" />
     <br /><br />
     The project will return to the selected version.  Note that the versioning scheme
     always moves forward, so the rollback version is simply stored as a new commit:
     <br /><br />
     <img style="width:640px;padding-left:20px"
-      src="../../plugins/@PLUGIN_KEY@/images/rollbackChangesAfter.png" />
+      src="../../plugins/@PLUGIN_NAME@/images/rollbackChangesAfter.png" />
   </p>
 
   <h2>@PLUGIN_KEY@ Release Notes</h2>
+  <h3>v1.0.1</h3>
+  <p>
+    <ul>
+      <li>Fixed help page so images show up when the plugin is not promoted</li>
+    </ul>
+  </p>
   <h3>v1.0.0</h3>
   <p>
     <ul>
