@@ -3,7 +3,7 @@
     <key>@PLUGIN_KEY@</key>
     <version>@PLUGIN_VERSION@</version>
     <label>@PLUGIN_KEY@</label>
-    <description>CHANGE_THIS: This plugin is a trivial sample that can be used as a base for developing proper plugins.</description>
+    <description>Manage project versions: commit, discard, and rollback changes.</description>
 
     <!-- If the plugin has a configure page, declare it here.  This will show up as a Configure link for this plugin on the Plugins page. 
     <configure>configure.xml</configure>
@@ -14,12 +14,12 @@
     
     <!-- Plugin author information. -->
     <author>Tanay Nagjee</author>
-    <authorUrl/>
+    <authorUrl>http://www.electric-cloud.com</authorUrl>
     
     <commander-version min="4.2"/>
     
     <!-- Specify a category for this plugin; this is used in filtered lists in the Plugin Manager.
          Typically, it is set to System or Step.
      -->
-    <category>Other</category>
+    <category>Utility</category>
 </plugin>

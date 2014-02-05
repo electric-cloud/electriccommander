@@ -80,38 +80,18 @@ if ($promoteAction ne '') {
         $batch->setProperty('/server/ec_hooks/promote', {
             value => q{$[/plugins/@PLUGIN_NAME@/project/scripts/promoteHook]}
         });
+
+
+		# Create the subtab
+		$view->add(["Projects", "All"],
+				   { url => 'link/projects' });
+		$view->add(["Projects", "Versioned"],
+				   { url => 'plugins/VersionManager/projects.php' });
     } else {
         $batch->setProperty('/server/ec_hooks/promote', {
             value => ''
         });
+		# Remove the subtab
+		$view->remove(["Projects", "Versioned"]);
     }
-}
-
-if ($upgradeAction eq 'upgrade') {
-    # Clone the admin credential from the old plugin to the new one to preserve the
-    # password set by the user.
-    $batch->deleteCredential($pluginName, 'admin');
-    $batch->clone({
-        path => "/plugins/$otherPluginName/project/credentials/admin",
-        cloneName => "/plugins/$pluginName/project/credentials/admin"
-    });
-
-	# Attach the 'admin' credential to all procedure steps.
-	my $steps = $commander->findObjects('procedureStep', {
-		filter => [
-			{
-				"operator" => "equals",
-				"propertyName" => "projectName",
-				"operand1" => $pluginName
-			},
-		]
-	});
-	foreach my $step($steps->findnodes("//step")) {
-		my $procedureName = $step->findvalue("procedureName");
-		my $stepName = $step->findvalue("stepName");
-		$batch->attachCredential($pluginName, 'admin', {
-			procedureName => $procedureName,
-			stepName => $stepName
-		});
-	}
 }
