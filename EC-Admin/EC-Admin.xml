@@ -16,12 +16,12 @@
               <property>
                 <propertyName>image</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/255907/images/custom3c5edf64143240d77de1.png</value>
+                <value>/commander/jobSteps/300269/images/custom88ff85d143fc58466e1.png</value>
               </property>
               <property>
                 <propertyName>link</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/255907/Performance Report.html</value>
+                <value>/commander/jobSteps/300269/Performance Report.html</value>
               </property>
             </propertySheet>
           </property>
@@ -380,6 +380,1056 @@
               </property>
             </propertySheet>
           </property>
+          <property>
+            <propertyName>42178</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>258456</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>258456</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2013-12-27 02:00:42</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>42506</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>262792</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>262792</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-04 02:00:28</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>42565</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>265083</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>265083</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-10 02:01:12</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>42720</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>266782</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>266782</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-11 02:00:36</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>42876</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>268485</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>268485</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-12 02:00:34</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>43020</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>270748</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>270748</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-14 02:00:31</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>43170</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>272401</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>272401</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-15 02:01:09</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>43339</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>274171</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>274171</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-16 02:00:41</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>43526</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>276715</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>276715</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-18 02:02:12</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>43665</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>278242</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>278242</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-19 02:00:43</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>43954</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>282108</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>282108</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-22 02:00:42</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>44095</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>283691</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>283691</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-23 02:00:37</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>44286</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>285561</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>285561</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-24 02:00:42</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>44365</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>286672</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>286672</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-25 02:00:39</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>44517</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>289171</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>289171</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-28 02:00:41</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>44718</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>290921</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>290921</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-29 02:00:43</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>44875</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>292575</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>292575</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-01-30 02:00:38</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>45189</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>296009</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>296009</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-01 02:00:55</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>45381</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>298620</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>298620</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-03 02:00:46</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>45459</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>299140</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>299140</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-03 14:02:57</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>45537</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>300269</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>300269</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-04 02:00:38</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
         </propertySheet>
       </property>
       <property>
@@ -716,7 +1766,7 @@
             <propertyName>jobTemplate</propertyName>
             <description></description>
             <expandable>1</expandable>
-            <value>EC-Admin::$[/myProcedure/procedureName]_$[/increment /myProject/jobCounter]_$[/timestamp]</value>
+            <value>$[/myProcedure/procedureName]_$[/increment /server/counters/EC-Admin/jobCounter]</value>
           </property>
           <property>
             <propertyName>perlCommonLib</propertyName>
@@ -753,23 +1803,24 @@
       <property>
         <propertyName>ec_setup</propertyName>
         <expandable>1</expandable>
-        <value># Data that drives the create step picker registration for this plugin.&#10;my %acquireSemaphore = ( &#10;  label       =&gt; "EC-Admin - acquireSemaphore", &#10;  procedure   =&gt; "acquireSemaphore", &#10;  description =&gt; "Procedure to acquire a token in order to limit access to a set of procedures&#10;&#10;Changelog:&#10;--------------&#10; 10-04-2013   lrochette   Add job counter to help abort a job.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %artifactsCleanup = ( &#10;  label       =&gt; "EC-Admin - artifactsCleanup", &#10;  procedure   =&gt; "artifactsCleanup", &#10;  description =&gt; "Delete Artifacts and clean caches.&#10;A resource matching the Repository server is required or some steps will be skipped.&#10;&#10;Changelog:&#10;--------------&#10; 08-07-2013  lrochette     Better Resource management: test for existence, alive and enabled before invoking cleanupRepository.&#10;&#10; 07-29-2013  lrochette     Added ec_parameterForm to give it the same look and feel than jobCleanup&#10;                                         Took advantage of createJobStep to simplify the procedure", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %createPluginFromProject = ( &#10;  label       =&gt; "EC-Admin - createPluginFromProject", &#10;  procedure   =&gt; "createPluginFromProject", &#10;  description =&gt; "Create a plugin from a simple project", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %deleteObjects = ( &#10;  label       =&gt; "EC-Admin - deleteObjects", &#10;  procedure   =&gt; "deleteObjects", &#10;  description =&gt; "A procedure to quickly delete jobs or workflows older than a&#10;specified number of days. It will NOT delete associated workspace job&#10;directories. This is for customers with huge job or workflow database&#10;&#10;Changelog:&#10;-------------&#10;12-23-2013  Tanay  Added a sort to prevent job ID range overlap as reporeted in ZD #109574&#10;", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %deleteWorkspaceOrphans = ( &#10;  label       =&gt; "EC-Admin - deleteWorkspaceOrphans", &#10;  procedure   =&gt; "deleteWorkspaceOrphans", &#10;  description =&gt; "Procedure to crawl a workspace directory to find orphan jobs (directories without a matching job)", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %jobCleanup_byResult = ( &#10;  label       =&gt; "EC-Admin - jobCleanup_byResult", &#10;  procedure   =&gt; "jobCleanup_byResult", &#10;  description =&gt; "Delete jobs and the associated workspace based on  result: keeping X goods/warning, and Y failed&#10;Report the number of jobs, the disk space and database space that could/was be deleted.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %jobsCleanup = ( &#10;  label       =&gt; "EC-Admin - jobsCleanup", &#10;  procedure   =&gt; "jobsCleanup", &#10;  description =&gt; "Delete jobs older than a number of days, along with the associated workspace.&#10;Report the number of jobs, the disk space and database space that could/was be deleted.&#10;&#10;Changelog:&#10;--------------&#10;09-20-2013  lrochette    Rewritten using JSON to increase performance&#10;                                       Paramater is also now used to skip number of steps computation&#10; 09-12-2013  lrochette   Add a parameter to skip the computation of the disk space used; to speed up the job", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %performanceMetrics = ( &#10;  label       =&gt; "EC-Admin - performanceMetrics", &#10;  procedure   =&gt; "performanceMetrics", &#10;  description =&gt; "Performance diagnostics for EC server and agents&#10;&#10;Changelog:&#10;--------------&#10; 08-09-2013  lrochette    Fixed bug on Free available RAM with European numbers&#10; 08-30-2013  lrochette    Added fsutil error management &#10; 08-30-2013  lrochette    Added a cleanup step for the disk performance temporary file&#10; 12-21-2013 lrochette     Added license usage information", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %releaseSemaphore = ( &#10;  label       =&gt; "EC-Admin - releaseSemaphore", &#10;  procedure   =&gt; "releaseSemaphore", &#10;  description =&gt; "Procedure to release the token &#10;&#10;Changelog:&#10;--------------&#10; 10-04-2013   lrochette   Add job counter to help abort a job.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %saveAllObjects = ( &#10;  label       =&gt; "EC-Admin - saveAllObjects", &#10;  procedure   =&gt; "saveAllObjects", &#10;  description =&gt; "export objects individually in a tree like structure for further CMS checkin: &#10;  Projects&#10;  Procedures&#10;  Resources&#10;  ResourcePools&#10;  Workspaces&#10;  Users&#10;  Groups&#10;", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %saveProjects = ( &#10;  label       =&gt; "EC-Admin - saveProjects", &#10;  procedure   =&gt; "saveProjects", &#10;  description =&gt; "a framework to export projects.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %workflowCleanup = ( &#10;  label       =&gt; "EC-Admin - workflowCleanup", &#10;  procedure   =&gt; "workflowCleanup", &#10;  description =&gt; "Delete workflows older than a number of days.&#10;Report the number of workflows.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;@::createStepPickerSteps = (\%acquireSemaphore, \%artifactsCleanup, \%createPluginFromProject, \%deleteObjects, \%deleteWorkspaceOrphans, \%jobCleanup_byResult, \%jobsCleanup, \%performanceMetrics, \%releaseSemaphore, \%saveAllObjects, \%saveProjects, \%workflowCleanup);&#10;</value>
+        <value># Data that drives the create step picker registration for this plugin.&#10;my %acquireSemaphore = ( &#10;  label       =&gt; "EC-Admin - acquireSemaphore", &#10;  procedure   =&gt; "acquireSemaphore", &#10;  description =&gt; "Acquire a token in order to limit access to a set of procedures.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %artifactsCleanup = ( &#10;  label       =&gt; "EC-Admin - artifactsCleanup", &#10;  procedure   =&gt; "artifactsCleanup", &#10;  description =&gt; "Delete old artifacts and clean caches.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %artifactsCleanup_byQuantity = ( &#10;  label       =&gt; "EC-Admin - artifactsCleanup_byQuantity", &#10;  procedure   =&gt; "artifactsCleanup_byQuantity", &#10;  description =&gt; "Delete old artifacts and clean caches.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %createPluginFromProject = ( &#10;  label       =&gt; "EC-Admin - createPluginFromProject", &#10;  procedure   =&gt; "createPluginFromProject", &#10;  description =&gt; "Transform a project into a plugin", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %deleteObjects = ( &#10;  label       =&gt; "EC-Admin - deleteObjects", &#10;  procedure   =&gt; "deleteObjects", &#10;  description =&gt; "A procedure to quickly delete jobs or workflows older than a specified number of days. It will NOT delete associated workspace job directories.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %deleteWorkspaceOrphans = ( &#10;  label       =&gt; "EC-Admin - deleteWorkspaceOrphans", &#10;  procedure   =&gt; "deleteWorkspaceOrphans", &#10;  description =&gt; "Procedure to crawl a workspace directory to find orphan jobs (directories without a matching job)", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %jobCleanup_byResult = ( &#10;  label       =&gt; "EC-Admin - jobCleanup_byResult", &#10;  procedure   =&gt; "jobCleanup_byResult", &#10;  description =&gt; "Delete jobs and the associated workspace based on  result: keeping X goods/warning, and Y failed&#10;Report the number of jobs, the disk space and database space that could/was be deleted.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %jobsCleanup = ( &#10;  label       =&gt; "EC-Admin - jobsCleanup", &#10;  procedure   =&gt; "jobsCleanup", &#10;  description =&gt; "Delete jobs older than a number of days, along with the associated workspace.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %performanceMetrics = ( &#10;  label       =&gt; "EC-Admin - performanceMetrics", &#10;  procedure   =&gt; "performanceMetrics", &#10;  description =&gt; "Performance diagnostics for EC server and agents.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %releaseSemaphore = ( &#10;  label       =&gt; "EC-Admin - releaseSemaphore", &#10;  procedure   =&gt; "releaseSemaphore", &#10;  description =&gt; "Procedure to release the token.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %saveAllObjects = ( &#10;  label       =&gt; "EC-Admin - saveAllObjects", &#10;  procedure   =&gt; "saveAllObjects", &#10;  description =&gt; "This procedure brings a finer granularity to a full server export. For example to retrieve an object after a wrong action or a bad code change. By default it exports projects and each procedure individually. In addition by enabling the matching checkboxes, you can also export resources, resource pools, workspaces, users and groups.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %saveProjects = ( &#10;  label       =&gt; "EC-Admin - saveProjects", &#10;  procedure   =&gt; "saveProjects", &#10;  description =&gt; "a framework to export projects.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %workflowCleanup = ( &#10;  label       =&gt; "EC-Admin - workflowCleanup", &#10;  procedure   =&gt; "workflowCleanup", &#10;  description =&gt; "Delete workflows older than a number of days.&#10;Report the number of workflows.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;@::createStepPickerSteps = (\%acquireSemaphore, \%artifactsCleanup, \%artifactsCleanup_byQuantity, \%createPluginFromProject, \%deleteObjects, \%deleteWorkspaceOrphans, \%jobCleanup_byResult, \%jobsCleanup, \%performanceMetrics, \%releaseSemaphore, \%saveAllObjects, \%saveProjects, \%workflowCleanup);&#10;</value>
       </property>
       <property>
         <propertyName>ec_tags</propertyName>
         <expandable>1</expandable>
-        <value> github </value>
+        <value> github ec-admin </value>
       </property>
       <property>
         <propertyName>ec_visibility</propertyName>
+        <description></description>
         <expandable>1</expandable>
-        <value>pickerListOnly</value>
+        <value>all</value>
       </property>
       <property>
         <propertyName>help</propertyName>
         <description>Help page for the plugin version</description>
         <expandable>1</expandable>
-        <value>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"&#10;    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;&#10;&#10;&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&#10;&lt;head&gt;&#10;	&lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" /&gt;&#10;	&lt;title&gt;EC-Admin Plugin&lt;/title&gt;&#10;	&lt;style&gt;&#10;/* pluginhelp.css -&#10; *&#10; * This file defines styles used for displaying plugin documentation.&#10; *&#10; * Copyright (c) 2006-2010 Electric Cloud, Inc.&#10; * All rights reserved&#10; */&#10;&#10;.help {&#10;    font-family: Times New Roman, Times, serif;&#10;    font-size: 16px;&#10;    margin: 10px 10px 0px 30px;&#10;}&#10;&#10;.help h1 {&#10;    font-family: Verdana, Helvetica, sans-serif;&#10;    font-size: 25.89px;&#10;    font-weight: bold;&#10;    color: #4670B8;&#10;    margin-left: -10px;&#10;}&#10;&#10;.help h2 {&#10;    font-family: Verdana, Helvetica, sans-serif;&#10;    font-size: 125%;&#10;    font-weight: bold;&#10;    color: #5981BD;&#10;    margin-left: -10px;&#10;}&#10;&#10;.help h3 {&#10;    font-family: Verdana, Helvetica, sans-serif;&#10;    font-size: 115%;&#10;    font-weight: bold;&#10;    color: #5981BD;&#10;}&#10;&#10;.help h4 {&#10;    font-family: Verdana, Helvetica, sans-serif;&#10;    font-size: 100%;&#10;    font-weight: bold;&#10;    font-style: italic;&#10;    color: #5981BD;&#10;}&#10;&#10;.help a {&#10;    color: #333333;&#10;    text-decoration: none;&#10;    padding: 1px;&#10;    background-image: url(../lib/images/dottedBorder1.gif);&#10;    background-position: bottom;&#10;    background-repeat: repeat-x;&#10;}&#10;&#10;.help a:hover {&#10;    color: #CC6600;&#10;    background-image: url(../lib/images/dottedBorder1Hover.gif);&#10;}&#10;&#10;.help ul li {&#10;    list-style-position: outside;&#10;    padding-bottom: 4px;&#10;    font-size: 110%;&#10;    margin-left: 5pt;&#10;}&#10;&#10;.help pre {&#10;    font-size: 100%;&#10;}&#10;&#10;.help img {&#10;    margin-top: 15px;&#10;    margin-bottom: 8 px;&#10;    margin-left: 30px;&#10;    border-style: solid;&#10;    border-width: 1px;&#10;}&#10;&#10;.grid {&#10;    border-collapse: collapse;&#10;    width: 900px;&#10;    margin: 15px 0px 0px 30px;&#10;}&#10;    &#10;.grid td {&#10;    border-style: solid;&#10;    border-width: 1px;&#10;    padding: 3px 10px 3px 5px;&#10;    font-size: 110%;&#10;   &#10;}&#10;&#10;.grid th {&#10;    border-style: solid;&#10;    border-width: 1px;&#10;    padding-right: 10px;&#10;    padding-left: 5px;&#10;    padding-top: 3px;&#10;    padding-bottom: 3px;&#10;    font-size: 110%;&#10;    text-align: left;&#10;    vertical-align: bottom;&#10;}&#10;&#10;.help .required {&#10;    font-weight: bold;&#10;    font-style: italic;&#10;}&#10;&#10;.help a:link {&#10;    text-decoration:underline;&#10;}&#10;&#10;.help div &gt; a {&#10;    display: none;&#10;}&#10;	&lt;/style&gt;&#10;&#10;&lt;/head&gt;&#10;&#10;&lt;body&gt;&#10;    &lt;div class="help"&gt;&#10;		&lt;h1&gt;EC-Admin&lt;/h1&gt;&#10;&lt;p&gt;Plugin Version $[/myProject/version]&lt;/p&gt;&#10;    	&lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" /&gt;&#10;&#10;        &lt;p&gt;EC-Admin is a collection of administrative procedures to help you&#10;manage your server. Its inception was sparked by requests from customers&#10;during my Professional Services engagements. It has grown over the years to&#10;what it is now.&lt;/p&gt;&#10;&#10;		&lt;p&gt;It contains the following modules:&lt;/p&gt;&#10;		&lt;ul&gt;&#10;			&lt;li&gt;&lt;a href="#jobs"&gt;Jobs and Workspaces management&lt;/a&gt;&lt;/li&gt;&#10;			&lt;li&gt;&lt;a href="#plugin"&gt;Plugin creation&lt;/a&gt;&lt;/li&gt;&#10;			&lt;li&gt;&lt;a href="#artifacts"&gt;Artifacts management&lt;/a&gt;&lt;/li&gt;&#10;			&lt;li&gt;&lt;a href="#backup"&gt;Object export and backup&lt;/a&gt;&lt;/li&gt;&#10;			&lt;li&gt;&lt;a href="#semaphore"&gt;Semaphore management&lt;/a&gt;&lt;/li&gt;&#10;		&lt;/ul&gt;&#10;&#10;		&lt;h2&gt;&lt;a name="installation"&gt;&lt;/a&gt;Installation&lt;/h2&gt;&#10;		&#10;        &lt;p&gt;This collection of procedures can be found on our &lt;a&#10;href="https://github.com/electriccommunity/electriccommander/tree/master/EC-&#10;Admin"&gt;community  repository on GitHub&lt;/a&gt;. It is available either as a simple&#10;XML project export or as  a plugin delivered in the form of a .jar file.&lt;/p&gt;&#10;&#10;		&lt;p&gt;To install the plugin, use the "Install from File/URL" tab in the administration/Plugins or use the "installPlugin" API.&lt;/p&gt;&#10;		&lt;p&gt;To install the .xml project export, use the "import "API call as following:&#10;		&lt;br/&gt;ectool import /path_to/EC-Admin.xml --disableSchedules 1&lt;/p&gt;&#10; &#10;		&lt;p&gt;To install on 4.0.x or or 4.1.x, import the EC_4.0.xml file. Be aware that &#10;some features are not present as the original project makes use of &#10;createJobStep() API which was introduced in 4.2.0:&lt;br/&gt;&#10;ectool import /path_to/EC-Admin_for_EC_4.0.xml --disableSchedules 1&lt;/p&gt;&#10;&#10;		&lt;p&gt;If you get an error with the passKey, use the "--force 1" option&lt;/p&gt;&#10;&#10;		&lt;h1&gt;&lt;a name="jobs"&gt;&lt;/a&gt;Jobs and Workspaces management&lt;/h1&gt;&#10;		&lt;p&gt;This set of procedures will help you manage your old jobs and the associated workspaces.&lt;/p&gt;&#10;			&lt;h2&gt;jobsCleanup:&lt;/h2&gt; &#10;			&lt;p&gt;A procedure to delete jobs older than a specified number of&#10;days. It will also delete associated workspace job directories. You&#10;can also provide a property name, if this property is attached to the&#10;job, it won't be deleted no matter how old. A report only mode&#10;prevents any real deletion.&lt;/p&gt;&#10;&#10;			&lt;h2&gt;jobCleanup_byResult:&lt;/h2&gt; &#10;            &lt;p&gt;A procedure to delete jobs older than a specified number of days.&#10;It will also delete associated workspace job directories. It will keep the&#10;number of successful, failed and warning jobs you entered. You can also&#10;provide a property name, if this property is attached to the job, it won't be&#10;deleted no matter how old. A report only mode prevents any real deletion.&lt;/p&gt;&#10;&#10;			&lt;h2&gt;deleteWorksapceOrphans:&lt;/h2&gt; &#10;&#10;            &lt;p&gt;A procedure to crawl a workspace directory to find orphan jobs&#10;(directories without a matching job) on a specified resource.&lt;/p&gt;&#10;&#10;			&lt;h2&gt;deleteObjects:&lt;/h2&gt; &#10;            &lt;p&gt;A procedure to quickly delete jobs or workflows older than a&#10;specified number of days. It will &lt;b&gt;not&lt;/b&gt; delete associated workspace job&#10;directories. This is for customers with huge job or workflow database.&lt;/p&gt;&#10;&#10;&#10;		&lt;h1&gt;&lt;a name="plugin"&gt;&lt;/a&gt;Plugin creation&lt;/h1&gt;&#10;		&lt;p&gt;The procedure "createPluginFromProject" allows transforming a project into a plugin. The parameters are the following:&lt;/p&gt;&#10;			&lt;dl&gt;&#10;				&lt;dt&gt;&lt;b&gt;Author:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;The author of the project to transform into a plugin&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Email:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;The email of the author&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Category&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;The category of the plugin. It helps filter the plugin in the Plugins page and in the pickerList.&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Description&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;The description of the plugin do display in the main plugin page. If left empty it will default to the description of the project.&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;installPlugin&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;A Boolean to install or not the plugin after creation&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;promotePlugin&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;A Boolean to promote or not the plugin after installation&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Plugin&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;The name of the plugin. If left empty, it will default to the project name.&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Project&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;The name of the project to transform into a plugin&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Version&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;Version of the plugin to create.&lt;/dd&gt;&#10;			&lt;/dl&gt;&#10;		&lt;p&gt;In addition each procedure can modify the behavior with the following 2 properties:&lt;/p&gt;&#10;			&lt;dl&gt;&#10;				&lt;dt&gt;&lt;b&gt;exposeToPlugin:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;This property if set to 1 will add the procedure to ec_setup to be shown in the procedure pickerList when choosing a plugin step.&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;descriptionForPlugin:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;This property will be shown as the description in the pickerList mentioned above. If it's empty or non-existent, the description will be description of the procedure itself.&lt;/dd&gt;&#10;			&lt;/dl&gt;&#10;&#10;		&lt;h1&gt;&lt;a name="artifacts"&gt;&lt;/a&gt;Artifact Management&lt;/h1&gt;&#10;		&#10;		&lt;h2&gt;artifactsCleanup&lt;/h2&gt; &#10;		&#10;		&lt;p&gt;A procedure to delete artifacts older than a specified number&#10;of days. Same as for jobs above, a property allows preventing the deletion. Once the&#10;artifacts have been deleted, artifact repositories and artifact caches are&#10;cleaned as well (deleting stale artifacts).  A report only mode prevents any&#10;real deletion.&lt;/p&gt;&#10;&#10;		&lt;h1&gt;&lt;a name="backup"&gt;&lt;/a&gt;Object export and backup&lt;/h1&gt;&#10;&#10;        &lt;p&gt;This set of procedures is to help you export objects from&#10;ElectricCommander for a potential inclusion into your SCM for&#10;versioning.&lt;/p&gt;&#10;		&#10;		&lt;h2&gt;saveProjects&lt;/h2&gt;&#10;&#10;        &lt;p&gt;This procedure simply exports your projects in a directory on the&#10;server. It is recommended to enable the nightly schedule associated&#10;with it to backup your projects on a regular basis.&lt;/p&gt;&#10;&#10;		&lt;h2&gt;saveAllObjects&lt;/h2&gt;&#10;&#10;        &lt;p&gt;This procedure brings a finer granularity to a full server export. For &#10;example to retrieve an object after a wrong action or a bad code change. By &#10;default it exports projects and each procedure individually. In addition by &#10;enabling the matching checkboxes, you can also export resources, &#10;resource pools, workspaces, users and groups.&lt;/p&gt;&#10;&#10;		&lt;h1&gt;&lt;a name="semaphore"&gt;&lt;/a&gt;Semaphore Management&lt;/h1&gt;&#10;&#10;		&lt;h2&gt;acquireSemaphore and releaseSemaphore:&lt;/h2&gt;&#10;			&#10;		&lt;p&gt;Those 2 procedures are used to create a &#10;gate for a set of steps. The important part is to use a resource with a step &#10;limit of one to ensure the atomicity of increasing and decreasing the gate &#10;value.&lt;/p&gt;&#10;&#10;		&lt;h1&gt;Contact author&lt;/h1&gt; &#10;  		&lt;p&gt;Laurent Rochette (&lt;a href="mailto:lrochette@electric-cloud.com"&gt;lrochette@electric-cloud.com&lt;/a&gt;) &lt;/p&gt;&#10;&#10;	&lt;h1&gt;Legal Jumbo&lt;/h1&gt;&#10; &#10;	&lt;p&gt;This module is free for use. Modify it however you see fit to better your &#10;experience using ElectricCommander. Share your enhancements and fixes.&lt;/p&gt;&#10;&#10;	&lt;p&gt;This module is not officially supported by Electric Cloud. It has undergone no &#10;formal testing and you may run into issues that have not been uncovered in the &#10;limited manual testing done so far.&lt;/p&gt;&#10;&#10;	&lt;p&gt;Electric Cloud should not be held liable for any repercussions of using this &#10;software.&lt;/p&gt;&#10;	&lt;/div&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;</value>
+        <value>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"&#10;    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;&#10;&#10;&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&#10;&lt;head&gt;&#10;	&lt;meta content="text/html; charset=us-ascii" http-equiv="content-type" /&gt;&#10;	&lt;title&gt;EC-Admin Plugin&lt;/title&gt;&#10;	&lt;style&gt;&#10;/* pluginhelp.css -&#10; *&#10; * This file defines styles used for displaying plugin documentation.&#10; *&#10; * Copyright (c) 2006-2014 Electric Cloud, Inc.&#10; * All rights reserved&#10; */&#10;&#10;.help {&#10;    font-family: Times New Roman, Times, serif;&#10;    font-size: 16px;&#10;    margin: 10px 10px 0px 30px;&#10;}&#10;&#10;.help h1 {&#10;    font-family: Verdana, Helvetica, sans-serif;&#10;    font-size: 25.89px;&#10;    font-weight: bold;&#10;    color: #4670B8;&#10;    margin-left: -10px;&#10;}&#10;&#10;.help h2 {&#10;    font-family: Verdana, Helvetica, sans-serif;&#10;    font-size: 125%;&#10;    font-weight: bold;&#10;    color: #5981BD;&#10;    margin-left: -10px;&#10;}&#10;&#10;.help h3 {&#10;    font-family: Verdana, Helvetica, sans-serif;&#10;    font-size: 115%;&#10;    font-weight: bold;&#10;    color: #5981BD;&#10;}&#10;&#10;.help h4 {&#10;    font-family: Verdana, Helvetica, sans-serif;&#10;    font-size: 100%;&#10;    font-weight: bold;&#10;    font-style: italic;&#10;    color: #5981BD;&#10;}&#10;&#10;.help a {&#10;    color: #333333;&#10;    text-decoration: none;&#10;    padding: 1px;&#10;    background-image: url(../lib/images/dottedBorder1.gif);&#10;    background-position: bottom;&#10;    background-repeat: repeat-x;&#10;}&#10;&#10;.help a:hover {&#10;    color: #CC6600;&#10;    background-image: url(../lib/images/dottedBorder1Hover.gif);&#10;}&#10;&#10;.help ul li {&#10;    list-style-position: outside;&#10;    padding-bottom: 4px;&#10;    font-size: 110%;&#10;    margin-left: 5pt;&#10;}&#10;&#10;.help pre {&#10;    font-size: 100%;&#10;}&#10;&#10;.help img {&#10;    margin-top: 15px;&#10;    margin-bottom: 8 px;&#10;    margin-left: 30px;&#10;    border-style: solid;&#10;    border-width: 1px;&#10;}&#10;&#10;.grid {&#10;    border-collapse: collapse;&#10;    width: 900px;&#10;    margin: 15px 0px 0px 30px;&#10;}&#10;    &#10;.grid td {&#10;    border-style: solid;&#10;    border-width: 1px;&#10;    padding: 3px 10px 3px 5px;&#10;    font-size: 110%;&#10;   &#10;}&#10;&#10;.grid th {&#10;    border-style: solid;&#10;    border-width: 1px;&#10;    padding-right: 10px;&#10;    padding-left: 5px;&#10;    padding-top: 3px;&#10;    padding-bottom: 3px;&#10;    font-size: 110%;&#10;    text-align: left;&#10;    vertical-align: bottom;&#10;}&#10;&#10;.help .required {&#10;    font-weight: bold;&#10;    font-style: italic;&#10;}&#10;&#10;.help a:link {&#10;    text-decoration:underline;&#10;}&#10;&#10;.help div &gt; a {&#10;    display: none;&#10;}&#10;	&lt;/style&gt;&#10;&#10;&lt;/head&gt;&#10;&#10;&lt;body&gt;&#10;    &lt;div class="help"&gt;&#10;		&lt;h1&gt;EC-Admin&lt;/h1&gt;&#10;&lt;p&gt;Plugin Version $[/myProject/version]&lt;/p&gt;&#10;    	&lt;hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" /&gt;&#10;&#10;        &lt;p&gt;EC-Admin is a collection of administrative procedures to help you&#10;manage your server. Its inception was sparked by requests from customers&#10;during my Professional Services engagements. It has grown over the years to&#10;what it is now.&lt;/p&gt;&#10;&#10;		&lt;p&gt;It contains the following modules:&lt;/p&gt;&#10;		&lt;ul&gt;&#10;			&lt;li&gt;&lt;a href="#jobs"&gt;Jobs and Workspaces management&lt;/a&gt;&lt;/li&gt;&#10;			&lt;li&gt;&lt;a href="#plugin"&gt;Plugin creation&lt;/a&gt;&lt;/li&gt;&#10;			&lt;li&gt;&lt;a href="#artifacts"&gt;Artifacts management&lt;/a&gt;&lt;/li&gt;&#10;			&lt;li&gt;&lt;a href="#backup"&gt;Object export and backup&lt;/a&gt;&lt;/li&gt;&#10;			&lt;li&gt;&lt;a href="#semaphore"&gt;Semaphore management&lt;/a&gt;&lt;/li&gt;&#10;		&lt;/ul&gt;&#10;&#10;		&lt;h2&gt;&lt;a name="installation"&gt;&lt;/a&gt;Installation&lt;/h2&gt;&#10;		&#10;        &lt;p&gt;This collection of procedures can be found on our &lt;a&#10;href="https://github.com/electriccommunity/electriccommander/tree/master/EC-&#10;Admin"&gt;community  repository on GitHub&lt;/a&gt;. It is available either as a simple&#10;XML project export or as  a plugin delivered in the form of a .jar file.&lt;/p&gt;&#10;&#10;		&lt;p&gt;To install the plugin, use the "Install from File/URL" tab in the administration/Plugins or use the "installPlugin" API.&lt;/p&gt;&#10;		&lt;p&gt;To install the .xml project export, use the "import "API call as following:&#10;		&lt;br/&gt;ectool import /path_to/EC-Admin.xml --disableSchedules 1&lt;/p&gt;&#10; &#10;		&lt;p&gt;To install on 4.0.x or or 4.1.x, import the EC_4.0.xml file. Be aware that &#10;some features are not present as the original project makes use of &#10;createJobStep() API which was introduced in 4.2.0:&lt;br/&gt;&#10;ectool import /path_to/EC-Admin_for_EC_4.0.xml --disableSchedules 1&lt;/p&gt;&#10;&#10;		&lt;p&gt;If you get an error with the passKey, use the "--force 1" option&lt;/p&gt;&#10;&#10;		&lt;h1&gt;&lt;a name="jobs"&gt;&lt;/a&gt;Jobs and Workspaces management&lt;/h1&gt;&#10;		&lt;p&gt;This set of procedures will help you manage your old jobs and the associated workspaces.&lt;/p&gt;&#10;			&lt;h2&gt;jobsCleanup:&lt;/h2&gt; &#10;			&lt;p&gt;A procedure to delete jobs older than a specified number of&#10;days. It will also delete associated workspace job directories. You&#10;can also provide a property name, if this property is attached to the&#10;job, it won't be deleted no matter how old. A report only mode&#10;prevents any real deletion.&lt;/p&gt;&#10;&#10;			&lt;h2&gt;jobCleanup_byResult:&lt;/h2&gt; &#10;            &lt;p&gt;A procedure to delete jobs older than a specified number of days.&#10;It will also delete associated workspace job directories. It will keep the&#10;number of successful, failed and warning jobs you entered. You can also&#10;provide a property name, if this property is attached to the job, it won't be&#10;deleted no matter how old. A report only mode prevents any real deletion.&lt;/p&gt;&#10;&#10;			&lt;h2&gt;deleteWorksapceOrphans:&lt;/h2&gt; &#10;&#10;            &lt;p&gt;A procedure to crawl a workspace directory to find orphan jobs&#10;(directories without a matching job) on a specified resource.&lt;/p&gt;&#10;&#10;			&lt;h2&gt;deleteObjects:&lt;/h2&gt; &#10;            &lt;p&gt;A procedure to quickly delete jobs or workflows older than a&#10;specified number of days. It will &lt;b&gt;not&lt;/b&gt; delete associated workspace job&#10;directories. This is for customers with huge job or workflow database.&lt;/p&gt;&#10;&#10;&#10;		&lt;h1&gt;&lt;a name="plugin"&gt;&lt;/a&gt;Plugin creation&lt;/h1&gt;&#10;		&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; This procedure requires access to the jar executable in the PATH.&lt;/p&gt;&#10;		&lt;p&gt;The procedure "createPluginFromProject" allows transforming a project into a plugin. The parameters are the following:&lt;/p&gt;&#10;			&lt;dl&gt;&#10;				&lt;dt&gt;&lt;b&gt;Author:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;The author of the project to transform into a plugin&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Email:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;The email of the author&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Category&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;The category of the plugin. It helps filter the plugin in the Plugins page and in the pickerList.&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Description&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;The description of the plugin do display in the main plugin page. If left empty it will default to the description of the project.&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;installPlugin&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;A Boolean to install or not the plugin after creation&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;promotePlugin&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;A Boolean to promote or not the plugin after installation&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Plugin&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;The name of the plugin. If left empty, it will default to the project name.&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Project&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;The name of the project to transform into a plugin&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;Version&lt;/b&gt;:&lt;/dt&gt;&#10;				&lt;dd&gt;Version of the plugin to create.&lt;/dd&gt;&#10;			&lt;/dl&gt;&#10;		&lt;p&gt;At the project level, you can define the following properties to alter the behavior of the plugin creation:&lt;/p&gt;&#10;			&lt;dl&gt;&#10;				&lt;dt&gt;&lt;b&gt;ec_visibility:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;Choose &lt;b&gt;all&lt;/b&gt; to have the plugin shows in the project list (like EC-Admin), or &lt;b&gt;pickListOnly&lt;/b&gt; (default) to have your procedures available only through the plugin procedure picker (when you choose plugin as a step).&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;help:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;This property allows you to create a Help page associated with your plugin. The page you are currently reading is created this way so feel free to explore the help property in the EC-Admin plugin/project for an example.&lt;/dd&gt;&#10;			&lt;/dl&gt;&#10;		&lt;p&gt;In addition each procedure can modify the behavior with the following 2 properties:&lt;/p&gt;&#10;			&lt;dl&gt;&#10;				&lt;dt&gt;&lt;b&gt;exposeToPlugin:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;This property if set to 1 will add the procedure to ec_setup to be shown in the procedure pickerList when choosing a plugin step.&lt;/dd&gt;&#10;				&lt;dt&gt;&lt;b&gt;descriptionForPlugin:&lt;/b&gt;&lt;/dt&gt;&#10;				&lt;dd&gt;This property will be shown as the description in the pickerList mentioned above. If it's empty or non-existent, the description will be description of the procedure itself.&lt;/dd&gt;&#10;			&lt;/dl&gt;&#10;&#10;&#10;		&lt;h1&gt;&lt;a name="artifacts"&gt;&lt;/a&gt;Artifact Management&lt;/h1&gt;&#10;		&#10;		&lt;h2&gt;artifactsCleanup&lt;/h2&gt; &#10;		&#10;		&lt;p&gt;A procedure to delete artifact versions older than a specified number&#10;of days. Same as for jobs above, a property allows preventing the deletion. Once the&#10;artifacts have been deleted, artifact repositories and artifact caches are&#10;cleaned as well (deleting stale artifacts).  A report only mode prevents any&#10;real deletion.&lt;/p&gt;&#10;&#10;		&lt;h2&gt;artifactsCleanup_byQuantity&lt;/h2&gt;&#10;&#10;		&lt;p&gt;As "ArtifactsCleanup"", this procedure deletes artifact versions  older than a specified number&#10;of days but keeps only X per Artifact. Again, a property allows preventing the deletion. Once the&#10;artifacts have been deleted, artifact repositories and artifact caches are&#10;cleaned as well (deleting stale artifacts).  A report only mode prevents any&#10;real deletion.&lt;/p&gt;&#10;&#10;		&lt;h1&gt;&lt;a name="backup"&gt;&lt;/a&gt;Object export and backup&lt;/h1&gt;&#10;&#10;        &lt;p&gt;This set of procedures is to help you export objects from&#10;ElectricCommander for a potential inclusion into your SCM for&#10;versioning.&lt;/p&gt;&#10;		&#10;		&lt;h2&gt;saveProjects&lt;/h2&gt;&#10;&#10;        &lt;p&gt;This procedure simply exports your projects in a directory on the&#10;server. It is recommended to enable the nightly schedule associated&#10;with it to backup your projects on a regular basis.&lt;/p&gt;&#10;&#10;		&lt;h2&gt;saveAllObjects&lt;/h2&gt;&#10;&#10;        &lt;p&gt;This procedure brings a finer granularity to a full server export. For &#10;example to retrieve an object after a wrong action or a bad code change. By &#10;default it exports projects and each procedure individually. In addition by &#10;enabling the matching checkboxes, you can also export resources, &#10;resource pools, workspaces, users and groups.&lt;/p&gt;&#10;&#10;		&lt;h1&gt;&lt;a name="semaphore"&gt;&lt;/a&gt;Semaphore Management&lt;/h1&gt;&#10;&#10;		&lt;h2&gt;acquireSemaphore and releaseSemaphore:&lt;/h2&gt;&#10;			&#10;		&lt;p&gt;Those 2 procedures are used to create a &#10;gate for a set of steps. The important part is to use a resource with a step &#10;limit of one to ensure the atomicity of increasing and decreasing the gate &#10;value.&lt;/p&gt;&#10;&#10;		&lt;h1&gt;Contact author&lt;/h1&gt; &#10;  		&lt;p&gt;Laurent Rochette (&lt;a href="mailto:lrochette@electric-cloud.com"&gt;lrochette@electric-cloud.com&lt;/a&gt;) &lt;/p&gt;&#10;&#10;	&lt;h1&gt;Legal Jumbo&lt;/h1&gt;&#10; &#10;	&lt;p&gt;This module is free for use. Modify it however you see fit to better your &#10;experience using ElectricCommander. Share your enhancements and fixes.&lt;/p&gt;&#10;&#10;	&lt;p&gt;This module is not officially supported by Electric Cloud. It has undergone no &#10;formal testing and you may run into issues that have not been uncovered in the &#10;limited manual testing done so far.&lt;/p&gt;&#10;&#10;	&lt;p&gt;Electric Cloud should not be held liable for any repercussions of using this &#10;software.&lt;/p&gt;&#10;	&lt;/div&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;</value>
       </property>
       <property>
         <propertyName>jobCounter</propertyName>
@@ -779,9 +1830,9 @@
       </property>
       <property>
         <propertyName>version</propertyName>
-        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.3.6&#10;    +  Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
+        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
         <expandable>1</expandable>
-        <value>1.3.6</value>
+        <value>1.3.8</value>
       </property>
     </propertySheet>
     <credential>
@@ -803,7 +1854,7 @@
     <procedure>
       <procedureName>acquireSemaphore</procedureName>
       <description>Procedure to acquire a token in order to limit access to a set of procedures&#10;&#10;Changelog:&#10;--------------&#10; 10-04-2013   lrochette   Add job counter to help abort a job.</description>
-      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -853,7 +1904,7 @@
           <propertyName>descriptionForPlugin</propertyName>
           <description>Description used in the pickerList when transformed into a plugin</description>
           <expandable>1</expandable>
-          <value>Acquire a token in order to limit access to a set of procedures.&#10;</value>
+          <value>Acquire a token in order to limit access to a set of procedures.</value>
         </property>
         <property>
           <propertyName>exposeToPlugin</propertyName>
@@ -896,7 +1947,7 @@
         <stepName>acquireSemaphore</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>use strict;&#10;use ElectricCommander;&#10;$| = 1;&#10;&#10;my $ec = new ElectricCommander;&#10;my $xPath = $ec-&gt;getProperty("$[semaphoreProperty]");&#10;my $semaphore = $xPath-&gt;findvalue('//value')-&gt;string_value;&#10;print "First eval: semaphore = $semaphore\n";&#10;&#10;while ($semaphore &gt;= $[maxSemaphoreValue]){&#10;  sleep(5);&#10;  $xPath = $ec-&gt;getProperty("$[semaphoreProperty]");&#10;  $semaphore = $xPath-&gt;findvalue('//value')-&gt;string_value;&#10;  print "in loop: semaphore = $semaphore\n";&#10;}&#10;&#10;# When we get here, a token is available. Acquire it.&#10;my $xPath = $ec-&gt;incrementProperty("$[semaphoreProperty]");&#10;&#10;# Increment local counter as well&#10;my $xPath = $ec-&gt;incrementProperty("/myJob/localSemaphoreCounter");&#10;</command>
+        <command>use strict;&#10;use ElectricCommander;&#10;$| = 1;&#10;&#10;my $ec = new ElectricCommander;&#10;my $xPath = $ec-&gt;getProperty("$[semaphoreProperty]");&#10;my $semaphore = $xPath-&gt;findvalue('//value')-&gt;string_value;&#10;print "First eval: semaphore = $semaphore\n";&#10;&#10;while ($semaphore &gt;= $[maxSemaphoreValue]){&#10;  $ec-&gt;setProperty("summary", "Waiting for Semaphore");&#10;  sleep(5);&#10;  $xPath = $ec-&gt;getProperty("$[semaphoreProperty]");&#10;  $semaphore = $xPath-&gt;findvalue('//value')-&gt;string_value;&#10;  print "in loop: semaphore = $semaphore\n";&#10;}&#10;&#10;# When we get here, a token is available. Acquire it.&#10;my $xPath = $ec-&gt;incrementProperty("$[semaphoreProperty]");&#10;&#10;# Increment local counter as well&#10;my $xPath = $ec-&gt;incrementProperty("/myJob/localSemaphoreCounter");&#10;&#10;$ec-&gt;setProperty("summary", "Semaphore acquired");&#10;</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
@@ -919,7 +1970,7 @@
     <procedure>
       <procedureName>artifactsCleanup</procedureName>
       <description>Delete Artifacts and clean caches.&#10;A resource matching the Repository server is required or some steps will be skipped.&#10;&#10;Changelog:&#10;--------------&#10; 08-07-2013  lrochette     Better Resource management: test for existence, alive and enabled before invoking cleanupRepository.&#10;&#10; 07-29-2013  lrochette     Added ec_parameterForm to give it the same look and feel than jobCleanup&#10;                                         Took advantage of createJobStep to simplify the procedure</description>
-      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -1060,7 +2111,7 @@
         <stepName>dynamicCleanRepoProcedure</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use DateTime;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $executeDeletion="$[executeDeletion]";&#10;&#10;my $jobId = $[jobId];&#10;&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getRepositories");&#10;my $nodeset = $xPath-&gt;find('//repository');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $repoName=$node-&gt;findvalue('repositoryName');&#10;  my $repoServerName = $node-&gt;findvalue('url');&#10;  my $repoDisabled = $node-&gt;findvalue('repositoryDisabled');&#10;  &#10;  printf("AR: %s\n", $repoName);&#10;  #&#10;  # Skip disable repositories&#10;  if ($repoDisabled) {&#10;    printf ("  Repository disabled: Skipping!\n");&#10;    next;&#10;  }&#10;  $repoServerName =~ s#https?://([\-\w]+)(:\d+)?#$1#;&#10;&#10;  # checking that the resource exist and is enabled&#10;  # &#10;  ($success, $xPath) = InvokeCommander("SuppressLog IgnoreError", "getResource", $repoServerName);&#10;  if (! $success) {&#10;    printf("  Associated resource '%s' does not exist. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;  my $resDisabled=$xPath-&gt;findvalue('//resource/resourceDisabled');&#10;  if ($resDisabled eq "1") {&#10;    printf("  Associated resource '%s' disabled. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;    &#10;  my $agentAlive=$xPath-&gt;findvalue('//resource/agentState/alive');&#10;  if ($agentAlive eq "0") {&#10;    printf("  Associated resource '%s' is not alive. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;  &#10;  my $stepName = "clean Step For ".$repoName;&#10;  $ec-&gt;createJobStep({'jobStepName' =&gt; $stepName, &#10;                      'subprocedure' =&gt; 'cleanupRepository', &#10;                      'actualParameter' =&gt; [{'actualParameterName' =&gt; 'executeDeletion', 'value'=&gt;$executeDeletion},&#10;                                         {'actualParameterName' =&gt; 'resource', 'value'=&gt;$repoServerName},&#10;                                        ]&#10;                  });&#10;}                      &#10;&#10;&#10;</command>
+        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use DateTime;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $executeDeletion="$[executeDeletion]";&#10;&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getRepositories");&#10;my $nodeset = $xPath-&gt;find('//repository');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $repoName=$node-&gt;findvalue('repositoryName');&#10;  my $repoServerName = $node-&gt;findvalue('url');&#10;  my $repoDisabled = $node-&gt;findvalue('repositoryDisabled');&#10;  &#10;  printf("AR: %s\n", $repoName);&#10;  #&#10;  # Skip disable repositories&#10;  if ($repoDisabled) {&#10;    printf ("  Repository disabled: Skipping!\n");&#10;    next;&#10;  }&#10;  $repoServerName =~ s#https?://([\-\w]+)(:\d+)?#$1#;&#10;&#10;  # checking that the resource exist and is enabled&#10;  # &#10;  ($success, $xPath) = InvokeCommander("SuppressLog IgnoreError", "getResource", $repoServerName);&#10;  if (! $success) {&#10;    printf("  Associated resource '%s' does not exist. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;  my $resDisabled=$xPath-&gt;findvalue('//resource/resourceDisabled');&#10;  if ($resDisabled eq "1") {&#10;    printf("  Associated resource '%s' disabled. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;    &#10;  my $agentAlive=$xPath-&gt;findvalue('//resource/agentState/alive');&#10;  if ($agentAlive eq "0") {&#10;    printf("  Associated resource '%s' is not alive. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;  &#10;  my $stepName = "clean Step For ".$repoName;&#10;  $ec-&gt;createJobStep({'jobStepName' =&gt; $stepName, &#10;                      'subprocedure' =&gt; 'cleanupRepository', &#10;                      'actualParameter' =&gt; [{'actualParameterName' =&gt; 'executeDeletion', 'value'=&gt;$executeDeletion},&#10;                                         {'actualParameterName' =&gt; 'resource', 'value'=&gt;$repoServerName},&#10;                                        ]&#10;                  });&#10;}                      &#10;&#10;&#10;</command>
         <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
@@ -1085,6 +2136,251 @@
         <broadcast>0</broadcast>
         <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use DateTime;&#10;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $executeDeletion="$[executeDeletion]";&#10;my $days=$[olderThan];&#10;&#10;#Let's loop on Resources&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getResources");&#10;my $nodeset = $xPath-&gt;find('//resource');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $resName=$node-&gt;findvalue('resourceName');&#10;  my $hostName=$node-&gt;findvalue('hostName');&#10;  my $resDisabled=$node-&gt;findvalue('resourceDisabled');&#10;  my $agentAlive=$node-&gt;findvalue('agentState/alive');&#10;  printf("%s\n\t Disabled: %s\n\t alive: %s\n", $resName, $resDisabled, $agentAlive);&#10;&#10;  #&#10;  # Create a sub-step only if agent is alive and not disabled&#10;  # to avoid to have to wait (and fail) for unavailable resources&#10;  if ( ($resDisabled eq "0") &amp;&amp; ($agentAlive eq "1")) {&#10;    my $resName=$node-&gt;findvalue('resourceName');&#10;    my $stepName = "clean Artifact Cache Step For ".$resName;&#10;    $ec-&gt;createJobStep({'jobStepName'=&gt;$stepName, &#10;                        'subprocedure' =&gt; 'cleanupCacheDirectory', &#10;                        'actualParameter' =&gt; [{'actualParameterName'=&gt;'executeDeletion', 'value'=&gt;$executeDeletion},&#10;                                         {'actualParameterName'=&gt;'olderThan', 'value'=&gt;$days},&#10;                                         {'actualParameterName'=&gt;'resource', 'value'=&gt;$resName}]&#10;                  });&#10;  }&#10;}                      &#10;</command>
         <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>artifactsCleanup_byQuantity</procedureName>
+      <description>Delete Artifact Versions, keeping only X by Artifact ; thenclean caches.&#10;A resource matching the Repository server is required or some steps will be skipped.&#10;&#10;Changelog:&#10;--------------&#10;</description>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
+      <resourceName></resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>adminLogin</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>artifactProperty</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>deleteDependencies</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>executeDeletion</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>nbToPreserve</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>list</propertyName>
+                          <expandable>1</expandable>
+                          <value>0|1|5|10|25|100</value>
+                        </property>
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>simpleList</value>
+                        </property>
+                      </propertySheet>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>olderThan</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+        <property>
+          <propertyName>descriptionForPlugin</propertyName>
+          <description>Description used in the pickerList when transformed into a plugin</description>
+          <expandable>1</expandable>
+          <value>Delete old artifacts and clean caches.</value>
+        </property>
+        <property>
+          <propertyName>ec_parameterForm</propertyName>
+          <description></description>
+          <expandable>1</expandable>
+          <value>&lt;editor&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Delete artifact versions older than&lt;/label&gt; &#10;        &lt;property&gt;olderThan&lt;/property&gt; &#10;        &lt;documentation&gt;Indicate the numbers of days after which artifact versions  should be deleted&lt;/documentation&gt; &#10;        &lt;type&gt;select&lt;/type&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;1 month&lt;/name&gt; &#10;            &lt;value&gt;30&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;2 months&lt;/name&gt; &#10;            &lt;value&gt;60&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;3 months&lt;/name&gt; &#10;            &lt;value&gt;91&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;6 months&lt;/name&gt; &#10;            &lt;value&gt;182&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;1 year&lt;/name&gt; &#10;            &lt;value&gt;365&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;value&gt;91&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;   &lt;formElement&gt; &#10;        &lt;label&gt;Artifact property&lt;/label&gt; &#10;        &lt;property&gt;artifactProperty&lt;/property&gt; &#10;        &lt;documentation&gt;Name of a property attached to your artifact versions. If this property is set, your artifact version won't be deleted.&#10;        &lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt; &#10;        &lt;value&gt;doNotDelete&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;   &lt;formElement&gt; &#10;        &lt;label&gt;Number to preserve&lt;/label&gt;    &#10;        &lt;property&gt;nbToPreserve&lt;/property&gt;    &#10;        &lt;documentation&gt;The number of artifact versions to preserve per artifact&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt;    &#10;        &lt;value&gt;5&lt;/value&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Delete&lt;/label&gt; &#10;        &lt;property&gt;executeDeletion&lt;/property&gt; &#10;        &lt;documentation&gt;If this option is not set, only report is done. No real data are deleted&lt;/documentation&gt; &#10;        &lt;type&gt;select&lt;/type&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;Report&lt;/name&gt; &#10;            &lt;value&gt;false&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;Delete&lt;/name&gt; &#10;            &lt;value&gt;true&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;value&gt;false&lt;/value&gt; &#10;    &lt;/formElement&gt; &#10;&#10;&lt;/editor&gt;</value>
+        </property>
+        <property>
+          <propertyName>exposeToPlugin</propertyName>
+          <description>So the procedure is shown in the pickerList</description>
+          <expandable>1</expandable>
+          <value>1</value>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>artifactProperty</formalParameterName>
+        <defaultValue>doNotDelete</defaultValue>
+        <description>Name of a property attached to your artifactVersions. If this property is set, your artifactVersions won't be deleted no matter how old it is.&#10;</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>executeDeletion</formalParameterName>
+        <defaultValue>false</defaultValue>
+        <description>If this option is not set, only report is done. No real data are deleted</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>checkbox</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>nbToPreserve</formalParameterName>
+        <defaultValue>5</defaultValue>
+        <description>indicate the number of version to keep for each artifact</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>select</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>olderThan</formalParameterName>
+        <defaultValue>90</defaultValue>
+        <description>Indicate the numbers of days after which artifactVersions should be deleted</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>deleteAV</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>#############################################################################&#10;#&#10;#  deleteArtifactVersions -- Script to delete artifacts and caches&#10;#  Copyright 2013-2014 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use DateTime;&#10;$[/myProject/scripts/perlHeaderJSON]&#10;&#10;&#10;####################################################a#########################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $artifactProperty = "$[artifactProperty]";&#10;my $executeDeletion  = "$[executeDeletion]";&#10;my $nbToPreserve     =  $[nbToPreserve];&#10;my $timeLimit       =  $[olderThan];&#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;&#10;#############################################################################&#10;#&#10;#  Main&#10;#&#10;#############################################################################&#10;&#10;printf("%s artifact versions older than $timeLimit days (%s).\n", &#10;    $executeDeletion eq "true"?"Deleting":"Reporting", &#10;    calculateDate($timeLimit));&#10;printf("  Preserving %d artifact versions\n", $nbToPreserve);&#10;&#10;#&#10;# Loop over each Artifacts&#10;#&#10;my ($ok, $res) = InvokeCommander("SuppressLog", "getArtifacts");&#10;foreach my $art ($res-&gt;findnodes('//artifact')) {&#10;  	my $artifactName=$art-&gt;{artifactName};&#10;	printf("Processing artifact '%s'\n", $artifactName);&#10;&#10;	# create filterList&#10;	my @filterList;&#10;	push (@filterList, {"propertyName" =&gt; 'artifactName',&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; $artifactName});&#10;	push (@filterList, {"propertyName" =&gt; "createTime",&#10; 	                    "operator" =&gt; "lessThan",&#10; 	                  	"operand1" =&gt; calculateDate($timeLimit)});&#10;	push (@filterList, {"propertyName" =&gt; $artifactProperty,&#10;                    "operator" =&gt; "isNull"});&#10;	my ($ok2, $res2) = InvokeCommander("SuppressLog", "findObjects", "artifactVersion",&#10;					 						{'filter' =&gt; \@filterList,&#10;                       sort =&gt; [ {propertyName =&gt; "createTime",&#10;                                  order =&gt; "descending"} ]});&#10;  	my $count=1;&#10;  	foreach my $av ($res2-&gt;findnodes('//artifactVersion')) {&#10;    	my $avName=$av-&gt;{artifactVersionName};&#10;    	printf("\t%s\n", $avName);&#10;    	if ($count &lt;= $nbToPreserve) {&#10;      		printf("\t\tpreserving : %d out of %d\n", $count, $nbToPreserve);&#10;      		$count++;&#10;      		next;&#10;    	} &#10;		if ($executeDeletion eq "true") {&#10;			my ($success, $xPath) = InvokeCommander("SuppressLog", "deleteArtifactVersion", $avName);&#10;			printf("\t\tDeleting\n");&#10;		}&#10;&#10;	}	&#10;	printf("\n");&#10;}&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Calculate the Date based on now and the number of days required by&#10;#  the user before deleting jobs&#10;#&#10;#############################################################################&#10;sub calculateDate {&#10;    my $nbDays=shift;&#10;    return DateTime-&gt;now()-&gt;subtract(days =&gt; $nbDays)-&gt;iso8601() . ".000Z";&#10;}&#10;&#10;&#10;$[/myProject/scripts/perlLibJSON]</command>
+        <condition></condition>
+        <description>Script to delete old Artifact Versions per Artifact</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>dynamicCleanRepoProcedure</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use DateTime;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $executeDeletion="$[executeDeletion]";&#10;&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getRepositories");&#10;my $nodeset = $xPath-&gt;find('//repository');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $repoName=$node-&gt;findvalue('repositoryName');&#10;  my $repoServerName = $node-&gt;findvalue('url');&#10;  my $repoDisabled = $node-&gt;findvalue('repositoryDisabled');&#10;  &#10;  printf("AR: %s\n", $repoName);&#10;  #&#10;  # Skip disable repositories&#10;  if ($repoDisabled) {&#10;    printf ("  Repository disabled: Skipping!\n");&#10;    next;&#10;  }&#10;  $repoServerName =~ s#https?://([\-\w]+)(:\d+)?#$1#;&#10;&#10;  # checking that the resource exist and is enabled&#10;  # &#10;  ($success, $xPath) = InvokeCommander("SuppressLog IgnoreError", "getResource", $repoServerName);&#10;  if (! $success) {&#10;    printf("  Associated resource '%s' does not exist. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;  my $resDisabled=$xPath-&gt;findvalue('//resource/resourceDisabled');&#10;  if ($resDisabled eq "1") {&#10;    printf("  Associated resource '%s' disabled. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;    &#10;  my $agentAlive=$xPath-&gt;findvalue('//resource/agentState/alive');&#10;  if ($agentAlive eq "0") {&#10;    printf("  Associated resource '%s' is not alive. Skipping!\n", $repoServerName);&#10;    next;&#10;  }&#10;  &#10;  my $stepName = "clean Step For ".$repoName;&#10;  $ec-&gt;createJobStep({'jobStepName' =&gt; $stepName, &#10;                      'subprocedure' =&gt; 'cleanupRepository', &#10;                      'actualParameter' =&gt; [{'actualParameterName' =&gt; 'executeDeletion', 'value'=&gt;$executeDeletion},&#10;                                         {'actualParameterName' =&gt; 'resource', 'value'=&gt;$repoServerName},&#10;                                        ]&#10;                  });&#10;}                      &#10;&#10;&#10;</command>
+        <condition>$[executeDeletion]</condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>dynamicCacheCleaningProcedure</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;use DateTime;&#10;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $executeDeletion="$[executeDeletion]";&#10;my $days=$[olderThan];&#10;&#10;#Let's loop on Resources&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getResources");&#10;my $nodeset = $xPath-&gt;find('//resource');&#10;&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $resName=$node-&gt;findvalue('resourceName');&#10;  my $hostName=$node-&gt;findvalue('hostName');&#10;  my $resDisabled=$node-&gt;findvalue('resourceDisabled');&#10;  my $agentAlive=$node-&gt;findvalue('agentState/alive');&#10;  printf("%s\n\t Disabled: %s\n\t alive: %s\n", $resName, $resDisabled, $agentAlive);&#10;&#10;  #&#10;  # Create a sub-step only if agent is alive and not disabled&#10;  # to avoid to have to wait (and fail) for unavailable resources&#10;  if ( ($resDisabled eq "0") &amp;&amp; ($agentAlive eq "1")) {&#10;    my $resName=$node-&gt;findvalue('resourceName');&#10;    my $stepName = "clean Artifact Cache Step For ".$resName;&#10;    $ec-&gt;createJobStep({'jobStepName'=&gt;$stepName, &#10;                        'subprocedure' =&gt; 'cleanupCacheDirectory', &#10;                        'actualParameter' =&gt; [{'actualParameterName'=&gt;'executeDeletion', 'value'=&gt;$executeDeletion},&#10;                                         {'actualParameterName'=&gt;'olderThan', 'value'=&gt;$days},&#10;                                         {'actualParameterName'=&gt;'resource', 'value'=&gt;$resName}]&#10;                  });&#10;  }&#10;}                      &#10;</command>
+        <condition>$[executeDeletion]</condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
@@ -1372,7 +2668,7 @@
     </procedure>
     <procedure>
       <procedureName>createPluginFromProject</procedureName>
-      <description>Create a plugin from a simple project</description>
+      <description>Create a plugin from a simple project&#10;&#10;Changelog:&#10;--------------&#10;2014-01-31  lrochette   Fixed descriptionForPlugin bug&#10;2014-01-26  lrochette   Fixed ec_visbility  (pickListOnly)&#10;2014-0204   lrochette   Fixed problem with ec_setup and procedure names with dot (".")</description>
       <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
@@ -1614,7 +2910,7 @@
         <stepName>createFileStructure</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>#&#10;# Create a uniq directory&#10;mkdir ("plugin.$[/myJob/jobId]");&#10;chdir("plugin.$[/myJob/jobId]");&#10;&#10;# Create the META-INF and pages directories&#10;mkdir("META-INF");&#10;mkdir ("pages");&#10;mkdir ("cgi-bin");&#10;mkdir ("htdocs");&#10;&#10;</command>
+        <command>#&#10;# Create a uniq directory&#10;mkdir ("plugin.$[/myJob/jobId]");&#10;chdir("plugin.$[/myJob/jobId]");&#10;&#10;# Create the META-INF and pages directories&#10;mkdir("META-INF");&#10;mkdir ("pages");&#10;mkdir ("cgi-bin");&#10;mkdir ("htdocs");&#10;&#10;# Open persmission the project export can be written&#10;# in the case the server and agent run with 2 different users&#10;chmod (0777, "META-INF");</command>
         <condition></condition>
         <description>Create the file structure required for a plugin&#10;&#10;/&#10;	/ META-INF&#10;		/ plugin.xml&#10;		/ project.xml&#10;	/ pages&#10;		/ help.xml&#10;</description>
         <errorHandling>failProcedure</errorHandling>
@@ -1660,7 +2956,7 @@
         <stepName>setProjectProperty-ec_visbility</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ( $[/javascript (typeof(getProperty("projects.$[Project].ec_visibility")) == "undefined") ?"1":"0" ] ) {&#10;  $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickerListOnly");&#10;}&#10;&#10;&#10;</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ( $[/javascript (typeof("projects.$[Project].ec_visibility") == "undefined") ?"1":"0" ] ) {&#10;  $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;}&#10;&#10;&#10;</command>
         <condition></condition>
         <description>set the right properties to be able to see the project in the picketList</description>
         <errorHandling>failProcedure</errorHandling>
@@ -1683,7 +2979,7 @@
         <stepName>setProjectProperties-ec_setup</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ($pName eq "") {&#10;  $pName=$project;&#10;}&#10;&#10;my $ECsetup="# Data that drives the create step picker registration for this plugin.\n";&#10;&#10;# Loop on each procedure&#10;my $proc;              # Loop variable&#10;my $xpath;&#10;my $pickerList="";&#10;&#10;my @procList=$ec-&gt;getProcedures($project)-&gt;findnodes("//procedure");&#10;foreach $xpath(@procList) {&#10;   my $procName=$xpath-&gt;findvalue("//procedureName");&#10;   &#10;   #&#10;   # Skip this procedure if property "exposeToPlugin" is not set to 1&#10;   #&#10;   next if (getP("/projects/$project/procedures/$procName/exposeToPlugin") != 1);&#10;   &#10;   #&#10;   #&#10;   # If property "descrirptionForPlugin" exists, use it&#10;   # if not, use the procedure description itself&#10;   #&#10;   my $description=getP("/projects/$project/procedures/$procName/decriptionForPlugin");&#10;   if (!$description) {&#10;     $description=$xpath-&gt;findvalue("//description");&#10;   }&#10;   my $procCleanName=$procName;&#10;   $procCleanName =~ s/[\s\-]/\_/g; # replace spaces and - by _&#10;&#10;   #Create a block of perl Code for each procedure ala&#10;#my %startBuild = (&#10;#    label =&gt; "$Jenkins- Start a build",&#10;#    procedure =&gt; "startBuild",&#10;#    description =&gt; "Start a build.",&#10;#    category =&gt; "Other"&#10;#);&#10;&#10;#escape double quote in the description&#10;  $description =~ s/"/\\"/g;&#10;  &#10;   $ECsetup .= "my %" . "$procCleanName = ( &#10;  label       =&gt; \"$pName - $procName\", &#10;  procedure   =&gt; \"$procName\", &#10;  description =&gt; \"$description\", &#10;  category    =&gt; \"$pCategory\" &#10;);&#10;&#10;" ;&#10;&#10;  $pickerList .= "\\%". $procCleanName . ", "; &#10;} # end foreach loop&#10;&#10;&#10;# Create the picker List ala&#10;#@::createStepPickerSteps = (\%startBuild, \%getStatus, \%getLog, \%getDuration);&#10;&#10;#remote the trailing ", " from the picker List&#10;chop($pickerList); chop($pickerList);&#10;$ECsetup .= "\@::createStepPickerSteps = (" . $pickerList . ");\n";&#10;&#10;print "Code generated\n";&#10;print $ECsetup;&#10;$ec-&gt;setProperty("//projects/$[Project]/ec_setup", $ECsetup);&#10;&#10;$[/myProject/scripts/perlLib]&#10;</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ($pName eq "") {&#10;  $pName=$project;&#10;}&#10;&#10;my $ECsetup="# Data that drives the create step picker registration for this plugin.\n";&#10;&#10;# Loop on each procedure&#10;my $proc;              # Loop variable&#10;my $xpath;&#10;my $pickerList="";&#10;&#10;my @procList=$ec-&gt;getProcedures($project)-&gt;findnodes("//procedure");&#10;foreach $xpath(@procList) {&#10;   my $procName=$xpath-&gt;findvalue("//procedureName");&#10;   &#10;   #&#10;   # Skip this procedure if property "exposeToPlugin" is not set to 1&#10;   #&#10;   next if (getP("/projects/$project/procedures/$procName/exposeToPlugin") != 1);&#10;   &#10;   #&#10;   #&#10;   # If property "descrirptionForPlugin" exists, use it&#10;   # if not, use the procedure description itself&#10;   #&#10;   my $description=getP("/projects/$project/procedures/$procName/descriptionForPlugin");&#10;   if (!$description) {&#10;     $description=$xpath-&gt;findvalue("//description");&#10;   }&#10;   my $procCleanName=$procName;&#10;   $procCleanName =~ s/[\s\-]/\_/g; # replace spaces and - by _&#10;&#10;# Create a block of perl Code for each procedure ala&#10;#my %startBuild = (&#10;#    label =&gt; "$Jenkins- Start a build",&#10;#    procedure =&gt; "startBuild",&#10;#    description =&gt; "Start a build.",&#10;#    category =&gt; "Other"&#10;#);&#10;&#10;#escape double quote in the description&#10;  $description =~ s/"/\\"/g;&#10;  &#10;   $ECsetup .= "my %" . "$procCleanName = ( &#10;  label       =&gt; \"$pName - $procName\", &#10;  procedure   =&gt; \"$procName\", &#10;  description =&gt; \"$description\", &#10;  category    =&gt; \"$pCategory\" &#10;);&#10;&#10;" ;&#10;&#10;  $pickerList .= "\\%". $procCleanName . ", "; &#10;} # end foreach loop&#10;&#10;&#10;# Create the picker List ala&#10;#@::createStepPickerSteps = (\%startBuild, \%getStatus, \%getLog, \%getDuration);&#10;&#10;#remote the trailing ", " from the picker List&#10;chop($pickerList); chop($pickerList);&#10;$ECsetup .= "\@::createStepPickerSteps = (" . $pickerList . ");\n";&#10;&#10;print "Code generated\n";&#10;print $ECsetup;&#10;$ec-&gt;setProperty("//projects/$[Project]/ec_setup", $ECsetup);&#10;&#10;$[/myProject/scripts/perlLib]&#10;</command>
         <condition></condition>
         <description>set the right properties to be able to see the project in the picketList.&#10;Procedure is added only if property pluginExpose is set</description>
         <errorHandling>failProcedure</errorHandling>
@@ -1709,7 +3005,7 @@
         <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $project="$[Project]";&#10;my $wkSpace="";&#10;&#10;if ($osIsWindows) {&#10;  $wkSpace="$[/myWorkspace/agentUncPath]";&#10;} else {&#10;  $wkSpace="$[/myWorkspace/agentUnixPath]";&#10;}  &#10;my $file="$wkSpace/$[/myJob/directoryName]/plugin.$[/myJob/jobId]/META-INF/project.xml";&#10;&#10;$ec-&gt;export($file, {path=&gt; "/projects/" . $project, relocatable =&gt; "true"});&#10;</command>
         <condition></condition>
         <description>Create the META-INF/project.xml</description>
-        <errorHandling>failProcedure</errorHandling>
+        <errorHandling>abortJob</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
         <parallel>0</parallel>
@@ -1752,7 +3048,7 @@
         <stepName>packagePlugin</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pluginName="$[Plugin]";&#10;if ($pluginName eq "") {&#10;  $pluginName="$[Project]";&#10;}&#10;&#10;chdir("plugin.$[/myJob/jobId]");&#10;system("jar cvf0 ../$pluginName-$[Version].jar *");&#10;&#10;$ec-&gt;setProperty("/myJob/report-urls/$pluginName-$[Version].jar", "file:/$[/myWorkspace/agentUnixPath]/$[/myJob/directoryName]/$pluginName-$[Version].jar");&#10;&#10;$[/myProject/scripts/perlLib]</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pluginName="$[Plugin]";&#10;if ($pluginName eq "") {&#10;  $pluginName="$[Project]";&#10;}&#10;&#10;chdir("plugin.$[/myJob/jobId]");&#10;system("jar cvf0 ../$pluginName-$[Version].jar *");&#10;&#10;$ec-&gt;setProperty("/myJob/report-urls/$pluginName-$[Version].jar", "file:/$[/myWorkspace/agentUnixPath]/$[/myJob/directoryName]/$pluginName-$[Version].jar");&#10;</command>
         <condition></condition>
         <description>Create the jar file for the plugin</description>
         <errorHandling>abortJob</errorHandling>
@@ -1821,7 +3117,7 @@
     <procedure>
       <procedureName>deleteObjects</procedureName>
       <description>A procedure to quickly delete jobs or workflows older than a&#10;specified number of days. It will NOT delete associated workspace job&#10;directories. This is for customers with huge job or workflow database&#10;&#10;Changelog:&#10;-------------&#10;12-23-2013  Tanay  Added a sort to prevent job ID range overlap as reporeted in ZD #109574&#10;</description>
-      <jobNameTemplate>delete-jobs-$[jobId]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>seconds</timeLimitUnits>
@@ -1861,6 +3157,12 @@
               </propertySheet>
             </property>
           </propertySheet>
+        </property>
+        <property>
+          <propertyName>descriptionForPlugin</propertyName>
+          <description></description>
+          <expandable>1</expandable>
+          <value>A procedure to quickly delete jobs or workflows older than a specified number of days. It will NOT delete associated workspace job directories.</value>
         </property>
         <property>
           <propertyName>ec_parameterForm</propertyName>
@@ -1944,7 +3246,7 @@
     <procedure>
       <procedureName>deleteWorkspaceOrphans</procedureName>
       <description>Procedure to crawl a workspace directory to find orphan jobs (directories without a matching job)</description>
-      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -2304,7 +3606,7 @@
     <procedure>
       <procedureName>jobCleanup_byResult</procedureName>
       <description>Delete jobs and the associated workspace based on  result: keeping X goods/warning, and Y failed&#10;Report the number of jobs, the disk space and database space that could/was be deleted.</description>
-      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName>local</resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -2879,7 +4181,7 @@
     <procedure>
       <procedureName>jobsCleanup</procedureName>
       <description>Delete jobs older than a number of days, along with the associated workspace.&#10;Report the number of jobs, the disk space and database space that could/was be deleted.&#10;&#10;Changelog:&#10;--------------&#10;09-20-2013  lrochette    Rewritten using JSON to increase performance&#10;                                       Paramater is also now used to skip number of steps computation&#10; 09-12-2013  lrochette   Add a parameter to skip the computation of the disk space used; to speed up the job</description>
-      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName>local</resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -3306,6 +4608,12 @@
           </propertySheet>
         </property>
         <property>
+          <propertyName>descriptionForPlugin</propertyName>
+          <description></description>
+          <expandable>1</expandable>
+          <value>Delete jobs older than a number of days, along with the associated workspace.</value>
+        </property>
+        <property>
           <propertyName>ec_parameterForm</propertyName>
           <description>Redefine UI</description>
           <expandable>1</expandable>
@@ -3393,7 +4701,7 @@
     <procedure>
       <procedureName>performanceMetrics</procedureName>
       <description>Performance diagnostics for EC server and agents&#10;&#10;Changelog:&#10;--------------&#10; 08-09-2013  lrochette    Fixed bug on Free available RAM with European numbers&#10; 08-30-2013  lrochette    Added fsutil error management &#10; 08-30-2013  lrochette    Added a cleanup step for the disk performance temporary file&#10; 12-21-2013 lrochette     Added license usage information</description>
-      <jobNameTemplate>EC-Admin-Performance_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -3528,6 +4836,12 @@
               </propertySheet>
             </property>
           </propertySheet>
+        </property>
+        <property>
+          <propertyName>descriptionForPlugin</propertyName>
+          <description></description>
+          <expandable>1</expandable>
+          <value>Performance diagnostics for EC server and agents.</value>
         </property>
         <property>
           <propertyName>exposeToPlugin</propertyName>
@@ -3886,7 +5200,7 @@
     <procedure>
       <procedureName>releaseSemaphore</procedureName>
       <description>Procedure to release the token &#10;&#10;Changelog:&#10;--------------&#10; 10-04-2013   lrochette   Add job counter to help abort a job.</description>
-      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -3931,6 +5245,12 @@
               </propertySheet>
             </property>
           </propertySheet>
+        </property>
+        <property>
+          <propertyName>descriptionForPlugin</propertyName>
+          <description></description>
+          <expandable>1</expandable>
+          <value>Procedure to release the token.</value>
         </property>
         <property>
           <propertyName>exposeToPlugin</propertyName>
@@ -4747,7 +6067,7 @@
     <procedure>
       <procedureName>workflowCleanup</procedureName>
       <description>Delete workflows older than a number of days.&#10;Report the number of workflows.</description>
-      <jobNameTemplate>$[/myProject/projectName]-$[/myProcedure/procedureName]_$[jobId]-$[/timestamp]</jobNameTemplate>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName>local</resourceName>
       <timeLimit></timeLimit>
       <timeLimitUnits>minutes</timeLimitUnits>
@@ -5509,7 +6829,7 @@
         <property>
           <propertyName>Time Period</propertyName>
           <expandable>1</expandable>
-          <value>window,90</value>
+          <value>window,30</value>
         </property>
       </actualParameters>
       <propertySheet>
