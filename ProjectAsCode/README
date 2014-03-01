@@ -6,7 +6,7 @@ USAGE:
 
 Template sources are available in the src directory. They are built using the Commander SDK. Please see the SDK documentation available at http://docs.electric-cloud.com for more details.
 
-File details:
+_File details:_
 - build.xml: Ant build script that declares the plugin key, version, etc.  To build the plugin, simply call "ant build -DSDKROOT=~/ecsdk", replacing "~/ecsdk" with the location of the unzipped Commander SDK.
 - META-INF
   - plugin.xml: Defines the plugin, including the name, version, etc.
