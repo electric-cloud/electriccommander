@@ -21,6 +21,7 @@ File details:
 Notes:
 * The purpose of a "ProjectAsCode" plugin is to develop a PROJECT so it can be checked into source control and properly revisioned.  End users of these projects shouldn't be aware of plugins usage on the back-end.  So we create a project by the same name as the plugin key (without a version number) and update that project in-place when a different version is promoted.  To achieve this, we use export and import instead of delete and clone so we can preserve jobs/workflows which would otherwise be lost.
 * Multiple versions of the same plugin may co-exist on the server only if the major and/or minor versions are different, not the patch version.  So if you have versions 1.0.0 and 1.1.0, they can both be installed, and only one can be promoted at any given time.  However, if you have versions 1.0.0 and 1.0.1, installing one will overwrite the other.  So, if you want to be able to switch back and forth between versions of your plugin, be sure to change the major and/or minor versions.
+* For traceability, you may want to access the current version within the project.  This can be accessed via by embedding @PLUGIN_VERSION@ in any file within the src/project directory.  For example, see the comment at the top of hello_world.pl.  The version is also stored in a property called project_version stored on the project.
 
 EXAMPLE:
 
