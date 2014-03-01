@@ -1,6 +1,7 @@
 if ($promoteAction eq 'promote') {
     my $pluginName = '@PLUGIN_NAME@';
     my $pluginKey = '@PLUGIN_KEY@';
+    my $pluginVersion = '@PLUGIN_VERSION@';
 
     # The purpose of a "ProjectAsCode" plugin is to develop a PROJECT so it can be checked
     # into source control and properly revisioned.  End users of these projects shouldn't
@@ -16,4 +17,10 @@ if ($promoteAction eq 'promote') {
     $commander->export($exportFile, {path => "/projects/$pluginName"});
     $commander->import($exportFile, {path => "/projects/$pluginKey", force => 1});
     unlink($exportFile);
+
+    # Delete the ec_setup property from the user-facing project since it's irrelevant.
+    $commander->deleteProperty("/projects/$pluginKey/ec_setup");
+
+    # Store the plugin version in a property on the project so it's easy to find.
+    $commander->setProperty("/projects/$pluginKey/project_version", $pluginVersion);
 }

@@ -1,3 +1,5 @@
+# Project version @PLUGIN_VERSION@
+
 use strict;
 use warnings;
 
