@@ -1,0 +1,7 @@
+<componentContainer>
+  <title>@PLUGIN_KEY@ Help</title>
+  <h2>@PLUGIN_KEY@ Help</h2>
+  <p>
+    TODO: help text 
+  </p>
+</componentContainer>

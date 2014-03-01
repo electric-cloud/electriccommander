@@ -1,0 +1,44 @@
+OVERVIEW:
+
+The "ProjectAsCode" plugin is a template for users who want to apply "Infrastructure As Code" methodologies to their software delivery orchestration framework (i.e. their ElectricCommander implementation).  It is meant to address issues faced when making changes to a production system by allowing the project developer(s) to control, coordinate, and test their changes.
+
+USAGE:
+
+Template sources are available in the src directory. They are built using the Commander SDK. Please see the SDK documentation available at http://docs.electric-cloud.com for more details.
+
+File details:
+- build.xml: Ant build script that declares the plugin key, version, etc.  To build the plugin, simply call "ant build -DSDKROOT=~/ecsdk", replacing "~/ecsdk" with the location of the unzipped Commander SDK.
+- META-INF
+  - plugin.xml: Defines the plugin, including the name, version, etc.
+- pages
+  - help.xml: Defines the plugin help page, accessible via the Plugin Manager.
+- project
+  - project.xml.in: A relocatable project export just as if you are exporting a Commander project, with placeholders filled in based on the manifest.
+  - manifest.pl: A Perl script containing a mapping of XML nodes in project.xml.in to file names within the project directory (in this case, hello_world.pl and ec_setup.pl).
+  - hello_world.pl: The command of the HelloWorld step defined in project.xml.in.  This is an example of how code snippets can be separate from the project XML and independently version controlled so project developers can easily manage and audit changes via source control.
+  - ec_setup.pl: Contains the logic that updates the user-facing project when the specific plugin version is promoted (see note below for details).
+  
+Notes:
+* The purpose of a "ProjectAsCode" plugin is to develop a PROJECT so it can be checked into source control and properly revisioned.  End users of these projects shouldn't be aware of plugins usage on the back-end.  So we create a project by the same name as the plugin key (without a version number) and update that project in-place when a different version is promoted.  To achieve this, we use export and import instead of delete and clone so we can preserve jobs/workflows which would otherwise be lost.
+* Multiple versions of the same plugin may co-exist on the server only if the major and/or minor versions are different, not the patch version.  So if you have versions 1.0.0 and 1.1.0, they can both be installed, and only one can be promoted at any given time.  However, if you have versions 1.0.0 and 1.0.1, installing one will overwrite the other.  So, if you want to be able to switch back and forth between versions of your plugin, be sure to change the major and/or minor versions.
+
+EXAMPLE:
+
+Two plugin JAR files are available in the example directory: ProjectAsCode-1.0.0 and ProjectAsCode-1.1.0.  They are builds of the ProjectAsCode template with differences (v1.1.0 has an updated project description and a second procedure called HelloWorld_Again).
+
+1. Install and promote v1.0.0 and you will see a new project on the projects page called ProjectAsCode with a single procedure called HelloWorld.
+2. Install and promote v1.1.0 and you will see ProjectAsCode's description change, and a second procedure called HelloWorld_Again created within it.
+3. Re-promote v1.0.0 and the changes are undone.  This is how project developers would be able to rollback their changes on demand if something breaks.
+
+Notes:
+* The ProjectAsCode project is a copy of the currently promoted version, and is separate from the plugin projects.
+* Jobs will persist across version changes since we use export/import as noted above.
+
+AUTHOR:
+
+Tanay Nagjee, Electric Cloud Solutions Engineer
+tanay@electric-cloud.com
+
+LEGAL:
+
+This module is not officially supported by Electric Cloud. It has undergone no formal testing and you may run into issues that have not been uncovered in the limited manual testing done so far. Electric Cloud should not be held liable for any repercussions of using this software.
