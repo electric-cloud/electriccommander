@@ -10,6 +10,11 @@
         <expandable>0</expandable>
         <value>PLACEHOLDER</value>
       </property>
+      <property>
+        <propertyName>project_version</propertyName>
+        <expandable>0</expandable>
+        <value>@PLUGIN_VERSION@</value>
+      </property>
     </propertySheet>
     <procedure>
       <procedureName>HelloWorld</procedureName>
