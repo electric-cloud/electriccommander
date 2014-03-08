@@ -16,12 +16,12 @@
               <property>
                 <propertyName>image</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/300269/images/custom88ff85d143fc58466e1.png</value>
+                <value>/commander/jobSteps/558025/images/custom4bd8d79144a12410071.png</value>
               </property>
               <property>
                 <propertyName>link</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/300269/Performance Report.html</value>
+                <value>/commander/jobSteps/558025/Performance Report.html</value>
               </property>
             </propertySheet>
           </property>
@@ -1430,6 +1430,606 @@
               </property>
             </propertySheet>
           </property>
+          <property>
+            <propertyName>45707</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>302045</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>302045</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-05 02:00:45</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>46965</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>310280</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>310280</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-06 02:01:49</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>48931</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>323557</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>323557</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-08 02:02:41</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>51473</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>341685</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>341685</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-14 02:01:26</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>52480</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>348315</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>348315</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-15 02:06:38</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>57663</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>388731</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>388731</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-19 02:01:58</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>59205</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>402983</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>402983</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-20 02:03:17</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>65949</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>465528</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>465528</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-25 02:00:40</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>67496</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>479784</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>479784</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-02-26 02:02:12</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>73295</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>533981</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>533981</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-03-05 02:02:03</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>74452</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>544825</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>544825</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-03-06 02:01:49</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>75848</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>558025</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>558025</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-03-08 02:00:38</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
         </propertySheet>
       </property>
       <property>
@@ -1811,10 +2411,9 @@
         <value> github ec-admin </value>
       </property>
       <property>
-        <propertyName>ec_visibility</propertyName>
-        <description></description>
+        <propertyName>ec_versioning_artifact</propertyName>
         <expandable>1</expandable>
-        <value>all</value>
+        <value>1</value>
       </property>
       <property>
         <propertyName>help</propertyName>
@@ -1830,9 +2429,9 @@
       </property>
       <property>
         <propertyName>version</propertyName>
-        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
+        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
         <expandable>1</expandable>
-        <value>1.3.8</value>
+        <value>1.4.0</value>
       </property>
     </propertySheet>
     <credential>
@@ -2956,7 +3555,7 @@
         <stepName>setProjectProperty-ec_visbility</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ( $[/javascript (typeof("projects.$[Project].ec_visibility") == "undefined") ?"1":"0" ] ) {&#10;  $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;}&#10;&#10;&#10;</command>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ( $[/javascript (typeof("projects.$[Project].ec_visibility") == "undefined") ?"1":"0" ] ) {&#10;  $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;  $ec-&gt;deleteProperty("/projects/$[Project]/ec_visibility");&#10;}&#10;&#10;</command>
         <condition></condition>
         <description>set the right properties to be able to see the project in the picketList</description>
         <errorHandling>failProcedure</errorHandling>
@@ -5036,6 +5635,29 @@
         </propertySheet>
       </step>
       <step>
+        <stepName>localUsage</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>#############################################################################&#10;#&#10;#  findSteps -- Script to find steps and figure out where they run&#10;#  Copyright 2014 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;$[/myProject/scripts/perlHeaderJSON]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $totalJobs= 1000;&#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $totalTime=0;&#10;my $localTime=0;&#10;my $totalSteps=0;&#10;my $localSteps=0;&#10;&#10;# create filterList&#10;my @filterList;&#10;# only finished jobs&#10;push (@filterList, {"propertyName" =&gt; "status",&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; "completed"});&#10;&#10;my ($ok, $json)= InvokeCommander("SuppressLog", "findObjects", "job",&#10;                                 {numObjects =&gt; $totalJobs,&#10;                                  filter =&gt; \@filterList &#10;                                 }&#10;                                );&#10;foreach my $node ($json-&gt;findnodes('//job')) {&#10;	my $jobId   = $node-&gt;{'jobId'};&#10;    #printf("Process job $jobId:\n");&#10;	my($ok, $res)=InvokeCommander("SuppressLog", "findJobSteps",  &#10;                                  {jobId =&gt; $jobId&#10;                                  }&#10;                                 );&#10;    foreach my $step ($res-&gt;findnodes('//jobStep')) {&#10;    	my $rtime=$step-&gt;{runTime};&#10;        my $host=$step-&gt;{hostName};&#10;        $totalSteps++;&#10;        $totalTime+=$rtime;&#10;        if (($host eq "localhost") || ($host eq "$[/server/hostName]")){&#10;          #printf("  Step %s (%d)\n", $step-&gt;{stepName}, $rtime);&#10;          $localTime += $rtime;&#10;          $localSteps ++;&#10;        } else {&#10;          }&#10;    }&#10;}&#10;&#10;printf("Local time: %d ms\n", $localTime);&#10;printf("Total time: %d ms\n", $totalTime);&#10;my $percTime=$localTime*100/$totalTime;&#10;printf("%.1f \% spent on local\n", $percTime);&#10;&#10;printf("Local steps: %d ms\n", $localSteps);&#10;printf("Total steps: %d ms\n", $totalSteps);&#10;my $percSteps=$localSteps*100/$totalSteps;&#10;printf("%.1f \% spent on local\n", $percSteps);&#10;&#10;$ec-&gt;setProperty("summary", sprintf("%03.1f% time\n%03.1f%s steps", $percTime, $percSteps, "%"));&#10;#&#10;# Perl Commander library&#10;$[/myProject/scripts/perlLibJSON]&#10;</command>
+        <condition></condition>
+        <description>A step to find out the percentage of steps and time spend running on local. Best practices call for jobs to run on remote agents&#10;Check 1000 jobs</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
         <stepName>Performance</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
@@ -5976,7 +6598,7 @@
         <releaseMode>none</releaseMode>
         <resourceName>$[resource]</resourceName>
         <shell>ec-perl</shell>
-        <timeLimit></timeLimit>
+        <timeLimit>10</timeLimit>
         <timeLimitUnits>minutes</timeLimitUnits>
         <workingDirectory></workingDirectory>
         <workspaceName></workspaceName>
@@ -6543,7 +7165,7 @@
       <monthDays></monthDays>
       <priority>normal</priority>
       <procedureName>jobsCleanup</procedureName>
-      <scheduleDisabled>1</scheduleDisabled>
+      <scheduleDisabled>0</scheduleDisabled>
       <startTime>2:00</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>
@@ -6599,7 +7221,7 @@
       <monthDays></monthDays>
       <priority>normal</priority>
       <procedureName>performanceMetrics</procedureName>
-      <scheduleDisabled>1</scheduleDisabled>
+      <scheduleDisabled>0</scheduleDisabled>
       <startTime>0:05</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>
@@ -6645,7 +7267,7 @@
       <monthDays></monthDays>
       <priority>normal</priority>
       <procedureName>/plugins/EC-Reports/project/procedures/RunReport_MultiSeries</procedureName>
-      <scheduleDisabled>1</scheduleDisabled>
+      <scheduleDisabled>0</scheduleDisabled>
       <startTime>02:00</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>
@@ -6846,7 +7468,7 @@
       <monthDays></monthDays>
       <priority>normal</priority>
       <procedureName>saveProjects</procedureName>
-      <scheduleDisabled>1</scheduleDisabled>
+      <scheduleDisabled>0</scheduleDisabled>
       <startTime>4:30</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>
