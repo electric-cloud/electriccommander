@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <key>@PLUGIN_KEY@</key>
+    <version>@PLUGIN_VERSION@</version>
+    <label>@PLUGIN_KEY@</label>
+    <description>TODO: plugin description</description>
+    <author>Electric Cloud</author>
+    <authorUrl>http://www.electric-cloud.com</authorUrl>
+    <commander-version min="4.2"/>
+    <category>Project As Code</category>
+
+    <!-- If the plugin has a configure page, declare it here.  This will show up as a Configure link for this plugin on the Plugins page. 
+    <configure>configure.xml</configure>
+    -->
+
+    <!-- If the plugin has a help page, declare it here.  This will show up as a Help link for this plugin on the Plugins page. -->
+    <help>help.xml</help>
+</plugin>

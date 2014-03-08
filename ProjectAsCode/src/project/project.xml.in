@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportedData version="61" buildLabel="" buildVersion="4.2.0.0">
+  <exportPath>/projects/@PLUGIN_KEY@</exportPath>
+  <project>
+    <projectName>@PLUGIN_KEY@</projectName>
+    <description>TODO: plugin project description</description>
+    <propertySheet>
+      <property>
+        <propertyName>ec_setup</propertyName>
+        <expandable>0</expandable>
+        <value>PLACEHOLDER</value>
+      </property>
+      <property>
+        <propertyName>project_version</propertyName>
+        <expandable>0</expandable>
+        <value>@PLUGIN_VERSION@</value>
+      </property>
+    </propertySheet>
+    <procedure>
+      <procedureName>HelloWorld</procedureName>
+      <step>
+        <stepName>HelloWorld</stepName>
+        <command>PLACEHOLDER</command>
+        <shell>ec-perl</shell>
+      </step>
+    </procedure>
+  </project>
+</exportedData>
