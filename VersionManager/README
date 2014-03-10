@@ -1,0 +1,20 @@
+OVERVIEW:
+
+This plugin provides a mechanism to version ElectricCommander projects.  It exports the versioned projects, stores them in artifacts, monitors them for changes, and allows users to commit/discard/rollback changes via a new tab in the UI.
+
+USAGE:
+
+On installation and promotion, browse to the "Projects" tab and then the "Versioned" subtab to start versioning your projects.  View the plugin help page from the Plugin Manager to see the list of versioning actions with screenshots.
+
+SOURCES:
+
+The sources are available in the src directory. They were built using the Commander SDK v2.0. The documentation for the SDK is available at http://docs.electric-cloud.com.
+
+AUTHOR:
+
+Tanay Nagjee, Electric Cloud Solutions Engineer
+tanay@electric-cloud.com
+
+LEGAL:
+
+This module is not officially supported by Electric Cloud. It has undergone no  formal testing and you may run into issues that have not been uncovered in the limited manual testing done so far. Electric Cloud should not be held liable for any repercussions of using this software.
