@@ -1,4 +1,4 @@
-2013-03-08 Laurent Rochette <lrochette@electric-cloud.com>
+2013-03-10 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.4.0
      + Add localUsage statistics in performanceMetrics
