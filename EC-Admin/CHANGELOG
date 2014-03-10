@@ -1,5 +1,15 @@
 2013-03-10 Laurent Rochette <lrochette@electric-cloud.com>
 
+  * EC-Admin.jar & EC-Admin.xml: new version 1.4.3
+     + Ignored sub-steps for localUsage
+     + Added comparison for /server/hostIP and /server/hostrName
+     
+  * EC-Admin.jar & EC-Admin.xml: new version 1.4.2
+     + updated help page
+     
+  * EC-Admin.jar & EC-Admin.xml: new version 1.4.1
+     + Fixed percentage formating in localUsage
+
   * EC-Admin.jar & EC-Admin.xml: new version 1.4.0
      + Add localUsage statistics in performanceMetrics
      + Added a time limit for performanceMetric
