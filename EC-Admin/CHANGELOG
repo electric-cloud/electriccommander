@@ -1,5 +1,8 @@
 2014-03-11 Laurent Rochette <lrochette@electric-cloud.com>
 
+  * EC-Admin.jar & EC-Admin.xml: new version 1.4.5
+     + Use zip when jar is not available to package plugin
+
   * EC-Admin.jar & EC-Admin.xml: new version 1.4.4
      + Fixed Windows path issue for createPluginFromProject
      + Fixed jar error not reported
