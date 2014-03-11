@@ -2506,6 +2506,12 @@
         <value># Data that drives the create step picker registration for this plugin.&#10;my %acquireSemaphore = ( &#10;  label       =&gt; "EC-Admin - acquireSemaphore", &#10;  procedure   =&gt; "acquireSemaphore", &#10;  description =&gt; "Acquire a token in order to limit access to a set of procedures.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %artifactsCleanup = ( &#10;  label       =&gt; "EC-Admin - artifactsCleanup", &#10;  procedure   =&gt; "artifactsCleanup", &#10;  description =&gt; "Delete old artifacts and clean caches.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %artifactsCleanup_byQuantity = ( &#10;  label       =&gt; "EC-Admin - artifactsCleanup_byQuantity", &#10;  procedure   =&gt; "artifactsCleanup_byQuantity", &#10;  description =&gt; "Delete old artifacts and clean caches.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %createPluginFromProject = ( &#10;  label       =&gt; "EC-Admin - createPluginFromProject", &#10;  procedure   =&gt; "createPluginFromProject", &#10;  description =&gt; "Transform a project into a plugin", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %deleteObjects = ( &#10;  label       =&gt; "EC-Admin - deleteObjects", &#10;  procedure   =&gt; "deleteObjects", &#10;  description =&gt; "A procedure to quickly delete jobs or workflows older than a specified number of days. It will NOT delete associated workspace job directories.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %deleteWorkspaceOrphans = ( &#10;  label       =&gt; "EC-Admin - deleteWorkspaceOrphans", &#10;  procedure   =&gt; "deleteWorkspaceOrphans", &#10;  description =&gt; "Procedure to crawl a workspace directory to find orphan jobs (directories without a matching job)", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %jobCleanup_byResult = ( &#10;  label       =&gt; "EC-Admin - jobCleanup_byResult", &#10;  procedure   =&gt; "jobCleanup_byResult", &#10;  description =&gt; "Delete jobs and the associated workspace based on  result: keeping X goods/warning, and Y failed&#10;Report the number of jobs, the disk space and database space that could/was be deleted.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %jobsCleanup = ( &#10;  label       =&gt; "EC-Admin - jobsCleanup", &#10;  procedure   =&gt; "jobsCleanup", &#10;  description =&gt; "Delete jobs older than a number of days, along with the associated workspace.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %performanceMetrics = ( &#10;  label       =&gt; "EC-Admin - performanceMetrics", &#10;  procedure   =&gt; "performanceMetrics", &#10;  description =&gt; "Performance diagnostics for EC server and agents.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %releaseSemaphore = ( &#10;  label       =&gt; "EC-Admin - releaseSemaphore", &#10;  procedure   =&gt; "releaseSemaphore", &#10;  description =&gt; "Procedure to release the token.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %saveAllObjects = ( &#10;  label       =&gt; "EC-Admin - saveAllObjects", &#10;  procedure   =&gt; "saveAllObjects", &#10;  description =&gt; "This procedure brings a finer granularity to a full server export. For example to retrieve an object after a wrong action or a bad code change. By default it exports projects and each procedure individually. In addition by enabling the matching checkboxes, you can also export resources, resource pools, workspaces, users and groups.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %saveProjects = ( &#10;  label       =&gt; "EC-Admin - saveProjects", &#10;  procedure   =&gt; "saveProjects", &#10;  description =&gt; "a framework to export projects.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %workflowCleanup = ( &#10;  label       =&gt; "EC-Admin - workflowCleanup", &#10;  procedure   =&gt; "workflowCleanup", &#10;  description =&gt; "Delete workflows older than a number of days.&#10;Report the number of workflows.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;@::createStepPickerSteps = (\%acquireSemaphore, \%artifactsCleanup, \%artifactsCleanup_byQuantity, \%createPluginFromProject, \%deleteObjects, \%deleteWorkspaceOrphans, \%jobCleanup_byResult, \%jobsCleanup, \%performanceMetrics, \%releaseSemaphore, \%saveAllObjects, \%saveProjects, \%workflowCleanup);&#10;</value>
       </property>
       <property>
+        <propertyName>ec_visibility</propertyName>
+        <description></description>
+        <expandable>1</expandable>
+        <value>all</value>
+      </property>
+      <property>
         <propertyName>help</propertyName>
         <description>Help page for the plugin version</description>
         <expandable>1</expandable>
@@ -2516,6 +2522,12 @@
         <description>In preparation of changes in 5.0 with jobId.</description>
         <expandable>1</expandable>
         <value>20</value>
+      </property>
+      <property>
+        <propertyName>pluginBuildNumber</propertyName>
+        <description></description>
+        <expandable>1</expandable>
+        <value>6</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -3357,7 +3369,7 @@
     </procedure>
     <procedure>
       <procedureName>createPluginFromProject</procedureName>
-      <description>Create a plugin from a simple project&#10;&#10;Changelog:&#10;--------------&#10;2014-01-31  lrochette   Fixed descriptionForPlugin bug&#10;2014-01-26  lrochette   Fixed ec_visbility  (pickListOnly)&#10;2014-0204   lrochette   Fixed problem with ec_setup and procedure names with dot (".")</description>
+      <description>Create a plugin from a simple project&#10;&#10;Changelog:&#10;--------------&#10;2014-03-11  lrochette   Fixed jar error not reported&#10;                                      Fixed Windows path issue for&#10;                                      Use zip when jar is not available to package plugin&#10;2014-01-31  lrochette   Fixed descriptionForPlugin bug&#10;2014-01-26  lrochette   Fixed ec_visbility  (pickListOnly)&#10;2014-0204   lrochette   Fixed problem with ec_setup and procedure names with dot (".")</description>
       <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
@@ -3596,6 +3608,29 @@
         <type>entry</type>
       </formalParameter>
       <step>
+        <stepName>Initialization</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;###################################################################&#10;#&#10;# Parameters&#10;#&#10;###################################################################&#10;my $pluginName="$[Plugin]";&#10;my $project="$[Project]";&#10;my $version="$[Version]";&#10;&#10;if ($pluginName eq "") {&#10;  $pluginName=$project;&#10;}&#10;my $pluginBuildNumber=$[/increment /projects/$[Project]/pluginBuildNumber];&#10;my $completeVersion="$version.$pluginBuildNumber";&#10;&#10;$ec-&gt;setProperty("summary", "Processing plugin $project-$completeVersion");&#10;$ec-&gt;setProperty("/myJob/Version", $completeVersion);</command>
+        <condition></condition>
+        <description>Set up some job properties</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
         <stepName>createFileStructure</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
@@ -3622,7 +3657,7 @@
         <stepName>createPlugin.xml</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;my $pluginName="$[Plugin]";&#10;my $project="$[Project]";&#10;my $version="$[Version]";&#10;my $description="$[Description]";&#10;my $author="$[Author]";&#10;my $email='$[Email]';&#10;my $category="$[Category]";&#10;&#10;if ($author eq "") {&#10;   $author="Electric Cloud";&#10;}&#10;if ($email eq "") {&#10;   $email="plugins\@electric-cloud.com";&#10;}&#10;if ($pluginName eq "") {&#10;  $pluginName="$[Project]";&#10;}&#10;if ($description eq "") {&#10;  $description=getP("/projects/$project/description");&#10;}&#10;&#10;my $file="plugin.$[/myJob/jobId]/META-INF/plugin.xml";&#10;unless (open FILE, '&gt;'.$file) {&#10;        printf("File: %s\n", $file);&#10;	die "\nUnable to create META-INF/plugin.xml\n";&#10;}&#10;&#10;printf(FILE '&lt;?xml version="1.0" encoding="UTF-8"?&gt;');&#10;printf(FILE "\n&lt;plugin&gt;\n");&#10;printf(FILE "  &lt;key&gt;%s&lt;/key&gt;\n", $pluginName);&#10;printf(FILE "  &lt;version&gt;%s&lt;/version&gt;\n", $version);&#10;printf(FILE "  &lt;label&gt;%s&lt;/label&gt;\n", $pluginName);&#10;printf(FILE "  &lt;description&gt;%s&lt;/description&gt;\n", $description);&#10;&#10;#&#10;# Create the help entry only if it exists&#10;my $help=getP("/projects/$project/help");&#10;if ($help ne "") {&#10;  printf(FILE "  &lt;help&gt;help.xml&lt;/help&gt;\n");&#10;}&#10;printf(FILE "  &lt;author&gt;%s&lt;/author&gt;\n", $author);&#10;printf(FILE "  &lt;authorUrl&gt;%s&lt;/authorUrl&gt;\n", $email);&#10;printf(FILE "  &lt;category&gt;%s&lt;/category&gt;\n&lt;/plugin&gt;\n", $category);&#10;close FILE;&#10;&#10;&#10;$[/myProject/scripts/perlLibJSON]</command>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;my $pluginName="$[Plugin]";&#10;my $project="$[Project]";&#10;my $version="$[/myJob/Version]";&#10;my $description="$[Description]";&#10;my $author="$[Author]";&#10;my $email='$[Email]';&#10;my $category="$[Category]";&#10;&#10;if ($author eq "") {&#10;   $author="Electric Cloud";&#10;}&#10;if ($email eq "") {&#10;   $email="plugins\@electric-cloud.com";&#10;}&#10;if ($pluginName eq "") {&#10;  $pluginName="$[Project]";&#10;}&#10;if ($description eq "") {&#10;  $description=getP("/projects/$project/description");&#10;}&#10;&#10;my $file="plugin.$[/myJob/jobId]/META-INF/plugin.xml";&#10;unless (open FILE, '&gt;'.$file) {&#10;        printf("File: %s\n", $file);&#10;	die "\nUnable to create META-INF/plugin.xml\n";&#10;}&#10;&#10;printf(FILE '&lt;?xml version="1.0" encoding="UTF-8"?&gt;');&#10;printf(FILE "\n&lt;plugin&gt;\n");&#10;printf(FILE "  &lt;key&gt;%s&lt;/key&gt;\n", $pluginName);&#10;printf(FILE "  &lt;version&gt;%s&lt;/version&gt;\n", $version);&#10;printf(FILE "  &lt;label&gt;%s&lt;/label&gt;\n", $pluginName);&#10;printf(FILE "  &lt;description&gt;%s&lt;/description&gt;\n", $description);&#10;&#10;#&#10;# Create the help entry only if it exists&#10;my $help=getP("/projects/$project/help");&#10;if ($help ne "") {&#10;  printf(FILE "  &lt;help&gt;help.xml&lt;/help&gt;\n");&#10;}&#10;printf(FILE "  &lt;author&gt;%s&lt;/author&gt;\n", $author);&#10;printf(FILE "  &lt;authorUrl&gt;%s&lt;/authorUrl&gt;\n", $email);&#10;printf(FILE "  &lt;category&gt;%s&lt;/category&gt;\n&lt;/plugin&gt;\n", $category);&#10;close FILE;&#10;&#10;&#10;$[/myProject/scripts/perlLibJSON]</command>
         <condition></condition>
         <description>create the META-INF/plugin.xml</description>
         <errorHandling>failProcedure</errorHandling>
@@ -3737,7 +3772,7 @@
         <stepName>packagePlugin</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;use File::Which qw(which);&#10;use File::Copy qw(move);&#10;&#10;my $pluginName="$[Plugin]";&#10;if ($pluginName eq "") {&#10;  $pluginName="$[Project]";&#10;}&#10;&#10;chdir("plugin.$[/myJob/jobId]");&#10;&#10;if (my $jar_path=which('jar')) {&#10;  my @args=("jar cvf0 ../$pluginName-$[Version].jar *");&#10;  system(@args) == 0 or die("system @args failed: $?");&#10;} else {&#10;  printf("jar not found in the path\n");&#10;  #&#10;  # Let's try with zip&#10;  if (my $zip_path=which('zip')) {&#10;  	printf("Let's try with zip instead\n");&#10;    my @args=("zip -r  ../$pluginName-$[Version].zip *");&#10;    system(@args) == 0 or die("system @args failed: $?");&#10;    # let's rename the file&#10;    move("../$pluginName-$[Version].zip", "../$pluginName-$[Version].jar");&#10;  } else {&#10;    printf("zip not found in the path\n");&#10;    printf("I need something to package the plugin\n");&#10;    $ec-&gt;setProperty("summary", "No jar or zip executable in the PATH");&#10;    exit(1);&#10;  }&#10;}&#10;&#10;$ec-&gt;setProperty("/myJob/report-urls/$pluginName-$[Version].jar", "file:/$[/myWorkspace/agentUnixPath]/$[/myJob/directoryName]/$pluginName-$[Version].jar");&#10;</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;use File::Which qw(which);&#10;use File::Copy qw(move);&#10;&#10;my $pluginName="$[Plugin]";&#10;my $Version="$[/myJob/Version]";&#10;if ($pluginName eq "") {&#10;  $pluginName="$[Project]";&#10;}&#10;&#10;chdir("plugin.$[/myJob/jobId]");&#10;&#10;if (my $jar_path=which('jar')) {&#10;  my @args=("jar cvf0 ../$pluginName-$Version.jar *");&#10;  system(@args) == 0 or die("system @args failed: $?");&#10;} else {&#10;  printf("jar not found in the path\n");&#10;  #&#10;  # Let's try with zip&#10;  if (my $zip_path=which('zip')) {&#10;  	printf("Let's try with zip instead\n");&#10;    my @args=("zip -r  ../$pluginName-$Version.zip *");&#10;    system(@args) == 0 or die("system @args failed: $?");&#10;    # let's rename the file&#10;    move("../$pluginName-$[Version].zip", "../$pluginName-$Version.jar");&#10;  } else {&#10;    printf("zip not found in the path\n");&#10;    printf("I need something to package the plugin\n");&#10;    $ec-&gt;setProperty("summary", "No jar or zip executable in the PATH");&#10;    exit(1);&#10;  }&#10;}&#10;&#10;$ec-&gt;setProperty("/myJob/report-urls/$pluginName-$Version.jar", "file:/$[/myWorkspace/agentUnixPath]/$[/myJob/directoryName]/$pluginName-$Version.jar");&#10;</command>
         <condition></condition>
         <description>Create the jar file for the plugin</description>
         <errorHandling>abortJob</errorHandling>
@@ -3760,7 +3795,7 @@
         <stepName>installPlugin</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $plugin="$[Plugin]";&#10;&#10;if ($plugin eq "") {&#10;  $plugin="$[Project]";&#10;}&#10;&#10;printf("Installing plugin '$plugin-$[Version]'\n");&#10;$ec-&gt;installPlugin("./$plugin-$[Version].jar");&#10;$ec-&gt;setProperty("summary", "$plugin-$[Version] installed");</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $plugin="$[Plugin]";&#10;my $version="$[/myJob/Version]";&#10;&#10;if ($plugin eq "") {&#10;  $plugin="$[Project]";&#10;}&#10;&#10;printf("Installing plugin '$plugin-$version'\n");&#10;$ec-&gt;installPlugin("./$plugin-$version.jar");&#10;$ec-&gt;setProperty("summary", "$plugin-$version installed");</command>
         <condition>$[/javascript "$[installPlugin]" == "true" ]&#10;</condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
@@ -3783,7 +3818,7 @@
         <stepName>promotePlugin</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $plugin="$[Plugin]";&#10;&#10;if ($plugin eq "") {&#10;  $plugin="$[Project]";&#10;}&#10;&#10;printf("Promoting plugin '$plugin-$[Version]'\n");&#10;$ec-&gt;promotePlugin("$plugin-$[Version]");&#10;$ec-&gt;setProperty("summary", "$plugin-$[Version] promoted");</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $plugin="$[Plugin]";&#10;my $version="$[/myJob/Version]";&#10;&#10;if ($plugin eq "") {&#10;  $plugin="$[Project]";&#10;}&#10;&#10;printf("Promoting plugin '$plugin-$version'\n");&#10;$ec-&gt;promotePlugin("$plugin-$version");&#10;$ec-&gt;setProperty("summary", "$plugin-$version promoted");</command>
         <condition>$[/javascript "$[promotePlugin]" == "true" ]</condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
