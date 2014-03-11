@@ -2469,9 +2469,9 @@
       </property>
       <property>
         <propertyName>version</propertyName>
-        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.4.3&#10;     + Ignored sub-steps for localUsage&#10;     + Added comparison for /server/hostIP and /server/hostrName&#10;- version 1.4.2&#10;     + Updated help page&#10;- version 1.4.1&#10;     + Fixed percentage formatting&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;     + Remove project ec_tags and other meaningless properties&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
+        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.4.4&#10;     + Fixed Windows path issue for createPluginFromProject&#10;     + Fixed jar error not reported&#10;- version 1.4.3&#10;     + Ignored sub-steps for localUsage&#10;     + Added comparison for /server/hostIP and /server/hostName&#10;- version 1.4.2&#10;     + Updated help page&#10;- version 1.4.1&#10;     + Fixed percentage formatting&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;     + Remove project ec_tags and other meaningless properties&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
         <expandable>1</expandable>
-        <value>1.4.3</value>
+        <value>1.4.4</value>
       </property>
     </propertySheet>
     <credential>
@@ -3641,7 +3641,7 @@
         <stepName>createProject.xml</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $project="$[Project]";&#10;my $wkSpace="";&#10;&#10;if ($osIsWindows) {&#10;  $wkSpace="$[/myWorkspace/agentUncPath]";&#10;} else {&#10;  $wkSpace="$[/myWorkspace/agentUnixPath]";&#10;}  &#10;my $file="$wkSpace/$[/myJob/directoryName]/plugin.$[/myJob/jobId]/META-INF/project.xml";&#10;&#10;$ec-&gt;export($file, {path=&gt; "/projects/" . $project, relocatable =&gt; "true"});&#10;</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $project="$[Project]";&#10;my $wkSpace="";&#10;&#10;if ($osIsWindows) {&#10;  $wkSpace=getP("/myWorkspace/agentUncPath");&#10;} else {&#10;  $wkSpace="$[/myWorkspace/agentUnixPath]";&#10;}  &#10;my $file="$wkSpace/$[/myJob/directoryName]/plugin.$[/myJob/jobId]/META-INF/project.xml";&#10;&#10;$ec-&gt;export($file, {path=&gt; "/projects/" . $project, relocatable =&gt; "true"});&#10;&#10;$[/myProject/scripts/perlLib]</command>
         <condition></condition>
         <description>Create the META-INF/project.xml</description>
         <errorHandling>abortJob</errorHandling>
@@ -3687,7 +3687,7 @@
         <stepName>packagePlugin</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pluginName="$[Plugin]";&#10;if ($pluginName eq "") {&#10;  $pluginName="$[Project]";&#10;}&#10;&#10;chdir("plugin.$[/myJob/jobId]");&#10;system("jar cvf0 ../$pluginName-$[Version].jar *");&#10;&#10;$ec-&gt;setProperty("/myJob/report-urls/$pluginName-$[Version].jar", "file:/$[/myWorkspace/agentUnixPath]/$[/myJob/directoryName]/$pluginName-$[Version].jar");&#10;</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pluginName="$[Plugin]";&#10;if ($pluginName eq "") {&#10;  $pluginName="$[Project]";&#10;}&#10;&#10;chdir("plugin.$[/myJob/jobId]");&#10;&#10;my @args=("jar cvf0 ../$pluginName-$[Version].jar *");&#10;system(@args) == 0 or die("system @args failed: $?");&#10;&#10;$ec-&gt;setProperty("/myJob/report-urls/$pluginName-$[Version].jar", "file:/$[/myWorkspace/agentUnixPath]/$[/myJob/directoryName]/$pluginName-$[Version].jar");&#10;</command>
         <condition></condition>
         <description>Create the jar file for the plugin</description>
         <errorHandling>abortJob</errorHandling>
@@ -7205,7 +7205,7 @@
       <monthDays></monthDays>
       <priority>normal</priority>
       <procedureName>jobsCleanup</procedureName>
-      <scheduleDisabled>0</scheduleDisabled>
+      <scheduleDisabled>1</scheduleDisabled>
       <startTime>2:00</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>
@@ -7261,7 +7261,7 @@
       <monthDays></monthDays>
       <priority>normal</priority>
       <procedureName>performanceMetrics</procedureName>
-      <scheduleDisabled>0</scheduleDisabled>
+      <scheduleDisabled>1</scheduleDisabled>
       <startTime>0:05</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>
@@ -7307,7 +7307,7 @@
       <monthDays></monthDays>
       <priority>normal</priority>
       <procedureName>/plugins/EC-Reports/project/procedures/RunReport_MultiSeries</procedureName>
-      <scheduleDisabled>0</scheduleDisabled>
+      <scheduleDisabled>1</scheduleDisabled>
       <startTime>02:00</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>
@@ -7508,7 +7508,7 @@
       <monthDays></monthDays>
       <priority>normal</priority>
       <procedureName>saveProjects</procedureName>
-      <scheduleDisabled>0</scheduleDisabled>
+      <scheduleDisabled>1</scheduleDisabled>
       <startTime>4:30</startTime>
       <stopTime></stopTime>
       <timeZone>America/Los_Angeles</timeZone>

@@ -1,4 +1,10 @@
-2013-03-10 Laurent Rochette <lrochette@electric-cloud.com>
+2014-03-11 Laurent Rochette <lrochette@electric-cloud.com>
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.4.4
+     + Fixed Windows path issue for createPluginFromProject
+     + Fixed jar error not reported
+
+2014-03-10 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.4.3
      + Ignored sub-steps for localUsage
@@ -15,7 +21,7 @@
      + Added a time limit for performanceMetric
 
 
-2013-02-24 Laurent Rochette <lrochette@electric-cloud.com>
+2014-02-24 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.3.8
     + removed jobId references in preparation of EC 5.0
