@@ -1,4 +1,5 @@
-This project includes a few procedures to help you with disk management.
+This project includes a few procedures to help you with disk management and other
+administrative tasks.
 
 jobsCleanup: procedure to delete jobs older than a specified number of
 days. It will also delete associated workspace job directories. You
@@ -19,6 +20,13 @@ value.
 
 saveProjects: a simple procdure to export individually all (non plugins) 
 projects to create you own versioning. Better to run on a nightly schedule.
+
+plugin creation: a procedure helps your transform your favorite project
+into a plugin to make it easier to version and deploy to your production
+server.
+
+performanceMetrics: a procedure to gather a bunch of data about your Commander
+environment and may help when things start to slow down.
 
 to install on 4.2.x, simply import the XML file:
 
