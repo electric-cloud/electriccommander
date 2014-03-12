@@ -1,3 +1,9 @@
+2014-03-12 Laurent Rochette <lrochette@electric-cloud.com>
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.5.0
+     + added synchronizePlugins procedure to copy plugins from the server to an agent
+     + fixed Email address URL in createPluginFromProject
+
 2014-03-11 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.4.5
