@@ -73,8 +73,10 @@ $manifest .= qq(\@files = \(
 
 foreach my $procedure ($projectXml->findnodes('/exportedData/project/procedure')) {
 	my $procedureName = $procedure->find("procedureName")->string_value;
-	mkdir "project/procedures/$procedureName";
-	mkdir "project/procedures/$procedureName/steps";
+	my $procedureFile = $procedureName;
+	$procedureFile =~ s/\:/_colon_/g;  # Deal with step name characters not allowed in file names
+	mkdir "project/procedures/$procedureFile";
+	mkdir "project/procedures/$procedureFile/steps";
 	#print "Procedure: $procedureName\n";
 	foreach my $step ($procedure->findnodes('step')) {
 		my $stepName = $step->find("stepName")->string_value;
@@ -90,13 +92,14 @@ foreach my $procedure ($projectXml->findnodes('/exportedData/project/procedure')
 		#
 		my $ext=".sh"; # No way to detect whether sh or cmd
 		$ext = ".pl" if ($shell eq 'ec-perl' || $shell eq 'perl');
-		#$stepName =~ s/:/\:/g;  # Deal with step name characters not allowed in file names
+		my $stepFile = $stepName;
+		$stepFile =~ s/\:/_colon_/g;  # Deal with step name characters not allowed in file names
 		#print "	Modified Step: $stepName\n";
-		my $commandFile = "project/procedures/$procedureName/steps/$stepName${ext}";
+		my $commandFile = "project/procedures/$procedureFile/steps/$stepFile${ext}";
 		open (COMMAND, ">$commandFile") or die "$commandFile:  $!\n";
 		print COMMAND $command, "\n";
 		close COMMAND;
-		$manifest .= qq(	['//project/procedure[procedureName="$procedureName"]/step[stepName="$stepName"]/command', 'procedures/$procedureName/steps/$stepName${ext}'],\n);
+		$manifest .= qq(	['//project/procedure[procedureName="$procedureName"]/step[stepName="$stepName"]/command', 'procedures/$procedureFile/steps/$stepFile${ext}'],\n);
 	} # step
 } # procedure
 

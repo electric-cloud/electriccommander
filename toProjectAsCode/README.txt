@@ -11,6 +11,7 @@ README.txt
 
 Instruction for Use
 -------------------
+0. 'git clone https://github.com/electriccommunity/electriccommander.git'
 1. Export your project to project.xml: 'ectool export /<path on Commander server>/project.xml --path /projects/<projectName> --excludeJobs true --relocatable true --withNotifiers true'
 2. Copy project.xml to the directory containing toProjectAsCode.pl
 3. Run this perl script with ec-perl (other perl may work) 'ec-perl toProjectAsCode.pl'
