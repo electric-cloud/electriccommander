@@ -9,20 +9,23 @@
 # - project/manifest.pl
 # - project/project.xml.in
 
-use ElectricCommander;
 use strict;
 use warnings;
 use XML::LibXML;
+use File::Path;
 
 $| = 1;
 
-# TODO: remove old one if it exists
+# Remove old procedures directory if it exists
+rmtree("project/procedures");
 mkdir "project";
+mkdir "project/procedures";
 
 my $manifest = ""; # manifest.pl file content
-my $ec = new ElectricCommander();
 
 #Create the export file
+# use ElectricCommander;
+# my $ec = new ElectricCommander();
 # $ec->export('project.xml',{
 	# path => "/projects/$projectName",
 	# excludeJobs => 'true',
@@ -70,6 +73,8 @@ $manifest .= qq(\@files = \(
 
 foreach my $procedure ($projectXml->findnodes('/exportedData/project/procedure')) {
 	my $procedureName = $procedure->find("procedureName")->string_value;
+	mkdir "project/procedures/$procedureName";
+	mkdir "project/procedures/$procedureName/steps";
 	#print "Procedure: $procedureName\n";
 	foreach my $step ($procedure->findnodes('step')) {
 		my $stepName = $step->find("stepName")->string_value;
@@ -85,11 +90,13 @@ foreach my $procedure ($projectXml->findnodes('/exportedData/project/procedure')
 		#
 		my $ext=".sh"; # No way to detect whether sh or cmd
 		$ext = ".pl" if ($shell eq 'ec-perl' || $shell eq 'perl');
-		my $commandFile = "$procedureName-$stepName${ext}";
-		open (COMMAND, ">project/$commandFile") or die "$!\n";
+		#$stepName =~ s/:/\:/g;  # Deal with step name characters not allowed in file names
+		#print "	Modified Step: $stepName\n";
+		my $commandFile = "project/procedures/$procedureName/steps/$stepName${ext}";
+		open (COMMAND, ">$commandFile") or die "$commandFile:  $!\n";
 		print COMMAND $command, "\n";
 		close COMMAND;
-		$manifest .= qq(	['//project/procedure[procedureName="$procedureName"]/step[stepName="$stepName"]/command', '$procedureName-$stepName${ext}'],\n);
+		$manifest .= qq(	['//project/procedure[procedureName="$procedureName"]/step[stepName="$stepName"]/command', 'procedures/$procedureName/steps/$stepName${ext}'],\n);
 	} # step
 } # procedure
 
