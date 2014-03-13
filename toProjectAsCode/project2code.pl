@@ -3,7 +3,7 @@ my $projectName = "ProjectAsCode";
 #!ec-perl
 # project2code.pl
 # Converts a Commander project into ProjectAsCode-ready set of files:
-# - <projectName>-<stepName><.extension>
+# - <procedureName>-<stepName><.extension>
 # - manifest.pl
 # - project.xml.in
 
