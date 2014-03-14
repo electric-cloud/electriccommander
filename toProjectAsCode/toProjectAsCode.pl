@@ -16,6 +16,31 @@ use File::Path;
 
 $| = 1;
 
+sub fileFriendly($) {
+# Replace file-name reserved characters with % equivalent
+
+# Windows reserved characters:  "   <   >   \   ^   |   :   /   *   ?
+# Linux reserved characters: & 
+# Commander allows all of these, but double quote will cause parsing of manifest.pl to fail
+
+#
+#   "   <   >   \   ^   |   :   /   *   ?
+# %22 %3C %3E %5C %5E %7C %3A %2F %2A %3F
+
+	my $inputString = shift;
+	$inputString =~ s/\"/%22/g;
+	$inputString =~ s/\</%3C/g;
+	$inputString =~ s/\>/%3E/g;
+	$inputString =~ s/\\/%5C/g;
+	$inputString =~ s/\^/%5E/g;
+	$inputString =~ s/\|/%7C/g;
+	$inputString =~ s/\:/%3A/g;
+	$inputString =~ s/\//%2F/g;
+	$inputString =~ s/\*/%2A/g;
+	$inputString =~ s/\?/%3F/g;
+	return $inputString;
+}
+
 # Remove old procedures directory if it exists
 rmtree("project/procedures");
 mkdir "project";
@@ -73,8 +98,9 @@ $manifest .= qq(\@files = \(
 
 foreach my $procedure ($projectXml->findnodes('/exportedData/project/procedure')) {
 	my $procedureName = $procedure->find("procedureName")->string_value;
-	my $procedureFile = $procedureName;
-	$procedureFile =~ s/\:/_colon_/g;  # Deal with step name characters not allowed in file names
+	# my $procedureFile = $procedureName;
+	# $procedureFile =~ s/\:/_colon_/g;  # Deal with step name characters not allowed in file names
+	my $procedureFile = fileFriendly($procedureName);
 	mkdir "project/procedures/$procedureFile";
 	mkdir "project/procedures/$procedureFile/steps";
 	#print "Procedure: $procedureName\n";
@@ -92,8 +118,9 @@ foreach my $procedure ($projectXml->findnodes('/exportedData/project/procedure')
 		#
 		my $ext=".sh"; # No way to detect whether sh or cmd
 		$ext = ".pl" if ($shell eq 'ec-perl' || $shell eq 'perl');
-		my $stepFile = $stepName;
-		$stepFile =~ s/\:/_colon_/g;  # Deal with step name characters not allowed in file names
+		# my $stepFile = $stepName;
+		# $stepFile =~ s/\:/_colon_/g;  # Deal with step name characters not allowed in file names
+		my $stepFile = fileFriendly($stepName);
 		#print "	Modified Step: $stepName\n";
 		my $commandFile = "project/procedures/$procedureFile/steps/$stepFile${ext}";
 		open (COMMAND, ">$commandFile") or die "$commandFile:  $!\n";
@@ -111,3 +138,4 @@ close MANIFEST;
 open (TEMPLATE, ">project/project.xml.in") or die "$!\n";
 print TEMPLATE $projectXml->toString(1);
 close TEMPLATE;
+
