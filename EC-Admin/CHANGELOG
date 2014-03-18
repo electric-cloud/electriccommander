@@ -1,3 +1,7 @@
+2014-03-18 Kate McCormack
+  * EC-Admin.jar & EC-Admin.xml: new version 1.5.1
+     + Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects
+
 2014-03-12 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.5.0
