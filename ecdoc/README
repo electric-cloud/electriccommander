@@ -1,0 +1,25 @@
+OVERVIEW:
+
+The "ecdoc" plugin (plugin label "Project Documentation Generator") provides a procedure that produces javadoc like html documentation pages for the specified projects, including all procedures and their parameters.
+
+USAGE:
+
+To generate ecdocs for one or more projects, run the plugin procedure 'Generate Documentation', specifying the following options:
+- Footer : Displayed at the bottom of all pages. Typically copyright and other notices.
+- Header : Displayed at the top of all pages. Also repeated at the bottom of each page just above the footer.
+- Project Description : Top level description of all documented projects displayed on summary page.
+- Project List : Comma separated list of projects to document. Leave value empty to include all projects (default).
+- Project Title : Title displayed on top level projects summary page.
+
+SOURCES:
+
+The sources are available in the src directory. They were built using the simple shell script 'mkjar.sh'.
+
+AUTHOR:
+
+Kenneth McKnight, Electric Cloud Solutions Architect
+kmcknight@electric-cloud.com
+
+LEGAL:
+
+This module is not officially supported by Electric Cloud. It has undergone no formal testing and you may run into issues that have not been uncovered in the limited manual testing done so far. Electric Cloud should not be held liable for any repercussions of using this software.

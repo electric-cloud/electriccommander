@@ -1,0 +1,34 @@
+<helpDefinition>
+<title>Project Documentation Help</title>
+
+<componentContainer>
+<h1>Project Documentation Help</h1>
+
+<h2>Overview</h2>
+<p>This plugin generates javadoc-like documentation for specified projects, including details about each procedure and its parameters.
+</p>
+
+<h2>Procedures</h2>
+The following procedures are available:
+<ul>
+<li>Generate Documentation - Generates project documentation</li>
+</ul> 
+
+<h4>Generate Documentation</h4>
+<ul>
+<li>Description: Generates project documentation</li>
+<li>Inputs:
+<ul>
+<li>Footer - Text to be displayed at the foot of each page. Defaults to simple copyright notice.</li>
+<li>Header - Text to be displayed at the head of each page. Defaults to simple document description.</li>
+<li>Project Description - Description displayed on projects summary page.</li>
+<li>Project List - List of projects to document. Defaults to empty, which lists all projects.</li>
+<li>Project Title - Title displayed on projects summary page.</li>
+</ul>
+</li>
+<li>Outputs: Documentation link on Job Details Page under 'Links' section</li>
+<li>Affects: none</li>
+</ul>
+
+</componentContainer>
+</helpDefinition>
