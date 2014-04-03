@@ -16,12 +16,12 @@
               <property>
                 <propertyName>image</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/658207/images/custom2caf7908144d46db0121.png</value>
+                <value>/commander/jobSteps/795542/images/custom650172cb14521ab0a751.png</value>
               </property>
               <property>
                 <propertyName>link</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/658207/Performance Report.html</value>
+                <value>/commander/jobSteps/795542/Performance Report.html</value>
               </property>
             </propertySheet>
           </property>
@@ -30,6 +30,56 @@
       <property>
         <propertyName>ec_reportData</propertyName>
         <propertySheet>
+          <property>
+            <propertyName>101057</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>795542</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>795542</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-02 02:00:21</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
           <property>
             <propertyName>39294</propertyName>
             <propertySheet>
@@ -2330,6 +2380,306 @@
               </property>
             </propertySheet>
           </property>
+          <property>
+            <propertyName>87941</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>672251</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>672251</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-03-19 02:00:29</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>89877</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>690506</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>690506</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-03-21 02:01:14</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>92564</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>716731</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>716731</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-03-25 02:01:08</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>95635</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>744863</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>744863</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-03-27 02:00:33</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>97593</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>763287</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>763287</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-03-29 02:01:12</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>99579</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>781905</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>781905</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-01 02:01:17</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
         </propertySheet>
       </property>
       <property>
@@ -2684,7 +3034,7 @@
             <propertyName>perlHeaderJSON</propertyName>
             <description>default Perl Header to use the API with JSON format</description>
             <expandable>1</expandable>
-            <value>#############################################################################&#10;#&#10;# Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;use strict;&#10;use English;&#10;use ElectricCommander;&#10;use Data::Dumper;&#10;$| = 1;&#10;&#10;my $DEBUG=0;&#10;&#10;# Create a single instance of the Perl access to ElectricCommander&#10;my $ec = new ElectricCommander({'format' =&gt; "json"});&#10;&#10;# Check for the OS Type&#10;my $osIsWindows = $^O =~ /MSWin/;</value>
+            <value>#############################################################################&#10;#&#10;# Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;use strict;&#10;use English;&#10;use ElectricCommander;&#10;use Data::Dumper;&#10;$| = 1;&#10;&#10;my $DEBUG=0;&#10;&#10;# Create a single instance of the Perl access to ElectricCommander&#10;my $ec = new ElectricCommander({'format' =&gt; "json"});&#10;&#10;# Check for the OS Type&#10;my $osIsWindows = $^O =~ /MSWin/;&#10;&#10;&#10;#### Line 20 ####</value>
           </property>
           <property>
             <propertyName>perlLib</propertyName>
@@ -2727,13 +3077,13 @@
         <propertyName>pluginBuildNumber</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>17</value>
+        <value>20</value>
       </property>
       <property>
         <propertyName>version</propertyName>
-        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version1.5.1&#10;     + First user submitted patch by Kate McCormack: &#10;                   Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects&#10;&#10;-version 1.5.0&#10;     + added synchronizePlugins procedure to copy plugins from the server to an agent&#10;     + fixed Email address URL in createPluginFromProject&#10;&#10;- version 1.4.5&#10;     + Use zip when jar is not available to package plugin&#10;- version 1.4.4&#10;     + Fixed Windows path issue for createPluginFromProject&#10;     + Fixed jar error not reported&#10;- version 1.4.3&#10;     + Ignored sub-steps for localUsage&#10;     + Added comparison for /server/hostIP and /server/hostName&#10;- version 1.4.2&#10;     + Updated help page&#10;- version 1.4.1&#10;     + Fixed percentage formatting&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;     + Remove project ec_tags and other meaningless properties&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
+        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.6.1&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.6.0&#10;     + increased perlHeaderJson length to exactly 20 lines&#10;     + add a procedure subPM-deploymentSize to calculate Commander environment size&#10;&#10;- version1.5.2&#10;     + Rewrote localUsage to access jobStepsDirectly&#10;     + localUsage is also now a standalone procedure (subPM-localUsage)&#10;&#10;- version1.5.1&#10;     + First user submitted patch by Kate McCormack: &#10;                   Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects&#10;&#10;-version 1.5.0&#10;     + added synchronizePlugins procedure to copy plugins from the server to an agent&#10;     + fixed Email address URL in createPluginFromProject&#10;&#10;- version 1.4.5&#10;     + Use zip when jar is not available to package plugin&#10;- version 1.4.4&#10;     + Fixed Windows path issue for createPluginFromProject&#10;     + Fixed jar error not reported&#10;- version 1.4.3&#10;     + Ignored sub-steps for localUsage&#10;     + Added comparison for /server/hostIP and /server/hostName&#10;- version 1.4.2&#10;     + Updated help page&#10;- version 1.4.1&#10;     + Fixed percentage formatting&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;     + Remove project ec_tags and other meaningless properties&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
         <expandable>1</expandable>
-        <value>1.5.1</value>
+        <value>1.6.1</value>
       </property>
     </propertySheet>
     <credential>
@@ -3569,7 +3919,7 @@
     </procedure>
     <procedure>
       <procedureName>createPluginFromProject</procedureName>
-      <description>Create a plugin from a simple project&#10;&#10;Changelog:&#10;--------------&#10;2014-03-11  lrochette   Fixed jar error not reported&#10;                                      Fixed Windows path issue for&#10;                                      Use zip when jar is not available to package plugin&#10;2014-01-31  lrochette   Fixed descriptionForPlugin bug&#10;2014-01-26  lrochette   Fixed ec_visbility  (pickListOnly)&#10;2014-0204   lrochette   Fixed problem with ec_setup and procedure names with dot (".")</description>
+      <description>Create a plugin from a simple project&#10;&#10;Changelog:&#10;--------------&#10;&#10;2014-03-11  lrochette   Fixed jar error not reported&#10;                                      Fixed Windows path issue for&#10;                                      Use zip when jar is not available to package plugin&#10;2014-01-31  lrochette   Fixed descriptionForPlugin bug&#10;2014-01-26  lrochette   Fixed ec_visbility  (pickListOnly)&#10;2014-02-04  lrochette   Fixed problem with ec_setup and procedure names with dot (".")&#10;2014-04-02  lrochette   Fixed problem with ec_setup and procedure names with dot (".")</description>
       <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
@@ -3903,7 +4253,7 @@
         <stepName>setProjectProperties-ec_setup</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ($pName eq "") {&#10;  $pName=$project;&#10;}&#10;&#10;my $ECsetup="# Data that drives the create step picker registration for this plugin.\n";&#10;&#10;# Loop on each procedure&#10;my $proc;              # Loop variable&#10;my $xpath;&#10;my $pickerList="";&#10;&#10;my @procList=$ec-&gt;getProcedures($project)-&gt;findnodes("//procedure");&#10;foreach $xpath(@procList) {&#10;   my $procName=$xpath-&gt;findvalue("//procedureName");&#10;   &#10;   #&#10;   # Skip this procedure if property "exposeToPlugin" is not set to 1&#10;   #&#10;   next if (getP("/projects/$project/procedures/$procName/exposeToPlugin") != 1);&#10;   &#10;   #&#10;   #&#10;   # If property "descrirptionForPlugin" exists, use it&#10;   # if not, use the procedure description itself&#10;   #&#10;   my $description=getP("/projects/$project/procedures/$procName/descriptionForPlugin");&#10;   if (!$description) {&#10;     $description=$xpath-&gt;findvalue("//description");&#10;   }&#10;   my $procCleanName=$procName;&#10;   $procCleanName =~ s/[\s\-]/\_/g; # replace spaces and - by _&#10;&#10;# Create a block of perl Code for each procedure ala&#10;#my %startBuild = (&#10;#    label =&gt; "$Jenkins- Start a build",&#10;#    procedure =&gt; "startBuild",&#10;#    description =&gt; "Start a build.",&#10;#    category =&gt; "Other"&#10;#);&#10;&#10;#escape double quote in the description&#10;  $description =~ s/"/\\"/g;&#10;  &#10;   $ECsetup .= "my %" . "$procCleanName = ( &#10;  label       =&gt; \"$pName - $procName\", &#10;  procedure   =&gt; \"$procName\", &#10;  description =&gt; \"$description\", &#10;  category    =&gt; \"$pCategory\" &#10;);&#10;&#10;" ;&#10;&#10;  $pickerList .= "\\%". $procCleanName . ", "; &#10;} # end foreach loop&#10;&#10;&#10;# Create the picker List ala&#10;#@::createStepPickerSteps = (\%startBuild, \%getStatus, \%getLog, \%getDuration);&#10;&#10;#remote the trailing ", " from the picker List&#10;chop($pickerList); chop($pickerList);&#10;$ECsetup .= "\@::createStepPickerSteps = (" . $pickerList . ");\n";&#10;&#10;print "Code generated\n";&#10;print $ECsetup;&#10;$ec-&gt;setProperty("//projects/$[Project]/ec_setup", $ECsetup);&#10;&#10;$[/myProject/scripts/perlLib]&#10;</command>
+        <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ($pName eq "") {&#10;  $pName=$project;&#10;}&#10;&#10;my $ECsetup="# Data that drives the create step picker registration for this plugin.\n";&#10;&#10;# Loop on each procedure&#10;my $proc;              # Loop variable&#10;my $xpath;&#10;my $pickerList="";&#10;&#10;my @procList=$ec-&gt;getProcedures($project)-&gt;findnodes("//procedure");&#10;foreach $xpath(@procList) {&#10;   my $procName=$xpath-&gt;findvalue("//procedureName");&#10;   &#10;   #&#10;   # Skip this procedure if property "exposeToPlugin" is not set to 1&#10;   #&#10;   next if (getP("/projects/$project/procedures/$procName/exposeToPlugin") != 1);&#10;   &#10;   #&#10;   #&#10;   # If property "descrirptionForPlugin" exists, use it&#10;   # if not, use the procedure description itself&#10;   #&#10;   my $description=getP("/projects/$project/procedures/$procName/descriptionForPlugin");&#10;   if (!$description) {&#10;     $description=$xpath-&gt;findvalue("//description");&#10;   }&#10;   my $procCleanName=$procName;&#10;   $procCleanName =~ s/[\s\-\.]/\_/g; # replace spaces, . and - by _&#10;&#10;# Create a block of perl Code for each procedure ala&#10;#my %startBuild = (&#10;#    label =&gt; "$Jenkins- Start a build",&#10;#    procedure =&gt; "startBuild",&#10;#    description =&gt; "Start a build.",&#10;#    category =&gt; "Other"&#10;#);&#10;&#10;#escape double quote in the description&#10;  $description =~ s/"/\\"/g;&#10;  &#10;   $ECsetup .= "my %" . "$procCleanName = ( &#10;  label       =&gt; \"$pName - $procName\", &#10;  procedure   =&gt; \"$procName\", &#10;  description =&gt; \"$description\", &#10;  category    =&gt; \"$pCategory\" &#10;);&#10;&#10;" ;&#10;&#10;  $pickerList .= "\\%". $procCleanName . ", "; &#10;} # end foreach loop&#10;&#10;&#10;# Create the picker List ala&#10;#@::createStepPickerSteps = (\%startBuild, \%getStatus, \%getLog, \%getDuration);&#10;&#10;#remote the trailing ", " from the picker List&#10;chop($pickerList); chop($pickerList);&#10;$ECsetup .= "\@::createStepPickerSteps = (" . $pickerList . ");\n";&#10;&#10;print "Code generated\n";&#10;print $ECsetup;&#10;$ec-&gt;setProperty("//projects/$[Project]/ec_setup", $ECsetup);&#10;&#10;$[/myProject/scripts/perlLib]&#10;</command>
         <condition></condition>
         <description>set the right properties to be able to see the project in the picketList.&#10;Procedure is added only if property pluginExpose is set</description>
         <errorHandling>failProcedure</errorHandling>
@@ -5663,6 +6013,16 @@
                   </propertySheet>
                 </property>
                 <property>
+                  <propertyName>nbJobSteps</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
                   <propertyName>numberOfGB</propertyName>
                   <propertySheet>
                     <property>
@@ -5748,6 +6108,16 @@
                   </propertySheet>
                 </property>
                 <property>
+                  <propertyName>numberOfJobSteps</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
                   <propertyName>numberOfSteps</propertyName>
                   <propertySheet>
                     <property>
@@ -5789,6 +6159,14 @@
         <expansionDeferred>0</expansionDeferred>
         <required>0</required>
         <type>select</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>numberOfJobSteps</formalParameterName>
+        <defaultValue>5000</defaultValue>
+        <description>The number of job steps to evaluate for the localUsage</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>entry</type>
       </formalParameter>
       <formalParameter>
         <formalParameterName>numberOfSteps</formalParameterName>
@@ -5960,25 +6338,54 @@
         </propertySheet>
       </step>
       <step>
-        <stepName>localUsage</stepName>
+        <stepName>deploymentSize</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>#############################################################################&#10;#&#10;#  findSteps -- Script to find steps and figure out where they run&#10;#  Copyright 2014 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;$[/myProject/scripts/perlHeaderJSON]&#10;&#10;$DEBUG=$[debugMode];&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $totalJobs= 1000;&#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $totalTime=0;&#10;my $localTime=0;&#10;my $totalSteps=0;&#10;my $localSteps=0;&#10;&#10;my $serverName=lc("$[/server/hostName]");&#10;my $serverIP="$[/server/hostIP]";&#10;&#10;# create filterList&#10;my @filterList;&#10;# only finished jobs&#10;push (@filterList, {"propertyName" =&gt; "status",&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; "completed"});&#10;&#10;my ($ok, $json)= InvokeCommander("SuppressLog", "findObjects", "job",&#10;                                 {numObjects =&gt; $totalJobs,&#10;                                  filter =&gt; \@filterList &#10;                                 }&#10;                                );&#10;foreach my $node ($json-&gt;findnodes('//job')) {&#10;	my $jobId   = $node-&gt;{'jobId'};&#10;    printf("Process job $jobId:\n") if ($DEBUG);&#10;	my($ok, $res)=InvokeCommander("SuppressLog", "findJobSteps",  &#10;                                  {jobId =&gt; $jobId&#10;                                  }&#10;                                 );&#10;    foreach my $step ($res-&gt;findnodes('//jobStep')) {&#10;    	my $rtime=$step-&gt;{runTime};&#10;        my $host=lc($step-&gt;{hostName});&#10;        next if ($host eq "");&#10;        $totalSteps++;&#10;        $totalTime+=$rtime;&#10;        if (($host eq "localhost") || ($host eq $serverName) || ($host eq $serverIP)){&#10;          #printf("  Step %s (%d)\n", $step-&gt;{stepName}, $rtime)  if ($DEBUG);&#10;          $localTime += $rtime;&#10;          $localSteps ++;&#10;        } else {&#10;          printf("NOT LOCAL: $host  -&gt; %s\n", $step-&gt;{stepName}) if ($DEBUG);&#10;        }&#10;    }&#10;}&#10;&#10;printf("Job time spent on local: %d ms\n", $localTime);&#10;printf("Total job time: %d ms\n", $totalTime);&#10;my $percTime=$localTime*100/$totalTime;&#10;printf("%.1f%% of job time spent on local\n\n", $percTime);&#10;&#10;printf("Number of steps on local: %d\n", $localSteps);&#10;printf("Total number of steps: %d\n", $totalSteps);&#10;my $percSteps=$localSteps*100/$totalSteps;&#10;printf("%.1f%% of steps spent on local\n", $percSteps);&#10;&#10;$ec-&gt;setProperty("summary", sprintf("%03.1f%% time\n%03.1f%% steps", $percTime, $percSteps));&#10;#&#10;# Perl Commander library&#10;$[/myProject/scripts/perlLibJSON]&#10;</command>
         <condition></condition>
-        <description>A step to find out the percentage of steps and time spend running on local. Best practices call for jobs to run on remote agents&#10;Check 1000 jobs</description>
+        <description></description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
-        <logFileName></logFileName>
         <parallel>0</parallel>
-        <postProcessor></postProcessor>
         <precondition></precondition>
         <releaseMode>none</releaseMode>
         <resourceName></resourceName>
-        <shell>ec-perl</shell>
+        <subprocedure>subPM-deploymentSize</subprocedure>
+        <subproject>EC-Admin</subproject>
         <timeLimit></timeLimit>
         <timeLimitUnits>minutes</timeLimitUnits>
-        <workingDirectory></workingDirectory>
         <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>localUsage</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <parallel>0</parallel>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <subprocedure>subPM-localUsage</subprocedure>
+        <subproject>EC-Admin</subproject>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workspaceName></workspaceName>
+        <actualParameters>
+          <property>
+            <propertyName>debugMode</propertyName>
+            <expandable>1</expandable>
+            <value>$[debugMode]</value>
+          </property>
+          <property>
+            <propertyName>number</propertyName>
+            <expandable>1</expandable>
+            <value>$[numberOfJobSteps]</value>
+          </property>
+        </actualParameters>
         <propertySheet>
         </propertySheet>
       </step>
@@ -6834,6 +7241,204 @@
         <command>#############################################################################&#10;#&#10;#  Copyright 2013 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;use File::Path;&#10;&#10;$[/myProject/scripts/perlHeader]&#10;$[/myProject/scripts/perlLib]&#10;#&#10;# Parameters&#10;#&#10;my $path="$[pathname]";&#10;my $includeACLs="$[includeACLs]";&#10;my $includeNotifiers="$[includeNotifiers]";&#10;my $relocatable="$[relocatable]";&#10;my $newtimeout=600;&#10;&#10;# Set the time out to newtimeout so the ec commands won't time out at 3 mins&#10;$ec-&gt;setTimeout($newtimeout);&#10;&#10;my $errorCount=0;&#10;# Get list of Project&#10;my ($success, $xPath) = InvokeCommander("SuppressLog", "getProjects");&#10;&#10;# Create the directory&#10;# chmod required for cases when the server agent user and the server user &#10;# are different and the mask prevent the created directory to be written&#10;# by the latter.&#10;mkpath($path);&#10;chmod 0777, $path;&#10;&#10;my $nodeset = $xPath-&gt;find('//project');&#10;foreach my $node ($nodeset-&gt;get_nodelist) {&#10;  my $pName=$xPath-&gt;findvalue('projectName', $node);&#10;  my $pluginName=$xPath-&gt;findvalue('pluginName', $node);&#10;&#10;  # skip plugins  &#10;  next if ($pluginName ne "");&#10;  printf("Saving Project: %s\n", $pName);&#10;  my ($success, $xPath, $errMsg, $errCode) = InvokeCommander("SuppressLog", "export", $path."/$pName".".xml",&#10;  					{ 'path'=&gt; "/projects/".$pName, &#10;                                          'relocatable' =&gt; $relocatable,&#10;                                          'withAcls'    =&gt; $includeACLs,&#10;                                          'withNotifiers'=&gt;$includeNotifiers});&#10;  if (! $success) {&#10;    printf("  Error exporting %s", $pName);&#10;    printf("  %s: %s\n", $errCode, $errMsg);&#10;    $errorCount++;&#10;  }&#10;}&#10;exit($errorCount);&#10;</command>
         <condition></condition>
         <description>A procedure to export each project individually into a XML file for backup&#10;&#10;Changelog:&#10;2014-02-27 Kate McCormack&#10;  Adding setTimeout equal to 600 so the ec commands won't time out&#10;2013-12-17 Laurent Rochette&#10;  Add chmod after directory creation for cases when server service and &#10;      server agent service user are different.&#10;2013-07-28 Laurent Rochette&#10;  Add parameters to include or not ACLs and email notifiers</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>subPM-deploymentSize</procedureName>
+      <description>a couple of steps to size your ElectricCommander instllation&#10;&#10;Number per&#10; Implementation	     Small	Medium	Large&#10;---------------------------------------------------------&#10;Agents	                      &lt;50	   &gt;50	&gt;1000&#10;Projects	                      &lt;10	   &lt;100	&gt;100&#10;Jobs Per Day	              &lt;200	   &gt;200	&gt;1000&#10;Managed Resources      &lt;100   &lt;1000	&gt;1000&#10;</description>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
+      <resourceName></resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+      </propertySheet>
+      <step>
+        <stepName>agents</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;################################################################################&#10;#&#10;# GLobal variables&#10;#&#10;################################################################################&#10;my $SMALL=50;&#10;my $LARGE=1000;&#10;my $nbAgents;&#10;my $size;&#10;my %hAg;&#10;&#10;my ($ok, $json)=InvokeCommander("SuppressLog", 'getResources');&#10;&#10;#&#10;# Loop over resources to extract unique hostnames&#10;#&#10;foreach my $node ($json-&gt;findnodes('//resource')){&#10;	printf("Processing %s\n", $node-&gt;{hostName});&#10;    $hAg{lc($node-&gt;{hostName})}=1;&#10;}&#10;&#10;$nbAgents=scalar(keys(%hAg));&#10;if ($nbAgents &lt; $SMALL) {&#10;	$size="SMALL";&#10;} elsif ($nbAgents &gt; $LARGE) {&#10;	$size="LARGE";&#10;} else {&#10;	$size="MEDIUM";&#10;}&#10;$ec-&gt;setProperty("summary", "$size: $nbAgents agents");&#10;$ec-&gt;setProperty("/myJob/PM-numberOfAgents", $nbAgents);&#10;&#10;$[/myProject/scripts/perlLibJSON]&#10;</command>
+        <condition></condition>
+        <description>Number per &#10;Implementation	Small	Medium	Large&#10;-------------------------------------------------------&#10;Agents	                &lt;50	          &gt;50	 &gt;1000&#10;</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>managedResources</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;################################################################################&#10;#&#10;# GLobal variables&#10;#&#10;################################################################################&#10;my $SMALL=100;&#10;my $LARGE=1000;&#10;&#10;my ($ok, $json)=InvokeCommander("SuppressLog", 'getResources');&#10;my $nbResources=scalar ($json-&gt;findnodes('//resource'));&#10;&#10;my $size;&#10;if ($nbResources &lt; $SMALL) {&#10;	$size="SMALL";&#10;} elsif ($nbResources &gt; $LARGE) {&#10;	$size="LARGE";&#10;} else {&#10;	$size="MEDIUM";&#10;}&#10;$ec-&gt;setProperty("summary", "$size: $nbResources resources");&#10;$ec-&gt;setProperty("/myJob/PM-numberOfResources", $nbResources);&#10;&#10;$[/myProject/scripts/perlLibJSON]&#10;</command>
+        <condition></condition>
+        <description>Number per &#10;Implementation	Small	Medium	Large&#10;-------------------------------------------------------&#10;Agents	                &lt;100	&lt;1000	 &gt;1000&#10;</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>projects</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;################################################################################&#10;#&#10;# GLobal variables&#10;#&#10;################################################################################&#10;my $SMALL=10;&#10;my $LARGE=100;&#10;my $size;&#10;my $nb=0;&#10;&#10;my ($ok, $json)=InvokeCommander("SuppressLog", 'getProjects');&#10;foreach my $node ($json-&gt;findnodes('//project')) {&#10;    # Skip plugins&#10;    next if ($node-&gt;{pluginName});&#10;	my $name=$node-&gt;{projectName};&#10;    printf("Processing %s\n", $name);&#10;	$nb++;&#10;}&#10;&#10;&#10;if ($nb &lt; $SMALL) {&#10;	$size="SMALL";&#10;} elsif ($nb &gt; $LARGE) {&#10;	$size="LARGE";&#10;} else {&#10;	$size="MEDIUM";&#10;}&#10;$ec-&gt;setProperty("summary", "$size: $nb projects");&#10;$ec-&gt;setProperty("/myJob/PM-numberOfProjects", $nb);&#10;&#10;$[/myProject/scripts/perlLibJSON]&#10;</command>
+        <condition></condition>
+        <description>Number per &#10;Implementation	Small	Medium	Large&#10;-------------------------------------------------------&#10;Agents	                &lt;10   	&lt;100	 &gt;100&#10;</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>jobsPerDay</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;use DateTime;&#10;&#10;################################################################################&#10;#&#10;# GLobal variables&#10;#&#10;################################################################################&#10;my $SMALL=100;&#10;my $LARGE=1000;&#10;my $size;&#10;my $nbDays=7;		# check over the last 7 days only&#10;my $count=0;		# total number of jobs&#10;my $nb=1.0;&#10;my $MAXJOBS=7000;&#10;my $now="$[/timestamp yyyy-MM-dd]" . "T00:00:00.000Z";&#10;my $weekAgo=calculateDate($nbDays);&#10;&#10;printf("Now: $now\n");&#10;printf("1 week: $weekAgo\n");&#10;&#10;# create filterList&#10;my @filterList;&#10;# only finished jobs&#10;push (@filterList, {"propertyName" =&gt; "status",&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; "completed"});&#10;# newer than&#10;push (@filterList, {"propertyName" =&gt; "start",&#10;                    "operator" =&gt; "greaterOrEqual",&#10;                    "operand1" =&gt; $weekAgo});&#10;# older than today midnight&#10;push (@filterList, {"propertyName" =&gt; "start",&#10;                    "operator" =&gt; "lessThan",&#10;                    "operand1" =&gt; $now});&#10;&#10;my ($ok, $json)=InvokeCommander("SuppressLog", 'findObjects', 'job',&#10;									{maxIds =&gt; $MAXJOBS, &#10;                                     numObjects =&gt; $MAXJOBS,&#10;                                     filter =&gt; \@filterList}&#10;								);&#10;$count=scalar($json-&gt;findnodes('//job'));&#10;$nb=$count/$nbDays;&#10;&#10;printf("Count: %d\n", $count);&#10;printf("Average: %3.1f\n", $nb);&#10;if ($nb &lt; $SMALL) {&#10;	$size="SMALL";&#10;} elsif ($nb &gt; $LARGE) {&#10;	$size="LARGE";&#10;} else {&#10;	$size="MEDIUM";&#10;}&#10;$ec-&gt;setProperty("summary", sprintf("$size: %.1f jobs per day", $nb));&#10;$ec-&gt;setProperty("/myJob/PM-numberOfJobsPerDay", sprintf("%.1f", $nb));&#10;&#10;exit(0);&#10;&#10;&#10;#############################################################################&#10;#&#10;#  Return the day/time at midnight X days back&#10;#&#10;#############################################################################&#10;sub calculateDate {&#10;    my $nbDays=shift;&#10;    my $string=DateTime-&gt;now()-&gt;subtract(days =&gt; $nbDays)-&gt;iso8601();&#10;    $string =~ s/(\d{4}-\d{1,2}-\d{1,2})T.*/$1/;&#10;    $string .= "T00:00:00.000Z";&#10;    return $string;&#10;}&#10;&#10;&#10;$[/myProject/scripts/perlLibJSON]&#10;</command>
+        <condition></condition>
+        <description>Number per &#10;Implementation	Small	Medium	Large&#10;-------------------------------------------------------&#10;jobs  	                &lt;100	&lt;1000	 &gt;1000&#10;</description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>subPM-localUsage</procedureName>
+      <description></description>
+      <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
+      <resourceName></resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>debugMode</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>number</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>debugMode</formalParameterName>
+        <defaultValue>0</defaultValue>
+        <description>debug mode</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>checkbox</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>number</formalParameterName>
+        <defaultValue>1000</defaultValue>
+        <description>Number of jobSteps to evaluate</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>localUsage</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>#############################################################################&#10;#&#10;#  findSteps -- Script to find steps and figure out where they run&#10;#  Copyright 2014 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;$[/myProject/scripts/perlHeaderJSON]&#10;&#10;#############################################################################&#10;#&#10;#  Assign Commander parameters to variables&#10;#&#10;#############################################################################&#10;my $totalJobs= $[number];&#10;$DEBUG=$[debugMode];&#10;&#10;#############################################################################&#10;#&#10;#  Global Variables&#10;#&#10;#############################################################################&#10;my $totalTime=0;&#10;my $localTime=0;&#10;my $totalSteps=0;&#10;my $localSteps=0;&#10;&#10;my $serverName=lc("$[/server/hostName]");&#10;my $serverIP="$[/server/hostIP]";&#10;&#10;# create filterList&#10;my @filterList;&#10;# only finished jobSteps&#10;push (@filterList, {"propertyName" =&gt; "status",&#10;                    "operator" =&gt; "equals",&#10;                    "operand1" =&gt; "completed"});&#10;&#10;#&#10;# get newest first&#10;my ($ok, $res)= InvokeCommander("SuppressLog", "findObjects", "jobStep",&#10;                                 {numObjects =&gt; $totalJobs,&#10;                                  filter =&gt; \@filterList,&#10;                                  sort =&gt; [ {propertyName =&gt; "finish",&#10;                                                    order =&gt; "descending"} ]&#10;                                 }&#10;                                );&#10;foreach my $step ($res-&gt;findnodes('//jobStep')) {&#10;    	my $rtime=$step-&gt;{runTime};&#10;        my $host=lc($step-&gt;{hostName});&#10;        next if ($host eq "");&#10;        $totalSteps++;&#10;        $totalTime+=$rtime;&#10;        if (($host eq "localhost") || ($host eq $serverName) || ($host eq $serverIP)){&#10;          #printf("  Step %s (%d)\n", $step-&gt;{stepName}, $rtime)  if ($DEBUG);&#10;          $localTime += $rtime;&#10;          $localSteps ++;&#10;        } else {&#10;          printf("NOT LOCAL: $host  -&gt; %s\n", $step-&gt;{stepName}) if ($DEBUG);&#10;        }&#10;}&#10;&#10;printf("Job time spent on local: %d ms\n", $localTime);&#10;printf("Total job time: %d ms\n", $totalTime);&#10;my $percTime=$localTime*100/$totalTime;&#10;printf("%.1f%% of job time spent on local\n\n", $percTime);&#10;&#10;printf("Number of steps on local: %d\n", $localSteps);&#10;printf("Total number of steps: %d\n", $totalSteps);&#10;my $percSteps=$localSteps*100/$totalSteps;&#10;printf("%.1f%% of steps spent on local\n", $percSteps);&#10;&#10;$ec-&gt;setProperty("summary", sprintf("%03.1f%% time\n%03.1f%% steps", $percTime, $percSteps));&#10;#&#10;# Perl Commander library&#10;$[/myProject/scripts/perlLibJSON]&#10;</command>
+        <condition></condition>
+        <description>A step to find out the percentage of steps and time spend running on local. Best practices call for jobs to run on remote agents&#10;</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
