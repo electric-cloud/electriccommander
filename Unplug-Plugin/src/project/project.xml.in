@@ -1,74 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="47" buildLabel="build_3.9_39682_OPT_2011.03.18_18:10:08" buildVersion="3.9.1.39682" passkey="5eb36acd264d63d548072131e9545aed6300f458">
-  <exportPath>/projects/unplug-1.7</exportPath>
+  <exportPath>/projects/unplug-2.0.0</exportPath>
   <project>
-    <projectName>unplug-1.7</projectName>
+    <projectName>unplug-2.0.0</projectName>
     <propertySheet>
+      <property>
+        <propertyName>lib</propertyName>
+        <description>Javascript libraries</description>
+        <propertySheet>
+          <property>
+            <propertyName>unplug.js</propertyName>
+            <description>various unplug-provided javascript library functions</description>
+            <expandable>0</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>jquery.js</propertyName>
+            <description>jquery javascript library</description>
+            <expandable>0</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>jquery.flot.js</propertyName>
+            <description>flot javascript library</description>
+            <expandable>0</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>jquery.flot.stack.js</propertyName>
+            <description>stacked bar chart plugin for flot</description>
+            <expandable>0</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>use-jquery</propertyName>
+            <description></description>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+          <property>
+            <propertyName>use-flot</propertyName>
+            <description></description>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+        </propertySheet>
+      </property>
       <property>
         <propertyName>v_example0</propertyName>
         <description>An empty page.</description>
         <expandable>1</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example1</propertyName>
         <description>The most basic example - a block of ordinary text.</description>
         <expandable>1</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example2</propertyName>
         <description>A simple HTML table to be displayed.</description>
         <expandable>1</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example3</propertyName>
         <description>A simple HTML aggregated news-of-the-day page.</description>
         <expandable>1</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example4</propertyName>
         <description>Using Perl to create page content.</description>
         <expandable>1</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example5</propertyName>
         <description>A job status grid implemented in Perl.</description>
         <expandable>0</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example6</propertyName>
         <description>A job status grid implemented in Perl, with automatic refresh.</description>
         <expandable>0</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example7</propertyName>
         <description>An example CGI runProcedure parameter panel plugin.</description>
         <expandable>0</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example8</propertyName>
-        <description>An empty page.</description>
+        <description>An empty using the javascript flot charting library.</description>
         <expandable>1</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>v_example9</propertyName>
         <description>An empty page.</description>
         <expandable>1</expandable>
-        <value>example</value>
+        <value></value>
       </property>
       <property>
         <propertyName>ec_setup</propertyName>
         <description>Perl script executed during promotion</description>
         <expandable>1</expandable>
-        <value>tbd</value>
+        <value></value>
       </property>
     </propertySheet>
   </project>
