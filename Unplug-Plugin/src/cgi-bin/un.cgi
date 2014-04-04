@@ -12,6 +12,9 @@ use XML::XPath;
 use URI::Escape;
 use CGI;
 
+use utf8;
+ElectricCommander::initEncodings();
+
 my $HTML = '';
 my $XHTML = '';
 
