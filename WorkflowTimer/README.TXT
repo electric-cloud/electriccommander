@@ -1,4 +1,4 @@
-WorkflowTimer version 0.0
+WorkflowTimer version 0.1
 
 WorkflowTimer is a rough cut of a means to do scheduled transitions in
 workflows.  For example, if a build is not manually transitioned to
@@ -23,27 +23,6 @@ those may be the same as the Commander server's timezone.
 
 In the project you'll find a couple of Workflow Definitions that
 illustrate how it works.
-
-Note that in order to use the "TransitionAt" procedure, you'll need
-to add the Date::Manip perl library somewhere where the agent can find
-it -- the easiest being to add it to your ecperl installation.  If you
-installed ElectricCommander in the default locations, copy the provided
-Manip.pm file to the following directory:
-
-Windows:
- C:\Program Files\Electric Cloud\ElectricCommander\perl\site\lib\Date
-
-Linux:
- /opt/electriccloud/electriccommander/perl/lib/site_perl/5.8.8/Date
-
-(Of course, you don't have to use the Date::Manip library, you can modify
-the "TransitionAt" code to use any library you wish to take the user's
-date or time string and convert it to a standard format.  I chose the
-Date::Manip package because it allows one to specify transition times
-in a very human-normal fashion -- one can specify that a transition
-should occur at 3:45PM and get the correct result, or more interestingly
-one can specify "next Monday at 10 AM" and get the right result for that
-as well.)
 
 Finally, please note that this is a very early version of a work-in-
 progress, your feedback is welcome, and please don't expect complete
