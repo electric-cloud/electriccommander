@@ -1,4 +1,8 @@
-function htmlEscape(str) {
+// Various unplug utilities and tools
+
+unplug_doUrl='/commander/plugins/@PLUG_KEY@-@PLUGIN_VERSION@/cgi-bin/do.cgi';
+
+unplug_htmlEscape = function(str) {
     return String(str)
             .replace(/&/g, '&amp;')
             .replace(/"/g, '&quot;')
@@ -7,7 +11,7 @@ function htmlEscape(str) {
             .replace(/>/g, '&gt;');
 }
 
-function htmlUnescape(value){
+unplug_htmlUnescape = function(value) {
     return String(value)
         .replace(/&quot;/g, '"')
         .replace(/&#39;/g, "'")

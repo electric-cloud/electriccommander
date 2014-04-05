@@ -34,7 +34,7 @@ my $action = $::query->path_info();
 
 # Action: "exec" - run ec-perl CGI script from a property
 if ($action =~ m|^/exec/(.+)$|) {
-    my $pn = '/server/unplug/' . $1;
+    my $pn = '/server/@PLUGIN_KEY@/' . $1;
     my $pv = callAPI('getProperty', 'text',
 		     '/responses/response/property/value', $pn);
     if (! $err) {
@@ -168,7 +168,7 @@ if ($err) {
 	$resp = '<error>' . xmlQuote($err) . '</error>';
 
     } elsif ($docType eq 'application/JSON') {
-	my $jh{'error'} = $err;
+	my $jh = {'error' => $err};
 	$resp = encode_json $jh;
 
     } else {
@@ -212,7 +212,6 @@ sub callAPI() {
 
     # Arguments for the Commander session
     my %eh = ();
-    $eh{'abortOnError'} = 0;
     $eh{'format'} = 'json' if ($apiType eq 'JSON');
 
     # Begin by opening a connection to Commander

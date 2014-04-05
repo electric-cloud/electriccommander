@@ -10,7 +10,7 @@ use ElectricCommander;
 use DateTime;
 
 $XHTML = << 'ENDOFHEADER';
-$[/server/unplug/lib/use-flot]
+$[/server/@PLUGIN_KEY@/lib/use-flot]
 ENDOFHEADER
 
 my $timeLimit =  21;    # Get the last n days jobs
