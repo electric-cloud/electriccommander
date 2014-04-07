@@ -19,4 +19,5 @@
 
   ['//property[propertyName="use-jquery"]/value',               'lib/use-jquery.xhtml'     ],
   ['//property[propertyName="use-flot"]/value',                 'lib/use-flot.xhtml'       ],
+  ['//property[propertyName="use-unplug"]/value',               'lib/use-unplug.xhtml'     ],
 );

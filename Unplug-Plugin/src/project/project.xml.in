@@ -44,6 +44,12 @@
             <expandable>1</expandable>
             <value></value>
           </property>
+          <property>
+            <propertyName>use-unplug</propertyName>
+            <description></description>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
         </propertySheet>
       </property>
       <property>

@@ -73,10 +73,10 @@ if ($promoteAction eq 'promote') {
 	     value=>'$' . '[/plugins/@PLUGIN_KEY@/project/v_example' . $i . ']',
 	     expandable=>'1'});
     }
-    foreach my $i ('use-flot', 'use-jquery') {
-	$commander->createProperty("/server/@PLUGIN_KEY@/lib/$i",
+    foreach my $i ('flot', 'jquery', 'unplug') {
+	$commander->createProperty("/server/@PLUGIN_KEY@/lib/use-$i",
 	    {description=>"XHTML fragment to pull in the $i javascript libraries and dependencies",
-	     value=>'$' . '[/plugins/@PLUGIN_KEY@/project/lib/' . $i . ']',
+	     value=>'$' . '[/plugins/@PLUGIN_KEY@/project/lib/use-' . $i . ']',
 	     expandable=>'1'});
     }
     # Reset error handling at this point
