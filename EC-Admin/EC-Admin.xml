@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="61" buildLabel="build_main_60729_2013.06.24_10:58:22" buildVersion="4.2.2.60729" passkey="a30cbf89cfdae202c5227ce40fe867512295566d">
+<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="61" buildLabel="build_4.2_71224_2014.04.04_08:13:52" buildVersion="4.2.4.71224" passkey="a30cbf89cfdae202c5227ce40fe867512295566d">
   <exportPath>/projects/EC-Admin</exportPath>
   <project>
     <projectName>EC-Admin</projectName>
@@ -16,12 +16,12 @@
               <property>
                 <propertyName>image</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/795542/images/custom650172cb14521ab0a751.png</value>
+                <value>/commander/jobSteps/834705/images/custom79bea1fc14569c674eb1.png</value>
               </property>
               <property>
                 <propertyName>link</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/795542/Performance Report.html</value>
+                <value>/commander/jobSteps/834705/Performance Report.html</value>
               </property>
             </propertySheet>
           </property>
@@ -65,6 +65,206 @@
                     <propertyName>reportDate</propertyName>
                     <expandable>1</expandable>
                     <value>2014-04-02 02:00:21</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>102561</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>809962</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>809962</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-04 02:02:49</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>103546</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>819919</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>819919</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-15 02:01:40</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>105093</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>834705</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>834705</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-16 02:02:20</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>106896</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>855271</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>855271</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-18 02:01:27</value>
                   </property>
                   <property>
                     <propertyName>reportType</propertyName>
@@ -3077,13 +3277,13 @@
         <propertyName>pluginBuildNumber</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>20</value>
+        <value>22</value>
       </property>
       <property>
         <propertyName>version</propertyName>
-        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.6.1&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.6.0&#10;     + increased perlHeaderJson length to exactly 20 lines&#10;     + add a procedure subPM-deploymentSize to calculate Commander environment size&#10;&#10;- version1.5.2&#10;     + Rewrote localUsage to access jobStepsDirectly&#10;     + localUsage is also now a standalone procedure (subPM-localUsage)&#10;&#10;- version1.5.1&#10;     + First user submitted patch by Kate McCormack: &#10;                   Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects&#10;&#10;-version 1.5.0&#10;     + added synchronizePlugins procedure to copy plugins from the server to an agent&#10;     + fixed Email address URL in createPluginFromProject&#10;&#10;- version 1.4.5&#10;     + Use zip when jar is not available to package plugin&#10;- version 1.4.4&#10;     + Fixed Windows path issue for createPluginFromProject&#10;     + Fixed jar error not reported&#10;- version 1.4.3&#10;     + Ignored sub-steps for localUsage&#10;     + Added comparison for /server/hostIP and /server/hostName&#10;- version 1.4.2&#10;     + Updated help page&#10;- version 1.4.1&#10;     + Fixed percentage formatting&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;     + Remove project ec_tags and other meaningless properties&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
+        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.6.2&#10;     +   Fixed with resource default  workspace not being used in dynamic steps in performanceMetrics&#10;     +   Fixed subprocedure call to myProject instead of a fixed call to EC-Admin in performanceMetrics&#10;&#10;- version 1.6.1&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.6.0&#10;     + increased perlHeaderJson length to exactly 20 lines&#10;     + add a procedure subPM-deploymentSize to calculate Commander environment size&#10;&#10;- version1.5.2&#10;     + Rewrote localUsage to access jobStepsDirectly&#10;     + localUsage is also now a standalone procedure (subPM-localUsage)&#10;&#10;- version1.5.1&#10;     + First user submitted patch by Kate McCormack: &#10;                   Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects&#10;&#10;-version 1.5.0&#10;     + added synchronizePlugins procedure to copy plugins from the server to an agent&#10;     + fixed Email address URL in createPluginFromProject&#10;&#10;- version 1.4.5&#10;     + Use zip when jar is not available to package plugin&#10;- version 1.4.4&#10;     + Fixed Windows path issue for createPluginFromProject&#10;     + Fixed jar error not reported&#10;- version 1.4.3&#10;     + Ignored sub-steps for localUsage&#10;     + Added comparison for /server/hostIP and /server/hostName&#10;- version 1.4.2&#10;     + Updated help page&#10;- version 1.4.1&#10;     + Fixed percentage formatting&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;     + Remove project ec_tags and other meaningless properties&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
         <expandable>1</expandable>
-        <value>1.6.1</value>
+        <value>1.6.2</value>
       </property>
     </propertySheet>
     <credential>
@@ -5974,7 +6174,7 @@
     </procedure>
     <procedure>
       <procedureName>performanceMetrics</procedureName>
-      <description>Performance diagnostics for EC server and agents&#10;&#10;Changelog:&#10;--------------&#10; 08-09-2013  lrochette    Fixed bug on Free available RAM with European numbers&#10; 08-30-2013  lrochette    Added fsutil error management &#10; 08-30-2013  lrochette    Added a cleanup step for the disk performance temporary file&#10; 12-21-2013 lrochette     Added license usage information</description>
+      <description>Performance diagnostics for EC server and agents&#10;&#10;Changelog:&#10;--------------&#10; 08-09-2013  lrochette    Fixed bug on Free available RAM with European numbers&#10; 08-30-2013  lrochette    Added fsutil error management &#10; 08-30-2013  lrochette    Added a cleanup step for the disk performance temporary file&#10; 12-21-2013  lrochette    Added license usage information&#10; 04-16-2014  lrochette    Fixed subprocedure call to myProject instead of a fixed call&#10; 04-18-2014  lrochette    Fixed with resource default  workspace not being used in dynamic steps</description>
       <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
@@ -6350,7 +6550,7 @@
         <releaseMode>none</releaseMode>
         <resourceName></resourceName>
         <subprocedure>subPM-deploymentSize</subprocedure>
-        <subproject>EC-Admin</subproject>
+        <subproject>$[/myProject/projectName]</subproject>
         <timeLimit></timeLimit>
         <timeLimitUnits>minutes</timeLimitUnits>
         <workspaceName></workspaceName>
@@ -6370,7 +6570,7 @@
         <releaseMode>none</releaseMode>
         <resourceName></resourceName>
         <subprocedure>subPM-localUsage</subprocedure>
-        <subproject>EC-Admin</subproject>
+        <subproject>$[/myProject/projectName]</subproject>
         <timeLimit></timeLimit>
         <timeLimitUnits>minutes</timeLimitUnits>
         <workspaceName></workspaceName>
@@ -6378,12 +6578,12 @@
           <property>
             <propertyName>debugMode</propertyName>
             <expandable>1</expandable>
-            <value>$[debugMode]</value>
+            <value>0</value>
           </property>
           <property>
             <propertyName>number</propertyName>
             <expandable>1</expandable>
-            <value>$[numberOfJobSteps]</value>
+            <value>5000</value>
           </property>
         </actualParameters>
         <propertySheet>
@@ -7531,7 +7731,7 @@
         <timeLimit>10</timeLimit>
         <timeLimitUnits>minutes</timeLimitUnits>
         <workingDirectory></workingDirectory>
-        <workspaceName></workspaceName>
+        <workspaceName>$[/javascript ("$[/resources/$[resource]/workspaceName]" == "")?"default": "$[/resources/$[resource]/workspaceName]"; ]</workspaceName>
         <propertySheet>
         </propertySheet>
       </step>
