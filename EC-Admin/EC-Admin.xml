@@ -16,12 +16,12 @@
               <property>
                 <propertyName>image</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/834705/images/custom79bea1fc14569c674eb1.png</value>
+                <value>/commander/jobSteps/940270/images/custom540f6193145acb76c5a1.png</value>
               </property>
               <property>
                 <propertyName>link</propertyName>
                 <expandable>1</expandable>
-                <value>/commander/jobSteps/834705/Performance Report.html</value>
+                <value>/commander/jobSteps/940270/Performance Report.html</value>
               </property>
             </propertySheet>
           </property>
@@ -265,6 +265,206 @@
                     <propertyName>reportDate</propertyName>
                     <expandable>1</expandable>
                     <value>2014-04-18 02:01:27</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>108968</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>876280</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>876280</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-20 02:02:10</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>111500</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>901727</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>901727</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-22 02:01:52</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>113032</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>917120</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>917120</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-23 02:02:24</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+            </propertySheet>
+          </property>
+          <property>
+            <propertyName>115104</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>Performance Report_L2</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>940270</value>
+                  </property>
+                  <property>
+                    <propertyName>reportType</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report</value>
+                  </property>
+                  <property>
+                    <propertyName>reportUrl</propertyName>
+                    <expandable>1</expandable>
+                    <value>Performance Report.html</value>
+                  </property>
+                </propertySheet>
+              </property>
+              <property>
+                <propertyName>Performance Report_L3</propertyName>
+                <propertySheet>
+                  <property>
+                    <propertyName>jobStepId</propertyName>
+                    <expandable>1</expandable>
+                    <value>940270</value>
+                  </property>
+                  <property>
+                    <propertyName>reportDate</propertyName>
+                    <expandable>1</expandable>
+                    <value>2014-04-29 02:00:31</value>
                   </property>
                   <property>
                     <propertyName>reportType</propertyName>
@@ -3256,12 +3456,6 @@
         <value># Data that drives the create step picker registration for this plugin.&#10;my %acquireSemaphore = ( &#10;  label       =&gt; "EC-Admin - acquireSemaphore", &#10;  procedure   =&gt; "acquireSemaphore", &#10;  description =&gt; "Acquire a token in order to limit access to a set of procedures.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %artifactsCleanup = ( &#10;  label       =&gt; "EC-Admin - artifactsCleanup", &#10;  procedure   =&gt; "artifactsCleanup", &#10;  description =&gt; "Delete old artifacts and clean caches.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %artifactsCleanup_byQuantity = ( &#10;  label       =&gt; "EC-Admin - artifactsCleanup_byQuantity", &#10;  procedure   =&gt; "artifactsCleanup_byQuantity", &#10;  description =&gt; "Delete old artifacts and clean caches.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %createPluginFromProject = ( &#10;  label       =&gt; "EC-Admin - createPluginFromProject", &#10;  procedure   =&gt; "createPluginFromProject", &#10;  description =&gt; "Transform a project into a plugin", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %deleteObjects = ( &#10;  label       =&gt; "EC-Admin - deleteObjects", &#10;  procedure   =&gt; "deleteObjects", &#10;  description =&gt; "A procedure to quickly delete jobs or workflows older than a specified number of days. It will NOT delete associated workspace job directories.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %deleteWorkspaceOrphans = ( &#10;  label       =&gt; "EC-Admin - deleteWorkspaceOrphans", &#10;  procedure   =&gt; "deleteWorkspaceOrphans", &#10;  description =&gt; "Procedure to crawl a workspace directory to find orphan jobs (directories without a matching job)", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %jobCleanup_byResult = ( &#10;  label       =&gt; "EC-Admin - jobCleanup_byResult", &#10;  procedure   =&gt; "jobCleanup_byResult", &#10;  description =&gt; "Delete jobs and the associated workspace based on  result: keeping X goods/warning, and Y failed&#10;Report the number of jobs, the disk space and database space that could/was be deleted.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %jobsCleanup = ( &#10;  label       =&gt; "EC-Admin - jobsCleanup", &#10;  procedure   =&gt; "jobsCleanup", &#10;  description =&gt; "Delete jobs older than a number of days, along with the associated workspace.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %performanceMetrics = ( &#10;  label       =&gt; "EC-Admin - performanceMetrics", &#10;  procedure   =&gt; "performanceMetrics", &#10;  description =&gt; "Performance diagnostics for EC server and agents.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %releaseSemaphore = ( &#10;  label       =&gt; "EC-Admin - releaseSemaphore", &#10;  procedure   =&gt; "releaseSemaphore", &#10;  description =&gt; "Procedure to release the token.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %saveAllObjects = ( &#10;  label       =&gt; "EC-Admin - saveAllObjects", &#10;  procedure   =&gt; "saveAllObjects", &#10;  description =&gt; "This procedure brings a finer granularity to a full server export. For example to retrieve an object after a wrong action or a bad code change. By default it exports projects and each procedure individually. In addition by enabling the matching checkboxes, you can also export resources, resource pools, workspaces, users and groups.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %saveProjects = ( &#10;  label       =&gt; "EC-Admin - saveProjects", &#10;  procedure   =&gt; "saveProjects", &#10;  description =&gt; "a framework to export projects.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %synchronizePlugins = ( &#10;  label       =&gt; "EC-Admin - synchronizePlugins", &#10;  procedure   =&gt; "synchronizePlugins", &#10;  description =&gt; "A procedure to synchronize plugins between the server and a resource. Plugins are uploaded first as artifacts and downloaded on the resource if it does not already exist.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;my %workflowCleanup = ( &#10;  label       =&gt; "EC-Admin - workflowCleanup", &#10;  procedure   =&gt; "workflowCleanup", &#10;  description =&gt; "Delete workflows older than a number of days.&#10;Report the number of workflows.", &#10;  category    =&gt; "Administration" &#10;);&#10;&#10;@::createStepPickerSteps = (\%acquireSemaphore, \%artifactsCleanup, \%artifactsCleanup_byQuantity, \%createPluginFromProject, \%deleteObjects, \%deleteWorkspaceOrphans, \%jobCleanup_byResult, \%jobsCleanup, \%performanceMetrics, \%releaseSemaphore, \%saveAllObjects, \%saveProjects, \%synchronizePlugins, \%workflowCleanup);&#10;</value>
       </property>
       <property>
-        <propertyName>ec_visibility</propertyName>
-        <description></description>
-        <expandable>1</expandable>
-        <value>all</value>
-      </property>
-      <property>
         <propertyName>help</propertyName>
         <description>Help page for the plugin version</description>
         <expandable>1</expandable>
@@ -3277,11 +3471,11 @@
         <propertyName>pluginBuildNumber</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>22</value>
+        <value>27</value>
       </property>
       <property>
         <propertyName>version</propertyName>
-        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.6.2&#10;     +   Fixed with resource default  workspace not being used in dynamic steps in performanceMetrics&#10;     +   Fixed subprocedure call to myProject instead of a fixed call to EC-Admin in performanceMetrics&#10;&#10;- version 1.6.1&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.6.0&#10;     + increased perlHeaderJson length to exactly 20 lines&#10;     + add a procedure subPM-deploymentSize to calculate Commander environment size&#10;&#10;- version1.5.2&#10;     + Rewrote localUsage to access jobStepsDirectly&#10;     + localUsage is also now a standalone procedure (subPM-localUsage)&#10;&#10;- version1.5.1&#10;     + First user submitted patch by Kate McCormack: &#10;                   Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects&#10;&#10;-version 1.5.0&#10;     + added synchronizePlugins procedure to copy plugins from the server to an agent&#10;     + fixed Email address URL in createPluginFromProject&#10;&#10;- version 1.4.5&#10;     + Use zip when jar is not available to package plugin&#10;- version 1.4.4&#10;     + Fixed Windows path issue for createPluginFromProject&#10;     + Fixed jar error not reported&#10;- version 1.4.3&#10;     + Ignored sub-steps for localUsage&#10;     + Added comparison for /server/hostIP and /server/hostName&#10;- version 1.4.2&#10;     + Updated help page&#10;- version 1.4.1&#10;     + Fixed percentage formatting&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;     + Remove project ec_tags and other meaningless properties&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
+        <description>Version of the EC-Admin project&#10;&#10;History:&#10;- version 1.6.2&#10;     +   Fixed with resource default  workspace not being used in dynamic steps in performanceMetrics&#10;     +   Fixed subprocedure call to myProject instead of a fixed call to EC-Admin in performanceMetrics&#10;     +  Fixed ec_visbility in createPluginFromProject&#10;&#10;- version 1.6.1&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.6.0&#10;     + increased perlHeaderJson length to exactly 20 lines&#10;     + add a procedure subPM-deploymentSize to calculate Commander environment size&#10;&#10;- version1.5.2&#10;     + Rewrote localUsage to access jobStepsDirectly&#10;     + localUsage is also now a standalone procedure (subPM-localUsage)&#10;&#10;- version1.5.1&#10;     + First user submitted patch by Kate McCormack: &#10;                   Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects&#10;&#10;-version 1.5.0&#10;     + added synchronizePlugins procedure to copy plugins from the server to an agent&#10;     + fixed Email address URL in createPluginFromProject&#10;&#10;- version 1.4.5&#10;     + Use zip when jar is not available to package plugin&#10;- version 1.4.4&#10;     + Fixed Windows path issue for createPluginFromProject&#10;     + Fixed jar error not reported&#10;- version 1.4.3&#10;     + Ignored sub-steps for localUsage&#10;     + Added comparison for /server/hostIP and /server/hostName&#10;- version 1.4.2&#10;     + Updated help page&#10;- version 1.4.1&#10;     + Fixed percentage formatting&#10;- version 1.4.0&#10;     + Add localUsage statistics in performanceMetrics&#10;     + Remove project ec_tags and other meaningless properties&#10;&#10;- version 1.3.9&#10;     + Added a time limit for performanceMetric&#10;&#10;- version 1.3.8&#10;     + Fixed ec_visbility  bugs in createPluginFromProject&#10;     + Fixed descriptionForPlugin  bug in createPluginFromProject&#10;     + Fixed several procedure descriptions for the plugin&#10;     + Added help about project level properties for createPluginFromProject&#10;     +  Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject&#10;&#10;- version 1.3.7&#10;    + removed jobId references in preparation of EC 5.0&#10;    + added artifactsCleanup_byQuantity t clean AV but keep at least X.&#10;&#10;- version 1.3.6&#10;    +  saveProject:&#10;        o Add chmod after directory creation for cases when server service and server agent service users are different.&#10;    + Added saveAllObjects procedure to export a bunch of objects individually for finer granularity in the backup&#10;    + Completed the plugin help&#10;    + Added license usage information in performanceMetrics&#10;    + Added a sort to deleteObjects to prevent job range overlapping.&#10;&#10;- version 1.3.5&#10;    + Added automatic performance charting&#10;    + Bug fixes&#10;    + Also available as a plugin.&#10;    +  jobsCleanup and jobCleanup_byResult:&#10;         o Add a parameter to skip the computation of the disk space used; to speed up the job&#10;    + Semaphore&#10;         o Added a local job counter to decrement the global gate value. Useful when aborting a job.&#10;           Simply a step that "always run" that will decrement your global gate by /myJob/localSemaphoreCounter&#10;    + createPluginFromProject &#10;         o Added to automatically create a plugin from a project&#10;&#10;- version 1.3.4&#10;    + Better resource management for artifactsCleanup and cleanupRepository&#10;    + perforrmanceMetrics:&#10;          o  Fix bug on Free available RAM with European numbers&#10;          o  Add error management on fsutil call (Windows)&#10;          o  Add a cleanup step for temporary file used in Disk Performance&#10;    + Refactor jobCleanup_byResult to include Workflow and schedule jobs&#10;       Add time parameter&#10;    + Add compareVersion in the PerlLib to compare number strings like x.y.z....&#10;&#10;- version 1.3.3&#10;    + Added getPS() function in perlLib (JSON and XML format)&#10;    + Added ec_parameterForm to artifactsCleanup to give it the same look and feel than jobCleanup&#10;    + Took advantage of createJobStep to simplify  artifactsCleanup&#10;&#10;- version 1.3.2&#10;    + Added "available disk space" information in performanceMetrics procedure&#10;    + Fixed bug with getP()&#10;    + Added Perl header and library for JSON format&#10;    + Added new parameters for saveProjects (relocatable, ACLs and notifiers)&#10;&#10;- version 1.3.1:&#10;    + Added "available memory" information in performanceMetrics procedure&#10;&#10;- version 1.3:&#10;    + New procedure to delete jobs by results&#10;    + New parameter to cleanupJobs to skip jobs matching a pattern&#10;&#10;- version 1.2:  &#10;    + New  performance diagnostic procedure&#10;    + provide a getP Perl function for easy getProperty&#10;    + New procedure to delete workspace orphan job directories&#10;&#10;- version 1.1: &#10;      semaphore management&#10;      saveProjects&#10;&#10;- version 1.0: &#10;      initial version including job and artifact management</description>
         <expandable>1</expandable>
         <value>1.6.2</value>
       </property>
@@ -4119,7 +4313,7 @@
     </procedure>
     <procedure>
       <procedureName>createPluginFromProject</procedureName>
-      <description>Create a plugin from a simple project&#10;&#10;Changelog:&#10;--------------&#10;&#10;2014-03-11  lrochette   Fixed jar error not reported&#10;                                      Fixed Windows path issue for&#10;                                      Use zip when jar is not available to package plugin&#10;2014-01-31  lrochette   Fixed descriptionForPlugin bug&#10;2014-01-26  lrochette   Fixed ec_visbility  (pickListOnly)&#10;2014-02-04  lrochette   Fixed problem with ec_setup and procedure names with dot (".")&#10;2014-04-02  lrochette   Fixed problem with ec_setup and procedure names with dot (".")</description>
+      <description>Create a plugin from a simple project&#10;&#10;Changelog:&#10;--------------&#10;&#10;2014-03-11  lrochette   Fixed jar error not reported&#10;                                      Fixed Windows path issue for&#10;                                      Use zip when jar is not available to package plugin&#10;2014-01-31  lrochette   Fixed descriptionForPlugin bug&#10;2014-01-26  lrochette   Fixed ec_visbility  (pickListOnly)&#10;2014-02-04  lrochette   Fixed problem with ec_setup and procedure names with dot (".")&#10;2014-04-02  lrochette   Fixed problem with ec_setup and procedure names with dot (".")&#10;2014-04-29  lrochette   Fixed ec_visbility</description>
       <jobNameTemplate>$[/myProject/scripts/jobTemplate]</jobNameTemplate>
       <resourceName></resourceName>
       <timeLimit></timeLimit>
@@ -4430,9 +4624,9 @@
         <stepName>setProjectProperty-ec_visbility</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;if ( $[/javascript (typeof("projects.$[Project].ec_visibility") == "undefined") ?"1":"0" ] ) {&#10;  $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;  $ec-&gt;deleteProperty("/projects/$[Project]/ec_visibility");&#10;}&#10;&#10;</command>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;&#10;if ( $[/javascript (typeof(projects . getProperty(myJob.Project) . ec_visibility) == "undefined") ?"1":"0" ] ) {&#10;  $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;} else {&#10;   print "false";&#10;   }</command>
         <condition></condition>
-        <description>set the right properties to be able to see the project in the picketList</description>
+        <description>set the right properties to be able to see the project in the picketList&#10;&#10;$ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;&#10;$ec-&gt;setProperty("/myCall/ecVisibility",  $[ /javascript getProperty(projects.[$[Project]].ec_visibility) ] );</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
@@ -4570,6 +4764,29 @@
         <broadcast>0</broadcast>
         <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $plugin="$[Plugin]";&#10;my $version="$[/myJob/Version]";&#10;&#10;if ($plugin eq "") {&#10;  $plugin="$[Project]";&#10;}&#10;&#10;printf("Promoting plugin '$plugin-$version'\n");&#10;$ec-&gt;promotePlugin("$plugin-$version");&#10;$ec-&gt;setProperty("summary", "$plugin-$version promoted");</command>
         <condition>$[/javascript "$[promotePlugin]" == "true" ]</condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+      <step>
+        <stepName>restore-ec_visibility</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;$ec-&gt;deleteProperty("/projects/$[Project]/ec_visibility");&#10;if ( $[/javascript (typeof(myCall.ecVisibility) != "undefined") ?"1":"0" ] ) {&#10;   printf("Restoring ec_visibility\n");&#10;   $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", $[/javascript getProperty(myCall.ecVisibility) ]);&#10;}&#10;</command>
+        <condition></condition>
         <description></description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
@@ -6836,6 +7053,216 @@
         <command>$[/myProject/scripts/perlHeader]&#10;&#10;my $xPath = $ec-&gt;incrementProperty("$[semaphoreProperty]", -1);&#10;my $semaphore = $xPath-&gt;findvalue('//value')-&gt;string_value;&#10;$ec-&gt;setProperty("summary", "semaphore = $semaphore");&#10;&#10;# Decrement local counter as well&#10;my $xPath = $ec-&gt;incrementProperty("/myJob/localSemaphoreCounter", -1);&#10;</command>
         <condition></condition>
         <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusiveMode>none</exclusiveMode>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <precondition></precondition>
+        <releaseMode>none</releaseMode>
+        <resourceName></resourceName>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+        </propertySheet>
+      </step>
+    </procedure>
+    <procedure>
+      <procedureName>removeParameterFromCall</procedureName>
+      <description>This procedure parse all the projects, procedures and steps to remove a parameter from the call. To be used after it has been removed from a procedure.</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName></resourceName>
+      <timeLimit></timeLimit>
+      <timeLimitUnits>minutes</timeLimitUnits>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>debug</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>delete</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>true</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>false</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>param</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>parameter</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>parameter_Name</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>procedure</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>procedure_Name</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>project</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>project_Name</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+        <property>
+          <propertyName>ec_parameterForm</propertyName>
+          <description></description>
+          <expandable>1</expandable>
+          <value>&lt;editor&gt; &#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Project&lt;/label&gt;    &#10;        &lt;property&gt;project_Name&lt;/property&gt;    &#10;        &lt;documentation&gt;The name of the project&lt;/documentation&gt; &#10;        &lt;type&gt;project&lt;/type&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Procedure&lt;/label&gt;    &#10;        &lt;property&gt;procedure_Name&lt;/property&gt;    &#10;        &lt;documentation&gt;The name of the procedure for which you have deleted a parameter&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Pramater&lt;/label&gt; &#10;        &lt;property&gt;parameter_Name&lt;/property&gt; &#10;        &lt;documentation&gt;The name of the parameter you have deleted from the procedure above.&lt;/documentation&gt; &#10;        &lt;type&gt;entry&lt;/type&gt; &#10;        &lt;required&gt;1&lt;/required&gt;&#10;    &lt;/formElement&gt;  &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Delete&lt;/label&gt;    &#10;        &lt;property&gt;delete&lt;/property&gt; &#10;        &lt;documentation&gt;If this option is not set, only report is done. No parameter is deleted from any sub-procedure call&lt;/documentation&gt; &#10;        &lt;type&gt;select&lt;/type&gt;    &#10;        &lt;option&gt; &#10;            &lt;name&gt;Report&lt;/name&gt; &#10;            &lt;value&gt;false&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;option&gt; &#10;            &lt;name&gt;Delete&lt;/name&gt; &#10;            &lt;value&gt;true&lt;/value&gt; &#10;        &lt;/option&gt; &#10;        &lt;value&gt;false&lt;/value&gt;    &#10;    &lt;/formElement&gt; &#10;&#10;    &lt;formElement&gt; &#10;        &lt;label&gt;Verbose&lt;/label&gt;	&#10;        &lt;property&gt;debug&lt;/property&gt; &#10;        &lt;documentation&gt;Check to show more details in the log.&lt;/documentation&gt; &#10;        &lt;type&gt;checkbox&lt;/type&gt;	&#10;        &lt;checkedValue&gt;true&lt;/checkedValue&gt; &#10;        &lt;uncheckedValue&gt;false&lt;/uncheckedValue&gt; &#10;        &lt;initiallyChecked&gt;1&lt;/initiallyChecked&gt; &#10;        &lt;value&gt;true&lt;/value&gt;	&#10;    &lt;/formElement&gt; &#10;&#10;&lt;/editor&gt;</value>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>debug</formalParameterName>
+        <defaultValue>true</defaultValue>
+        <description></description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>checkbox</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>delete</formalParameterName>
+        <defaultValue>false</defaultValue>
+        <description></description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>checkbox</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>parameter_Name</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>The name of the parameter to remove</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>procedure_Name</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>The name of the procedure whose parameter is removed</description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>project_Name</formalParameterName>
+        <defaultValue></defaultValue>
+        <description></description>
+        <expansionDeferred>0</expansionDeferred>
+        <required>0</required>
+        <type>project</type>
+      </formalParameter>
+      <step>
+        <stepName>searchAndRemove</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/plugins[EC-Admin]/project/scripts/perlHeaderJSON]&#10;&#10;#&#10;# Parameters&#10;#&#10;my $proj="$[project_Name]";&#10;my $proc="$[procedure_Name]";&#10;my $param="$[parameter_Name]";&#10;my $DEBUG=("$[debug]" eq "true")?1:0;&#10;my $delete=("$[delete]" eq "true")?1:0;&#10;&#10;#&#10;# GlobalVariables&#10;#&#10;my $nbProj=0;			# Number of projects we checked&#10;my $nbProc=0;			# Number of procedures we checked&#10;my $nbStep=0;			# Number of steps we checked&#10;my $nbParam=0;			# Number of parameters that are/can be removed&#10;my $nbSched=0;			# Number of schedules we checked&#10;&#10;#&#10;# Loop over Projects&#10;#&#10;my ($success, $res) = InvokeCommander("SuppressLog", "getProjects");&#10;&#10;foreach my $node ($res-&gt;findnodes("//project")) {&#10;  my $projName=$node-&gt;{projectName};&#10;  my $pluginName=$node-&gt;{pluginName};&#10;&#10;	# skip plugins  &#10;	next if ($pluginName ne "");&#10;	printf("Processing %s\n", $projName) if ($DEBUG);&#10;    $nbProj++;&#10;&#10;  #&#10;  # Loop over procedures&#10;  #&#10;	my ($success, $res2) = InvokeCommander("SuppressLog", "getProcedures", $projName);&#10;	foreach my $node ($res2-&gt;findnodes("//procedure")) {&#10;		my $procName=$node-&gt;{procedureName};&#10;		printf("    procedure: %s\n", $procName) if ($DEBUG);&#10;		$nbProc++;&#10;    #&#10;    # Loop over steps&#10;    #&#10;    my ($success, $res3) = InvokeCommander("SuppressLog", "getSteps", $projName, $procName);&#10;    foreach my $node ($res3-&gt;findnodes("//step")) {&#10;      my $stepName=$node-&gt;{stepName};&#10;      printf("        %s\n", $stepName) if ($DEBUG);&#10;      $nbStep++;&#10;      if ( ($node-&gt;{subprocedure} eq "$proc") &amp;&amp;&#10;            (($node-&gt;{subproject} eq $proj) ||  (($node-&gt;{subproject} eq "") &amp;&amp; ($projName eq $proj)))&#10;           ) {&#10;        #&#10;        # Process param&#10;        #&#10;        processParam($projName, $procName, $stepName, $param, {'projectName' =&gt; $projName, 'procedureName' =&gt; $procName, 'stepName' =&gt; $stepName});&#10;&#10;      }&#10;    }  # step loop&#10;  }  # procedure loop&#10;&#10;  next;&#10;  &#10;  #&#10;  # Loop over schedules&#10;  #&#10;  my ($success, $res2) = InvokeCommander("SuppressLog", "getSchedules", $projName);&#10;  foreach my $node ($res2-&gt;findnodes("//schedule")) {&#10;    my $schedName=$node-&gt;{scheduleName};&#10;    printf("    schedule: %s\n", $schedName) if ($DEBUG);&#10;    $nbSched++;&#10;&#10;      if ( ($node-&gt;{procedure} eq "$proc") &amp;&amp;&#10;            (($node-&gt;{project} eq $proj) ||  (($node-&gt;{project} eq "") &amp;&amp; ($projName eq $proj)))&#10;           ) {&#10;        #&#10;        # Process param&#10;        #&#10;        my ($ok, $res4)=InvokeCommander("SuppressLog IgnoreError", 'getActualParameter', $param, {'projectName' =&gt; $projName, 'scheduleName' =&gt; $schedName} );&#10;        if ($ok) {&#10;          $nbParam++;&#10;          printf(" Project: %s\Schedule: %s:\nStep: %s\n", $projName, $schedName);&#10;        }&#10;      }&#10;&#10;  }  # schedule loop&#10;&#10;}  # project loop&#10;&#10;printf("\n\nSummary\n");&#10;printf("Projects  : %d\n", $nbProj);&#10;printf("Procedures: %d\n", $nbProc);&#10;printf("Steps     : %d\n", $nbStep);&#10;printf("Schedules : %d\n", $nbSched);&#10;printf("Params    : %d\n", $nbParam);&#10;&#10;$ec-&gt;setProperty("summary", sprintf("Projects  : %d\nProcedures: %d\nSteps     : %d\nParams    : %d\n", &#10;					$nbProj, $nbProc, $nbStep, $nbParam));&#10;                    &#10;&#10;sub processParam {&#10;  my ($projName, $procName, $stepName, $paramName)=@_;&#10;  &#10;  my ($ok, $res)=InvokeCommander("SuppressLog IgnoreError", 'getActualParameter', $paramName, {'projectName' =&gt; $projName, 'procedureName' =&gt; $procName, 'stepName' =&gt; $stepName} );&#10;  if ($ok) {&#10;    $nbParam++;&#10;    # printf(" Project: %s\nProcedure: %s:\nStep: %s\n", $projName, $procName, $stepName);&#10;&#10;    if ($delete) {&#10;      ($ok, $res)=InvokeCommander("SuppressLog", 'deleteActualParameter', $projName, $procName, $stepName, $paramName );&#10;      if ($ok) {&#10;        printf("      **** Deleted ***\n");&#10;      }&#10;    }&#10;  }&#10;}&#10;&#10;$[/plugins[EC-Admin]/project/scripts/perlLibJSON]&#10;</command>
+        <condition>0 &amp;&amp; Not Ready</condition>
+        <description>Process all non plugins projects, all procedures and steps, all schedules</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
