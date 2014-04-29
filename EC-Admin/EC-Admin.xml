@@ -3471,7 +3471,7 @@
         <propertyName>pluginBuildNumber</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>27</value>
+        <value>29</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -4624,9 +4624,9 @@
         <stepName>setProjectProperty-ec_visbility</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;&#10;if ( $[/javascript (typeof(projects . getProperty(myJob.Project) . ec_visibility) == "undefined") ?"1":"0" ] ) {&#10;  $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;} else {&#10;   print "false";&#10;   }</command>
+        <command>$[/myProject/scripts/perlHeaderJSON]&#10;&#10;my $pName="$[Plugin]";&#10;my $pCategory="$[Category]";&#10;my $project="$[Project]";&#10;&#10;&#10;if ( $[/javascript (typeof(projects . getProperty(myJob.Project) . ec_visibility) == "undefined") ?"1":"0" ] ) {&#10;  $ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;} else {&#10;   $ec-&gt;setProperty("/myCall/ecVisibility",  $[/javascript getProperty(projects.getProperty(myJob.Project).ec_visibility) ] );&#10;}</command>
         <condition></condition>
-        <description>set the right properties to be able to see the project in the picketList&#10;&#10;$ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;&#10;$ec-&gt;setProperty("/myCall/ecVisibility",  $[ /javascript getProperty(projects.[$[Project]].ec_visibility) ] );</description>
+        <description>set the right properties to be able to see the project in the picketList&#10;&#10;$ec-&gt;setProperty("/projects/$[Project]/ec_visibility", "pickListOnly");&#10;&#10;</description>
         <errorHandling>failProcedure</errorHandling>
         <exclusiveMode>none</exclusiveMode>
         <logFileName></logFileName>
