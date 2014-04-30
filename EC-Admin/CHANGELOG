@@ -28,7 +28,7 @@
   * EC-Admin.jar & EC-Admin.xml: new version 1.5.1.17
      + First user submitted patch by Kate McCormack:
        Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects 
-=======
+
 2014-04-03 Laurent Rochette <lrochette@electric-cloud.com>
   * EC-Admin.jar & EC-Admin.xml: new version 1.6.1
      + Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject
