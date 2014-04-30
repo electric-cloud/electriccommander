@@ -1,4 +1,53 @@
-2013-03-10 Laurent Rochette <lrochette@electric-cloud.com>
+
+2014-04-30 Laurent Rochette <lrochette@electric-cloud.com>
+
+ * EC-Admin.jar & EC-Admin.xml: new version 1.7.0
+     + Added step to fix self refence to project in createPluginFromProject
+     
+2014-04-29 Laurent Rochette <lrochette@electric-cloud.com>
+
+ * EC-Admin.jar & EC-Admin.xml: new version 1.6.2
+     + Fixed with resource default workspace not being used in dynamic steps in performanceMetrics
+     + Fixed subprocedure call to myProject instead of a fixed call to EC-Admin in performanceMetrics
+     + Fixed ec_visbility in createPluginFromProject
+
+2014-04-03 Laurent Rochette <lrochette@electric-cloud.com>
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.6.1
+     + Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.6.0
+     + increased perlHeaderJson length to exactly 20 lines
+     + add a procedure subPM-deploymentSize to calculate Commander environment size
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.5.2
+     + Rewrote localUsage to access jobStepsDirectly
+     + localUsage is also now a standalone procedure (subPM-localUsage)
+
+2014-03-18 Laurent Rochette <lrochette@electric-cloud.com>
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.5.1.17
+     + First user submitted patch by Kate McCormack:
+       Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects 
+
+2014-03-12 Laurent Rochette <lrochette@electric-cloud.com>
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.5.0
+     + added synchronizePlugins
+     + fixed Email address URL in createPluginFromProject
+
+2014-03-11 Laurent Rochette <lrochette@electric-cloud.com>
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.4.6
+     + Added buildNumber to Version
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.4.5
+     + Use zip when jar is not available to package plugin
+
+  * EC-Admin.jar & EC-Admin.xml: new version 1.4.4
+     + Fixed issues with createPluginFromProject on Windows
+
+2014-03-10 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.4.3
      + Ignored sub-steps for localUsage
@@ -15,7 +64,7 @@
      + Added a time limit for performanceMetric
 
 
-2013-02-24 Laurent Rochette <lrochette@electric-cloud.com>
+2014-02-24 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.3.8
     + removed jobId references in preparation of EC 5.0
