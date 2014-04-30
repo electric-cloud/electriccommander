@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="45" buildLabel="build_3.8_38764_OPT_2011.02.06_22:05:21" buildVersion="3.8.1.38764" passkey="64655ae3dae5025f42900b094ec58d0de7c03e43">
+  <exportPath>/projects/ecdoc-1.1</exportPath>
+  <project>
+    <projectName>ecdoc-1.1</projectName>
+    <description>Plugin to generate project/procedure documentation, including required/optional parameters. Similar output to javadoc.</description>
+    <workspaceName></workspaceName>
+    <propertySheet>
+      <property>
+        <propertyName>ec_visibility</propertyName>
+        <description></description>
+        <expandable>1</expandable>
+        <value>pickListOnly</value>
+      </property>
+    </propertySheet>
+    <procedure>
+      <procedureName>Generate Documentation</procedureName>
+      <description>Generate summary and details pages</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName>local</resourceName>
+      <workspaceName></workspaceName>
+      <propertySheet>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              <propertySheet>
+                <property>
+                  <propertyName>Footer</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>Header</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>Project Description</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>Project List</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                <property>
+                  <propertyName>Project Title</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+              </propertySheet>
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      <formalParameter>
+        <formalParameterName>Footer</formalParameterName>
+        <defaultValue>Copyright &amp;#x00a9; 2010</defaultValue>
+        <description>Displayed at the bottom of all pages. Typically copyright and other notices.</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>Header</formalParameterName>
+        <defaultValue>ElectricCommander&lt;br&gt;Project Documentation</defaultValue>
+        <description>Displayed at the top of all pages. Also repeated at the bottom of each page just above the footer.</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>Project Description</formalParameterName>
+        <defaultValue>This documentation is for ElectricCommander projects.</defaultValue>
+        <description>Top level description of all documented projects displayed on summary page</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>Project List</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Comma separated list of projects to document. Leave value empty to include all projects.</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <formalParameter>
+        <formalParameterName>Project Title</formalParameterName>
+        <defaultValue>ElectricCommander&lt;br&gt;Project Documentation</defaultValue>
+        <description>Title displayed on top level projects summary page</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      <step>
+        <stepName>docGen</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command># Standard header&#10;use ElectricCommander;&#10;use URI::Escape;&#10;use strict;&#10;$| = 1;&#10;&#10;# Create Commander object&#10;my $ec = new ElectricCommander();&#10;my $jobId = "$[/myJob/jobId]";&#10;my $workspace = "$[/myJobStep/workspaceName]";&#10;my $artifactsDir = "artifacts";&#10;&#10;# Store parameters as variables&#10;my $projectList = "$[Project List]";&#10;my $projectTitle = "$[Project Title]";&#10;my $projectDescription = "$[Project Description]";&#10;my $header = "$[header]";&#10;my $footer = "$[footer]";&#10;&#10;# Output file names&#10;my $ecDocReport = "ecdoc.html";&#10;my $projectSummary = "project-summary.html";&#10;&#10;# Use comma separated list; if empty then get all projects&#10;print "Creating project documentation\n";&#10;print "==============================\n\n";&#10;my @projects;&#10;if ("$projectList" eq "") {&#10;    # Get all projects&#10;    print "Creating documentation for all projects\n";&#10;    my $xPath = $ec-&gt;getProjects();&#10;    my $nodeset = $xPath-&gt;find('//project');&#10;    foreach my $node ($nodeset-&gt;get_nodelist) {&#10;        # Push onto project list array&#10;        my $projectName = $xPath-&gt;findvalue('projectName', $node);&#10;        push (@projects, $projectName);&#10;    }&#10;} else {&#10;   print "Creating documentation for the following specified projects:\n";&#10;   @projects = split (",", "$projectList");&#10;   print "@projects\n";&#10;}&#10;print "\n";&#10;&#10;###################################################&#10;# Create top level projects page&#10;###################################################&#10;&#10;# Store pages in artifacts directory for easy access via "links" section report-urls&#10;mkdir "$artifactsDir", 0755;&#10;&#10;print "Creating projects summary page\n";&#10;open (PROJECTS_SUMMARY, "&gt; $artifactsDir/$ecDocReport");&#10;&#10;print PROJECTS_SUMMARY qq{&#10;&lt;html&gt;&#10;&lt;body&gt;&#10;&#10;&lt;hr&gt;&#10;&#10;&lt;table border="0" width="100%" cellpadding="1" cellspacing="0"&gt;&#10;&lt;tr&gt;&#10;&lt;TD ALIGN="right" VALIGN="top" ROWSPAN=3&gt;&lt;EM&gt;&#10;&lt;b&gt;$header&lt;/b&gt;&lt;/EM&gt; &lt;/TD&gt;&#10;&lt;/TR&gt;&#10;&#10;&lt;table&gt;&#10;&#10;&lt;hr&gt;&#10;&#10;&lt;CENTER&gt;&#10;&lt;H1&gt;&#10;$projectTitle&#10;&lt;/H1&gt;&#10;&lt;/CENTER&gt;&#10;&#10;$projectDescription&#10;&#10;&lt;p&gt;&#10;&#10;&lt;TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0"&gt;&#10; &lt;tr&gt;&#10; &lt;TR BGCOLOR="#CCCCFF" &gt;&#10; &lt;TH ALIGN="left" COLSPAN="2"&gt;&lt;FONT SIZE="+2"&gt;&#10;       &lt;b&gt;Projects&lt;/b&gt;&#10; &lt;/tr&gt;&#10;};&#10;&#10;foreach my $project (@projects) {&#10;   # Make sure to strip any leading or trailing spaces&#10;   $project =~ s/^\s+//; #remove leading spaces&#10;   $project =~ s/\s+$//; #remove trailing spaces&#10;&#10;   # Escape any characters necessary for proper URI&#10;   my $uriEscapedProjectName = uri_escape("$project");&#10;&#10;   # Get project description&#10;   my $xPath = $ec-&gt;getProject("$project");&#10;   my $description = $xPath-&gt;find('//description');&#10;   if ("$description" eq "") {&#10;      $description = q{&amp;nbsp;};&#10;   }&#10;&#10;print PROJECTS_SUMMARY qq{&#10;         &lt;tr&gt;&#10;            &lt;td width="20%"&gt;&#10;              &lt;a href="$uriEscapedProjectName/project-summary.html"&gt;$project&lt;/a&gt;&#10;            &lt;/td&gt;&#10;            &lt;td&gt;$description&lt;/td&gt;&#10;         &lt;/tr&gt;&#10;};&#10;}&#10;&#10;print PROJECTS_SUMMARY qq{&#10;&lt;/table&gt;&#10;&#10;&lt;p&gt;&#10;&lt;hr&gt;&#10;&lt;TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0"&gt;&#10;&lt;tr&gt;&#10;&lt;TD ALIGN="right" VALIGN="top" ROWSPAN=3&gt;&lt;EM&gt;&#10;&lt;b&gt;$header&lt;/b&gt;&lt;/EM&gt; &lt;/TD&gt;&#10;&lt;/TR&gt;&#10;&#10;&lt;table&gt;&#10;&#10;&lt;hr&gt;&#10;&#10;&lt;font size="-1"&gt; $footer &lt;/font&gt;&#10;&#10;&lt;/body&gt;&#10;&lt;/html&gt;&#10;};&#10;&#10;close(PROJECTS_SUMMARY);&#10;&#10;###################################################&#10;# Create project summary page (lists all procedures)&#10;###################################################&#10;&#10;foreach my $project (@projects) {&#10;   mkdir "$artifactsDir/$project", 0755;&#10;&#10;   # Get project description&#10;   my $xPath = $ec-&gt;getProject("$project");&#10;   my $description = $xPath-&gt;find('//description');&#10;   if ("$description" eq "") {&#10;      $description = q{&amp;nbsp;};&#10;   }&#10;&#10;   print "\n==================================================================================\n";&#10;   print "\nCreating procedure summary page for project '$project'\n\n";&#10;   open (PROJECT_SUMMARY, "&gt; $artifactsDir/$project/$projectSummary");&#10;   &#10;print PROJECT_SUMMARY qq {&#10;&lt;html&gt;&lt;head&gt;&#10;&lt;meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"&gt;&lt;/head&gt;&lt;body&gt;&#10;&lt;hr&gt;&#10;&lt;TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0"&gt;&#10;&lt;tr&gt;&#10;&lt;TD ALIGN="right" VALIGN="top" ROWSPAN=3&gt;&lt;EM&gt;&#10;&lt;b&gt;$header&lt;/b&gt;&lt;/EM&gt; &lt;/TD&gt;&#10;&lt;/TR&gt;&#10;&#10;&lt;table&gt;&#10;&#10;&lt;hr&gt;&#10;&#10;&lt;h2&gt;Project: $project&lt;/h2&gt;&#10;&#10;&lt;p&gt;&#10;$description&#10;&lt;/p&gt;&#10;&#10;&lt;TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0"&gt;&#10;&lt;tbody&gt;&#10;&lt;tr&gt; &#10;&lt;TR BGCOLOR="#CCCCFF" &gt;&#10;&lt;TH ALIGN="left" COLSPAN="2"&gt;&lt;FONT SIZE="+2"&gt;&#10;      &lt;b&gt;Procedure Summary&lt;/b&gt;&#10;&lt;/tr&gt;&#10;};&#10;&#10;   # Find procedures in the project&#10;   my $xPath = $ec-&gt;getProcedures("$project");&#10;   my $nodeset = $xPath-&gt;find('//procedure');&#10;   foreach my $node ($nodeset-&gt;get_nodelist) {&#10;      my $procedureName = $xPath-&gt;findvalue('procedureName', $node);&#10;      my $normalizedProcedureName = "$procedureName";&#10;      $normalizedProcedureName =~ s/[\*\:\?\|\\\/\&lt;\&gt;]/_/g; # remove illegal directory chars&#10;      my $uriEscapedProcedureName = uri_escape("$normalizedProcedureName");&#10;&#10;      my $procedureDescription = $xPath-&gt;findvalue('description', $node);&#10;      if ("$procedureDescription" eq "") {&#10;         $procedureDescription = q{&amp;nbsp;};&#10;      }&#10;&#10;      # Add procedure/description to summary table&#10;print PROJECT_SUMMARY qq {&#10;&lt;tr&gt;&#10;&lt;td&gt;&#10;   &lt;a href="$uriEscapedProcedureName.html"&gt;$procedureName&lt;/a&gt;&#10;&lt;/td&gt;&#10;&#10;&lt;td&gt;&#10;$procedureDescription&#10;&lt;/td&gt;&#10;&lt;/tr&gt;&#10;};&#10;&#10;      # Also create procedure/parameter details page&#10;      print "Creating parameter details page for project '$project', procedure '$procedureName'\n";&#10;      open (PROCEDURE_DETAILS, "&gt; $artifactsDir/$project/$normalizedProcedureName.html");&#10;&#10;print PROCEDURE_DETAILS qq {&#10;&lt;html&gt;&lt;head&gt;&#10;&lt;meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"&gt;&lt;/head&gt;&lt;body&gt;&#10;&#10;&lt;hr&gt;&#10;&lt;TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0"&gt;&#10;&lt;tr&gt;&#10;&lt;TD ALIGN="right" VALIGN="top" ROWSPAN=3&gt;&lt;EM&gt;&#10;&lt;b&gt;$header&lt;/b&gt;&lt;/EM&gt; &lt;/TD&gt;&#10;&lt;/TR&gt;&#10;&#10;&lt;table&gt;&#10;&#10;&lt;hr&gt;&#10;&#10;&lt;h2&gt;Procedure: $procedureName&lt;/h2&gt;&#10;&lt;HR&gt;&#10;&#10;&lt;p&gt;&#10;$procedureDescription&#10;&lt;/p&gt;&#10;&lt;HR&gt;&#10;&lt;p&gt;&#10;&#10;&lt;TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0"&gt;&#10;&lt;tr&gt; &#10;&lt;TR BGCOLOR="#CCCCFF" &gt;&#10;&lt;TH ALIGN="left" COLSPAN="2"&gt;&lt;FONT SIZE="+2"&gt;&#10;&#10;      &lt;b&gt;Parameter Summary&lt;/b&gt;&#10;&lt;/tr&gt;&#10;};&#10;&#10;   my $xPath = $ec-&gt;getFormalParameters("$project",&#10;                                        {procedureName =&gt; "$procedureName"});&#10;   my $nodeset = $xPath-&gt;find('//formalParameter');&#10;   foreach my $node ($nodeset-&gt;get_nodelist) {&#10;      my $parameterName = $xPath-&gt;findvalue('formalParameterName', $node);&#10;      my $parameterDescription = $xPath-&gt;findvalue('description', $node);&#10;      my $parameterType = $xPath-&gt;findvalue('type', $node);&#10;&#10;print PROCEDURE_DETAILS qq {&#10;&lt;tr&gt;&#10;&lt;td align="right" valign="top" width="1%"&gt;$parameterType&lt;/td&gt;&#10;&#10;&lt;td&gt;&#10;   &lt;b&gt;&lt;a href="#$parameterName"&gt;$parameterName&lt;/a&gt;&lt;/b&gt;&#10;&lt;BR&gt;&#10;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$parameterDescription&#10;&lt;/td&gt;&#10;&lt;/tr&gt;&#10;};&#10;   }&#10;&#10;print PROCEDURE_DETAILS qq {&#10;&lt;/table&gt;&#10;&#10;&amp;nbsp;&#10;&lt;p&gt;&#10;&lt;TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0"&gt;&#10;&lt;TR BGCOLOR="#CCCCFF"&gt;&#10;&lt;TH ALIGN="left" COLSPAN="1"&gt;&lt;FONT SIZE="+2"&gt;&#10;&lt;B&gt;Parameter Details&lt;/B&gt;&lt;/FONT&gt;&lt;/TH&gt;&#10;&lt;/TR&gt;&#10;&lt;/TABLE&gt;&#10;};&#10;&#10;   my $xPath = $ec-&gt;getFormalParameters("$project",&#10;                                        {procedureName =&gt; "$procedureName"});&#10;   my $nodeset = $xPath-&gt;find('//formalParameter');&#10;   foreach my $node ($nodeset-&gt;get_nodelist) {&#10;      my $parameterName = $xPath-&gt;findvalue('formalParameterName', $node);&#10;      my $parameterDescription = $xPath-&gt;findvalue('description', $node);&#10;      my $parameterType = $xPath-&gt;findvalue('type', $node);&#10;      my $parameterDefault = $xPath-&gt;findvalue('defaultValue', $node);&#10;      if ("$parameterDefault" eq "") {&#10;          $parameterDefault = q{&lt;i&gt;none&lt;/i&gt;};&#10;      }&#10;      my $parameterRequired = $xPath-&gt;findvalue('required', $node);&#10;      if ("$parameterRequired" eq "1") {&#10;          $parameterRequired = "Yes";&#10;      } else {&#10;          $parameterRequired = "No";&#10;      }&#10;&#10;print PROCEDURE_DETAILS qq {&#10;&lt;a name="$parameterName"&gt;&lt;/a&gt; &lt;h3&gt;$parameterName&lt;/h3&gt;&#10;&lt;DL&gt;&#10;&lt;DD&gt;$parameterDescription&#10;&lt;P&gt;&#10;&#10;&lt;DD&gt;&#10;&lt;DL&gt;&#10;&lt;DT&gt;&lt;B&gt;Type:&lt;/B&gt;&#10;   &lt;DD&gt;$parameterType&#10;&lt;DT&gt;&lt;B&gt;Default:&lt;/B&gt;&#10;   &lt;DD&gt;$parameterDefault&#10;&lt;DT&gt;&lt;B&gt;Required:&lt;/B&gt;&#10;   &lt;DD&gt;$parameterRequired&#10;&lt;/DL&gt;&#10;&lt;/DD&gt;&#10;&lt;/DL&gt;&#10;&lt;HR&gt;&#10;};&#10;   }&#10;&#10;print PROCEDURE_DETAILS qq {&#10;&lt;TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0"&gt;&#10;&lt;tr&gt;&#10;&lt;TD ALIGN="right" VALIGN="top" ROWSPAN=3&gt;&lt;EM&gt;&#10;&lt;b&gt;$header&lt;/b&gt;&lt;/EM&gt; &lt;/TD&gt;&#10;&lt;/TR&gt;&#10;&#10;&lt;table&gt;&#10;&#10;&lt;hr&gt;&#10;&#10;&lt;font size="-1"&gt; $footer &lt;/font&gt;&#10;&lt;/body&gt;&lt;/html&gt;&#10;};&#10;&#10;      close PROCEDURE_DETAILS;&#10;   }&#10;&#10;print PROJECT_SUMMARY qq{&#10;&lt;/table&gt;&#10;&#10;&lt;p&gt;&#10;&lt;hr&gt;&#10;&lt;TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0"&gt;&#10;&lt;tr&gt;&#10;&lt;TD ALIGN="right" VALIGN="top" ROWSPAN=3&gt;&lt;EM&gt;&#10;&lt;b&gt;$header&lt;/b&gt;&lt;/EM&gt; &lt;/TD&gt;&#10;&lt;/TR&gt;&#10;&#10;&lt;table&gt;&#10;&#10;&lt;hr&gt;&#10;&#10;&lt;font size="-1"&gt; $footer &lt;/font&gt;&#10;&#10;&lt;/body&gt;&#10;&lt;/html&gt;&#10;};&#10;&#10;   close PROJECT_SUMMARY;&#10;}&#10;print "\n==================================================================================\n";&#10;&#10;# Create link to projects summary&#10;$ec-&gt;setProperty("/myJob/report-urls/Project Documentation",&#10;                 {value =&gt; "/commander/jobs/$jobId/$workspace/$ecDocReport",&#10;                  jobId =&gt; $ENV{COMMANDER_JOBID}});&#10;</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusive>0</exclusive>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor></postProcessor>
+        <releaseExclusive>0</releaseExclusive>
+        <resourceName></resourceName>
+        <retries>0</retries>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+    </procedure>
+  </project>
+</exportedData>

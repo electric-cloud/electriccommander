@@ -5,7 +5,7 @@
 
   <!-- Plugin-specific properties -->
   <property name="pluginKey" value="unplug" />
-  <property name="pluginVersion" value="1.8" />
+  <property name="pluginVersion" value="2.0.2" />
 
   <path id="extras">
     <!-- Add extra jars that need to be in the classpath for building the 
@@ -26,4 +26,11 @@
   <property name="gwt.path.extras" value="extras" />
 
   <import file="D:/CommanderSDK/build/buildTargets.xml" />
+
+  <target name="package.post"
+	  description="Copies the jar file to to the top level">
+    <copy overwrite="yes"
+	  file="${out.dir}/${pluginKey}.jar"
+	  toFile="./${pluginKey}-${pluginVersion}.jar"/>
+  </target>
 </project>

@@ -1,4 +1,3 @@
-
 2014-04-30 Laurent Rochette <lrochette@electric-cloud.com>
 
  * EC-Admin.jar & EC-Admin.xml: new version 1.7.0
@@ -29,11 +28,23 @@
   * EC-Admin.jar & EC-Admin.xml: new version 1.5.1.17
      + First user submitted patch by Kate McCormack:
        Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects 
+=======
+2014-04-03 Laurent Rochette <lrochette@electric-cloud.com>
+  * EC-Admin.jar & EC-Admin.xml: new version 1.6.1
+     + Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject
+     + increased perlHeaderJson length to exactly 20 lines
+     + add a procedure subPM-deploymentSize to calculate Commander environment size
+     + Rewrote localUsage to access jobStepsDirectly
+     + localUsage is also now a standalone procedure (subPM-localUsage)
+
+2014-03-18 Kate McCormack
+  * EC-Admin.jar & EC-Admin.xml: new version 1.5.1
+     + Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects
 
 2014-03-12 Laurent Rochette <lrochette@electric-cloud.com>
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.5.0
-     + added synchronizePlugins
+     + added synchronizePlugins procedure to copy plugins from the server to an agent
      + fixed Email address URL in createPluginFromProject
 
 2014-03-11 Laurent Rochette <lrochette@electric-cloud.com>
@@ -45,7 +56,8 @@
      + Use zip when jar is not available to package plugin
 
   * EC-Admin.jar & EC-Admin.xml: new version 1.4.4
-     + Fixed issues with createPluginFromProject on Windows
+     + Fixed Windows path issue for createPluginFromProject
+     + Fixed jar error not reported
 
 2014-03-10 Laurent Rochette <lrochette@electric-cloud.com>
 

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<plugin>
+  <key>ecdoc</key>
+  <version>1.1</version>
+  <label>Project Documentation Generator</label>
+  <description>Generates javadoc-like documentation for specified projects</description>
+  <vendor>Electric Cloud</vendor>
+  <depends>EC-Core</depends>
+  <help>help.xml</help>
+  <author>Electric Cloud</author>
+  <authorUrl>plugins@electric-cloud.com</authorUrl>
+  <category>Utility</category>
+</plugin>

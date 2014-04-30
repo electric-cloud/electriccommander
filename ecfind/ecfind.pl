@@ -18,7 +18,7 @@ use Getopt::Long;
 
 #---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---#
 
-$::version = '0.4i';
+$::version = '0.4j';
 $::debug   = 0;
 $|         = 1;
 
@@ -94,6 +94,16 @@ my $result = GetOptions(
         push @actions, [ "$a", $v ];
     },
     "deleteProperty=s" => sub {
+        my $a = shift;
+        my $v = shift;
+        push @actions, [ "$a", $v ];
+    },
+    "getProperty=s" => sub {
+        my $a = shift;
+        my $v = shift;
+        push @actions, [ "$a", $v ];
+    },
+    "matchProperty=s" => sub {
         my $a = shift;
         my $v = shift;
         push @actions, [ "$a", $v ];
@@ -220,7 +230,7 @@ my $xmlHeaderPrinted = 0;
 
 my $xquery = $doFull ? '/responses/response/object' : '/responses/response/objectId';
 my $objectNodeSet = $xp->find($xquery);
-foreach my $o ( $objectNodeSet->get_nodelist() ) {
+OBJECT: foreach my $o ( $objectNodeSet->get_nodelist() ) {
 
     $counter++;
 
@@ -398,6 +408,41 @@ foreach my $o ( $objectNodeSet->get_nodelist() ) {
             $::ec->abortOnError(0);
             delP( $v, $objectId ) unless ($::debug);
             $::ec->abortOnError(1);
+        }
+
+        elsif ( $a eq 'getProperty' ) {
+            $v = expandAt($v);
+            pDebug("getProperty '$v' --objectId '$objectId'");
+            $::ec->abortOnError(0);
+            my $va = getP( $v, 'false', $objectId );
+            $::ec->abortOnError(1);
+            print "$va\n";
+        }
+
+        elsif ( $a eq 'matchProperty' ) {
+            $v = expandAt($v);
+            if ( $v =~ m/^\s*(.*?)\s*([\=\!]\~.*?)$/ ) {
+                die "Error: property name must be provided in matchProperty action: \"$v\"\n"
+                  unless ($1);
+                my $pn = $1;
+                my $e  = $2;
+		my $matches = undef;
+                $::ec->abortOnError(0);
+                my $va = getP( $pn, 'false', $objectId );
+                $::ec->abortOnError(1);
+                $e = '$matches = ($va ' . $e . ')';
+                pDebug( "Eval: " . $e );
+                eval $e;
+                die "Error processing regular expression: $@\n" if ($@);
+                if ( $matches ) {
+                    pDebug("Property value matches regular expression, continuing...");
+                } else {
+                    pDebug("Property value does not match - skipping remaining actions for this object.");
+		    next OBJECT;
+                }
+            } else {
+                die "Error: syntax error in matchProperty action: \"$v\"\n";
+            }
         }
     }
 
