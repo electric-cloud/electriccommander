@@ -1,3 +1,8 @@
+2014-05-02  Laurent Rochette <lrochette@electric-cloud.com>
+
+ * EC-Admin.jar & EC-Admin.xml: new version 1.7.1
+     + Fixed location of the saved filter for RunReport_Performance_Schedule schedule
+
 2014-04-30 Laurent Rochette <lrochette@electric-cloud.com>
 
  * EC-Admin.jar & EC-Admin.xml: new version 1.7.0
@@ -30,6 +35,7 @@
        Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects 
 
 2014-04-03 Laurent Rochette <lrochette@electric-cloud.com>
+
   * EC-Admin.jar & EC-Admin.xml: new version 1.6.1
      + Fixed problem with ec_setup and procedure names with dot (".") in createPluginFromProject
      + increased perlHeaderJson length to exactly 20 lines
@@ -38,6 +44,7 @@
      + localUsage is also now a standalone procedure (subPM-localUsage)
 
 2014-03-18 Kate McCormack
+
   * EC-Admin.jar & EC-Admin.xml: new version 1.5.1
      + Adding setTimeout equal to 600 so the ec commands won't time out in saveAllObjects and saveProjects
 
