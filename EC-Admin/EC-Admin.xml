@@ -3521,7 +3521,7 @@
         <propertyName>pluginBuildNumber</propertyName>
         <description></description>
         <expandable>1</expandable>
-        <value>38</value>
+        <value>39</value>
       </property>
       <property>
         <propertyName>version</propertyName>
@@ -4901,7 +4901,7 @@
         <stepName>savePluginAsArtifactVersion</stepName>
         <alwaysRun>0</alwaysRun>
         <broadcast>0</broadcast>
-        <command>#############################################################################&#10;#&#10;#  uploadPlugins -- upload all plugins in the Artifact Repository&#10;#  Copyright 2014 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;$[/myProject/scripts/perlHeader]&#10;&#10;#&#10;# Parameters&#10;#&#10;my $plugin="$[Plugin]";&#10;my $Version="$[/myJob/Version]";&#10;if ($plugin eq "") {&#10;  $plugin="$[Project]";&#10;}&#10;&#10;#&#10;# Is this plugin already imported in an Artifact Version&#10;#&#10;my ($ok)=InvokeCommander("SuppressLog IgnoreError", 'getArtifactVersion', "plugins:$plugin:$Version");&#10;if ($ok) {&#10;	printf("\tArtifact Version already exists\n");&#10;    exit 1;    # Artifact already exist&#10;}&#10;&#10;#&#10;# Does the Artifact already exist?&#10;#&#10;($ok)=InvokeCommander("SuppressLog IgnoreError", 'getArtifact', "plugins:$plugin");&#10;if (! $ok) {&#10;	InvokeCommander("SuppressLog", 'createArtifact',&#10;		{&#10;        	groupId=&gt;"plugins", artifactKey=&gt;$plugin&#10;		}&#10;);&#10;}&#10;InvokeCommander("SuppressLog", 'publishArtifactVersion',&#10;		{&#10;        	groupId=&gt;"plugins", artifactKey=&gt;$plugin,  version=&gt;$Version,&#10;        	fromDirectory=&gt;".",&#10;            includePattern=&gt;"*.jar"&#10;		}&#10;);&#10;&#10;$[/myProject/scripts/perlLib]</command>
+        <command>#############################################################################&#10;#&#10;#  uploadPlugins -- upload all plugins in the Artifact Repository&#10;#  Copyright 2014 Electric-Cloud Inc.&#10;#&#10;#############################################################################&#10;&#10;$[/myProject/scripts/perlHeader]&#10;&#10;#&#10;# Parameters&#10;#&#10;my $plugin="$[Plugin]";&#10;my $Version="$[/myJob/Version]";&#10;if ($plugin eq "") {&#10;  $plugin="$[Project]";&#10;}&#10;&#10;#&#10;# Is this plugin already imported in an Artifact Version&#10;#&#10;my ($ok)=InvokeCommander("SuppressLog IgnoreError", 'getArtifactVersion', "plugins:$plugin:$Version");&#10;if ($ok) {&#10;	printf("\tArtifact Version already exists\n");&#10;    exit 1;    # Artifact already exist&#10;}&#10;&#10;#&#10;# Does the Artifact already exist?&#10;#&#10;($ok)=InvokeCommander("SuppressLog IgnoreError", 'getArtifact', "plugins:$plugin");&#10;if (! $ok) {&#10;	InvokeCommander("SuppressLog", 'createArtifact',&#10;		{&#10;        	groupId=&gt;"plugins", artifactKey=&gt;$plugin&#10;		}&#10;);&#10;}&#10;InvokeCommander("SuppressLog", 'publishArtifactVersion',&#10;		{&#10;        	groupId=&gt;"plugins", artifactKey=&gt;$plugin,  version=&gt;$Version,&#10;        	fromDirectory=&gt;".",&#10;            includePatterns=&gt;"*.jar"&#10;		}&#10;);&#10;&#10;$[/myProject/scripts/perlLib]</command>
         <condition>$[createArtifact]</condition>
         <description>Let's save the plugin in the Artifact Repository</description>
         <errorHandling>failProcedure</errorHandling>
