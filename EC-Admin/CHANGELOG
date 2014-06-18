@@ -1,3 +1,7 @@
+2014-06-18  Laurent Rochette <lrochette@electric-cloud.com>
+ * EC-Admin.jar & EC-Admin.xml: new version 1.9.0
+     + Added a hook to allow actions to be taken when the plugin changes state in createPluginFromProject
+
 2014-05-08  Laurent Rochette <lrochette@electric-cloud.com>
  * EC-Admin.jar & EC-Admin.xml: new version 1.8.0
      + Added feature to save plugin as an artifact version in createPluginFromProject
