@@ -306,7 +306,7 @@ class ElectricCommander(object):
         i = self.server.find(':')
         if i > -1:
             self.port = self.server[i+1:]
-            self.server = server[:i]
+            self.server = self.server[:i]
 
         if (self.port is None):
             # No port specified in 'server' arg either. Default the
