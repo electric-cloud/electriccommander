@@ -1,6 +1,6 @@
 from distutils.core import setup
 setup(name='ec',
-      version='0.1.0', 
+      version='0.1.1', 
       author='Sandeep Tamhankar',
       author_email='sandman@electric-cloud.com',
       url='http://www.electric-cloud.com',

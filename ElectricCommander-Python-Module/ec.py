@@ -314,12 +314,17 @@ class ElectricCommander(object):
             self.port = self.secure and defaultSecurePort or defaultPort
 
         # Finally, construct the url.
-        self.url = "%s://%s:%s/" % (
+        self.url = "%s://%s:%s/commanderRequest" % (
             (self.secure and "https" or "http"), self.server, self.port)
 
     def _readSessionFile(self):
         self.sessionMap = {}
         sessionFile = _getSessionFilePath()
+        if (not os.path.exists(sessionFile)):
+            self.defaultUser = ''
+            self.defaultUrl = None
+            return
+
         doc = xml.dom.minidom.parse(sessionFile)
         sessionsNode = doc.firstChild
         for sessionNode in sessionsNode.getElementsByTagName("session"):
