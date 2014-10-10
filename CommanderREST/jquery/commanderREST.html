@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+    <title>REST Sample</title>
+    <link rel="stylesheet" href="jquery-ui.css"></link> 
+    <style>
+    .serverAlive{
+	    font-size: 15px;
+	    background-color: red;
+    }
+    .server{
+	    font-size: 12px;
+	    background-color: none;
+    }
+    .error {
+	font-weight: bold;
+	color: red;
+}
+    .exampleBox{
+	    width: 850px;
+	    margin: 20px 50px 10px 0px;
+    }	
+    .chart-container {
+	box-sizing: border-box;
+	width: 850px;
+	height: 450px;
+	padding: 20px 15px 15px 15px;
+	margin: 20px 50px 10px 0px;
+	border: 1px solid #ddd;
+	background: #fff;
+	background: linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+	box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+	-o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+     }
+     .demo-placeholder {
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	line-height: 1.2em;
+     }
+     .hide {
+	display: none;
+     }
+    </style>
+    <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.categories.js"></script>
+
+    <script>
+// Globals
+var host="10.0.3.15";
+var baseURL = "https://"+host+":8443/rest/v1.0/";
+
+// This function servers to log the user in via the browser
+// so the following API calls can run, and it also shows how to
+// do a post instead of a GET.  You could pass in JSON objects
+// as data like so data: JSON.stringify( {"key":"value"} )
+function login()
+{
+	$.ajax({
+		type: "POST",
+    		url: baseURL+"sessions",
+		xhrFields: {
+      			withCredentials: true
+   		},
+    		success: function(result) {
+			$("#pageContainer").toggleClass();
+			getJobDetails();
+			getJobsPerDayChart();
+			serverStatusHeartbeat();
+			getRealTimeStats();
+    		},
+		error: function(result) {
+			console.log(result.responseText);
+			$("#loginMessage").html('<span class="error">Error: Make sure you have setup up your SSL certs correctly, or see the Commander documentation for development work - <a href="http://docs.electric-cloud.com/commander_doc/5_2/HTML5/Help/CommanderHelpHTML.htm#restapiaccess.htm%3FTocPath%3DHow%20to%20Use%20the%20REST%20API%7C_____1">Accessing the REST API</a></span');
+		}
+	});
+}
+
+// This is a sample ajax function to poll a commander API
+function serverStatusHeartbeat()
+{
+	//This polling example could be used to check on a current jobid
+	//to see if it's still running and then have a pop up notify the user
+	//that the job is finished.  One note, you may want to continue polling
+	//on the error condition as well, as it stands now the function stops
+	//polling when an error occurs and that means even on minor connectivity
+	//interruptions.
+	setTimeout(function(){	
+	$.ajax({
+		type: "GET",
+    		url: baseURL+"server/status?serverStatOnly=true",
+		xhrFields: {
+      			withCredentials: true
+   		},
+    		success: function(result) {
+			$( "#serverStatus" ).html( 'Server Running' );
+			$("#serverStatus").switchClass( "server", "serverAlive", 1000, "easeInOutQuad" );
+			$("#serverStatus").switchClass( "serverAlive", "server", 1000, "easeInOutQuad" );
+			if( result.serverStatus.serverState != "running" ){
+				alert( "Commander server down!" );
+			}
+    		},
+		complete: serverStatusHeartbeat,
+		error: function(result) {
+			console.log(result.statusText);
+			$( "#serverStatus" ).html( '<h3 class="error">Error retreiving Server Status</h3>' );
+			serverStatusHeartbeat();
+		}
+	});
+	}, 3000);
+}
+
+// This is an example of getting jobs from the commander API and 
+// then displaying the info in HTML.  This example uses the JQuery UI
+// library to display and accordian of the last 10 jobs
+function getJobDetails()
+{
+	$.ajax({
+		type: "GET",
+		url: baseURL+"jobs?sortKey=start&sortOrder=descending&status=completed&maxResults=10",
+		xhrFields: {
+      			withCredentials: true
+   		},
+		beforeSend: function(xhr) {
+			$( "#accordion" ).html( '<h3>Fetching job content</h3>' );
+		},
+		success: function(jsonResult){
+			$( "#accordion" ).empty();
+			$.each(jsonResult.job, function(index, element){
+				var pleate = "<h3>Job: "+element.jobName+"</h3><div><ul>";
+				/* You could also access elements like so. I'm just dumping them out below
+				   but you may want to do some formatting first
+				pleate += "<li>Outcome: " + element.outcome+ "</li>";
+				pleate += "<li>Job ID: " + element.jobId+ "</li>";
+				pleate += "<li>Start time: " + element.start+ "</li>";
+				pleate += "<li>Finish time: " + element.finish+ "</li>";
+				pleate += "<li>Elapsed time: " + element.elapsedTime + "</li>";
+				pleate += "<li>Containing project: " + element.projectName+ "</li>";
+				*/
+				$.each(element, function(i, val){
+					pleate += "<li>"+i+": "+val+"</li>";
+					});
+				pleate += "</ul></div>";
+
+				$("#accordion").append( pleate );
+			});
+			$( "#accordion" ).accordion({active: false, collapsible: true});
+		},
+		error: function(result){
+			console.log(result.statusText);
+			$( "#accordion" ).html( '<h3 class="error">Error retreiving jobs content</h3>' );
+		}
+	});
+}
+
+// This chreates a chart using flot that shows the jobs/day run the last 7 days
+function getJobsPerDayChart()
+{
+	//Create a flot chart. Flot can be found here - http://www.flotcharts.org/
+	$.ajax({
+		type: "GET",
+		url: baseURL+"jobs?sortKey=start&sortOrder=descending&status=completed",
+		xhrFields: {
+      			withCredentials: true
+   		},
+		beforeSend: function(xhr) {
+			$( "#chart" ).html( '<h3>Fetching job content</h3>' );
+		},
+		success: function(jsonResult){
+			$( "#chart" ).empty();
+				var data = [ ["Sunday", 0], ["Monday", 0], ["Tuesday", 0], ["Wednesday", 0], ["Thursday", 0], ["Friday", 0], [["Saturday", 0]] ];
+
+			$.each(jsonResult.job, function(index, element){
+				var jobDate = new Date( element.start );
+				var nowDate = new Date();
+
+				if(nowDate.getYear() == nowDate.getYear() && nowDate.getMonth() == jobDate.getMonth() && nowDate.getDate() - jobDate.getDate() <= 7 )
+				{
+					data[jobDate.getDay()][1] += 1;
+				}
+			});
+			$.plot("#chart", [ data ], {
+			series: {
+				bars: {
+					show: true,
+					barWidth: 0.4,
+					align: "center"
+				}
+			},
+			xaxis: {
+				mode: "categories",
+				tickLength: 0
+			}
+		});
+		},
+		error: function(result){
+			console.log( result.statusText );
+			$( "#chart" ).html( '<h3 class="error">Error retreiving jobs content</h3>' );
+		}
+	});
+}
+
+// This example gets real time data from the Commander server
+function getRealTimeStats()
+{
+		var jobCount = [];
+		var totalPoints = 50;
+		var updateInterval = 4000; //Every 4 seconds
+		var now = new Date().getTime();
+
+		// Init data
+		for(var i = 0; i< totalPoints; i++){
+			jobCount.push( [now+=updateInterval,0] );
+		}
+
+		function getData() {
+			jobCount.shift();
+
+			$.ajax({
+				type: "GET",
+				url: baseURL+"jobs?status=running",
+				xhrFields: {
+      					withCredentials: true
+   				},
+				success: function(jsonResult){
+					if( jsonResult.job )					{
+						jobCount.push([now+=updateInterval,jsonResult.job.length]);
+					}
+					else{
+						jobCount.push([now+=updateInterval,0]);
+					}
+				},
+				error: function(result){
+					console.log(result.statusText);
+				}
+			});
+		}
+		
+		function plotData(){	
+
+			$.plot("#placeholder", [{label: "Running jobs", data: jobCount, lines:{fill:true}}], {
+				series: {
+					shadowSize: 0	// Drawing is faster without shadows
+				},
+				yaxis: {
+					min: 0,
+					max: 60  // You'll probably want to set this dynamically in a production chart
+				},
+				xaxis: {
+					show: false
+				}
+			});
+		}	
+	
+		function update() {
+			getData();
+			plotData();
+			setTimeout(update, updateInterval);
+		}
+
+		update();
+}
+
+// When the document is ready in the browser,
+// let the magic happen
+$(document).ready( function() {
+
+ 	//This is required in IE if you want to run
+	//cross site (i.e. not from the commander web server) and you don't
+	//have your web server configured for CORS.
+	//Chrome seems to allow this by default and Firefox does not
+	//allow this at all unless there is a setting in the web server config
+	//to allow this.  The other option is to host this web page from
+	//the same place as the commander server. Again, Firefox will  not
+	//allow the content to run unless you change the setting on Apache
+	//Firefox considers a port change a domain change. 
+	//See - https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+	//To make this page run for all browsers and from all locations you
+	//need to add this line to the bottom of your httpd.conf - Header set Access-Control-Allow-Origin "*"
+	//You could allow limit the orgin by specificying the orgigin instead of *
+
+	$.support.cors = true;
+      	login();
+});
+    </script>
+</head>
+<body>
+<div id="loginMessage"></div>
+<div id="pageContainer" class="hide">
+	<h3>Polling Example</h3>
+	<div class="exampleBox">
+		<span id="serverStatus" class="server">Server Running</span>
+	</div>
+	<div class="exampleBox">
+		<h3>Job Details Example (last 10 Jobs)</h3>
+		<div id="accordion" class="demo-placeholder"></div>
+	</div>
+	<h3>Chart Example - Jobs/day in the last 7 days</h3>
+	<div class="chart-container">
+		<div id="chart" class="demo-placeholder"></div>
+	</div>
+	<h3>Real time data example</h3>
+	<div class="chart-container">
+		<div id="placeholder" class="demo-placeholder"></div>
+	</div>
+</div>
+</body>
+</html>
