@@ -1,4 +1,4 @@
-=============================== JQuery and Commander REST API examples ====================================
+======================== JQuery and Commander REST API examples =======================
 
 What is it?
 __________
@@ -27,7 +27,5 @@ Flot - https://github.com/flot/flot/blob/master/API.md  and examples - http://ww
 
 Notes
 _____
-
-For complete history/info on this stuff see here: https://electric-cloud.jiveon.com/external/1301
 
 Just a note, the web server that you are running this against needs to have CORS configured for either all origins or from the origin where this page will be run from.
