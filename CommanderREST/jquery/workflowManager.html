@@ -4,21 +4,37 @@
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
     <title>Workflow Manager</title>
-    <link rel="stylesheet" href="jquery-ui.css"></link> 
+    <link rel="stylesheet" href="jquery-ui-1.11.1.custom/jquery-ui.css"></link> 
+    <style>
+	.hide{
+		display:none;
+	}
+ 	fieldset {
+      		border: 0;
+    	}
+    	label {
+      		display: block;
+      		margin: 30px 0 0 0;
+    	}
+    	select {
+      		width: 200px;
+    	}
+    	.overflow {
+      		height: 200px;
+    	}
+	#tabs {
+		height: 500px;
+	}	
+    </style>
     <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
-    <script language="javascript" type="text/javascript" src="jquery-ui.js"></script>
-    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
-    <script language="javascript" type="text/javascript" src="flot/jquery.flot.categories.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery-ui-1.11.1.custom/jquery-ui.js"></script>
 
     <script>
 // Globals
 var host="10.0.3.15";
 var baseURL = "https://"+host+":8443/rest/v1.0/";
 
-// This function serves to log the user in via the browser
-// so the following API calls can run, and it also shows how to
-// do a post instead of a GET.  You could pass in JSON objects
-// as data like so: JSON.stringify( {"key":"value"} )
+// Login and get things started
 function login()
 {
 	$.ajax({
@@ -37,32 +53,97 @@ function login()
 	});
 }
 
-// When the document is ready in the browser,
-// let the magic happen
+// Get all data for page
+function initData()
+{
+	$.ajax({
+		type: "GET",
+		url: baseURL+"projects",
+		xhrFields: {
+			withCredentials: true
+		},
+		success: function(result) {
+			if( result.project ){
+				var options;
+				$.each(result.project, function(i, val){
+					if( !val.pluginName){
+                                        	options += "<option>"+val.projectName+"</option>";
+					}
+                                });
+				$("#projects").append( options );
+			}
+		}
+	});
+}
+
+function projectChange()
+{
+	var currentProj= $( "select option:selected" ).text();
+	if( currentProj ){
+		$.ajax({
+			type: "GET",
+			url: baseURL+"projects/"+currentProj+"/workflowDefinitions",
+			xhrFields: {
+				withCredentials: true
+			},
+			success: function(result) {
+				if( result.workflowDefinition){
+					$.each(result.workflowDefinition, function(i, val){
+						console.log( val.workflowDefinitionName );
+                      	         	});
+				}
+			}
+		});
+
+	}	
+}
+
+// When the browser is ready, start the
+// dashboard
 $(document).ready( function() {
 
- 	//This is required in IE if you want to run
-	//cross site (i.e. not from the commander web server) and you don't
-	//have your web server configured for CORS.
-	//Chrome seems to allow this by default and Firefox does not
-	//allow this at all unless there is a setting in the web server config
-	//to allow this.  The other option is to host this web page from
-	//the same place as the commander server. Again, Firefox will  not
-	//allow the content to run unless you change the setting on Apache
-	//Firefox considers a port change a domain change. 
-	//See - https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
-	//To make this page run for all browsers and from all locations you
-	//need to add this line to your httpd.conf - Header set Access-Control-Allow-Origin "*"
-	//You could allow limit the orgin by specificying the orgigin instead of *
-
+	// Enable CORS on IE
 	$.support.cors = true;
+
+	// Setup the UI
+	$("#tabs").tabs({ active: 0 });
+	$("#projects").selectmenu({
+		select: function( event, ui ){
+			projectChange();
+		}
+	});
+	
       	login();
+	initData();
 });
     </script>
 </head>
 <body>
+
 <div id="loginMessage"></div>
+
 <div id="pageContainer" class="hide">
+	<div id="runWorkflow" class="workflowInfo">
+		<form action="#">
+  			<fieldset>
+    				<select name="projects" id="projects">
+    				</select>
+  			</fieldset>
+		</form>
+	</div>
+	<div id="tabs">
+  		<ul>
+    			<li><a href="#tabs-1">Run Workflow</a></li>
+    			<li><a href="#tabs-2">Workflow History</a></li>
+    			<li><a href="#tabs-3">Running Workflows</a></li>
+  		</ul>
+  		<div id="tabs-1">
+  		</div>
+  		<div id="tabs-2">
+  		</div>
+  		<div id="tabs-3">
+  		</div>
+	</div>
 </div>
 </body>
 </html>
