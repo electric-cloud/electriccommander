@@ -61,10 +61,10 @@
 var host="10.0.3.15";
 var baseURL = "https://"+host+":8443/rest/v1.0/";
 
-// This function servers to log the user in via the browser
+// This function serves to log the user in via the browser
 // so the following API calls can run, and it also shows how to
 // do a post instead of a GET.  You could pass in JSON objects
-// as data like so data: JSON.stringify( {"key":"value"} )
+// as data like so: JSON.stringify( {"key":"value"} )
 function login()
 {
 	$.ajax({
@@ -287,7 +287,7 @@ $(document).ready( function() {
 	//Firefox considers a port change a domain change. 
 	//See - https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
 	//To make this page run for all browsers and from all locations you
-	//need to add this line to the bottom of your httpd.conf - Header set Access-Control-Allow-Origin "*"
+	//need to add this line to your httpd.conf - Header set Access-Control-Allow-Origin "*"
 	//You could allow limit the orgin by specificying the orgigin instead of *
 
 	$.support.cors = true;
