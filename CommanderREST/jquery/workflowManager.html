@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+    <title>Workflow Manager</title>
+    <link rel="stylesheet" href="jquery-ui.css"></link> 
+    <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.categories.js"></script>
+
+    <script>
+// Globals
+var host="10.0.3.15";
+var baseURL = "https://"+host+":8443/rest/v1.0/";
+
+// This function serves to log the user in via the browser
+// so the following API calls can run, and it also shows how to
+// do a post instead of a GET.  You could pass in JSON objects
+// as data like so: JSON.stringify( {"key":"value"} )
+function login()
+{
+	$.ajax({
+		type: "POST",
+    		url: baseURL+"sessions",
+		xhrFields: {
+      			withCredentials: true
+   		},
+    		success: function(result) {
+			$("#pageContainer").toggleClass();
+    		},
+		error: function(result) {
+			console.log(result.responseText);
+			$("#loginMessage").html('<span class="error">Error: Make sure you have setup up your SSL certs correctly, or see the Commander documentation for development work - <a href="http://docs.electric-cloud.com/commander_doc/5_2/HTML5/Help/CommanderHelpHTML.htm#restapiaccess.htm%3FTocPath%3DHow%20to%20Use%20the%20REST%20API%7C_____1">Accessing the REST API</a></span');
+		}
+	});
+}
+
+// When the document is ready in the browser,
+// let the magic happen
+$(document).ready( function() {
+
+ 	//This is required in IE if you want to run
+	//cross site (i.e. not from the commander web server) and you don't
+	//have your web server configured for CORS.
+	//Chrome seems to allow this by default and Firefox does not
+	//allow this at all unless there is a setting in the web server config
+	//to allow this.  The other option is to host this web page from
+	//the same place as the commander server. Again, Firefox will  not
+	//allow the content to run unless you change the setting on Apache
+	//Firefox considers a port change a domain change. 
+	//See - https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+	//To make this page run for all browsers and from all locations you
+	//need to add this line to your httpd.conf - Header set Access-Control-Allow-Origin "*"
+	//You could allow limit the orgin by specificying the orgigin instead of *
+
+	$.support.cors = true;
+      	login();
+});
+    </script>
+</head>
+<body>
+<div id="loginMessage"></div>
+<div id="pageContainer" class="hide">
+</div>
+</body>
+</html>
