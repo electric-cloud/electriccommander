@@ -11,10 +11,10 @@
 	}
  	fieldset {
       		border: 0;
+		margin-left: 0px;
     	}
     	label {
       		display: block;
-      		margin: 30px 0 0 0;
     	}
     	select {
       		width: 200px;
@@ -24,19 +24,19 @@
     	}
 	#tabs {
 		height: 500px;
+		margin-left: 8px;
+		margin-right: 8px;
 	}	
-	th {
-    		border: 1px solid black;
-		text-align: left;
-	}
-	table{
+	.dataTable {
+		width: 75%;
     		border-collapse: collapse;
 	}
-	td {
+	.needMoreInfo {
+	}
+	td,th {
     		border: 1px solid black;
 		text-align: left;
-		padding-bottom: 10px;
-		padding-top: 10px;
+		padding: 10px;
 	}
 	#main {
     		font-size: 10px;
@@ -104,21 +104,61 @@ function projectChange()
 			},
 			success: function(result) {
 				if( result.workflowDefinition){
-					var workflowData = '<table style="width:80%">';
-					workflowData += '<tr><th>Name</th><th>Desc</th><th>Run</th></tr>';
+					var workflowData = '<table class="dataTable">';
+					workflowData += '<tr><th>Name</th><th>Desc</th><th>Edit</th><th>Run</th></tr>';
 					$.each(result.workflowDefinition, function(i, val){
 						workflowData += '<tr><td>'+val.workflowDefinitionName+'</td>';
 						workflowData += '<td>'+val.description+'</td>';
-						workflowData += '<td><input type="checkbox" class="check" id="check"><label for="check">Run</label></td></tr>';
+						workflowData += '<td><input type="checkbox" class="check" id="editCheck_'+i+'"><label for="editCheck_'+i+'">Modify</label></td>';
+						workflowData += '<td><input type="checkbox" class="check" id="runCheck_'+i+'" value="'+val.workflowDefinitionName+'"><label for="runCheck_'+i+'">Run</label></td></tr>';
                       	         	});
 					workflowData += '</table>';
+					workflowData += '<div style="width:75%;text-align:right;"><button>Run selected</button></div>';
 					$("#tabs-1").html( workflowData );
 					$(".check").button();
+					
+					$( "button" )
+      					.button()
+      					.click(runWorkflow);
 				}
+				else{
+					$("#tabs-1").html( '<div class="needMoreInfo">No workflow definitions found for project: '+currentProj+' - Create one?</div>' );
+				}
+
 			}
 		});
 
 	}	
+}
+
+function runWorkflow( event ) 
+{
+	// I need to figure out how to handle parameters to the workflows
+	event.preventDefault();
+	var currentProj= $.trim($( "select option:selected" ).text());
+	var checkedWorkflows = $(".check:checked");
+	if( currentProj && checkedWorkflows.length > 0 ){
+		$.each( checkedWorkflows, function( i, val) {
+			$.ajax({
+				type: "POST",
+				url: baseURL+"workflows",
+				data: JSON.stringify({"projectName":currentProj,"workflowDefinitionName":val.value}),
+				dataType: "json",
+				xhrFields: {
+					withCredentials: true
+				},
+				success: function(result) {
+					alert( "Running workflow" );
+				},
+				error: function(result){
+					console.log( result );
+				}
+			});
+		})
+	}
+	else{
+		alert( "Please select a workflow to run" );
+	}
 }
 
 // When the browser is ready, start the
@@ -147,7 +187,7 @@ $(document).ready( function() {
 
 <div id="pageContainer" class="hide">
 	<div id="runWorkflow" class="workflowInfo">
-		<form action="#">
+		<form action="#" id="changeProject">
   			<fieldset>
     				<select name="projects" id="projects">
     				</select>

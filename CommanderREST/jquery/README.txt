@@ -30,4 +30,5 @@ Flot - https://github.com/flot/flot/blob/master/API.md  and examples - http://ww
 Notes
 _____
 
-Just a note, the web server that you are running this against needs to have CORS configured for either all origins or from the origin where this page will be run from.
+- This code is currently under development and may or may not work at any time.  Also, the code is presented as sample code and may contain errors.  Please use with caution.
+- Just a note, the web server that you are running this against needs to have CORS configured for either all origins or from the origin where this page will be run from.
