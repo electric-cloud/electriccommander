@@ -25,6 +25,22 @@
 	#tabs {
 		height: 500px;
 	}	
+	th {
+    		border: 1px solid black;
+		text-align: left;
+	}
+	table{
+    		border-collapse: collapse;
+	}
+	td {
+    		border: 1px solid black;
+		text-align: left;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	#main {
+    		font-size: 10px;
+	}
     </style>
     <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="jquery-ui-1.11.1.custom/jquery-ui.js"></script>
@@ -67,7 +83,7 @@ function initData()
 				var options;
 				$.each(result.project, function(i, val){
 					if( !val.pluginName){
-                                        	options += "<option>"+val.projectName+"</option>";
+                                        	options += '<option>'+val.projectName+'</option>';
 					}
                                 });
 				$("#projects").append( options );
@@ -88,9 +104,16 @@ function projectChange()
 			},
 			success: function(result) {
 				if( result.workflowDefinition){
+					var workflowData = '<table style="width:80%">';
+					workflowData += '<tr><th>Name</th><th>Desc</th><th>Run</th></tr>';
 					$.each(result.workflowDefinition, function(i, val){
-						console.log( val.workflowDefinitionName );
+						workflowData += '<tr><td>'+val.workflowDefinitionName+'</td>';
+						workflowData += '<td>'+val.description+'</td>';
+						workflowData += '<td><input type="checkbox" class="check" id="check"><label for="check">Run</label></td></tr>';
                       	         	});
+					workflowData += '</table>';
+					$("#tabs-1").html( workflowData );
+					$(".check").button();
 				}
 			}
 		});
@@ -118,7 +141,7 @@ $(document).ready( function() {
 });
     </script>
 </head>
-<body>
+<body id="main">
 
 <div id="loginMessage"></div>
 
