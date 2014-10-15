@@ -133,12 +133,34 @@ function projectChange()
 
 function runWorkflow( event ) 
 {
-	// I need to figure out how to handle parameters to the workflows
 	event.preventDefault();
 	var currentProj= $.trim($( "select option:selected" ).text());
 	var checkedWorkflows = $(".check:checked");
+
 	if( currentProj && checkedWorkflows.length > 0 ){
 		$.each( checkedWorkflows, function( i, val) {
+			//First get the start state with parameters
+			//so we can display a dialog
+			$.ajax({
+				type: "GET",
+				url: encodeURI(baseURL+"projects/"+currentProj+"/workflowDefinitions/"+val.value+"/stateDefinitions?includeFormalParameters=true&startableOnly=true"),
+				xhrFields: {
+					withCredentials: true
+				},
+				success: function( result ) {
+					// From here, pop up a dialog for each workflow def
+					// and get the parameters to pass to the next call
+					// to launch the workflow
+					var stateDef = result.stateDefinition[0];
+					$.each( stateDef.formalParameter, function( i, val) {
+						console.log( val.formalParameterName );
+					});
+				},
+				error: function(result) {
+					console.log( result );
+				}
+			});
+	
 			$.ajax({
 				type: "POST",
 				url: baseURL+"workflows",
