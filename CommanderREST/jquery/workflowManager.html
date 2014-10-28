@@ -32,6 +32,8 @@
     		border-collapse: collapse;
 	}
 	.needMoreInfo {
+		font-size: 15px;	
+		font-weight: bold;
 	}
 	td,th {
     		border: 1px solid black;
@@ -41,6 +43,10 @@
 	#main {
     		font-size: 10px;
 	}
+	.validateTips {
+		font-size: 12px;
+		font-weight: bold;
+	}
     </style>
     <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="jquery-ui-1.11.1.custom/jquery-ui.js"></script>
@@ -49,6 +55,7 @@
 // Globals
 var host="10.0.3.15";
 var baseURL = "https://"+host+":8443/rest/v1.0/";
+var dialog;
 
 // Login and get things started
 function login()
@@ -109,17 +116,14 @@ function projectChange()
 					$.each(result.workflowDefinition, function(i, val){
 						workflowData += '<tr><td>'+val.workflowDefinitionName+'</td>';
 						workflowData += '<td>'+val.description+'</td>';
-						workflowData += '<td><input type="checkbox" class="check" id="editCheck_'+i+'"><label for="editCheck_'+i+'">Modify</label></td>';
-						workflowData += '<td><input type="checkbox" class="check" id="runCheck_'+i+'" value="'+val.workflowDefinitionName+'"><label for="runCheck_'+i+'">Run</label></td></tr>';
+						workflowData += '<td><button class="editButton">Modify</button></td>';
+						workflowData += '<td><button class="runButton" value="'+val.workflowDefinitionName+'">Run</button></td></tr>';
                       	         	});
 					workflowData += '</table>';
-					workflowData += '<div style="width:75%;text-align:right;"><button>Run selected</button></div>';
 					$("#tabs-1").html( workflowData );
-					$(".check").button();
-					
-					$( "button" )
-      					.button()
-      					.click(runWorkflow);
+					$(".editButton").button();
+					$(".runButton").button().click( runWorkflow );
+
 				}
 				else{
 					$("#tabs-1").html( '<div class="needMoreInfo">No workflow definitions found for project: '+currentProj+' - Create one?</div>' );
@@ -137,50 +141,65 @@ function runWorkflow( event )
 	var currentProj= $.trim($( "select option:selected" ).text());
 	var checkedWorkflows = $(".check:checked");
 
-	if( currentProj && checkedWorkflows.length > 0 ){
-		$.each( checkedWorkflows, function( i, val) {
-			//First get the start state with parameters
-			//so we can display a dialog
-			$.ajax({
-				type: "GET",
-				url: encodeURI(baseURL+"projects/"+currentProj+"/workflowDefinitions/"+val.value+"/stateDefinitions?includeFormalParameters=true&startableOnly=true"),
-				xhrFields: {
-					withCredentials: true
-				},
-				success: function( result ) {
-					// From here, pop up a dialog for each workflow def
-					// and get the parameters to pass to the next call
-					// to launch the workflow
-					var stateDef = result.stateDefinition[0];
-					$.each( stateDef.formalParameter, function( i, val) {
-						console.log( val.formalParameterName );
-					});
-				},
-				error: function(result) {
-					console.log( result );
+	if( currentProj ){
+		$.ajax({
+			type: "GET",
+			url: encodeURI(baseURL+"projects/"+currentProj+"/workflowDefinitions/"+this.value+"/stateDefinitions?includeFormalParameters=true&startableOnly=true"),
+			xhrFields: {
+				withCredentials: true
+			},
+			success: function( result ) {
+				var stateDef = result.stateDefinition[0];
+				var paramFormText = '';
+				$.each( stateDef.formalParameter, function( i, param) {
+					// In the future I'll need to figure out why type of
+					// parameter we have and account for that here.  For now
+					// I'm just treating everything as a text type
+      					paramFormText += '<label for="param_'+i+'">'+param.formalParameterName+'</label>';
+      					paramFormText += '<input type="text" name="param_'+i+'" id="param_'+i+'" class="inputParams">';
+				});
+
+				if( paramFormText ){
+      					paramFormText += '<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">';
 				}
-			});
-	
-			$.ajax({
-				type: "POST",
-				url: baseURL+"workflows",
-				data: JSON.stringify({"projectName":currentProj,"workflowDefinitionName":val.value}),
-				dataType: "json",
-				xhrFields: {
-					withCredentials: true
-				},
-				success: function(result) {
-					alert( "Running workflow" );
-				},
-				error: function(result){
-					console.log( result );
+				else{
+					paramFormText = 'No required parameters';
 				}
-			});
-		})
+				$("#runWorkflowDialog").html( paramFormText );
+			},
+			error: function(result) {
+				console.log( result );
+			}
+		});
+		// Open dialog now that we have parameters
+		dialog.dialog( "open" );
 	}
-	else{
-		alert( "Please select a workflow to run" );
-	}
+}
+
+function launchWorkflow()
+{
+	event.preventDefault();
+	dialog.dialog( "close" );
+	$(".inputParams" ).each(function(){
+		console.log( this );
+	});
+/*	
+	$.ajax({
+		type: "POST",
+		url: baseURL+"workflows",
+		data: JSON.stringify({"projectName":currentProj,"workflowDefinitionName":val.value}),
+		dataType: "json",
+		xhrFields: {
+			withCredentials: true
+		},
+		success: function(result) {
+			alert( "Running workflow" );
+		},
+		error: function(result){
+			console.log( result );
+			}
+		});
+*/
 }
 
 // When the browser is ready, start the
@@ -191,6 +210,21 @@ $(document).ready( function() {
 	$.support.cors = true;
 
 	// Setup the UI
+	dialog = $( "#dialog-workflow-launch").dialog({
+      			autoOpen: false,
+      			height: 300,
+      			width: 350,
+      			modal: true,
+      			buttons: {
+        			"Launch workflow": launchWorkflow,
+        			Cancel: function() {
+          					dialog.dialog( "close" );
+        				}
+      				},
+      			close: function() {
+      				}
+    			});
+
 	$("#tabs").tabs({ active: 0 });
 	$("#projects").selectmenu({
 		select: function( event, ui ){
@@ -206,6 +240,16 @@ $(document).ready( function() {
 <body id="main">
 
 <div id="loginMessage"></div>
+
+<div id="dialog-workflow-launch" title="Launch Workflow">
+  <p class="validateTips">Parameters</p>
+ 
+  <form>
+    <fieldset id="runWorkflowDialog" >
+      <!-- Place holder for dynamically built dialog -->
+    </fieldset>
+  </form>
+</div>
 
 <div id="pageContainer" class="hide">
 	<div id="runWorkflow" class="workflowInfo">
