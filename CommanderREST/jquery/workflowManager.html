@@ -139,67 +139,82 @@ function runWorkflow( event )
 {
 	event.preventDefault();
 	var currentProj= $.trim($( "select option:selected" ).text());
-	var checkedWorkflows = $(".check:checked");
+	var currentWorkflowDef = this.value;
 
-	if( currentProj ){
+	if( currentProj && currentWorkflowDef ){
 		$.ajax({
 			type: "GET",
-			url: encodeURI(baseURL+"projects/"+currentProj+"/workflowDefinitions/"+this.value+"/stateDefinitions?includeFormalParameters=true&startableOnly=true"),
+			url: encodeURI(baseURL+"projects/"+currentProj+"/workflowDefinitions/"+currentWorkflowDef+"/stateDefinitions?includeFormalParameters=true&startableOnly=true"),
 			xhrFields: {
 				withCredentials: true
 			},
 			success: function( result ) {
 				var stateDef = result.stateDefinition[0];
 				var paramFormText = '';
-				$.each( stateDef.formalParameter, function( i, param) {
-					// In the future I'll need to figure out why type of
-					// parameter we have and account for that here.  For now
-					// I'm just treating everything as a text type
-      					paramFormText += '<label for="param_'+i+'">'+param.formalParameterName+'</label>';
-      					paramFormText += '<input type="text" name="param_'+i+'" id="param_'+i+'" class="inputParams">';
-				});
+				if( stateDef.formalParameter ){
+					$.each( stateDef.formalParameter, function( i, param) {
+						// In the future I'll need to figure out why type of
+						// parameter we have and account for that in the GUI.  For now
+						// I'm just treating everything as a text type
+      						paramFormText += '<label for="param_'+i+'">'+param.formalParameterName+'</label>';
+      						paramFormText += '<input type="text" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams">';
+					});
+				}
 
 				if( paramFormText ){
+      					paramFormText += '<input type="hidden" id="currentWorkflowDef" value="'+currentWorkflowDef+'">';
       					paramFormText += '<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">';
 				}
 				else{
 					paramFormText = 'No required parameters';
 				}
 				$("#runWorkflowDialog").html( paramFormText );
+				// Open dialog now that we have parameters
+				dialog.dialog( "open" );
 			},
 			error: function(result) {
 				console.log( result );
 			}
 		});
-		// Open dialog now that we have parameters
-		dialog.dialog( "open" );
 	}
 }
 
 function launchWorkflow()
 {
 	event.preventDefault();
+	// Before I close the dialog, I need to check that we have the required parameters
+	// For now, we're going to run assuming we're all good
 	dialog.dialog( "close" );
-	$(".inputParams" ).each(function(){
-		console.log( this );
+
+	var currentProj= $.trim($( "select option:selected" ).text());
+	var currentWorkflowDef = $("#currentWorkflowDef").val();
+	var parameterString = '{';
+
+	$(".inputParams" ).each(function(index){
+		parameterString+=this.name+":"+this.value+",";
 	});
-/*	
-	$.ajax({
-		type: "POST",
-		url: baseURL+"workflows",
-		data: JSON.stringify({"projectName":currentProj,"workflowDefinitionName":val.value}),
-		dataType: "json",
-		xhrFields: {
-			withCredentials: true
-		},
-		success: function(result) {
-			alert( "Running workflow" );
-		},
-		error: function(result){
-			console.log( result );
-			}
-		});
-*/
+	// Pop the last ',' off the string and close the JSON object
+	parameterString = parameterString.substring( 0, parameterString.length - 1 ) + '}';
+	console.log( parameterString );
+
+	if( currentProj && currentWorkflowDef && parameterString ){
+		$.ajax({
+			type: "POST",
+			url: baseURL+"workflows",
+			data: JSON.stringify({"projectName":currentProj,"workflowDefinitionName":currentWorkflowDef,"actualParameters":parameterString}),
+			dataType: "json",
+			xhrFields: {
+				withCredentials: true
+			},
+			success: function(result) {
+				$("#tabs-3").html( "Running workflow..." );
+				$("#tabs").tabs({ active: 3 });
+			},
+			error: function(result){
+				console.log( result );
+				}
+			});
+	}
 }
 
 // When the browser is ready, start the
