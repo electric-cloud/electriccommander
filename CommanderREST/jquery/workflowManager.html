@@ -182,33 +182,49 @@ function runWorkflow( event )
 function launchWorkflow()
 {
 	event.preventDefault();
-	// Before I close the dialog, I need to check that we have the required parameters
+	//TODO: Before I close the dialog, I need to check that we have the required parameters
 	// For now, we're going to run assuming we're all good
 	dialog.dialog( "close" );
 
 	var currentProj= $.trim($( "select option:selected" ).text());
 	var currentWorkflowDef = $("#currentWorkflowDef").val();
-	var parameterString = '{';
+	var parameterString = '{"parameters":{"actualParameter":[';
+
 
 	$(".inputParams" ).each(function(index){
-		parameterString+=this.name+":"+this.value+",";
+		parameterString+='{"actualParameterName":"'+this.name+'","value":"'+this.value+'"},';
 	});
 	// Pop the last ',' off the string and close the JSON object
-	parameterString = parameterString.substring( 0, parameterString.length - 1 ) + '}';
-	console.log( parameterString );
+	parameterString = parameterString.substring( 0, parameterString.length - 1 ) + ']}}';
 
 	if( currentProj && currentWorkflowDef && parameterString ){
+	// Just putting this in a variable so I can easily print it to 
+	// the console for debugging.  I'll probably put this in the 
+	// ajax call in the future
+	var request = '{"projectName":"'+currentProj+'","workflowDefinitionName":"'+currentWorkflowDef+'","body":'+parameterString+'}';
+	//console.log( request );
 		$.ajax({
 			type: "POST",
 			url: baseURL+"workflows",
-			data: JSON.stringify({"projectName":currentProj,"workflowDefinitionName":currentWorkflowDef,"actualParameters":parameterString}),
+			data: request,
 			dataType: "json",
+			contentType: "application/json",
 			xhrFields: {
 				withCredentials: true
 			},
 			success: function(result) {
-				$("#tabs-3").html( "Running workflow..." );
-				$("#tabs").tabs({ active: 3 });
+				// TODO: create a function that updates the various tabs and call it here
+				// instead of putting new html here.  When you switch to the tab, it will
+				// also call the updte tab function
+				  var html = '<div>';
+    			              html += 'workflowId: ' + result.workflow.workflowId + '<br>';
+    			              html += 'workflowName: ' + result.workflow.workflowName + '<br>';
+    			              html += 'createTime: ' + result.workflow.createTime + '<br>';
+    			              html += 'launchedByUser: ' + result.workflow.launchedByUser+ '<br>';
+    			              html += 'start: ' + result.workflow.start;
+    			              html += '</div>';
+				$("#tabs-2").html( html );
+				$("#tabs").tabs({ active: 1 });
 			},
 			error: function(result){
 				console.log( result );
@@ -271,6 +287,7 @@ $(document).ready( function() {
 		<form action="#" id="changeProject">
   			<fieldset>
     				<select name="projects" id="projects">
+      				<!-- The list of projects will be loaded from Commander-->
     				</select>
   			</fieldset>
 		</form>
@@ -278,14 +295,11 @@ $(document).ready( function() {
 	<div id="tabs">
   		<ul>
     			<li><a href="#tabs-1">Run Workflow</a></li>
-    			<li><a href="#tabs-2">Workflow History</a></li>
-    			<li><a href="#tabs-3">Running Workflows</a></li>
+    			<li><a href="#tabs-2">Running Workflows</a></li>
   		</ul>
   		<div id="tabs-1">
   		</div>
   		<div id="tabs-2">
-  		</div>
-  		<div id="tabs-3">
   		</div>
 	</div>
 </div>
