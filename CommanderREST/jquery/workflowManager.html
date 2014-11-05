@@ -110,7 +110,7 @@ function projectChange()
 				withCredentials: true
 			},
 			success: function(result) {
-				if( result.workflowDefinition){
+				if( result.workflowDefinition ){
 					var workflowData = '<table class="dataTable">';
 					workflowData += '<tr><th>Name</th><th>Desc</th><th>Edit</th><th>Run</th></tr>';
 					$.each(result.workflowDefinition, function(i, val){
@@ -153,21 +153,32 @@ function runWorkflow( event )
 				var paramFormText = '';
 				if( stateDef.formalParameter ){
 					$.each( stateDef.formalParameter, function( i, param) {
-						// In the future I'll need to figure out why type of
-						// parameter we have and account for that in the GUI.  For now
-						// I'm just treating everything as a text type
       						paramFormText += '<label for="param_'+i+'">'+param.formalParameterName+'</label>';
-      						paramFormText += '<input type="text" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams">';
+	
+						if( param.type == "entry" ){
+      							paramFormText += '<input type="text" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams">';
+						}
+						else if( param.type == "select" ){
+							paramFormText += '<select name='+param.formalParameterName+'" id="param_'+i+'"></select>';
+						}
+						else if( param.type == "checkbox" ){
+      							paramFormText += '<input type="checkbox" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams">';
+						}
 					});
 				}
 
 				if( paramFormText ){
-      					paramFormText += '<input type="hidden" id="currentWorkflowDef" value="'+currentWorkflowDef+'">';
+					//TODO: I don't need this to submit the form, however I believe I will need this or
+					//a variation of it when I want to add submitting the form with the "enter" key
+					//I need to investigate further.  For now it doesn't hurt, so it stays
       					paramFormText += '<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">';
 				}
 				else{
 					paramFormText = 'No required parameters';
 				}
+      				
+				paramFormText += '<input type="hidden" id="currentWorkflowDef" value="'+currentWorkflowDef+'">';
+
 				$("#runWorkflowDialog").html( paramFormText );
 				// Open dialog now that we have parameters
 				dialog.dialog( "open" );
@@ -194,15 +205,21 @@ function launchWorkflow()
 	$(".inputParams" ).each(function(index){
 		parameterString+='{"actualParameterName":"'+this.name+'","value":"'+this.value+'"},';
 	});
-	// Pop the last ',' off the string and close the JSON object
-	parameterString = parameterString.substring( 0, parameterString.length - 1 ) + ']}}';
+
+	if( parameterString.charAt( parameterString.length - 1) == ',' )
+	{
+		// Pop the last ',' off the string and close the JSON object
+		parameterString = parameterString.substring( 0, parameterString.length - 1 );
+	}
+
+	parameterString += ']}}';
 
 	if( currentProj && currentWorkflowDef && parameterString ){
 	// Just putting this in a variable so I can easily print it to 
 	// the console for debugging.  I'll probably put this in the 
 	// ajax call in the future
 	var request = '{"projectName":"'+currentProj+'","workflowDefinitionName":"'+currentWorkflowDef+'","body":'+parameterString+'}';
-	//console.log( request );
+	console.log( request );
 		$.ajax({
 			type: "POST",
 			url: baseURL+"workflows",
@@ -215,7 +232,7 @@ function launchWorkflow()
 			success: function(result) {
 				// TODO: create a function that updates the various tabs and call it here
 				// instead of putting new html here.  When you switch to the tab, it will
-				// also call the updte tab function
+				// also call the update tab function
 				  var html = '<div>';
     			              html += 'workflowId: ' + result.workflow.workflowId + '<br>';
     			              html += 'workflowName: ' + result.workflow.workflowName + '<br>';
