@@ -6,6 +6,9 @@
     <title>Workflow Manager</title>
     <link rel="stylesheet" href="jquery-ui-1.11.1.custom/jquery-ui.css"></link> 
     <style>
+	.extraNavButtons {
+		margin-left: 55%;
+	}
 	.hide{
 		display:none;
 	}
@@ -100,45 +103,49 @@ function initData()
                                 });
 				$("#projects").append( options );
 				$("#projects").selectmenu( "refresh" );
-				projectChange();
+				updateTabs();
 			}
 		}
 	});
 }
 
-function projectChange()
+function updateTabs()
 {
-	var currentProj= $.trim($( "#projects option:selected" ).text());
+	var currentProj = $.trim($( "#projects option:selected" ).text());
+	var activeTab = $("#tabs").tabs( "option", "active" );
 	if( currentProj ){
-		$.ajax({
-			type: "GET",
-			url: baseURL+"projects/"+currentProj+"/workflowDefinitions",
-			xhrFields: {
-				withCredentials: true
-			},
-			success: function(result) {
-				if( result.workflowDefinition ){
-					var workflowData = '<table class="dataTable">';
-					workflowData += '<tr><th>Name</th><th>Desc</th><th>Edit</th><th>Run</th></tr>';
-					$.each(result.workflowDefinition, function(i, val){
-						workflowData += '<tr><td>'+val.workflowDefinitionName+'</td>';
-						workflowData += '<td>'+val.description+'</td>';
-						workflowData += '<td><button class="editButton">Modify</button></td>';
-						workflowData += '<td><button class="runButton" value="'+val.workflowDefinitionName+'">Run</button></td></tr>';
-                      	         	});
-					workflowData += '</table>';
-					$("#tabs-1").html( workflowData );
-					$(".editButton").button();
-					$(".runButton").button().click( runWorkflow );
-
+		if( activeTab == 0 ) { //Run workflow tab
+			$.ajax({
+				type: "GET",
+				url: baseURL+"projects/"+currentProj+"/workflowDefinitions",
+				xhrFields: {
+					withCredentials: true
+				},
+				success: function(result) {
+					if( result.workflowDefinition ){
+						var workflowData = '<table class="dataTable">';
+						workflowData += '<tr><th>Name</th><th>Desc</th><th>Edit</th><th>Run</th></tr>';
+						$.each(result.workflowDefinition, function(i, val){
+							workflowData += '<tr><td>'+val.workflowDefinitionName+'</td>';
+							workflowData += '<td>'+val.description+'</td>';
+							workflowData += '<td><button class="editButton">Modify</button></td>';
+							workflowData += '<td><button class="runButton" value="'+val.workflowDefinitionName+'">Run</button></td></tr>';
+                      	         		});
+						workflowData += '</table>';
+						$("#tabs-1").html( workflowData );
+						$(".editButton").button();
+						$(".runButton").button().click( runWorkflow );
+	
+					}
+					else{
+						$("#tabs-1").html( '<div class="needMoreInfo">No workflow definitions found for project: '+currentProj+' - Create one?</div>' );
+					}
+	
 				}
-				else{
-					$("#tabs-1").html( '<div class="needMoreInfo">No workflow definitions found for project: '+currentProj+' - Create one?</div>' );
-				}
-
-			}
-		});
-
+			});
+		}
+		else{ //Running workflows tab
+		}	
 	}	
 }
 
@@ -227,7 +234,7 @@ function launchWorkflow()
 	// the console for debugging.  I'll probably put this in the 
 	// ajax call in the future
 	var request = '{"projectName":"'+currentProj+'","workflowDefinitionName":"'+currentWorkflowDef+'","body":'+parameterString+'}';
-	console.log( request );
+	//console.log( request );
 		$.ajax({
 			type: "POST",
 			url: baseURL+"workflows",
@@ -238,23 +245,18 @@ function launchWorkflow()
 				withCredentials: true
 			},
 			success: function(result) {
-				// TODO: create a function that updates the various tabs and call it here
-				// instead of putting new html here.  When you switch to the tab, it will
-				// also call the update tab function
-				  var html = '<div>';
-    			              html += 'workflowId: ' + result.workflow.workflowId + '<br>';
-    			              html += 'workflowName: ' + result.workflow.workflowName + '<br>';
-    			              html += 'createTime: ' + result.workflow.createTime + '<br>';
-    			              html += 'launchedByUser: ' + result.workflow.launchedByUser+ '<br>';
-    			              html += 'start: ' + result.workflow.start;
-    			              html += '</div>';
-				$("#tabs-2").html( html );
+				// Only thing we want to do here is check that we 
+				// didn't have an error running the workflow
+				// for now I'm just logging the result.  I'll do something
+				// pretty in the future
+				console.log( result );
 				$("#tabs").tabs({ active: 1 });
+				updateTabs();
 			},
 			error: function(result){
 				console.log( result );
-				}
-			});
+			}
+		});
 	}
 }
 
@@ -311,10 +313,10 @@ $(document).ready( function() {
       				}
     			});
 
-	$("#tabs").tabs({ active: 0 });
+	$("#tabs").tabs({ active: 0, activate: function(){ updateTabs();}});
 	$("#projects").selectmenu({
 		select: function( event, ui ){
-			projectChange();
+			updateTabs();
 		}
 	});
 	
@@ -348,7 +350,7 @@ $(document).ready( function() {
       				<!-- The list of projects will be loaded from Commander-->
     				</select>
   			</fieldset>
-			<fieldset style="margin-left: 55%">
+			<fieldset class="extraNavButtons"> 
 				<button class="cycleButtons" id="prevProj"> < </button>
 				<button class="cycleButtons" id="nextProj"> > </button>
   			</fieldset>
