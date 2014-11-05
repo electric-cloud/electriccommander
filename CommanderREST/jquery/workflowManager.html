@@ -12,6 +12,8 @@
  	fieldset {
       		border: 0;
 		margin-left: 0px;
+		margin-top: 0px;
+		display: inline;
     	}
     	label {
       		display: block;
@@ -46,6 +48,9 @@
 	.validateTips {
 		font-size: 12px;
 		font-weight: bold;
+	}
+	.cycleButtons {
+		margin-top: -19px;
 	}
     </style>
     <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
@@ -94,6 +99,8 @@ function initData()
 					}
                                 });
 				$("#projects").append( options );
+				$("#projects").selectmenu( "refresh" );
+				projectChange();
 			}
 		}
 	});
@@ -101,7 +108,7 @@ function initData()
 
 function projectChange()
 {
-	var currentProj= $( "select option:selected" ).text();
+	var currentProj= $.trim($( "#projects option:selected" ).text());
 	if( currentProj ){
 		$.ajax({
 			type: "GET",
@@ -138,7 +145,7 @@ function projectChange()
 function runWorkflow( event ) 
 {
 	event.preventDefault();
-	var currentProj= $.trim($( "select option:selected" ).text());
+	var currentProj= $.trim($( "#projects option:selected" ).text());
 	var currentWorkflowDef = this.value;
 
 	if( currentProj && currentWorkflowDef ){
@@ -208,10 +215,11 @@ function launchWorkflow()
 
 	if( parameterString.charAt( parameterString.length - 1) == ',' )
 	{
-		// Pop the last ',' off the string and close the JSON object
+		// Pop the last ',' off the string
 		parameterString = parameterString.substring( 0, parameterString.length - 1 );
 	}
-
+ 	
+	//Close the JSON object
 	parameterString += ']}}';
 
 	if( currentProj && currentWorkflowDef && parameterString ){
@@ -250,6 +258,36 @@ function launchWorkflow()
 	}
 }
 
+function arrowToProject(event)
+{
+	event.preventDefault();
+	var currentProj = $( "#projects" );
+	var selectedInd = currentProj.get(0).selectedIndex;
+	var elemCount = currentProj.get(0).childElementCount;
+
+	if( this.id == "prevProj" ){
+		if( selectedInd == 0){
+			currentProj.get(0).selectedIndex = elemCount - 1;
+		}
+		else{
+			currentProj.get(0).selectedIndex = selectedInd - 1;
+		}
+	}
+	else if( this.id == "nextProj"){
+		if( selectedInd == elemCount - 1 ){  
+			currentProj.get(0).selectedIndex = 0;
+		}
+		else{
+			currentProj.get(0).selectedIndex = selectedInd + 1;
+		}
+	}
+	else{
+		console.log( "Can't handle this object: " + this.id );
+	}	
+	
+	currentProj.selectmenu( "refresh" );
+}
+
 // When the browser is ready, start the
 // dashboard
 $(document).ready( function() {
@@ -280,6 +318,9 @@ $(document).ready( function() {
 		}
 	});
 	
+	$("#prevProj").button().click( arrowToProject );
+	$("#nextProj").button().click( arrowToProject );
+	
       	login();
 	initData();
 });
@@ -306,6 +347,10 @@ $(document).ready( function() {
     				<select name="projects" id="projects">
       				<!-- The list of projects will be loaded from Commander-->
     				</select>
+  			</fieldset>
+			<fieldset style="margin-left: 55%">
+				<button class="cycleButtons" id="prevProj"> < </button>
+				<button class="cycleButtons" id="nextProj"> > </button>
   			</fieldset>
 		</form>
 	</div>
