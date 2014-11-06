@@ -6,6 +6,11 @@
     <title>Workflow Manager</title>
     <link rel="stylesheet" href="jquery-ui-1.11.1.custom/jquery-ui.css"></link> 
     <style>
+	.inputParamsLabel {
+		font-weight: bold;
+		margin-bottom: 3px;
+		margin-top: 5px;
+	}
 	.extraNavButtons {
 		margin-left: 55%;
 	}
@@ -165,18 +170,50 @@ function runWorkflow( event )
 			success: function( result ) {
 				var stateDef = result.stateDefinition[0];
 				var paramFormText = '';
+				var datePickerFields = [];
+
 				if( stateDef.formalParameter ){
 					$.each( stateDef.formalParameter, function( i, param) {
-      						paramFormText += '<label for="param_'+i+'">'+param.formalParameterName+'</label>';
-	
+      						paramFormText += '<label class="inputParamsLabel" for="param_'+i+'">'+param.formalParameterName+'</label>';
+
 						if( param.type == "entry" ){
       							paramFormText += '<input type="text" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams">';
+
+							if( param.description && $.trim(param.description.toLowerCase()) == "isdate=true"){
+								var paramid = "#param_"+i;
+								datePickerFields.push( paramid );
+							}
 						}
 						else if( param.type == "select" ){
-							paramFormText += '<select name='+param.formalParameterName+'" id="param_'+i+'"></select>';
+							if( param.description ){
+						 		var options = param.description.split("|");
+								paramFormText += '<select name='+param.formalParameterName+'" id="param_'+i+'">';
+								$.each( options, function() {
+									paramFormText += '<option>'+this+'</option>';
+								});
+								paramFormText += '</select>';
+							}
+							else{
+      								paramFormText += '<input type="text" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams">';
+							}
 						}
 						else if( param.type == "checkbox" ){
       							paramFormText += '<input type="checkbox" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams">';
+						}
+						else if( param.type == "textarea" ){
+      							paramFormText += '<textarea rows="5" cols="20" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams"></textarea>';
+						}
+						else if( param.type == "radio" ){
+							if( param.description ){
+						 		var options = param.description.split("|");
+								$.each( options, function() {
+      									paramFormText += '<input type="radio" name="'+param.formalParameterName+'" value="'+this+'" id="param_'+i+'" class="inputParams">';
+      									paramFormText += this;
+								});
+							}
+							else{
+      								paramFormText += '<input type="text" name="'+param.formalParameterName+'" id="param_'+i+'" class="inputParams">';
+							}
 						}
 					});
 				}
@@ -194,6 +231,10 @@ function runWorkflow( event )
 				paramFormText += '<input type="hidden" id="currentWorkflowDef" value="'+currentWorkflowDef+'">';
 
 				$("#runWorkflowDialog").html( paramFormText );
+
+				$.each( datePickerFields, function(i, dt){
+					$(dt).datepicker();
+				});
 				// Open dialog now that we have parameters
 				dialog.dialog( "open" );
 			},
@@ -217,6 +258,9 @@ function launchWorkflow()
 
 
 	$(".inputParams" ).each(function(index){
+		if( this.type == "radio" && this.checked == false ){
+			return true;
+		}
 		parameterString+='{"actualParameterName":"'+this.name+'","value":"'+this.value+'"},';
 	});
 
@@ -245,11 +289,6 @@ function launchWorkflow()
 				withCredentials: true
 			},
 			success: function(result) {
-				// Only thing we want to do here is check that we 
-				// didn't have an error running the workflow
-				// for now I'm just logging the result.  I'll do something
-				// pretty in the future
-				console.log( result );
 				$("#tabs").tabs({ active: 1 });
 				updateTabs();
 			},
