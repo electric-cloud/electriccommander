@@ -146,10 +146,58 @@ function updateTabs()
 						$("#tabs-1").html( '<div class="needMoreInfo">No workflow definitions found for project: '+currentProj+' - Create one?</div>' );
 					}
 	
+				},
+				error: function(result){
+					console.log( result );
 				}
 			});
 		}
 		else{ //Running workflows tab
+			$.ajax({
+				type: "GET",
+				url: baseURL+"projects/"+currentProj+"/workflows",
+				xhrFields: {
+					withCredentials: true
+				},
+				success: function(result) {
+					if( result.workflow ){
+						var numRunningWorkflows = 0;
+						var workflowData = '<table class="dataTable">';
+						workflowData += '<tr><th>Workflow Definition</th><th>Workflow Name</th><th>Start Date</th><th>Elapsed Time</th><th>Active State</th></tr>';
+						$.each(result.workflow, function(i, val){
+							if( val.completed == "0" ){
+								numRunningWorkflows++;
+								workflowData += '<tr><td>'+val.liveWorkflowDefinition+'</td>';
+								workflowData += '<td>'+val.workflowName+'</td>';
+								workflowData += '<td>'+val.createTime+'</td>';
+								workflowData += '<td>'+val.elapsedTime+'</td>';
+								workflowData += '<td>'+val.activeState+'</td></tr>';
+							}
+                      	         		});
+						workflowData += '</table>';
+
+						/*
+						workflowData += '<table class="legendTable" style="display:inline;"><tr><th>Info Legend</th></tr>';
+						workflowData += '<tr><td>Waiting for transition</td></tr>';
+						workflowData += '<tr><td>Stale workflow</td></tr>';
+						workflowData += '<tr><td>Humming along</td></tr>';
+						*/
+						if( numRunningWorkflows > 0 ){
+							$("#tabs-2").html( workflowData );
+						}
+						else{
+							$("#tabs-2").html( '<div class="needMoreInfo">Currently no workflows running for project: '+currentProj+'</div>' );
+						}
+					}
+					else{
+						$("#tabs-2").html( '<div class="needMoreInfo">Currently no workflows running for project: '+currentProj+'</div>' );
+					}
+				},
+				error: function(result){
+					console.log( result );
+				}
+			});
+
 		}	
 	}	
 }

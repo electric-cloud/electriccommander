@@ -216,8 +216,15 @@ function getRealTimeStats()
 {
 		var jobCount = [];
 		var totalPoints = 50;
-		var updateInterval = 4000; //Every 4 seconds
+		var updateInterval = $("#refreshSeconds").val();
 		var now = new Date().getTime();
+	
+		if( updateInterval ){
+			updateInterval *= 1000;
+		}
+		else{
+			updateInterval = 3000; //Default to 3 seconds if nothing is set
+		}
 
 		// Init data
 		for(var i = 0; i< totalPoints; i++){
@@ -266,6 +273,15 @@ function getRealTimeStats()
 		function update() {
 			getData();
 			plotData();
+			updateInterval = $("#refreshSeconds").val();
+	
+			if( updateInterval ){
+				updateInterval *= 1000;
+			}
+			else{
+				updateInterval = 3000; //Default to 3 seconds if nothing is set
+			}
+
 			setTimeout(update, updateInterval);
 		}
 
@@ -311,6 +327,16 @@ $(document).ready( function() {
 		<div id="chart" class="demo-placeholder"></div>
 	</div>
 	<h3>Real time data example</h3>
+	<form>
+		<label for"refreshSeconds">Update interval (seconds):</label>
+		<select id="refreshSeconds">
+			<option>1</option>
+			<option selected="true">2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+	</form>
 	<div class="chart-container">
 		<div id="placeholder" class="demo-placeholder"></div>
 	</div>
