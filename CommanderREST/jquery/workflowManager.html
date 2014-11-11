@@ -143,6 +143,7 @@ function updateTabs()
 	
 					}
 					else{
+						//TODO: add a link to the create workflow definition page for the project
 						$("#tabs-1").html( '<div class="needMoreInfo">No workflow definitions found for project: '+currentProj+' - Create one?</div>' );
 					}
 	
@@ -163,27 +164,26 @@ function updateTabs()
 					if( result.workflow ){
 						var numRunningWorkflows = 0;
 						var workflowData = '<table class="dataTable">';
-						workflowData += '<tr><th>Workflow Definition</th><th>Workflow Name</th><th>Start Date</th><th>Elapsed Time</th><th>Active State</th></tr>';
+						workflowData += '<tr><th>Workflow Definition</th><th>Workflow Name</th><th>Start Date</th><th>Elapsed Time</th>';
+						workflowData += '<th>Active State</th><th>Take Transition</th><th>Delete Workflow</th></tr>';
 						$.each(result.workflow, function(i, val){
 							if( val.completed == "0" ){
 								numRunningWorkflows++;
 								workflowData += '<tr><td>'+val.liveWorkflowDefinition+'</td>';
 								workflowData += '<td>'+val.workflowName+'</td>';
 								workflowData += '<td>'+val.createTime+'</td>';
-								workflowData += '<td>'+val.elapsedTime+'</td>';
-								workflowData += '<td>'+val.activeState+'</td></tr>';
+								workflowData += '<td>'+val.elapsedTime+' seconds</td>';
+								workflowData += '<td>'+val.activeState+'</td>';
+								workflowData += '<td></td>';
+								workflowData += '<td><button class="deleteWorkflow" value="'+val.workflowName+'">Delete</button></td>';
+								workflowData += '</tr>';
 							}
                       	         		});
 						workflowData += '</table>';
 
-						/*
-						workflowData += '<table class="legendTable" style="display:inline;"><tr><th>Info Legend</th></tr>';
-						workflowData += '<tr><td>Waiting for transition</td></tr>';
-						workflowData += '<tr><td>Stale workflow</td></tr>';
-						workflowData += '<tr><td>Humming along</td></tr>';
-						*/
 						if( numRunningWorkflows > 0 ){
 							$("#tabs-2").html( workflowData );
+							$(".deleteWorkflow").button().click( deleteWorkflow );
 						}
 						else{
 							$("#tabs-2").html( '<div class="needMoreInfo">Currently no workflows running for project: '+currentProj+'</div>' );
@@ -197,9 +197,31 @@ function updateTabs()
 					console.log( result );
 				}
 			});
-
 		}	
 	}	
+}
+
+function deleteWorkflow( event ){
+	event.preventDefault();
+	var currentProj= $.trim($( "#projects option:selected" ).text());
+	var currentWorkflowName = this.value;
+
+	if( currentProj && currentWorkflowName ){
+		$.ajax({
+			type: "DELETE",
+			url: baseURL+"projects/"+currentProj+"/workflows/"+currentWorkflowName+"?deleteProcesses=true",
+			xhrFields: {
+				withCredentials: true
+			},
+			success: function(result) {
+				updateTabs();
+			},
+			error: function(result){
+				console.log( result );
+			}
+		});
+
+	}
 }
 
 function runWorkflow( event ) 
@@ -413,7 +435,8 @@ $(document).ready( function() {
       	login();
 	initData();
 });
-    </script>
+
+</script>
 </head>
 <body id="main">
 
