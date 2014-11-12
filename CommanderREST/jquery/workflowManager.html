@@ -138,7 +138,7 @@ function updateTabs()
                       	         		});
 						workflowData += '</table>';
 						$("#tabs-1").html( workflowData );
-						$(".editButton").button();
+						$(".editButton").button().click( editWorkflowDefinition );
 						$(".runButton").button().click( runWorkflow );
 	
 					}
@@ -172,9 +172,9 @@ function updateTabs()
 								workflowData += '<tr><td>'+val.liveWorkflowDefinition+'</td>';
 								workflowData += '<td>'+val.workflowName+'</td>';
 								workflowData += '<td>'+val.createTime+'</td>';
-								workflowData += '<td>'+val.elapsedTime+' seconds</td>';
+								workflowData += '<td>'+val.elapsedTime+'</td>';
 								workflowData += '<td>'+val.activeState+'</td>';
-								workflowData += '<td></td>';
+								workflowData += '<td><button class="takeTransition" value="'+val.workflowName+'" stateName="'+val.activeState+'">Transition</button></td>';
 								workflowData += '<td><button class="deleteWorkflow" value="'+val.workflowName+'">Delete</button></td>';
 								workflowData += '</tr>';
 							}
@@ -184,6 +184,7 @@ function updateTabs()
 						if( numRunningWorkflows > 0 ){
 							$("#tabs-2").html( workflowData );
 							$(".deleteWorkflow").button().click( deleteWorkflow );
+							$(".takeTransition").button().click( takeManualTransition );
 						}
 						else{
 							$("#tabs-2").html( '<div class="needMoreInfo">Currently no workflows running for project: '+currentProj+'</div>' );
@@ -199,6 +200,35 @@ function updateTabs()
 			});
 		}	
 	}	
+}
+
+function editWorkflowDefinition( event ){
+	event.preventDefault();
+	console.log( "Edit workflow not implemented yet" );
+}
+
+function takeManualTransition( event ){
+	event.preventDefault();
+	var currentState = this.attributes.statename.value;
+	var currentProj= $.trim($( "#projects option:selected" ).text());
+	var currentWorkflowName = this.value;
+
+	if( currentProj && currentWorkflowName && currentState ){
+	$.ajax({
+			type: "GET",
+			url: baseURL+"projects/"+currentProj+"/workflows/"+currentWorkflowName+"/states/"+currentState+"/transitions",
+			xhrFields: {
+				withCredentials: true
+			},
+			success: function(result) {
+				console.log( result );
+			},
+			error: function(result){
+				console.log( result );
+			}
+		});
+
+	}
 }
 
 function deleteWorkflow( event ){
