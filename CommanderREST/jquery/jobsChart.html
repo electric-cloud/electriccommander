@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+    <title>Sample jobs chart</title>
+    <link rel="stylesheet" href="jquery-ui-1.11.1.custom/jquery-ui.css"></link> 
+    <style>
+    .error {
+	font-weight: bold;
+	color: red;
+    }
+    .chart-container {
+	box-sizing: border-box;
+	width: 850px;
+	height: 450px;
+	padding: 20px 15px 15px 15px;
+	margin: 20px 50px 10px 0px;
+	border: 1px solid #ddd;
+	background: #fff;
+	background: linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+	background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+	box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+	-o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+     }
+     .demo-placeholder {
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	line-height: 1.2em;
+     }
+    </style>
+    <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery-ui-1.11.1.custom/jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.categories.js"></script>
+
+    <script>
+// Globals
+var host="10.0.3.15";
+var baseURL = "https://"+host+":8443/rest/v1.0/";
+
+// This chreates a chart using flot that shows the jobs/day run the last 7 days
+function getJobsPerDayChart()
+{
+	//Create a flot chart. Flot can be found here - http://www.flotcharts.org/
+	$.ajax({
+		type: "GET",
+		url: baseURL+"jobs?sortKey=start&sortOrder=descending&status=completed",
+		xhrFields: {
+      			withCredentials: true
+   		},
+		beforeSend: function(xhr) {
+			$( "#chart" ).html( '<h3>Fetching job content</h3>' );
+		},
+		success: function(jsonResult){
+			$( "#chart" ).empty();
+				var data = [ ["Sunday", 0], ["Monday", 0], ["Tuesday", 0], ["Wednesday", 0], ["Thursday", 0], ["Friday", 0], [["Saturday", 0]] ];
+
+			$.each(jsonResult.job, function(index, element){
+				var jobDate = new Date( element.start );
+				var nowDate = new Date();
+
+				if(nowDate.getYear() == nowDate.getYear() && nowDate.getMonth() == jobDate.getMonth() && nowDate.getDate() - jobDate.getDate() <= 7 )
+				{
+					data[jobDate.getDay()][1] += 1;
+				}
+			});
+			$.plot("#chart", [ data ], {
+			series: {
+				bars: {
+					show: true,
+					barWidth: 0.4,
+					align: "center"
+				}
+			},
+			xaxis: {
+				mode: "categories",
+				tickLength: 0
+			}
+		});
+		},
+		error: function(result){
+			console.log( result.statusText );
+			$( "#chart" ).html( '<h3 class="error">Error retreiving jobs content</h3>' );
+		}
+	});
+}
+
+// When the document is ready in the browser,
+// let the magic happen
+$(document).ready( function() {
+	$.support.cors = true;
+      	getJobsPerDayChart();
+});
+    </script>
+</head>
+<body>
+	<h3>Chart Example - Jobs/day in the last 7 days</h3>
+	<div class="chart-container">
+		<div id="chart" class="demo-placeholder"></div>
+	</div>
+</body>
+</html>
