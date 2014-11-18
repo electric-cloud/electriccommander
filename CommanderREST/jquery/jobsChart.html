@@ -4,7 +4,6 @@
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
     <title>Sample jobs chart</title>
-    <link rel="stylesheet" href="jquery-ui-1.11.1.custom/jquery-ui.css"></link> 
     <style>
     .error {
 	font-weight: bold;
@@ -37,13 +36,12 @@
      }
     </style>
     <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
-    <script language="javascript" type="text/javascript" src="jquery-ui-1.11.1.custom/jquery-ui.js"></script>
     <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
     <script language="javascript" type="text/javascript" src="flot/jquery.flot.categories.js"></script>
 
     <script>
 // Globals
-var host="10.0.3.15";
+var host="localhost";
 var baseURL = "https://"+host+":8443/rest/v1.0/";
 
 // This chreates a chart using flot that shows the jobs/day run the last 7 days
