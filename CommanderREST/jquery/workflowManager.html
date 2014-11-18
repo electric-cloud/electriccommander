@@ -60,13 +60,16 @@
 	.cycleButtons {
 		margin-top: -19px;
 	}
+	.error {
+		font-size: 15px;
+	}
     </style>
     <script language="javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="jquery-ui-1.11.1.custom/jquery-ui.js"></script>
 
     <script>
 // Globals
-var host="10.0.3.15";
+var host="localhost";
 var baseURL = "https://"+host+":8443/rest/v1.0/";
 var dialog;
 
@@ -84,7 +87,7 @@ function login()
     		},
 		error: function(result) {
 			console.log(result.responseText);
-			$("#loginMessage").html('<span class="error">Error: Make sure you have setup up your SSL certs correctly, or see the Commander documentation for development work - <a href="http://docs.electric-cloud.com/commander_doc/5_2/HTML5/Help/CommanderHelpHTML.htm#restapiaccess.htm%3FTocPath%3DHow%20to%20Use%20the%20REST%20API%7C_____1">Accessing the REST API</a></span');
+			$("#loginMessage").html('<span class="error">Error: Make sure you have setup up your SSL certs correctly, or see the Commander documentation for development work - <a href="http://docs.electric-cloud.com/commander_doc/5_2/HTML5/Help/CommanderHelpHTML.htm#restapiaccess.htm%3FTocPath%3DHow%20to%20Use%20the%20REST%20API%7C_____1">Accessing the REST API</a> <br />To correct this error, click <a href="'+baseURL+'">here</a> and then allow the security exception for your self signed certificats.  Once you do that, reload this page.</span>');
 		}
 	});
 }
