@@ -138,20 +138,120 @@ function updateTabs()
                       	         		});
 						workflowData += '</table>';
 						$("#tabs-1").html( workflowData );
-						$(".editButton").button();
+						$(".editButton").button().click( editWorkflowDefinition );
 						$(".runButton").button().click( runWorkflow );
 	
 					}
 					else{
+						//TODO: add a link to the create workflow definition page for the project
 						$("#tabs-1").html( '<div class="needMoreInfo">No workflow definitions found for project: '+currentProj+' - Create one?</div>' );
 					}
 	
+				},
+				error: function(result){
+					console.log( result );
 				}
 			});
 		}
 		else{ //Running workflows tab
+			$.ajax({
+				type: "GET",
+				url: baseURL+"projects/"+currentProj+"/workflows",
+				xhrFields: {
+					withCredentials: true
+				},
+				success: function(result) {
+					if( result.workflow ){
+						var numRunningWorkflows = 0;
+						var workflowData = '<table class="dataTable">';
+						workflowData += '<tr><th>Workflow Definition</th><th>Workflow Name</th><th>Start Date</th><th>Elapsed Time</th>';
+						workflowData += '<th>Active State</th><th>Take Transition</th><th>Delete Workflow</th></tr>';
+						$.each(result.workflow, function(i, val){
+							if( val.completed == "0" ){
+								numRunningWorkflows++;
+								workflowData += '<tr><td>'+val.liveWorkflowDefinition+'</td>';
+								workflowData += '<td>'+val.workflowName+'</td>';
+								workflowData += '<td>'+val.createTime+'</td>';
+								workflowData += '<td>'+val.elapsedTime+'</td>';
+								workflowData += '<td>'+val.activeState+'</td>';
+								workflowData += '<td><button class="takeTransition" value="'+val.workflowName+'" stateName="'+val.activeState+'">Transition</button></td>';
+								workflowData += '<td><button class="deleteWorkflow" value="'+val.workflowName+'">Delete</button></td>';
+								workflowData += '</tr>';
+							}
+                      	         		});
+						workflowData += '</table>';
+
+						if( numRunningWorkflows > 0 ){
+							$("#tabs-2").html( workflowData );
+							$(".deleteWorkflow").button().click( deleteWorkflow );
+							$(".takeTransition").button().click( takeManualTransition );
+						}
+						else{
+							$("#tabs-2").html( '<div class="needMoreInfo">Currently no workflows running for project: '+currentProj+'</div>' );
+						}
+					}
+					else{
+						$("#tabs-2").html( '<div class="needMoreInfo">Currently no workflows running for project: '+currentProj+'</div>' );
+					}
+				},
+				error: function(result){
+					console.log( result );
+				}
+			});
 		}	
 	}	
+}
+
+function editWorkflowDefinition( event ){
+	event.preventDefault();
+	console.log( "Edit workflow not implemented yet" );
+}
+
+function takeManualTransition( event ){
+	event.preventDefault();
+	var currentState = this.attributes.statename.value;
+	var currentProj= $.trim($( "#projects option:selected" ).text());
+	var currentWorkflowName = this.value;
+
+	if( currentProj && currentWorkflowName && currentState ){
+	$.ajax({
+			type: "GET",
+			url: baseURL+"projects/"+currentProj+"/workflows/"+currentWorkflowName+"/states/"+currentState+"/transitions",
+			xhrFields: {
+				withCredentials: true
+			},
+			success: function(result) {
+				console.log( result );
+			},
+			error: function(result){
+				console.log( result );
+			}
+		});
+
+	}
+}
+
+function deleteWorkflow( event ){
+	event.preventDefault();
+	var currentProj= $.trim($( "#projects option:selected" ).text());
+	var currentWorkflowName = this.value;
+
+	if( currentProj && currentWorkflowName ){
+		$.ajax({
+			type: "DELETE",
+			url: baseURL+"projects/"+currentProj+"/workflows/"+currentWorkflowName+"?deleteProcesses=true",
+			xhrFields: {
+				withCredentials: true
+			},
+			success: function(result) {
+				updateTabs();
+			},
+			error: function(result){
+				console.log( result );
+			}
+		});
+
+	}
 }
 
 function runWorkflow( event ) 
@@ -365,7 +465,8 @@ $(document).ready( function() {
       	login();
 	initData();
 });
-    </script>
+
+</script>
 </head>
 <body id="main">
 
