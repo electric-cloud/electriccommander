@@ -12,9 +12,9 @@
     <LINK REL="StyleSheet" HREF="../../plugins/WorkflowDashboard/pluginhelp.css" TYPE="text/css" MEDIA="screen"/>
     	<div class="help">
         <p>
-    	<a href="WorkflowDashboardMain_run">Workflows Dashboard</a>
+    	<a href="workflowDashboardMain_run">Workflows Dashboard</a>
   		</p>
-		<p><a href="ConfigureDashboard_run">Configure Dashboard</a></p>
+		<p><a href="configureDashboard_run">Configure Dashboard</a></p>
         <h1 class="help" id="Workflowdashboard">Workflows Dashboard</h1>
         <p class="help">Plugin Version</p>
         <hr style="margin-left: -10px; margin-top: 10px; border: 1px solid #112D80; background-color:#112D80;"
