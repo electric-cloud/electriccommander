@@ -1,4 +1,4 @@
-'''
+"""
 ec.py -- ElectricCommander Python module / class.
 
 Disclaimer:
@@ -59,7 +59,7 @@ print(cmdr.setProperty(dict(
     propertyName = "/myJob/prop1",
     value = "5",
     jobStepId = environ["COMMANDER_JOBSTEPID"])))
-'''
+"""
 
 import httplib2
 import socket
@@ -71,11 +71,11 @@ import os
 # Share an Http object across all ElectricCommander instances. So if a user
 # creates multiple ElectricCommander objects for the same server/port,
 # the one Http object's connection cache will enable us to use one socket.
-gHttpHandle = httplib2.Http(disable_ssl_certificate_validation = True)
+gHttpHandle = httplib2.Http(disable_ssl_certificate_validation=True)
 gFirstUserKey = "__FIRSTUSER"
 
-class ElectricCommander(object):
 
+class ElectricCommander(object):
     # Constructor
     def __init__(self, server=None, port=None, secure=True, user=None,
                  timeout=180):
@@ -89,7 +89,7 @@ class ElectricCommander(object):
 
         # Read the session file
         self._readSessionFile()
-        
+
         # Set the url for talking to Commander based on the given args
         # and environment.
         self._configureUrls()
@@ -97,7 +97,7 @@ class ElectricCommander(object):
         # Figure out which session-id we're actually going to use for
         # this EC object.
         if ("COMMANDER_SESSIONID" in environ
-            and len(environ["COMMANDER_SESSIONID"]) > 0):
+                and len(environ["COMMANDER_SESSIONID"]) > 0):
             self.sessionId = environ["COMMANDER_SESSIONID"]
         elif (self.url in self.sessionMap):
             sessionsForUrl = self.sessionMap[self.url]
@@ -126,9 +126,9 @@ class ElectricCommander(object):
     # Arguments:
     #     See createRequest.
     ############################################################
-    def issueRequest(self, requestName, params = {}):
+    def issueRequest(self, requestName, params={}):
         return self.httpPost(self.makeEnvelope(
-                self.createRequest(requestName, params)))
+            self.createRequest(requestName, params)))
 
     ############################################################
     # login
@@ -143,8 +143,8 @@ class ElectricCommander(object):
     ############################################################
     def login(self, userName, password):
         result = self.issueRequest("login", dict(
-                userName = userName,
-                password = password))
+            userName=userName,
+            password=password))
         doc = xml.dom.minidom.parseString(result)
         responseNodes = doc.firstChild.getElementsByTagName("response")
         if (len(responseNodes) == 0):
@@ -194,7 +194,7 @@ class ElectricCommander(object):
     #         element is a list, it means this element should be emitted
     #         once for each value (e.g. "groupName" parameters in createUser).
     ############################################################
-    def createRequest(self, requestName, params = {}):
+    def createRequest(self, requestName, params={}):
         # Create a document that looks something like this:
         # <request requestId="py-123"><myRequest>...
         doc = xml.dom.minidom.Document()
@@ -206,7 +206,7 @@ class ElectricCommander(object):
         requestNode.appendChild(apiNode)
         _addRequestParameters(apiNode, params)
         return requestNode.toxml()
-    
+
     ############################################################
     # makeEnvelope
     # 
@@ -231,22 +231,20 @@ class ElectricCommander(object):
 
         if (self.sessionId is not None and len(self.sessionId) > 0):
             result += ' sessionId="%s"' % self.sessionId
-        
+
         if (mode is not None and len(mode) > 0):
             result += ' mode="%s"' % mode
-        
+
         result += '''>
 %s
 </requests>''' % requests
-        return str(result);
+        return str(result)
 
-
-
-##############################################################################
-################## Everything below this point is private   ##################
-################## and users should not call these methods  ##################
-################## directly.                                ##################
-##############################################################################
+    ###########################################################################
+    ############### Everything below this point is private   ##################
+    ############### and users should not call these methods  ##################
+    ############### directly.                                ##################
+    ###########################################################################
 
     def _configureUrls(self):
         # This method is mostly transcribed from configureUrls in
@@ -265,14 +263,14 @@ class ElectricCommander(object):
             self.server = environ["COMMANDER_SERVER"]
 
         defaultServer = 'localhost'
-        defaultPort = ("COMMANDER_PORT" in environ) \
-            and environ["COMMANDER_PORT"] or 8000
-        defaultSecurePort = ("COMMANDER_HTTPS_PORT" in environ) \
-            and environ["COMMANDER_HTTPS_PORT"] or 8443
+        defaultPort = (("COMMANDER_PORT" in environ)
+                       and environ["COMMANDER_PORT"] or 8000)
+        defaultSecurePort = (("COMMANDER_HTTPS_PORT" in environ)
+                             and environ["COMMANDER_HTTPS_PORT"] or 8443)
         defaultSecure = self.secure
         defaultUrl = self.defaultUrl
-        if (self.server is None and defaultUrl is not None 
-            and len(defaultUrl) > 0):
+        if (self.server is None and defaultUrl is not None
+                and len(defaultUrl) > 0):
             # server arg wasn't provided nor is it in the env, but we have a
             # defaultUrl from the session file. Update relevant 'default'
             # vars accordingly.
@@ -305,7 +303,7 @@ class ElectricCommander(object):
 
         i = self.server.find(':')
         if i > -1:
-            self.port = self.server[i+1:]
+            self.port = self.server[i + 1:]
             self.server = self.server[:i]
 
         if (self.port is None):
@@ -331,7 +329,7 @@ class ElectricCommander(object):
             url = _getText(sessionNode.getElementsByTagName("url")[0])
             user = _getText(sessionNode.getElementsByTagName("user")[0])
             sessionId = _getText(sessionNode.getElementsByTagName(
-                    "sessionId")[0])
+                "sessionId")[0])
             if (url not in self.sessionMap):
                 self.sessionMap[url] = {}
             self.sessionMap[url][user] = sessionId
@@ -344,6 +342,7 @@ class ElectricCommander(object):
                 defaultNode.getElementsByTagName("url")[0])
             self.defaultUser = _getText(
                 defaultNode.getElementsByTagName("user")[0])
+
 
 def _addRequestParameters(parentElt, params):
     doc = parentElt.ownerDocument
@@ -382,6 +381,7 @@ def _addRequestParameters(parentElt, params):
             valNode = doc.createTextNode(str(value))
             newChild.appendChild(valNode)
 
+
 ######################################################################
 # _getSessionFilePath
 #
@@ -393,10 +393,10 @@ def _addRequestParameters(parentElt, params):
 
 def _getSessionFilePath():
     # If a location is explicitly specified, use that.
-    if ("COMMANDER_SESSIONFILE" in environ \
+    if ("COMMANDER_SESSIONFILE" in environ
             and len(environ["COMMANDER_SESSIONFILE"]) > 0):
         return environ["COMMANDER_SESSIONFILE"]
-    
+
     if (os.name == "nt" and "USERPROFILE" in environ):
         # On Windows, check for the file in the expected location first
         appData = environ["USERPROFILE"] + '\\Local Settings\\Application Data'
@@ -411,14 +411,15 @@ def _getSessionFilePath():
 
         # No file found, so use the normal default. 
         return default
-    
+
     if ("HOME" in environ and len(environ["HOME"]) > 0):
         # Put the file in the user's home directory. (Unix)
         return environ["HOME"] + '/.ecsession'
 
     # None of the normal environment variables are defined, so use the
     # working directory
-    return './.ecsession';
+    return './.ecsession'
+
 
 # Get the text value of a node.
 def _getText(node):
