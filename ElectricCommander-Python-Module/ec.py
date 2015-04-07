@@ -116,7 +116,7 @@ class ElectricCommander(object):
     #           dict(propertyName="prop1", value="val1"))
     ############################################################
     def __getattr__(self, requestName):
-        return lambda args={}: self.issueRequest(requestName, args)
+        return lambda args=None: self.issueRequest(requestName, args or {})
 
     ############################################################
     # issueRequest
@@ -126,7 +126,8 @@ class ElectricCommander(object):
     # Arguments:
     #     See createRequest.
     ############################################################
-    def issueRequest(self, requestName, params={}):
+    def issueRequest(self, requestName, params=None):
+        params = params or {}
         return self.httpPost(self.makeEnvelope(
             self.createRequest(requestName, params)))
 
@@ -194,9 +195,10 @@ class ElectricCommander(object):
     #         element is a list, it means this element should be emitted
     #         once for each value (e.g. "groupName" parameters in createUser).
     ############################################################
-    def createRequest(self, requestName, params={}):
+    def createRequest(self, requestName, params=None):
         # Create a document that looks something like this:
         # <request requestId="py-123"><myRequest>...
+        params = params or {}
         doc = xml.dom.minidom.Document()
         requestNode = doc.createElement("request")
         doc.appendChild(requestNode)
