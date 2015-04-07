@@ -1,6 +1,6 @@
 from distutils.core import setup
 setup(name='ec',
-      version='0.1.1',
+      version='0.1.2',
       requires=['httplib2'],
       author='Sandeep Tamhankar',
       author_email='sandman@electric-cloud.com',
