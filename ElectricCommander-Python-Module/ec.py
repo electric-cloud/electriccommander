@@ -115,12 +115,18 @@ class ElectricCommander(object):
     # 
     # Magic function that essentially converts calls like:
     #     cmdr.setProperty(dict(propertyName="prop1", value="val1"))
+    # or
+    #     cmdr.setProperty(propertyName="prop1", value="val1")
     # into
     #     cmdr.issueRequest("setProperty",
     #           dict(propertyName="prop1", value="val1"))
     ############################################################
     def __getattr__(self, requestName):
-        return lambda args=None: self.issueRequest(requestName, args or {})
+        def requestFunc(argDict=None, **kwargs):
+            argDict = argDict or dict()
+            argDict.update(kwargs)
+            return self.issueRequest(requestName, argDict)
+        return requestFunc
 
     ############################################################
     # issueRequest
