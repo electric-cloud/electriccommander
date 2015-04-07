@@ -154,8 +154,8 @@ class ElectricCommander(object):
         if (responseNode.nodeName == "error"):
             code = responseNode.getElementsByTagName("code")[0]
             message = responseNode.getElementsByTagName("message")[0]
-            raise Exception("Login failed [%s]: %s" %
-                            (_getText(code), _getText(message)))
+            raise Exception("Login failed [{}]: {}".format(_getText(code),
+                                                           _getText(message)))
 
         # Good response!
         self.user = userName
@@ -203,7 +203,8 @@ class ElectricCommander(object):
         requestNode = doc.createElement("request")
         doc.appendChild(requestNode)
         self.requestCounter += 1
-        requestNode.setAttribute("requestId", "py-%d" % self.requestCounter)
+        requestNode.setAttribute("requestId",
+                                 "py-{}".format(self.requestCounter))
         apiNode = doc.createElement(requestName)
         requestNode.appendChild(apiNode)
         _addRequestParameters(apiNode, params)
@@ -229,17 +230,17 @@ class ElectricCommander(object):
         result = '''<?xml version="1.0" encoding="UTF-8"?>
 <requests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="commander.xsd" version="2.0"
-    timeout="%s"''' % self.timeout
+    timeout="{}"'''.format(self.timeout)
 
         if (self.sessionId is not None and len(self.sessionId) > 0):
-            result += ' sessionId="%s"' % self.sessionId
+            result += ' sessionId="{}"'.format(self.sessionId)
 
         if (mode is not None and len(mode) > 0):
-            result += ' mode="%s"' % mode
+            result += ' mode="{}"'.format(mode)
 
         result += '''>
-%s
-</requests>''' % requests
+{}
+</requests>'''.format(requests)
         return str(result)
 
     ###########################################################################
@@ -314,7 +315,7 @@ class ElectricCommander(object):
             self.port = self.secure and defaultSecurePort or defaultPort
 
         # Finally, construct the url.
-        self.url = "%s://%s:%s/commanderRequest" % (
+        self.url = "{}://{}:{}/commanderRequest".format(
             (self.secure and "https" or "http"), self.server, self.port)
 
     def _readSessionFile(self):
