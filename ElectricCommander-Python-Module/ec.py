@@ -402,13 +402,15 @@ def _getSessionFilePath():
 
     if (os.name == "nt" and "USERPROFILE" in environ):
         # On Windows, check for the file in the expected location first
-        appData = environ["USERPROFILE"] + '\\Local Settings\\Application Data'
-        default = appData + '\\Electric Cloud\\ElectricCommander\\.ecsession'
+        appData = os.path.join(environ["USERPROFILE"], 'Local Settings',
+                               'Application Data')
+        default = os.path.join(appData, 'Electric Cloud', 'ElectricCommander',
+                               '.ecsession')
         if (os.path.exists(default)):
             return default
 
         # If it wasn't there, check the old default
-        backup = appData + '\\ElectricCommander\\.ecsession'
+        backup = os.path.join(appData, 'ElectricCommander', '.ecsession')
         if (os.path.exists(backup)):
             return backup
 
@@ -417,11 +419,11 @@ def _getSessionFilePath():
 
     if ("HOME" in environ and len(environ["HOME"]) > 0):
         # Put the file in the user's home directory. (Unix)
-        return environ["HOME"] + '/.ecsession'
+        return os.path.join(environ["HOME"], '/.ecsession')
 
     # None of the normal environment variables are defined, so use the
     # working directory
-    return './.ecsession'
+    return os.path.join('.', '.ecsession')
 
 
 # Get the text value of a node.
