@@ -75,6 +75,10 @@ gHttpHandle = httplib2.Http(disable_ssl_certificate_validation=True)
 gFirstUserKey = "__FIRSTUSER"
 
 
+class ElectricCommanderException(Exception):
+    pass
+
+
 class ElectricCommander(object):
     # Constructor
     def __init__(self, server=None, port=None, secure=True, user=None,
@@ -154,8 +158,9 @@ class ElectricCommander(object):
         if (responseNode.nodeName == "error"):
             code = responseNode.getElementsByTagName("code")[0]
             message = responseNode.getElementsByTagName("message")[0]
-            raise Exception("Login failed [{}]: {}".format(_getText(code),
-                                                           _getText(message)))
+            raise ElectricCommanderException("Login failed [{}]: {}".format(
+                _getText(code),
+                _getText(message)))
 
         # Good response!
         self.user = userName
@@ -176,7 +181,7 @@ class ElectricCommander(object):
                                                 str.encode(reqData))
             return content.decode("utf8")
         except socket.error as inst:
-            raise Exception(inst)
+            raise ElectricCommanderException(inst)
 
     ############################################################
     # createRequest
