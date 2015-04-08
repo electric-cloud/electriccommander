@@ -121,12 +121,12 @@ class ElectricCommander(object):
                               dict(propertyName="prop1", value="val1"))
         """
         def requestFunc(argDict=None, **kwargs):
-            argDict = argDict or dict()
+            argDict = argDict or {}
             argDict.update(kwargs)
             return self.issueRequest(requestName, argDict)
         return requestFunc
 
-    def issueRequest(self, requestName, params=None):
+    def issueRequest(self, requestName, params=None, **kwargs):
         """
         Send a request to the Commander server.
 
@@ -134,6 +134,7 @@ class ElectricCommander(object):
             See createRequest.
         """
         params = params or {}
+        params.update(kwargs)
         return self.httpPost(self.makeEnvelope(
             self.createRequest(requestName, params)))
 
@@ -181,7 +182,7 @@ class ElectricCommander(object):
         except socket.error as inst:
             raise ElectricCommanderException(inst)
 
-    def createRequest(self, requestName, params=None):
+    def createRequest(self, requestName, params=None, **kwargs):
         """
         Create a Commander request (xml string) for the given request
         name and parameters.
@@ -200,6 +201,7 @@ class ElectricCommander(object):
         # Create a document that looks something like this:
         # <request requestId="py-123"><myRequest>...
         params = params or {}
+        params.update(kwargs)
         doc = xml.dom.minidom.Document()
         requestNode = doc.createElement("request")
         doc.appendChild(requestNode)
