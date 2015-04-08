@@ -356,7 +356,7 @@ def _addRequestParameters(parentElt, params):
     #
     # This logic is largely a translation of the addParameters subroutine
     # in ElectricCommander.pm
-    for key, value in params.items():
+    for key, value in params.iteritems():
         if (isinstance(value, dict)):
             if (len(value) > 0):
                 newChild = doc.createElement(key)
