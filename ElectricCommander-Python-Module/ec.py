@@ -110,49 +110,43 @@ class ElectricCommander(object):
             if (self.user in sessionsForUrl):
                 self.sessionId = sessionsForUrl[self.user]
 
-    ############################################################
-    # __getattr__
-    # 
-    # Magic function that essentially converts calls like:
-    #     cmdr.setProperty(dict(propertyName="prop1", value="val1"))
-    # or
-    #     cmdr.setProperty(propertyName="prop1", value="val1")
-    # into
-    #     cmdr.issueRequest("setProperty",
-    #           dict(propertyName="prop1", value="val1"))
-    ############################################################
     def __getattr__(self, requestName):
+        """
+        Magic function that essentially converts calls like:
+            cmdr.setProperty(dict(propertyName="prop1", value="val1"))
+        or
+            cmdr.setProperty(propertyName="prop1", value="val1")
+        into
+            cmdr.issueRequest("setProperty",
+                              dict(propertyName="prop1", value="val1"))
+        """
         def requestFunc(argDict=None, **kwargs):
             argDict = argDict or dict()
             argDict.update(kwargs)
             return self.issueRequest(requestName, argDict)
         return requestFunc
 
-    ############################################################
-    # issueRequest
-    # 
-    # Send a request to the Commander server.
-    #
-    # Arguments:
-    #     See createRequest.
-    ############################################################
     def issueRequest(self, requestName, params=None):
+        """
+        Send a request to the Commander server.
+
+        Arguments:
+            See createRequest.
+        """
         params = params or {}
         return self.httpPost(self.makeEnvelope(
             self.createRequest(requestName, params)))
 
-    ############################################################
-    # login
-    # 
-    # Issues a login request to the server. Upon success, it
-    # stores the returned session in this object's context for
-    # use in subsequent api calls.
-    #
-    # Arguments:
-    #     userName
-    #     password
-    ############################################################
     def login(self, userName, password):
+        """
+        Issues a login request to the server. Upon success, it
+        stores the returned session in this object's context for
+        use in subsequent api calls.
+
+        Arguments:
+            userName
+            password
+        """
         result = self.issueRequest("login", dict(
             userName=userName,
             password=password))
@@ -174,14 +168,12 @@ class ElectricCommander(object):
             responseNode.getElementsByTagName("sessionId")[0])
         return result
 
-    ############################################################
-    # httpPost
-    # 
-    #     Send a string request as post data to the Commander server.
-    #     This method is mostly used internally, but module users
-    #     may use it to send batch requests to Commander.
-    ############################################################
     def httpPost(self, reqData):
+        """
+        Send a string request as post data to the Commander server.
+        This method is mostly used internally, but module users
+        may use it to send batch requests to Commander.
+        """
         try:
             resp, content = gHttpHandle.request(self.url, "POST",
                                                 str.encode(reqData))
@@ -189,24 +181,22 @@ class ElectricCommander(object):
         except socket.error as inst:
             raise ElectricCommanderException(inst)
 
-    ############################################################
-    # createRequest
-    # 
-    #     Create a Commander request (xml string) for the given request
-    #     name and parameters.
-    #
-    # Arguments:
-    #     requestName - Name of request (e.g. getProperty)
-    #     params - dictionary whose keys are child element names
-    #         (e.g. propertyName) and whose value is the value of the child
-    #         element (e.g. "prop1"). For api calls that take complex
-    #         arguments (e.g. findObjects), the value may be a dictionary
-    #         (so the containing dictionary entry key becomes a non-leaf
-    #         node in the request). Similarly, if the value of the child
-    #         element is a list, it means this element should be emitted
-    #         once for each value (e.g. "groupName" parameters in createUser).
-    ############################################################
     def createRequest(self, requestName, params=None):
+        """
+        Create a Commander request (xml string) for the given request
+        name and parameters.
+
+        Arguments:
+            requestName - Name of request (e.g. getProperty)
+            params - dictionary whose keys are child element names
+                (e.g. propertyName) and whose value is the value of the child
+                element (e.g. "prop1"). For api calls that take complex
+                arguments (e.g. findObjects), the value may be a dictionary
+                (so the containing dictionary entry key becomes a non-leaf
+                node in the request). Similarly, if the value of the child
+                element is a list, it means this element should be emitted
+                once for each value (e.g. "groupName" parameters in createUser).
+        """
         # Create a document that looks something like this:
         # <request requestId="py-123"><myRequest>...
         params = params or {}
@@ -221,23 +211,21 @@ class ElectricCommander(object):
         _addRequestParameters(apiNode, params)
         return requestNode.toxml()
 
-    ############################################################
-    # makeEnvelope
-    # 
-    #     Wrap one or more API request element strings in a <requests> element
-    #     and create a well-formed XML string with that as the root element.
-    #
-    # Arguments:
-    #     requests - xml string of one or more <request> elements.
-    #     mode - (optional) request mode, applicable if this is a batch
-    #            of multiple requests:
-    #            single - execute the batch as a single transaction.
-    #            serial - execute the batch one request at a time, but in
-    #                     separate transactions.
-    #            parallel - execute the batch in parallel in separate
-    #                     transactions.
-    ############################################################
     def makeEnvelope(self, requests, mode=None):
+        """
+        Wrap one or more API request element strings in a <requests> element
+        and create a well-formed XML string with that as the root element.
+
+        Arguments:
+            requests - xml string of one or more <request> elements.
+            mode - (optional) request mode, applicable if this is a batch
+                   of multiple requests:
+                   single - execute the batch as a single transaction.
+                   serial - execute the batch one request at a time, but in
+                            separate transactions.
+                   parallel - execute the batch in parallel in separate
+                            transactions.
+        """
         result = '''<?xml version="1.0" encoding="UTF-8"?>
 <requests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="commander.xsd" version="2.0"
@@ -396,16 +384,15 @@ def _addRequestParameters(parentElt, params):
             newChild.appendChild(valNode)
 
 
-######################################################################
-# _getSessionFilePath
-#
-#     Compute the location of the session file.  Examines the
-#     COMMANDER_SESSIONFILE environment variable and a set of platform
-#     dependent default locations. Returns the first file that exists, or the
-#     default location if no file was found at any of the locations.
-######################################################################
-
 def _getSessionFilePath():
+    """
+    _getSessionFilePath
+
+    Compute the location of the session file.  Examines the
+    COMMANDER_SESSIONFILE environment variable and a set of platform
+    dependent default locations. Returns the first file that exists, or the
+    default location if no file was found at any of the locations.
+    """
     # If a location is explicitly specified, use that.
     if ("COMMANDER_SESSIONFILE" in environ
             and len(environ["COMMANDER_SESSIONFILE"]) > 0):
