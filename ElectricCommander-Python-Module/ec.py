@@ -387,14 +387,11 @@ def _addRequestParameters(parentElt, params):
 
 
 def _getSessionFilePath():
-    """
-    _getSessionFilePath
+    # Compute the location of the session file.  Examines the
+    # COMMANDER_SESSIONFILE environment variable and a set of platform
+    # dependent default locations. Returns the first file that exists, or the
+    # default location if no file was found at any of the locations.
 
-    Compute the location of the session file.  Examines the
-    COMMANDER_SESSIONFILE environment variable and a set of platform
-    dependent default locations. Returns the first file that exists, or the
-    default location if no file was found at any of the locations.
-    """
     # If a location is explicitly specified, use that.
     if ("COMMANDER_SESSIONFILE" in environ
             and len(environ["COMMANDER_SESSIONFILE"]) > 0):
