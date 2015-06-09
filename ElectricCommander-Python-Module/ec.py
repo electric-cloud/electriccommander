@@ -419,7 +419,7 @@ def _getSessionFilePath():
 
     if ("HOME" in environ and len(environ["HOME"]) > 0):
         # Put the file in the user's home directory. (Unix)
-        return os.path.join(environ["HOME"], '/.ecsession')
+        return os.path.join(environ["HOME"], '.ecsession')
 
     # None of the normal environment variables are defined, so use the
     # working directory
