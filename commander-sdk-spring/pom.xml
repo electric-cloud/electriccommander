@@ -16,7 +16,7 @@
     <ec.version>1.0.0-SNAPSHOT</ec.version>
     <guava.version>13.0.1</guava.version>
     <httpcomponents.version>4.3-PATCH2</httpcomponents.version>
-    <jackson.version>2.3.3</jackson.version>
+    <jackson.version>2.10.1</jackson.version>
     <junit.version>4.11</junit.version>
     <spring.version>4.0.4.RELEASE</spring.version>
   </properties>
