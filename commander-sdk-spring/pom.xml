@@ -18,7 +18,7 @@
     <httpcomponents.version>4.3-PATCH2</httpcomponents.version>
     <jackson.version>2.3.3</jackson.version>
     <junit.version>4.11</junit.version>
-    <spring.version>4.0.4.RELEASE</spring.version>
+    <spring.version>5.2.1.RELEASE</spring.version>
   </properties>
   
   <dependencies>
